@@ -330,6 +330,33 @@
       0%, 100% { filter: drop-shadow(0 0 6px rgba(59,130,246,0.7)); }
       50% { filter: drop-shadow(0 0 12px rgba(139,92,246,0.8)); }
     }
+
+    /* ── Background photo layer ───────────────────────────────────
+       Drop your Basel/Swiss city photo here.
+       Example: background-image: url('/assets/banner-basel.jpg');
+    ─────────────────────────────────────────────────────────────── */
+    .bg-photo {
+      position: absolute;
+      inset: 0;
+      /* background-image: url('/assets/banner-basel.jpg'); */
+      background-size: cover;
+      background-position: center right;
+      z-index: -1;
+    }
+
+    /* ── Text readability overlay: dark left → transparent right ── */
+    .gradient-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        rgba(0,0,0,0.82) 0%,
+        rgba(0,0,0,0.65) 35%,
+        rgba(0,0,0,0.35) 62%,
+        rgba(0,0,0,0.20) 100%
+      );
+      z-index: 4;
+    }
   </style>
 </head>
 <body>
@@ -340,6 +367,10 @@
 
 <!-- ═══════════════════════════════════════════════════════════ -->
 <div class="banner" id="banner">
+
+  <!-- Photo background + gradient overlay -->
+  <div class="bg-photo"></div>
+  <div class="gradient-overlay"></div>
 
   <!-- Structural chrome -->
   <div class="top-line"></div>
