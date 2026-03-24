@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LinkedIn Banner — Vidal Reñao · 1584×396</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #111;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      padding: 48px;
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+
+    .hint {
+      color: rgba(255,255,255,0.3);
+      font-size: 12px;
+      text-align: center;
+      line-height: 1.7;
+      max-width: 680px;
+    }
+    .hint strong { color: rgba(255,255,255,0.55); }
+    .hint code {
+      background: rgba(255,255,255,0.07);
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+
+    /* ═══════════════════════════════════════════
+       THE BANNER — 1584 × 396 px
+    ═══════════════════════════════════════════ */
+    .banner {
+      width: 1584px;
+      height: 396px;
+      position: relative;
+      overflow: hidden;
+      background: #060606;
+      flex-shrink: 0;
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.06),
+        0 32px 80px rgba(0,0,0,0.6),
+        0 0 120px rgba(59,130,246,0.08);
+    }
+
+    /* ── Dot grid background ── */
+    .banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
+      background-size: 30px 30px;
+      z-index: 0;
+    }
+
+    /* ── Top gradient accent line ── */
+    .top-line {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        #3b82f6 15%,
+        #8b5cf6 50%,
+        #3b82f6 85%,
+        transparent 100%
+      );
+      z-index: 2;
+    }
+
+    /* ── Left glow — profile photo zone ── */
+    .glow-left {
+      position: absolute;
+      left: -100px;
+      bottom: -100px;
+      width: 460px;
+      height: 460px;
+      background: radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 65%);
+      z-index: 0;
+    }
+
+    /* ── Right glow ── */
+    .glow-right {
+      position: absolute;
+      right: -80px;
+      top: -80px;
+      width: 520px;
+      height: 520px;
+      background: radial-gradient(circle, rgba(139,92,246,0.1) 0%, transparent 65%);
+      z-index: 0;
+    }
+
+    /* ── Bottom fade ── */
+    .bottom-fade {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 80px;
+      background: linear-gradient(to bottom, transparent, rgba(6,6,6,0.5));
+      z-index: 1;
+    }
+
+    /* ── Content layer ── */
+    .content {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      /* 240px left margin = profile photo safe zone */
+      padding: 0 72px 0 248px;
+      gap: 48px;
+    }
+
+    /* ════ LEFT TEXT BLOCK ════ */
+    .text-block {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    /* Status badge */
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 100px;
+      padding: 5px 14px 5px 10px;
+      width: fit-content;
+      background: rgba(255,255,255,0.025);
+    }
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #34d399;
+      box-shadow: 0 0 8px rgba(52,211,153,0.7);
+    }
+    .status-text {
+      font-size: 11.5px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.025em;
+      white-space: nowrap;
+    }
+
+    /* Main title */
+    .title {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      line-height: 1;
+    }
+    .title-top {
+      font-size: 48px;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.03em;
+      line-height: 1.0;
+    }
+    .title-bottom {
+      font-size: 48px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.0;
+      background: linear-gradient(130deg, #60a5fa 0%, #a78bfa 55%, #67e8f9 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Tagline */
+    .tagline-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .tagline-main {
+      font-size: 15px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.06em;
+      font-style: italic;
+    }
+    .tagline-de {
+      font-size: 11px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.2);
+      letter-spacing: 0.08em;
+    }
+
+    /* Stack pills */
+    .stack-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 2px;
+    }
+    .pill {
+      font-size: 10.5px;
+      font-weight: 500;
+      border-radius: 100px;
+      padding: 3px 10px;
+      white-space: nowrap;
+    }
+    .pill-blue {
+      color: rgba(96,165,250,0.85);
+      border: 1px solid rgba(59,130,246,0.25);
+      background: rgba(59,130,246,0.06);
+    }
+    .pill-violet {
+      color: rgba(167,139,250,0.85);
+      border: 1px solid rgba(139,92,246,0.25);
+      background: rgba(139,92,246,0.06);
+    }
+    .pill-neutral {
+      color: rgba(255,255,255,0.4);
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.03);
+    }
+    .pill-green {
+      color: rgba(52,211,153,0.8);
+      border: 1px solid rgba(52,211,153,0.2);
+      background: rgba(52,211,153,0.05);
+    }
+
+    /* ════ DIVIDER ════ */
+    .divider {
+      width: 1px;
+      align-self: stretch;
+      margin: 32px 0;
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(255,255,255,0.1) 30%,
+        rgba(255,255,255,0.1) 70%,
+        transparent
+      );
+      flex-shrink: 0;
+    }
+
+    /* ════ RIGHT BLOCK ════ */
+    .right-block {
+      width: 340px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      position: relative;
+    }
+
+    /* Abstract geometry — background decoration */
+    .geo-bg {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.12;
+    }
+
+    /* Performance ring */
+    .perf-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .perf-ring {
+      position: relative;
+      width: 148px;
+      height: 148px;
+    }
+    .ring-svg {
+      position: absolute;
+      inset: 0;
+      transform: rotate(-90deg);
+    }
+    .perf-inner {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+    }
+    .perf-lightning {
+      font-size: 16px;
+      line-height: 1;
+      filter: drop-shadow(0 0 8px rgba(96,165,250,0.6));
+    }
+    .perf-number {
+      font-size: 44px;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .perf-slash {
+      font-size: 11px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.25);
+      margin-top: 1px;
+    }
+
+    .perf-label {
+      font-size: 9.5px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.22);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    /* URL tag */
+    .url-tag {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid rgba(59,130,246,0.2);
+      border-radius: 100px;
+      padding: 4px 12px;
+      background: rgba(59,130,246,0.05);
+      margin-top: 4px;
+    }
+    .url-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #3b82f6;
+    }
+    .url-text {
+      font-size: 10.5px;
+      font-weight: 500;
+      color: rgba(96,165,250,0.65);
+      letter-spacing: 0.03em;
+    }
+
+    /* Floating mini-badges on right */
+    .float-badge {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      padding: 5px 10px;
+      background: rgba(255,255,255,0.025);
+      backdrop-filter: blur(4px);
+      font-size: 10px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.4);
+      white-space: nowrap;
+    }
+    .float-badge-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+
+<p class="hint">
+  LinkedIn Banner · <strong>1584 × 396 px</strong> · Dark Mode · Vercel-style
+</p>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!--                  THE BANNER                        -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="banner" id="banner">
+
+  <!-- Background layers -->
+  <div class="top-line"></div>
+  <div class="glow-left"></div>
+  <div class="glow-right"></div>
+  <div class="bottom-fade"></div>
+
+  <!-- Content -->
+  <div class="content">
+
+    <!-- ── TEXT BLOCK ── -->
+    <div class="text-block">
+
+      <!-- Status badge -->
+      <div class="status-badge">
+        <div class="status-dot"></div>
+        <span class="status-text">Available · Basel, Switzerland 🇨🇭 &amp; Liechtenstein 🇱🇮</span>
+      </div>
+
+      <!-- Main title -->
+      <div class="title">
+        <span class="title-top">IT Infrastructure &amp;</span>
+        <span class="title-bottom">Modern Workplace</span>
+      </div>
+
+      <!-- Taglines -->
+      <div class="tagline-wrap">
+        <span class="tagline-main">Efficiency by Design</span>
+        <span class="tagline-de">Technisch stark, menschlich nah &nbsp;·&nbsp; Open to individual projects &amp; collective collaborations</span>
+      </div>
+
+      <!-- Stack pills -->
+      <div class="stack-pills">
+        <span class="pill pill-blue">Azure</span>
+        <span class="pill pill-blue">Microsoft 365</span>
+        <span class="pill pill-blue">Entra ID</span>
+        <span class="pill pill-violet">Intune · Autopilot</span>
+        <span class="pill pill-neutral">Windows Server 2025</span>
+        <span class="pill pill-neutral">CCNA</span>
+        <span class="pill pill-neutral">PowerShell</span>
+        <span class="pill pill-violet">Next.js · PWA</span>
+        <span class="pill pill-green">EN C1 · DE B2 · ES Native</span>
+      </div>
+
+    </div>
+
+    <!-- ── DIVIDER ── -->
+    <div class="divider"></div>
+
+    <!-- ── RIGHT BLOCK ── -->
+    <div class="right-block">
+
+      <!-- Background concentric circles decoration -->
+      <div class="geo-bg">
+        <svg width="300" height="300" viewBox="0 0 300 300">
+          <circle cx="150" cy="150" r="120" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="0.5" stroke-dasharray="4 8"/>
+          <circle cx="150" cy="150" r="90" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="0.5" stroke-dasharray="4 8"/>
+          <circle cx="150" cy="150" r="60" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="0.5" stroke-dasharray="4 8"/>
+          <circle cx="150" cy="150" r="30" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="0.5"/>
+          <!-- Crosshair -->
+          <line x1="150" y1="20" x2="150" y2="280" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
+          <line x1="20" y1="150" x2="280" y2="150" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
+        </svg>
+      </div>
+
+      <!-- Performance ring -->
+      <div class="perf-wrap">
+        <div class="perf-ring">
+          <svg class="ring-svg" viewBox="0 0 148 148">
+            <defs>
+              <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#3b82f6"/>
+                <stop offset="100%" stop-color="#8b5cf6"/>
+              </linearGradient>
+            </defs>
+            <!-- Track -->
+            <circle cx="74" cy="74" r="65" fill="none"
+              stroke="rgba(255,255,255,0.06)" stroke-width="7"/>
+            <!-- Inner glow track -->
+            <circle cx="74" cy="74" r="65" fill="none"
+              stroke="rgba(59,130,246,0.08)" stroke-width="14"/>
+            <!-- Progress — 100% fill -->
+            <circle cx="74" cy="74" r="65" fill="none"
+              stroke="url(#ringGrad)" stroke-width="7"
+              stroke-linecap="round"
+              stroke-dasharray="408.41"
+              stroke-dashoffset="0"/>
+          </svg>
+          <div class="perf-inner">
+            <div class="perf-lightning">⚡</div>
+            <div class="perf-number">100</div>
+            <div class="perf-slash">/100</div>
+          </div>
+        </div>
+        <div class="perf-label">Google Lighthouse<br>Performance Score</div>
+      </div>
+
+      <!-- Portfolio URL -->
+      <div class="url-tag">
+        <div class="url-dot"></div>
+        <span class="url-text">vidal-renao.vercel.app</span>
+      </div>
+
+      <!-- Floating mini-badge top-left of right block -->
+      <div class="float-badge" style="top: 18px; left: -20px;">
+        <span class="float-badge-dot" style="background:#34d399;"></span>
+        PWA · Installable
+      </div>
+
+      <!-- Floating mini-badge bottom-right of right block -->
+      <div class="float-badge" style="bottom: 22px; right: -12px;">
+        <span class="float-badge-dot" style="background:#60a5fa;"></span>
+        CCNA Certified
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- ═══════════════════════════════════════════════════ -->
+
+<p class="hint">
+  <strong>Cómo exportar a 1584×396px exactos:</strong><br>
+  Chrome → <code>F12</code> → Panel Elements → Click derecho sobre
+  <code>&lt;div class="banner"&gt;</code> → <strong>"Capture node screenshot"</strong><br>
+  El resultado es un PNG pixel-perfect al tamaño de LinkedIn. Sube directamente. ✓
+</p>
+
+</body>
+</html>
