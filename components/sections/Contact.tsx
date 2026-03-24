@@ -6,6 +6,112 @@ import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import Image from "next/image";
 
+// ─── CVSelector sub-component ───────────────────────────────────────────────
+
+type CVOption = {
+  key: string;
+  icon: string;
+  titleKey: string;
+  descKey: string;
+  file: string;
+  color: "blue" | "violet" | "emerald";
+};
+
+const cvOptions: CVOption[] = [
+  {
+    key: "cloud",
+    icon: "☁️",
+    titleKey: "cv_cloud",
+    descKey: "cv_cloud_desc",
+    file: "/cv-cloud-infrastructure.pdf",
+    color: "blue",
+  },
+  {
+    key: "systems",
+    icon: "🖥️",
+    titleKey: "cv_systems",
+    descKey: "cv_systems_desc",
+    file: "/cv-systems-network.pdf",
+    color: "violet",
+  },
+  {
+    key: "support",
+    icon: "🎧",
+    titleKey: "cv_support",
+    descKey: "cv_support_desc",
+    file: "/cv-it-support.pdf",
+    color: "emerald",
+  },
+];
+
+const cvColorMap = {
+  blue: "hover:border-blue-500/25 hover:bg-blue-500/05",
+  violet: "hover:border-violet-500/25 hover:bg-violet-500/05",
+  emerald: "hover:border-emerald-500/25 hover:bg-emerald-500/05",
+};
+
+function CVSelector() {
+  const t = useTranslations("contact");
+
+  return (
+    <div className="glass-card rounded-2xl p-5">
+      <div className="flex items-center gap-2 mb-4">
+        <svg
+          className="w-4 h-4 text-blue-400"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={1.5}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"
+          />
+        </svg>
+        <p className="text-xs font-semibold text-white/60 uppercase tracking-widest">
+          {t("cv_title")}
+        </p>
+      </div>
+      <p className="text-xs text-white/30 mb-3">{t("cv_subtitle")}</p>
+
+      <div className="space-y-2">
+        {cvOptions.map((opt) => (
+          <a
+            key={opt.key}
+            href={opt.file}
+            download
+            className={`group flex items-center gap-3 p-3 rounded-xl border border-white/[0.06] bg-white/[0.02] transition-all duration-200 ${cvColorMap[opt.color]}`}
+          >
+            <span className="text-lg leading-none">{opt.icon}</span>
+            <div className="flex-1 min-w-0">
+              <p className="text-sm font-medium text-white/75 group-hover:text-white transition-colors leading-snug">
+                {t(opt.titleKey)}
+              </p>
+              <p className="text-xs text-white/35 mt-0.5">{t(opt.descKey)}</p>
+            </div>
+            <svg
+              className="w-4 h-4 text-white/20 group-hover:text-white/55 flex-none transition-all group-hover:translate-y-0.5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+              />
+            </svg>
+          </a>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ─── Contact links data ──────────────────────────────────────────────────────
+
 const links = [
   {
     label: "Email",
@@ -49,6 +155,8 @@ const links = [
   },
 ];
 
+// ─── Main Contact component ──────────────────────────────────────────────────
+
 export default function Contact() {
   const t = useTranslations("contact");
   const ref = useRef(null);
@@ -68,8 +176,11 @@ export default function Contact() {
       ref={ref}
     >
       <div className="max-w-4xl mx-auto">
-        <div className="grid md:grid-cols-[1fr_auto] gap-12 items-start">
-          {/* Left */}
+
+        {/* ── Main grid ── */}
+        <div className="grid md:grid-cols-[1fr_auto] gap-10 items-start">
+
+          {/* Left — contact info */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -81,70 +192,57 @@ export default function Contact() {
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               {t("title")}
             </h2>
-            <p className="text-white/50 text-sm leading-relaxed max-w-lg mb-6">
+            <p className="text-white/50 text-sm leading-relaxed max-w-lg mb-5">
               {t("subtitle")}
             </p>
 
             {/* Availability badge */}
-            <div className="inline-flex items-center gap-2 border border-emerald-500/20 bg-emerald-500/05 text-emerald-400 rounded-full px-4 py-2 text-xs font-medium mb-8">
+            <div className="inline-flex items-center gap-2 border border-emerald-500/20 bg-emerald-500/05 text-emerald-400 rounded-full px-4 py-2 text-xs font-medium mb-7">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
               {t("availability")}
             </div>
 
             {/* Contact links */}
-            <div className="space-y-3">
+            <div className="space-y-2.5">
               {links.map((link, i) => (
                 <motion.a
                   key={link.label}
                   href={link.href}
                   target={link.href.startsWith("http") ? "_blank" : undefined}
-                  rel={
-                    link.href.startsWith("http")
-                      ? "noopener noreferrer"
-                      : undefined
-                  }
+                  rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
                   initial={{ opacity: 0, x: -16 }}
                   animate={inView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.4, delay: i * 0.08 }}
-                  className="group flex items-center gap-4 glass-card rounded-xl px-5 py-4 hover:border-white/15 transition-all duration-200"
+                  transition={{ duration: 0.4, delay: i * 0.07 }}
+                  className="group flex items-center gap-4 glass-card rounded-xl px-5 py-3.5 hover:border-white/15 transition-all duration-200"
                 >
                   <span className="text-white/40 group-hover:text-white/70 transition-colors">
                     {link.icon}
                   </span>
                   <div>
-                    <p className="text-xs text-white/30 font-medium">
-                      {link.label}
-                    </p>
+                    <p className="text-xs text-white/30 font-medium">{link.label}</p>
                     <p className="text-sm text-white/70 group-hover:text-white transition-colors">
                       {link.value}
                     </p>
                   </div>
                   <svg
                     className="w-4 h-4 text-white/20 group-hover:text-white/50 ml-auto transition-all group-hover:translate-x-0.5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </motion.a>
               ))}
             </div>
           </motion.div>
 
-          {/* Right — quick copy card */}
+          {/* Right — profile card */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="glass-card rounded-2xl p-8 flex flex-col items-center gap-6 min-w-[240px] text-center"
+            className="glass-card rounded-2xl p-6 flex flex-col items-center gap-5 min-w-[220px] text-center"
           >
-            {/* Photo avatar */}
+            {/* Photo */}
             <div className="relative w-20 h-20 rounded-2xl overflow-hidden ring-2 ring-white/10">
               <Image
                 src="/Photo.jpg"
@@ -170,7 +268,7 @@ export default function Contact() {
               </span>
               <span className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                EN C1 · DE B2
+                EN C1 · DE B2 · ES Native
               </span>
             </div>
             <button
@@ -196,12 +294,22 @@ export default function Contact() {
           </motion.div>
         </div>
 
+        {/* ── CV Selector — full width ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.35 }}
+          className="mt-8"
+        >
+          <CVSelector />
+        </motion.div>
+
         {/* Footer */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-20 pt-8 border-t border-white/[0.04] flex flex-col sm:flex-row items-center justify-between gap-4"
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="mt-16 pt-8 border-t border-white/[0.04] flex flex-col sm:flex-row items-center justify-between gap-4"
         >
           <p className="text-xs text-white/25">
             © 2026 Vidal Reñao Lopelo · Basel, Switzerland

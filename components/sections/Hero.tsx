@@ -19,23 +19,38 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-[calc(100vh-120px)]">
 
           {/* ── Left: Text content ── */}
-          <div className="flex flex-col items-start gap-7 order-2 lg:order-1">
-            {/* Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="flex items-center gap-2 border border-white/[0.1] rounded-full px-4 py-1.5 text-xs text-white/60 bg-white/[0.03]"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              {t("badge")}
-            </motion.div>
+          <div className="flex flex-col items-start gap-6 order-2 lg:order-1">
+
+            {/* Badge row */}
+            <div className="flex flex-col gap-2">
+              {/* Open to Work badge */}
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="flex items-center gap-2 border border-white/[0.1] rounded-full px-4 py-1.5 text-xs text-white/60 bg-white/[0.03] w-fit"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                {t("badge")}
+              </motion.div>
+
+              {/* Availability Switzerland + Liechtenstein badge */}
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="flex items-center gap-2 border border-amber-500/25 rounded-full px-4 py-1.5 text-xs text-amber-300/80 bg-amber-500/05 w-fit"
+              >
+                <span className="text-sm leading-none">🇨🇭</span>
+                {t("availability_swiss")}
+              </motion.div>
+            </div>
 
             {/* Title */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              transition={{ duration: 0.6, delay: 0.15 }}
               className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-none text-white"
             >
               {t("title")}
@@ -44,14 +59,23 @@ export default function Hero() {
             </motion.h1>
 
             {/* Subtitle */}
-            <motion.p
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-sm md:text-base text-white/50 leading-relaxed max-w-lg"
+              transition={{ duration: 0.6, delay: 0.22 }}
+              className="flex flex-col gap-2"
             >
-              {t("subtitle")}
-            </motion.p>
+              <p className="text-sm md:text-base text-white/50 leading-relaxed max-w-lg">
+                {t("subtitle")}
+              </p>
+              {/* Collaboration line */}
+              <p className="text-xs text-white/30 flex items-center gap-1.5">
+                <svg className="w-3.5 h-3.5 text-blue-400/60 flex-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                {t("collaboration")}
+              </p>
+            </motion.div>
 
             {/* CTAs */}
             <motion.div
@@ -72,31 +96,16 @@ export default function Hero() {
                   stroke="currentColor"
                   strokeWidth={2}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </a>
               <a
-                href="/cv-vidal-renao.pdf"
-                target="_blank"
+                href="#contact"
                 className="flex items-center gap-2 border border-white/[0.1] hover:border-white/20 text-white/70 hover:text-white font-semibold rounded-full px-6 py-3 text-sm transition-all duration-200"
               >
                 {t("cta_secondary")}
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                  />
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                 </svg>
               </a>
             </motion.div>
@@ -105,7 +114,7 @@ export default function Hero() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.45 }}
+              transition={{ duration: 0.6, delay: 0.42 }}
               className="flex items-center gap-8 pt-6 border-t border-white/[0.06] w-full"
             >
               {[
@@ -114,9 +123,7 @@ export default function Hero() {
                 { value: t("stat3_value"), label: t("stat3_label") },
               ].map((stat) => (
                 <div key={stat.label} className="flex flex-col gap-1">
-                  <span className="text-2xl font-bold text-white">
-                    {stat.value}
-                  </span>
+                  <span className="text-2xl font-bold text-white">{stat.value}</span>
                   <span className="text-xs text-white/35 font-medium uppercase tracking-wider">
                     {stat.label}
                   </span>
@@ -135,15 +142,12 @@ export default function Hero() {
             <div className="relative">
               {/* Outer diffused glow */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500 to-violet-500 blur-3xl opacity-20 scale-125" />
-
-              {/* Second glow layer for depth */}
+              {/* Second glow layer */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-bl from-blue-400/30 to-violet-600/20 blur-xl scale-105" />
 
               {/* Gradient ring border */}
               <div className="relative rounded-full p-[3px] bg-gradient-to-tr from-blue-500 via-violet-400 to-blue-400">
-                {/* Inner dark ring for separation */}
                 <div className="rounded-full p-[3px] bg-[#060606]">
-                  {/* Photo container */}
                   <div className="relative w-[260px] h-[260px] md:w-[320px] md:h-[320px] lg:w-[360px] lg:h-[360px] rounded-full overflow-hidden">
                     <Image
                       src="/Photo.jpg"
@@ -157,7 +161,7 @@ export default function Hero() {
                 </div>
               </div>
 
-              {/* Floating badge — bottom left */}
+              {/* Badge — bottom left */}
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -166,29 +170,24 @@ export default function Hero() {
               >
                 <span className="text-base">🇨🇭</span>
                 <div>
-                  <p className="text-xs font-semibold text-white leading-none">
-                    Basel, Switzerland
-                  </p>
-                  <p className="text-[10px] text-white/40 mt-0.5">
-                    EN C1 · DE B2
-                  </p>
+                  <p className="text-xs font-semibold text-white leading-none">Basel, Switzerland</p>
+                  <p className="text-[10px] text-white/40 mt-0.5">EN C1 · DE B2 · ES Native</p>
                 </div>
               </motion.div>
 
-              {/* Floating badge — top right */}
+              {/* Badge — top right */}
               <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8, duration: 0.5 }}
-                className="absolute -top-2 -right-4 glass-card rounded-xl px-3 py-2 flex items-center gap-2 border border-blue-500/20 bg-blue-500/05"
+                className="absolute -top-2 -right-4 glass-card rounded-xl px-3 py-2 flex items-center gap-2 border border-amber-500/20 bg-amber-500/05"
               >
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <p className="text-xs font-semibold text-blue-300">
-                  Open to Work
-                </p>
+                <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+                <p className="text-xs font-semibold text-amber-300">CH + FL</p>
               </motion.div>
             </div>
           </motion.div>
+
         </div>
       </div>
 

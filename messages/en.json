@@ -8,9 +8,11 @@
   },
   "hero": {
     "badge": "Open to Work · Basel, CH",
+    "availability_swiss": "Immediate availability across Switzerland and Liechtenstein",
     "title": "Cloud Infrastructure",
     "title2": "Consultant",
     "subtitle": "Designing and delivering secure cloud infrastructure and Modern Workplace solutions — Azure, M365, Entra ID, and Intune — for enterprises across Switzerland and Europe.",
+    "collaboration": "Open to individual projects and collective collaborations.",
     "cta_primary": "View Projects",
     "cta_secondary": "Download CV",
     "stat1_value": "500+",
@@ -101,6 +103,14 @@
     "subtitle": "Open to Modern Workplace, Cloud Infrastructure, and Hybrid Identity roles in Switzerland.",
     "availability": "Available from April 2026",
     "copy": "Copy Email",
-    "copied": "Copied!"
+    "copied": "Copied!",
+    "cv_title": "Download My CV",
+    "cv_subtitle": "Choose your preferred profile",
+    "cv_cloud": "Cloud & Infrastructure Consultant",
+    "cv_cloud_desc": "Azure, M365, Entra ID, Intune, Hybrid Identity",
+    "cv_systems": "Systems & Network Engineer",
+    "cv_systems_desc": "Windows Server, Active Directory, CCNA, Linux",
+    "cv_support": "IT Support & Customer Success",
+    "cv_support_desc": "ITIL, Helpdesk, User Management, SLA"
   }
 }

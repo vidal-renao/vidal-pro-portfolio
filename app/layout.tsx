@@ -18,9 +18,21 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://vidal-renao.dev"),
-  title: "Vidal Reñao — Cloud Infrastructure Consultant",
+  title: "Vidal Reñao — Cloud Infrastructure Consultant | Switzerland & Liechtenstein",
   description:
-    "Cloud Infrastructure Consultant & Modern Workplace Engineer in Basel, Switzerland. Azure · M365 · Entra ID · Intune · CCNA · PowerShell.",
+    "Cloud Infrastructure Consultant & Modern Workplace Engineer in Basel, Switzerland. Immediate availability across Switzerland and Liechtenstein. Azure · M365 · Entra ID · Intune · CCNA · PowerShell.",
+  keywords: [
+    "Cloud Infrastructure Consultant Switzerland",
+    "Modern Workplace Engineer Switzerland",
+    "Azure Consultant Basel",
+    "Microsoft 365 Spezialist Schweiz",
+    "Entra ID Intune Liechtenstein",
+    "IT Engineer Basel Switzerland",
+    "Cloud Engineer Schweiz Liechtenstein",
+    "CCNA Network Engineer Switzerland",
+    "PowerShell Automatisierung Schweiz",
+    "Hybrid Identity Azure AD Switzerland",
+  ],
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
@@ -28,9 +40,9 @@ export const metadata: Metadata = {
     title: "Vidal Reñao",
   },
   openGraph: {
-    title: "Vidal Reñao — Cloud Infrastructure Consultant",
+    title: "Vidal Reñao — Cloud Infrastructure Consultant | Switzerland & Liechtenstein",
     description:
-      "Cloud Infrastructure & Modern Workplace Engineer in Basel, Switzerland. Azure · M365 · Entra ID · Intune.",
+      "Cloud Infrastructure & Modern Workplace Engineer in Basel — immediate availability across Switzerland and Liechtenstein. Azure · M365 · Entra ID · Intune.",
     images: [
       {
         url: "/Photo.jpg",

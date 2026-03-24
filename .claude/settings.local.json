@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npx:*)"
+      "Bash(npx:*)",
+      "Bash(gh auth:*)",
+      "Bash(git remote:*)"
     ]
   }
 }

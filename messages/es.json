@@ -1,0 +1,116 @@
+{
+  "nav": {
+    "stack": "Stack",
+    "experience": "Experiencia",
+    "projects": "Proyectos",
+    "contact": "Contacto",
+    "hire": "Contrátame"
+  },
+  "hero": {
+    "badge": "Abierto a Oportunidades · Basel, CH",
+    "availability_swiss": "Disponibilidad inmediata en toda Suiza y Liechtenstein",
+    "title": "Cloud Infrastructure",
+    "title2": "Consultant",
+    "subtitle": "Diseño y despliegue de infraestructuras cloud seguras y soluciones Modern Workplace — Azure, M365, Entra ID e Intune — para empresas en Suiza y Europa.",
+    "collaboration": "Abierto a proyectos individuales y colaboraciones colectivas.",
+    "cta_primary": "Ver Proyectos",
+    "cta_secondary": "Descargar CV",
+    "stat1_value": "500+",
+    "stat1_label": "Usuarios Gestionados",
+    "stat2_value": "CCNA",
+    "stat2_label": "Cisco Certificado",
+    "stat3_value": "7+",
+    "stat3_label": "Años de Experiencia"
+  },
+  "stack": {
+    "title": "Stack Tecnológico",
+    "subtitle": "Experiencia de nivel empresarial — desde identidad híbrida hasta automatización cloud.",
+    "cloud": "Cloud e Identidad",
+    "infra": "Infraestructura",
+    "automation": "Automatización",
+    "network": "Redes",
+    "dev": "Desarrollo"
+  },
+  "experience": {
+    "title": "Experiencia",
+    "subtitle": "Entrega de TI empresarial en entornos multinacionales.",
+    "present": "Presente",
+    "roles": [
+      {
+        "title": "Especialista en Soporte Técnico y Administrador de Sistemas",
+        "company": "Lutelco Facilities",
+        "location": "Zaragoza, España",
+        "period": "2021 – 2023",
+        "highlights": [
+          "TI empresarial para más de 500 usuarios en soporte de 2º/3er nivel",
+          "Administración de Microsoft 365 y Active Directory",
+          "Resolución de red: TCP/IP, DNS, DHCP, VLAN, VPN",
+          "Soporte a infraestructura de virtualización VMware vSphere"
+        ]
+      },
+      {
+        "title": "Especialista de Help Desk",
+        "company": "Nationale Nederlanden Bank",
+        "location": "Zaragoza, España",
+        "period": "2019 – 2021",
+        "highlights": [
+          "Soporte TI de 1er nivel en entorno ITIL corporativo",
+          "Gestión de incidencias, seguimiento de SLAs y administración de cuentas",
+          "Soporte de aplicaciones Microsoft 365 y resolución remota"
+        ]
+      },
+      {
+        "title": "Ingeniero de Sistemas y Redes",
+        "company": "NSC — Redes, Sistemas y Comunicaciones",
+        "location": "España",
+        "period": "2017 – 2019",
+        "highlights": [
+          "Operación y mantenimiento de infraestructuras de red y sistemas",
+          "Gestión de entornos de virtualización y monitorización",
+          "Soporte de infraestructura para múltiples sedes de clientes"
+        ]
+      },
+      {
+        "title": "Desarrollador Web y Soporte de Aplicaciones",
+        "company": "Freelance / Agencia",
+        "location": "España",
+        "period": "2016 – 2017",
+        "highlights": [
+          "Desarrollo y mantenimiento de aplicaciones web con backend MySQL",
+          "Soporte técnico y resolución de incidencias en producción"
+        ]
+      },
+      {
+        "title": "Técnico de Fibra Óptica y Centros de Datos",
+        "company": "Vodafone (Subcontratista)",
+        "location": "España",
+        "period": "2010 – 2012",
+        "highlights": [
+          "Infraestructura de cableado de fibra y cobre en centros de datos",
+          "Instalación de racks y mantenimiento de infraestructura de red"
+        ]
+      }
+    ]
+  },
+  "projects": {
+    "title": "Proyectos",
+    "subtitle": "Sistemas reales diseñados para rendimiento, fiabilidad y escala.",
+    "view": "Demo en vivo",
+    "code": "GitHub"
+  },
+  "contact": {
+    "title": "Hablemos",
+    "subtitle": "Disponible para roles de Modern Workplace, Cloud Infrastructure e Identidad Híbrida en Suiza y Liechtenstein.",
+    "availability": "Disponible desde abril 2026",
+    "copy": "Copiar Email",
+    "copied": "¡Copiado!",
+    "cv_title": "Descargar mi CV",
+    "cv_subtitle": "Elige tu perfil preferido",
+    "cv_cloud": "Cloud & Infrastructure Consultant",
+    "cv_cloud_desc": "Azure, M365, Entra ID, Intune, Identidad Híbrida",
+    "cv_systems": "Systems & Network Engineer",
+    "cv_systems_desc": "Windows Server, Active Directory, CCNA, Linux",
+    "cv_support": "IT Support & Customer Success",
+    "cv_support_desc": "ITIL, Helpdesk, Gestión de usuarios, SLA"
+  }
+}

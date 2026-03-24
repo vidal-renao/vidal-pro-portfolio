@@ -5,24 +5,26 @@ import { usePathname, useRouter } from "@/i18n/navigation";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
+const LOCALES = ["en", "de", "es"] as const;
+type Locale = (typeof LOCALES)[number];
+
 export default function NavBar() {
   const t = useTranslations("nav");
   const pathname = usePathname();
   const router = useRouter();
   const [scrolled, setScrolled] = useState(false);
-  const [locale, setLocale] = useState("en");
+  const [locale, setLocale] = useState<Locale>("en");
 
   useEffect(() => {
-    const seg = window.location.pathname.split("/")[1];
-    setLocale(seg === "de" ? "de" : "en");
+    const seg = window.location.pathname.split("/")[1] as Locale;
+    setLocale(LOCALES.includes(seg) ? seg : "en");
 
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const toggleLocale = () => {
-    const next = locale === "en" ? "de" : "en";
+  const switchLocale = (next: Locale) => {
     setLocale(next);
     router.replace(pathname, { locale: next });
   };
@@ -75,15 +77,22 @@ export default function NavBar() {
 
         {/* Right actions */}
         <div className="flex items-center gap-3">
-          {/* Language toggle */}
-          <button
-            onClick={toggleLocale}
-            className="flex items-center gap-1.5 text-xs font-medium text-white/50 hover:text-white transition-colors border border-white/[0.08] rounded-full px-3 py-1.5"
-          >
-            <span className={locale === "en" ? "text-white" : ""}>EN</span>
-            <span className="text-white/20">/</span>
-            <span className={locale === "de" ? "text-white" : ""}>DE</span>
-          </button>
+          {/* 3-language toggle */}
+          <div className="flex items-center border border-white/[0.08] rounded-full overflow-hidden text-xs font-medium">
+            {LOCALES.map((l, i) => (
+              <button
+                key={l}
+                onClick={() => switchLocale(l)}
+                className={`px-2.5 py-1.5 transition-colors duration-150 ${
+                  locale === l
+                    ? "bg-white/10 text-white"
+                    : "text-white/40 hover:text-white/70"
+                } ${i < LOCALES.length - 1 ? "border-r border-white/[0.08]" : ""}`}
+              >
+                {l.toUpperCase()}
+              </button>
+            ))}
+          </div>
 
           {/* CTA */}
           <a
