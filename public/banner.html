@@ -123,8 +123,8 @@
       z-index: 10;
       display: flex;
       align-items: center;
-      /* 242px = safe zone for LinkedIn profile photo */
-      padding: 0 68px 0 242px;
+      /* 320px = safe zone past LinkedIn profile photo circle */
+      padding: 0 68px 0 320px;
       gap: 44px;
     }
 
@@ -135,6 +135,7 @@
       flex-direction: column;
       gap: 13px;
       min-width: 0;
+      text-shadow: 2px 2px 15px rgba(0,0,0,1);
     }
 
     /* Name */
@@ -348,7 +349,7 @@
     .gradient-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to right, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.7) 40%, rgba(0,0,0,0) 100%);
+      background: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.95) 45%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0) 100%);
       z-index: 4;
     }
   </style>
