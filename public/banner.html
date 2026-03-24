@@ -120,7 +120,7 @@
     .content {
       position: absolute;
       inset: 0;
-      z-index: 5;
+      z-index: 10;
       display: flex;
       align-items: center;
       /* 242px = safe zone for LinkedIn profile photo */
@@ -338,9 +338,9 @@
     .bg-photo {
       position: absolute;
       inset: 0;
-      /* background-image: url('/assets/banner-basel.jpg'); */
+      background-image: url('/banner.png');
       background-size: cover;
-      background-position: center right;
+      background-position: right center;
       z-index: -1;
     }
 
@@ -348,13 +348,7 @@
     .gradient-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        to right,
-        rgba(0,0,0,0.82) 0%,
-        rgba(0,0,0,0.65) 35%,
-        rgba(0,0,0,0.35) 62%,
-        rgba(0,0,0,0.20) 100%
-      );
+      background: linear-gradient(to right, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.7) 40%, rgba(0,0,0,0) 100%);
       z-index: 4;
     }
   </style>
