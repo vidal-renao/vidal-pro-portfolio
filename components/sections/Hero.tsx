@@ -23,7 +23,6 @@ export default function Hero() {
 
             {/* Badge row */}
             <div className="flex flex-col gap-2">
-              {/* Open to Work badge */}
               <motion.div
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -34,7 +33,6 @@ export default function Hero() {
                 {t("badge")}
               </motion.div>
 
-              {/* Availability Switzerland + Liechtenstein badge */}
               <motion.div
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -46,19 +44,23 @@ export default function Hero() {
               </motion.div>
             </div>
 
-            {/* Title */}
-            <motion.h1
+            {/* Title — two-level layout */}
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.15 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-none text-white"
             >
-              {t("title")}
-              <br />
-              <span className="gradient-text">{t("title2")}</span>
-            </motion.h1>
+              {/* Line 1: role label */}
+              <p className="text-sm font-semibold text-white/40 tracking-[0.18em] uppercase mb-2">
+                {t("title")}
+              </p>
+              {/* Line 2: value proposition (gradient, large) */}
+              <h1 className="text-3xl md:text-4xl lg:text-[42px] font-bold tracking-tight leading-tight gradient-text">
+                {t("title2")}
+              </h1>
+            </motion.div>
 
-            {/* Subtitle */}
+            {/* Subtitle + collaboration */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -68,7 +70,6 @@ export default function Hero() {
               <p className="text-sm md:text-base text-white/50 leading-relaxed max-w-lg">
                 {t("subtitle")}
               </p>
-              {/* Collaboration line */}
               <p className="text-xs text-white/30 flex items-center gap-1.5">
                 <svg className="w-3.5 h-3.5 text-blue-400/60 flex-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -85,17 +86,11 @@ export default function Hero() {
               className="flex flex-wrap items-center gap-3"
             >
               <a
-                href="#projects"
+                href="#services"
                 className="group flex items-center gap-2 bg-blue-500 hover:bg-blue-400 text-white font-semibold rounded-full px-6 py-3 text-sm transition-all duration-200 shadow-lg shadow-blue-500/20"
               >
                 {t("cta_primary")}
-                <svg
-                  className="w-4 h-4 group-hover:translate-x-0.5 transition-transform"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
+                <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </a>
@@ -140,18 +135,15 @@ export default function Hero() {
             className="flex justify-center lg:justify-end order-1 lg:order-2"
           >
             <div className="relative">
-              {/* Outer diffused glow */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500 to-violet-500 blur-3xl opacity-20 scale-125" />
-              {/* Second glow layer */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-bl from-blue-400/30 to-violet-600/20 blur-xl scale-105" />
 
-              {/* Gradient ring border */}
               <div className="relative rounded-full p-[3px] bg-gradient-to-tr from-blue-500 via-violet-400 to-blue-400">
                 <div className="rounded-full p-[3px] bg-[#060606]">
                   <div className="relative w-[260px] h-[260px] md:w-[320px] md:h-[320px] lg:w-[360px] lg:h-[360px] rounded-full overflow-hidden">
                     <Image
                       src="/Photo.jpg"
-                      alt="Vidal Reñao — Cloud Infrastructure Consultant"
+                      alt="Vidal Reñao — IT Solutions Engineer"
                       fill
                       className="object-cover object-top"
                       priority
@@ -161,7 +153,7 @@ export default function Hero() {
                 </div>
               </div>
 
-              {/* Badge — bottom left */}
+              {/* Badge bottom-left */}
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -175,15 +167,17 @@ export default function Hero() {
                 </div>
               </motion.div>
 
-              {/* Badge — top right */}
+              {/* Badge top-right */}
               <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8, duration: 0.5 }}
-                className="absolute -top-2 -right-4 glass-card rounded-xl px-3 py-2 flex items-center gap-2 border border-amber-500/20 bg-amber-500/05"
+                className="absolute -top-2 -right-4 glass-card rounded-xl px-3 py-2 flex items-center gap-2 border border-blue-500/20 bg-blue-500/05"
               >
-                <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
-                <p className="text-xs font-semibold text-amber-300">CH + FL</p>
+                <svg className="w-3.5 h-3.5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                <p className="text-xs font-semibold text-blue-300">Solutions Engineer</p>
               </motion.div>
             </div>
           </motion.div>

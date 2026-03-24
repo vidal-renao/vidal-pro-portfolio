@@ -1,5 +1,6 @@
 import NavBar from "@/components/NavBar";
 import Hero from "@/components/sections/Hero";
+import Services from "@/components/sections/Services";
 import TechStack from "@/components/sections/TechStack";
 import Experience from "@/components/sections/Experience";
 import Projects from "@/components/sections/Projects";
@@ -11,6 +12,7 @@ export default function Page() {
       <NavBar />
       <main>
         <Hero />
+        <Services />
         <TechStack />
         <Experience />
         <Projects />
