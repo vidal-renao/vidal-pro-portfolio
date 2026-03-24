@@ -19,6 +19,7 @@
       gap: 28px;
       padding: 48px;
       font-family: 'Inter', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
     }
 
     .hint {
@@ -123,8 +124,8 @@
       z-index: 10;
       display: flex;
       align-items: center;
-      /* 320px = safe zone past LinkedIn profile photo circle */
-      padding: 0 68px 0 320px;
+      /* 420px = safe zone past LinkedIn profile photo circle */
+      padding: 0 68px 0 420px;
       gap: 44px;
     }
 
@@ -141,10 +142,10 @@
     /* Name */
     .name-line {
       font-size: 10px;
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.2);
+      color: #ffffff;
     }
 
     /* Status badge */
@@ -179,6 +180,7 @@
       font-size: 50px;
       font-weight: 800;
       color: #ffffff;
+      -webkit-font-smoothing: antialiased;
       letter-spacing: -0.035em;
       line-height: 1.02;
     }
@@ -349,7 +351,7 @@
     .gradient-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.95) 45%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0) 100%);
+      background: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 100%);
       z-index: 4;
     }
   </style>
