@@ -1,0 +1,20 @@
+{
+  "name": "Vidal Reñao — Cloud Infrastructure Consultant",
+  "short_name": "Vidal Reñao",
+  "description": "Cloud Infrastructure Consultant & Modern Workplace Engineer in Basel, Switzerland",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#060606",
+  "theme_color": "#060606",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/Photo.jpg",
+      "sizes": "872x927",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["productivity", "business"],
+  "lang": "en"
+}

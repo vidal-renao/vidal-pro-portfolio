@@ -1,0 +1,106 @@
+{
+  "nav": {
+    "stack": "Stack",
+    "experience": "Erfahrung",
+    "projects": "Projekte",
+    "contact": "Kontakt",
+    "hire": "Jetzt Anfragen"
+  },
+  "hero": {
+    "badge": "Offen für neue Stellen · Basel, CH",
+    "title": "Cloud Infrastructure",
+    "title2": "Consultant",
+    "subtitle": "Planung und Umsetzung sicherer Cloud-Infrastrukturen und Modern Workplace Lösungen — Azure, M365, Entra ID und Intune — für Unternehmen in der Schweiz und Europa.",
+    "cta_primary": "Projekte ansehen",
+    "cta_secondary": "Lebenslauf",
+    "stat1_value": "500+",
+    "stat1_label": "Verwaltete Benutzer",
+    "stat2_value": "CCNA",
+    "stat2_label": "Cisco Zertifiziert",
+    "stat3_value": "7+",
+    "stat3_label": "Jahre Erfahrung"
+  },
+  "stack": {
+    "title": "Technologie-Stack",
+    "subtitle": "Enterprise-Expertise — von Hybrid Identity bis cloud-nativer Automatisierung.",
+    "cloud": "Cloud & Identität",
+    "infra": "Infrastruktur",
+    "automation": "Automatisierung",
+    "network": "Netzwerke",
+    "dev": "Entwicklung"
+  },
+  "experience": {
+    "title": "Berufserfahrung",
+    "subtitle": "Enterprise-IT-Delivery in internationalen Umgebungen.",
+    "present": "Heute",
+    "roles": [
+      {
+        "title": "IT-Support Spezialist & Systemadministrator",
+        "company": "Lutelco Facilities",
+        "location": "Zaragoza, Spanien",
+        "period": "2021 – 2023",
+        "highlights": [
+          "Enterprise-IT für 500+ Benutzer auf 2nd/3rd-Level-Support-Ebene",
+          "Administration von Microsoft 365 und Active Directory",
+          "Netzwerk-Troubleshooting: TCP/IP, DNS, DHCP, VLAN, VPN",
+          "Unterstützung der VMware vSphere Virtualisierungsinfrastruktur"
+        ]
+      },
+      {
+        "title": "Help Desk Support Spezialist",
+        "company": "Nationale Nederlanden Bank",
+        "location": "Zaragoza, Spanien",
+        "period": "2019 – 2021",
+        "highlights": [
+          "1st-Level IT-Support in einer ITIL-basierten Unternehmensumgebung",
+          "Incident Management, SLA-Tracking und Benutzerkontenverwaltung",
+          "Microsoft 365 Anwendungssupport und Remote-Fehlerbehebung"
+        ]
+      },
+      {
+        "title": "Netzwerk- & Systemingenieur",
+        "company": "NSC — Netzwerke, Systeme & Kommunikation",
+        "location": "Spanien",
+        "period": "2017 – 2019",
+        "highlights": [
+          "Betrieb und Wartung von Netzwerk- und Systeminfrastrukturen",
+          "Verwaltung von Virtualisierungsumgebungen und Systemüberwachung",
+          "Infrastrukturunterstützung für mehrere Kundenstandorte"
+        ]
+      },
+      {
+        "title": "Web-Entwickler & Anwendungssupport",
+        "company": "Freelance / Agentur",
+        "location": "Spanien",
+        "period": "2016 – 2017",
+        "highlights": [
+          "Entwicklung und Pflege von Webanwendungen mit MySQL-Backend",
+          "Technischer Support und Fehlerbehebung für eingesetzte Systeme"
+        ]
+      },
+      {
+        "title": "Glasfaser- & Rechenzentrumstechniker",
+        "company": "Vodafone (Subunternehmer)",
+        "location": "Spanien",
+        "period": "2010 – 2012",
+        "highlights": [
+          "Glasfaser- und Kupferkabelinfrastruktur in Rechenzentren",
+          "Rack-Installation und Netzwerkinfrastrukturwartung"
+        ]
+      }
+    ]
+  },
+  "projects": {
+    "title": "Projekte",
+    "subtitle": "Reale Systeme entwickelt für Performance, Zuverlässigkeit und Skalierung.",
+    "view": "Live Demo",
+    "code": "GitHub"
+  },
+  "contact": {
+    "title": "Kontakt aufnehmen",
+    "subtitle": "Offen für Modern Workplace, Cloud Infrastructure und Hybrid Identity Stellen in der Schweiz.",
+    "availability": "Verfügbar ab April 2026",
+    "copy": "E-Mail kopieren",
+    "copied": "Kopiert!"
+  }
+}

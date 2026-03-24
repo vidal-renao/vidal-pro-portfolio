@@ -1,0 +1,106 @@
+{
+  "nav": {
+    "stack": "Stack",
+    "experience": "Experience",
+    "projects": "Projects",
+    "contact": "Contact",
+    "hire": "Hire Me"
+  },
+  "hero": {
+    "badge": "Open to Work · Basel, CH",
+    "title": "Cloud Infrastructure",
+    "title2": "Consultant",
+    "subtitle": "Designing and delivering secure cloud infrastructure and Modern Workplace solutions — Azure, M365, Entra ID, and Intune — for enterprises across Switzerland and Europe.",
+    "cta_primary": "View Projects",
+    "cta_secondary": "Download CV",
+    "stat1_value": "500+",
+    "stat1_label": "Users Managed",
+    "stat2_value": "CCNA",
+    "stat2_label": "Cisco Certified",
+    "stat3_value": "7+",
+    "stat3_label": "Years Experience"
+  },
+  "stack": {
+    "title": "Technology Stack",
+    "subtitle": "Enterprise-grade expertise — from hybrid identity to cloud-native automation.",
+    "cloud": "Cloud & Identity",
+    "infra": "Infrastructure",
+    "automation": "Automation",
+    "network": "Networking",
+    "dev": "Development"
+  },
+  "experience": {
+    "title": "Experience",
+    "subtitle": "Enterprise IT delivery across multi-national environments.",
+    "present": "Present",
+    "roles": [
+      {
+        "title": "Technical Support Specialist & Systems Administrator",
+        "company": "Lutelco Facilities",
+        "location": "Zaragoza, Spain",
+        "period": "2021 – 2023",
+        "highlights": [
+          "Managed enterprise IT for 500+ users across 2nd/3rd-level support",
+          "Administered Microsoft 365 and Active Directory environments",
+          "Network troubleshooting: TCP/IP, DNS, DHCP, VLAN, VPN",
+          "Supported VMware vSphere virtualization infrastructure"
+        ]
+      },
+      {
+        "title": "Help Desk Support Specialist",
+        "company": "Nationale Nederlanden Bank",
+        "location": "Zaragoza, Spain",
+        "period": "2019 – 2021",
+        "highlights": [
+          "1st-level IT support in ITIL-based enterprise environment",
+          "Incident management, SLA tracking, and user account administration",
+          "Microsoft 365 application support and remote troubleshooting"
+        ]
+      },
+      {
+        "title": "Systems & Network Engineer",
+        "company": "NSC — Networks, Systems & Communications",
+        "location": "Spain",
+        "period": "2017 – 2019",
+        "highlights": [
+          "Operated and maintained network and systems infrastructure",
+          "Managed virtualization environments and system monitoring",
+          "Provided infrastructure support across multiple client sites"
+        ]
+      },
+      {
+        "title": "Web Developer & Application Support",
+        "company": "Freelance / Agency",
+        "location": "Spain",
+        "period": "2016 – 2017",
+        "highlights": [
+          "Built and maintained web applications with MySQL database backends",
+          "Provided technical support and troubleshooting for deployed systems"
+        ]
+      },
+      {
+        "title": "Fiber Optic & Datacenter Technician",
+        "company": "Vodafone (Contractor)",
+        "location": "Spain",
+        "period": "2010 – 2012",
+        "highlights": [
+          "Deployed fiber and copper cabling infrastructure in datacenters",
+          "Rack installation and network infrastructure maintenance"
+        ]
+      }
+    ]
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Real-world systems engineered for performance, reliability, and scale.",
+    "view": "Live Demo",
+    "code": "GitHub"
+  },
+  "contact": {
+    "title": "Let's Connect",
+    "subtitle": "Open to Modern Workplace, Cloud Infrastructure, and Hybrid Identity roles in Switzerland.",
+    "availability": "Available from April 2026",
+    "copy": "Copy Email",
+    "copied": "Copied!"
+  }
+}
