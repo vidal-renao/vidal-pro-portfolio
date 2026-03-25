@@ -6,7 +6,9 @@ const withNextIntl = createNextIntlPlugin("./i18n/request.ts");
 
 const withPWA = withPWAInit({
   dest: "public",
+  register: true,
   disable: process.env.NODE_ENV === "development",
+  cacheOnFrontEndNav: true,
   workboxOptions: {
     disableDevLogs: true,
   },
