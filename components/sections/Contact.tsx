@@ -42,6 +42,14 @@ const cvOptions: CVOption[] = [
     file: "/cv-it-support.pdf",
     color: "emerald",
   },
+  {
+    key: "ai",
+    icon: "🤖",
+    titleKey: "cv_ai",
+    descKey: "cv_ai_desc",
+    file: "/cv-ai-fullstack.pdf",
+    color: "blue",
+  },
 ];
 
 const cvColorMap = {
@@ -260,11 +268,11 @@ export default function Contact() {
             <div className="flex flex-col gap-2 w-full text-xs text-white/40">
               <span className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
-                Azure · M365 · Entra ID
+                Azure · M365 · Entra ID · Intune
               </span>
               <span className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-violet-400" />
-                Intune · CCNA · PowerShell
+                Next.js · Claude AI · PowerShell
               </span>
               <span className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />

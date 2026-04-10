@@ -20,7 +20,7 @@
     "apps_title": "Apps de Negocio a Medida",
     "apps_benefit": "Digitaliza tus procesos. Elimina fricciones.",
     "apps_desc": "Progressive Web Apps que transforman procesos manuales en sistemas digitales rápidos, instalables y multilingüe. Desde logística hasta gestión de instalaciones — construidas para obtener 100/100 en rendimiento.",
-    "apps_case": "→ Caso: Dnamar Facility Services — plataforma de operaciones en tiempo real en 4 idiomas.",
+    "apps_case": "→ Caso: Dnamar Facility Services — plataforma de operaciones en tiempo real en 3 idiomas.",
     "apps_tags": ["Next.js", "PWA", "Multilingüe", "100/100"],
     "network_title": "Redes Híbridas",
     "network_benefit": "Conectividad fiable para operaciones multi-sede.",
@@ -150,7 +150,7 @@
   },
   "contact": {
     "title": "Hablemos",
-    "subtitle": "Disponible para roles de Modern Workplace, Cloud Infrastructure e Identidad Híbrida en Suiza y Liechtenstein.",
+    "subtitle": "Disponible para roles de Modern Workplace, Cloud Infrastructure y AI Solutions en Suiza y Liechtenstein.",
     "availability": "Disponible Inmediatamente · Suiza & Liechtenstein",
     "copy": "Copiar Email",
     "copied": "¡Copiado!",
@@ -161,6 +161,8 @@
     "cv_systems": "Systems & Network Engineer",
     "cv_systems_desc": "Windows Server, Active Directory, CCNA, Linux",
     "cv_support": "IT Support & Customer Success",
-    "cv_support_desc": "ITIL, Helpdesk, Gestión de usuarios, SLA"
+    "cv_support_desc": "ITIL, Helpdesk, Gestión de usuarios, SLA",
+    "cv_ai": "Desarrollador AI & Full-Stack",
+    "cv_ai_desc": "Next.js, Claude AI, Supabase, PWA, TypeScript"
   }
 }
