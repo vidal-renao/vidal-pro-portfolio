@@ -46,9 +46,9 @@ const projects = [
     tags: ["Next.js 16", "Tailwind 4", "Supabase", "Resend"],
     color: "cyan",
     status: "Production",
-    metrics: ["100/100 Lighthouse", "3 languages", "Live at dnamar.ch"],
+    metrics: ["100/100 Lighthouse", "3 languages", "Live Demo"],
     githubUrl: "https://github.com/vidal-renao",
-    demoUrl: "https://dnamar.ch",
+    demoUrl: "https://limpiezas-najip-maritza.vercel.app/en",
   },
 ];
 
