@@ -13,9 +13,11 @@ type CVOption = {
   icon: string;
   titleKey: string;
   descKey: string;
-  file: string;
+  subject: string;
   color: "blue" | "violet" | "emerald";
 };
+
+const EMAIL = "vidalrenao.lab@outlook.com";
 
 const cvOptions: CVOption[] = [
   {
@@ -23,7 +25,7 @@ const cvOptions: CVOption[] = [
     icon: "☁️",
     titleKey: "cv_cloud",
     descKey: "cv_cloud_desc",
-    file: "/cv-cloud-infrastructure.pdf",
+    subject: "CV Request — Cloud & Infrastructure Consultant",
     color: "blue",
   },
   {
@@ -31,7 +33,7 @@ const cvOptions: CVOption[] = [
     icon: "🖥️",
     titleKey: "cv_systems",
     descKey: "cv_systems_desc",
-    file: "/cv-systems-network.pdf",
+    subject: "CV Request — Systems & Network Engineer",
     color: "violet",
   },
   {
@@ -39,7 +41,7 @@ const cvOptions: CVOption[] = [
     icon: "🎧",
     titleKey: "cv_support",
     descKey: "cv_support_desc",
-    file: "/cv-it-support.pdf",
+    subject: "CV Request — IT Support & Customer Success",
     color: "emerald",
   },
   {
@@ -47,7 +49,7 @@ const cvOptions: CVOption[] = [
     icon: "🤖",
     titleKey: "cv_ai",
     descKey: "cv_ai_desc",
-    file: "/cv-ai-fullstack.pdf",
+    subject: "CV Request — AI & Full-Stack Developer",
     color: "blue",
   },
 ];
@@ -87,8 +89,7 @@ function CVSelector() {
         {cvOptions.map((opt) => (
           <a
             key={opt.key}
-            href={opt.file}
-            download
+            href={`mailto:${EMAIL}?subject=${encodeURIComponent(opt.subject)}`}
             className={`group flex items-center gap-3 p-3 rounded-xl border border-white/[0.06] bg-white/[0.02] transition-all duration-200 ${cvColorMap[opt.color]}`}
           >
             <span className="text-lg leading-none">{opt.icon}</span>
@@ -99,7 +100,7 @@ function CVSelector() {
               <p className="text-xs text-white/35 mt-0.5">{t(opt.descKey)}</p>
             </div>
             <svg
-              className="w-4 h-4 text-white/20 group-hover:text-white/55 flex-none transition-all group-hover:translate-y-0.5"
+              className="w-4 h-4 text-white/20 group-hover:text-white/55 flex-none transition-all group-hover:translate-x-0.5"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -108,7 +109,7 @@ function CVSelector() {
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
               />
             </svg>
           </a>
