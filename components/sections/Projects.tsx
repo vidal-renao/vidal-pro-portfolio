@@ -7,48 +7,48 @@ import { useRef } from "react";
 
 const projects = [
   {
-    title: "CV Platform",
+    title: "MatchPoint AI",
     description:
-      "Full-stack multi-tenant platform for managing professional CVs and service packages. Built for logistics and staffing agencies with real-time tracking, client portals, and analytics dashboard.",
-    tags: ["Next.js 15", "TypeScript", "Tailwind", "PostgreSQL"],
-    color: "blue",
-    status: "Production",
-    metrics: ["Multi-tenant", "Real-time dashboard", "i18n ready"],
-    githubUrl: "https://github.com/vidal-renao",
-    demoUrl: null,
-  },
-  {
-    title: "Dnamar Operations",
-    description:
-      "Enterprise operations platform for facility services (cleaning & logistics). Features multilingual support (ES/DE/EN/FR), service tracking, employee management, and automated reporting.",
-    tags: ["Next.js", "next-intl", "Prisma", "Tailwind"],
+      "AI-powered job matching platform. Candidates upload their CV and Claude AI extracts their full profile automatically, then matches them against live job offers using 4-dimensional scoring: Hard Skills, Experience, Culture Fit, and Logistics. Recruiters only see candidates above 90% match — alerts via WhatsApp and email.",
+    tags: ["Next.js 16", "Claude AI", "Supabase", "Framer Motion"],
     color: "violet",
     status: "Production",
-    metrics: ["4 languages", "Service tracking", "Automated reports"],
+    metrics: ["AI CV parsing", "4D match scoring", "WhatsApp alerts"],
     githubUrl: "https://github.com/vidal-renao",
     demoUrl: null,
   },
   {
-    title: "Enterprise IT Lab",
+    title: "Invoice Auto",
     description:
-      "Full hybrid identity home lab: Windows Server 2025 Domain Controller with AD, OUs, GPO policies, Entra ID Connect, Microsoft Intune, Autopilot enrollment, and Azure Arc integration.",
-    tags: ["Windows Server 2025", "Entra ID", "Intune", "Azure Arc", "PowerShell"],
+      "Freelancer invoice automation SaaS. Upload a receipt photo or PDF and Claude Vision AI extracts all fields — client, amount, date, VAT — and generates a professional invoice ready to send. No manual data entry. Multi-currency (EUR/CHF), PWA installable, fiscal validation for Spain and Switzerland.",
+    tags: ["Next.js 16", "Claude Vision AI", "Supabase", "PWA"],
+    color: "blue",
+    status: "Production",
+    metrics: ["AI OCR extraction", "Auto invoice generation", "EUR · CHF"],
+    githubUrl: "https://github.com/vidal-renao",
+    demoUrl: null,
+  },
+  {
+    title: "Parcel Tracker SaaS",
+    description:
+      "Parcel management platform for courier offices. Three-tier RBAC (Admin / Staff / Client), full package lifecycle tracking, digital proof of delivery with signature capture, and multi-channel notifications via WhatsApp and email. Public tracking page in 6 languages.",
+    tags: ["Next.js 14", "Node.js", "PostgreSQL", "Twilio"],
     color: "emerald",
-    status: "Ongoing",
-    metrics: ["Hybrid AD + Entra ID", "Autopilot enrolled", "Azure Arc connected"],
+    status: "Production",
+    metrics: ["3-tier RBAC", "Digital signature", "6 languages"],
     githubUrl: "https://github.com/vidal-renao",
     demoUrl: null,
   },
   {
-    title: "Linux Network Lab",
+    title: "D'NAMAR GmbH",
     description:
-      "Debian-based router and firewall with NAT, nftables rules, and controlled network access for Windows domain clients. Simulates enterprise perimeter security.",
-    tags: ["Debian", "nftables", "NAT", "Bash", "Networking"],
+      "Corporate website for a Swiss cleaning services company. Trilingual (DE/EN/ES), 100/100 Lighthouse score across all metrics, JSON-LD structured data for local SEO (Google Business eligible), quote and contact forms with XSS protection and Resend delivery.",
+    tags: ["Next.js 16", "Tailwind 4", "Supabase", "Resend"],
     color: "cyan",
-    status: "Ongoing",
-    metrics: ["Perimeter firewall", "NAT gateway", "Domain integration"],
+    status: "Production",
+    metrics: ["100/100 Lighthouse", "3 languages", "Live at dnamar.ch"],
     githubUrl: "https://github.com/vidal-renao",
-    demoUrl: null,
+    demoUrl: "https://dnamar.ch",
   },
 ];
 
@@ -166,21 +166,36 @@ export default function Projects() {
                       </span>
                     ))}
                   </div>
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-none text-xs text-white/40 hover:text-white transition-colors flex items-center gap-1"
-                  >
-                    <svg
-                      className="w-4 h-4"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
+                  <div className="flex items-center gap-3 flex-none">
+                    {project.demoUrl && (
+                      <a
+                        href={project.demoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs text-white/40 hover:text-white transition-colors flex items-center gap-1"
+                      >
+                        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                        {t("view")}
+                      </a>
+                    )}
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-white/40 hover:text-white transition-colors flex items-center gap-1"
                     >
-                      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-                    </svg>
-                    {t("code")}
-                  </a>
+                      <svg
+                        className="w-4 h-4"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                      </svg>
+                      {t("code")}
+                    </a>
+                  </div>
                 </div>
               </motion.div>
             );

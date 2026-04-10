@@ -13,10 +13,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const isEn = locale === "en";
   return {
-    title: "Vidal Reñao — Modern Workplace & Cloud Engineer",
+    title: "Vidal Reñao — IT Infrastructure & AI Solutions Engineer",
     description: isEn
-      ? "Modern Workplace & Cloud Engineer in Basel, Switzerland. Azure · M365 · Entra ID · Intune · PowerShell · CCNA"
-      : "Modern Workplace & Cloud Engineer in Basel, Schweiz. Azure · M365 · Entra ID · Intune · PowerShell · CCNA",
+      ? "IT Infrastructure & AI Solutions Engineer in Basel, Switzerland. Azure · M365 · Entra ID · Intune · Claude AI · Next.js · CCNA"
+      : "IT Infrastructure & AI Solutions Engineer in Basel, Schweiz. Azure · M365 · Entra ID · Intune · Claude AI · Next.js · CCNA",
     alternates: {
       canonical: `/${locale}`,
       languages: { en: "/en", de: "/de" },
