@@ -177,7 +177,7 @@ export default function Services() {
               </svg>
             </a>
             <a
-              href="mailto:vidal-31@hotmail.com"
+              href="mailto:vidalrenao.lab@outlook.com"
               className="flex items-center gap-2 border border-white/[0.1] hover:border-white/20 text-white/60 hover:text-white rounded-full px-5 py-3 text-sm transition-all duration-200"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
