@@ -19,20 +19,20 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://vidal-renao.dev"),
-  title: "Vidal Reñao — Cloud Infrastructure Consultant | Switzerland & Liechtenstein",
+  title: "Vidal Reñao — IT Infrastructure & AI Solutions Engineer | Switzerland & Liechtenstein",
   description:
-    "Cloud Infrastructure Consultant & Modern Workplace Engineer in Basel, Switzerland. Immediate availability across Switzerland and Liechtenstein. Azure · M365 · Entra ID · Intune · CCNA · PowerShell.",
+    "IT Infrastructure & AI Solutions Engineer in Basel, Switzerland. Building SaaS apps with Claude AI + Next.js while managing enterprise M365, Azure, Entra ID & Intune. Immediately available across Switzerland and Liechtenstein.",
   keywords: [
-    "Cloud Infrastructure Consultant Switzerland",
-    "Modern Workplace Engineer Switzerland",
+    "IT Infrastructure Engineer Switzerland",
+    "AI Solutions Engineer Basel",
+    "Full Stack Developer Switzerland",
     "Azure Consultant Basel",
     "Microsoft 365 Spezialist Schweiz",
     "Entra ID Intune Liechtenstein",
-    "IT Engineer Basel Switzerland",
-    "Cloud Engineer Schweiz Liechtenstein",
+    "Next.js Developer Switzerland",
+    "Claude AI Developer",
     "CCNA Network Engineer Switzerland",
-    "PowerShell Automatisierung Schweiz",
-    "Hybrid Identity Azure AD Switzerland",
+    "Modern Workplace Engineer Schweiz",
   ],
   manifest: "/manifest.json",
   icons: {
@@ -51,24 +51,24 @@ export const metadata: Metadata = {
     title: "Vidal Reñao",
   },
   openGraph: {
-    title: "Vidal Reñao — Cloud Infrastructure Consultant | Switzerland & Liechtenstein",
+    title: "Vidal Reñao — IT Infrastructure & AI Solutions Engineer | Switzerland & Liechtenstein",
     description:
-      "Cloud Infrastructure & Modern Workplace Engineer in Basel — immediate availability across Switzerland and Liechtenstein. Azure · M365 · Entra ID · Intune.",
+      "IT Infrastructure & AI Solutions Engineer in Basel — immediately available across Switzerland and Liechtenstein. Azure · M365 · Next.js · Claude AI · CCNA.",
     images: [
       {
         url: "/Photo.jpg",
         width: 872,
         height: 927,
-        alt: "Vidal Reñao — Cloud Infrastructure Consultant",
+        alt: "Vidal Reñao — IT Infrastructure & AI Solutions Engineer",
       },
     ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Vidal Reñao — Cloud Infrastructure Consultant",
+    title: "Vidal Reñao — IT Infrastructure & AI Solutions Engineer",
     description:
-      "Cloud Infrastructure & Modern Workplace Engineer in Basel, Switzerland.",
+      "IT Infrastructure & AI Solutions Engineer in Basel, Switzerland. Azure · M365 · Next.js · Claude AI.",
     images: ["/Photo.jpg"],
   },
 };
