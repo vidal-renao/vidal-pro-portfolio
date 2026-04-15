@@ -5,6 +5,7 @@ import Certifications from "@/components/sections/Certifications";
 import TechStack from "@/components/sections/TechStack";
 import Experience from "@/components/sections/Experience";
 import Projects from "@/components/sections/Projects";
+import Testimonials from "@/components/sections/Testimonials";
 import Contact from "@/components/sections/Contact";
 
 export default function Page() {
@@ -18,6 +19,7 @@ export default function Page() {
         <TechStack />
         <Experience />
         <Projects />
+        <Testimonials />
         <Contact />
       </main>
     </>

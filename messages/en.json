@@ -148,6 +148,11 @@
     "view": "Live Demo",
     "code": "GitHub"
   },
+  "testimonials": {
+    "label": "Client Review",
+    "title": "What Clients Say",
+    "quote": "Extremely satisfied! Working with Vidal was straightforward and professional. The website was implemented exactly according to my vision and looks modern and high-quality. I especially appreciate the fast communication and the reliable work. I can absolutely recommend him!"
+  },
   "contact": {
     "title": "Let's Connect",
     "subtitle": "Open to Modern Workplace, Cloud Infrastructure, and AI Solutions roles in Switzerland & Liechtenstein.",

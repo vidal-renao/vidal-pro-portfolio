@@ -42,13 +42,13 @@ const projects = [
   {
     title: "D'NAMAR GmbH",
     description:
-      "Corporate website for a Swiss cleaning services company. Trilingual (DE/EN/ES), 100/100 Lighthouse score across all metrics, JSON-LD structured data for local SEO (Google Business eligible), quote and contact forms with XSS protection and Resend delivery.",
+      "Corporate website for a Swiss cleaning services company — live at dnamar.ch (Go-live April 2026). Trilingual (DE/EN/ES), 100/100 Lighthouse score across all metrics, JSON-LD structured data for local SEO, indexed on Google and verified in Google Search Console.",
     tags: ["Next.js 16", "Tailwind 4", "Supabase", "Resend"],
     color: "cyan",
     status: "Production",
-    metrics: ["100/100 Lighthouse", "3 languages", "Live Demo"],
+    metrics: ["100/100 Lighthouse", "3 languages", "Google Search Console"],
     githubUrl: "https://github.com/vidal-renao",
-    demoUrl: "https://limpiezas-najip-maritza.vercel.app/en",
+    demoUrl: "https://www.dnamar.ch",
   },
 ];
 

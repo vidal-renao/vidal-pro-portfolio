@@ -148,6 +148,11 @@
     "view": "Live Demo",
     "code": "GitHub"
   },
+  "testimonials": {
+    "label": "Kundenbewertung",
+    "title": "Was Kunden sagen",
+    "quote": "Sehr zufrieden! Die Zusammenarbeit mit Vidal war unkompliziert und professionell. Die Webseite wurde genau nach meinen Vorstellungen umgesetzt und sieht modern und hochwertig aus. Besonders schätze ich die schnelle Kommunikation und die zuverlässige Arbeit. Kann ich auf jeden Fall weiterempfehlen!"
+  },
   "contact": {
     "title": "Kontakt aufnehmen",
     "subtitle": "Offen für Modern Workplace, Cloud Infrastructure und AI Solutions Stellen in der Schweiz und Liechtenstein.",
