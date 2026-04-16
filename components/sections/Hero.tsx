@@ -95,7 +95,8 @@ export default function Hero() {
                 </svg>
               </a>
               <a
-                href="#contact"
+                href="/assets/Vidal_Renao_CV_EN.pdf"
+                download
                 className="flex items-center gap-2 border border-white/[0.1] hover:border-white/20 text-white/70 hover:text-white font-semibold rounded-full px-6 py-3 text-sm transition-all duration-200"
               >
                 {t("cta_secondary")}

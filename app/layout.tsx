@@ -73,6 +73,39 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Vidal Reñao",
+  jobTitle: "IT Infrastructure & AI Solutions Engineer",
+  url: "https://vidal-pro-portfolio.vercel.app",
+  image: "https://vidal-pro-portfolio.vercel.app/Photo.jpg",
+  email: "vidalrenao.lab@outlook.com",
+  telephone: "+41779726299",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Basel",
+    addressCountry: "CH",
+  },
+  sameAs: [
+    "https://linkedin.com/in/vidalrenao",
+    "https://github.com/vidal-renao",
+  ],
+  knowsAbout: [
+    "Microsoft Azure",
+    "Microsoft 365",
+    "Entra ID",
+    "Microsoft Intune",
+    "Next.js",
+    "TypeScript",
+    "Claude AI",
+    "Supabase",
+    "CCNA",
+    "Network Engineering",
+    "SaaS Development",
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -81,6 +114,12 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable}`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="bg-[#060606] text-white antialiased">
         <ServiceWorkerRegistration />
         {children}

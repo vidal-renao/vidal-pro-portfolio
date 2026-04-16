@@ -14,8 +14,8 @@ const projects = [
     color: "violet",
     status: "Production",
     metrics: ["AI CV parsing", "4D match scoring", "WhatsApp alerts"],
-    githubUrl: "https://github.com/vidal-renao",
-    demoUrl: null,
+    githubUrl: "https://github.com/vidal-renao/matchpoint-ai",
+    demoUrl: "https://matchpoint-gq5tnfo93-vidal-renaos-projects.vercel.app",
   },
   {
     title: "Invoice Auto",
@@ -25,8 +25,8 @@ const projects = [
     color: "blue",
     status: "Production",
     metrics: ["AI OCR extraction", "Auto invoice generation", "EUR · CHF"],
-    githubUrl: "https://github.com/vidal-renao",
-    demoUrl: null,
+    githubUrl: "https://github.com/vidal-renao/invoice-auto",
+    demoUrl: "https://invoice-auto-3xjvcf07t-vidal-renaos-projects.vercel.app",
   },
   {
     title: "Parcel Tracker SaaS",
@@ -36,8 +36,8 @@ const projects = [
     color: "emerald",
     status: "Production",
     metrics: ["3-tier RBAC", "Digital signature", "6 languages"],
-    githubUrl: "https://github.com/vidal-renao",
-    demoUrl: null,
+    githubUrl: "https://github.com/vidal-renao/cv-platform",
+    demoUrl: "https://cv-platform-fzmv9ksb4-vidal-renaos-projects.vercel.app",
   },
   {
     title: "D'NAMAR GmbH",
@@ -47,7 +47,7 @@ const projects = [
     color: "cyan",
     status: "Production",
     metrics: ["100/100 Lighthouse", "3 languages", "Google Search Console"],
-    githubUrl: "https://github.com/vidal-renao",
+    githubUrl: "https://github.com/vidal-renao/limpiezas-najip-maritza",
     demoUrl: "https://www.dnamar.ch",
   },
 ];
