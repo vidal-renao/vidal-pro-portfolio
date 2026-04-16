@@ -1,59 +1,48 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
-const projects = [
+type ProjectTranslation = {
+  title: string;
+  description: string;
+  tags: string[];
+  metrics: string[];
+  status: string;
+};
+
+type ColorKey = "violet" | "blue" | "emerald" | "cyan";
+
+const projectStatic: {
+  color: ColorKey;
+  githubUrl: string;
+  demoUrl: string | null;
+}[] = [
   {
-    title: "MatchPoint AI",
-    description:
-      "AI-powered job matching platform. Candidates upload their CV and Claude AI extracts their full profile automatically, then matches them against live job offers using 4-dimensional scoring: Hard Skills, Experience, Culture Fit, and Logistics. Recruiters only see candidates above 90% match — alerts via WhatsApp and email.",
-    tags: ["Next.js 16", "Claude AI", "Supabase", "Framer Motion"],
     color: "violet",
-    status: "Production",
-    metrics: ["AI CV parsing", "4D match scoring", "WhatsApp alerts"],
     githubUrl: "https://github.com/vidal-renao/matchpoint-ai",
     demoUrl: "https://matchpoint-gq5tnfo93-vidal-renaos-projects.vercel.app",
   },
   {
-    title: "Invoice Auto",
-    description:
-      "Freelancer invoice automation SaaS. Upload a receipt photo or PDF and Claude Vision AI extracts all fields — client, amount, date, VAT — and generates a professional invoice ready to send. No manual data entry. Multi-currency (EUR/CHF), PWA installable, fiscal validation for Spain and Switzerland.",
-    tags: ["Next.js 16", "Claude Vision AI", "Supabase", "PWA"],
     color: "blue",
-    status: "Production",
-    metrics: ["AI OCR extraction", "Auto invoice generation", "EUR · CHF"],
     githubUrl: "https://github.com/vidal-renao/invoice-auto",
     demoUrl: "https://invoice-auto-3xjvcf07t-vidal-renaos-projects.vercel.app",
   },
   {
-    title: "Parcel Tracker SaaS",
-    description:
-      "Parcel management platform for courier offices. Three-tier RBAC (Admin / Staff / Client), full package lifecycle tracking, digital proof of delivery with signature capture, and multi-channel notifications via WhatsApp and email. Public tracking page in 6 languages.",
-    tags: ["Next.js 14", "Node.js", "PostgreSQL", "Twilio"],
     color: "emerald",
-    status: "Production",
-    metrics: ["3-tier RBAC", "Digital signature", "6 languages"],
     githubUrl: "https://github.com/vidal-renao/cv-platform",
     demoUrl: "https://cv-platform-fzmv9ksb4-vidal-renaos-projects.vercel.app",
   },
   {
-    title: "D'NAMAR GmbH",
-    description:
-      "Corporate website for a Swiss cleaning services company — live at dnamar.ch (Go-live April 2026). Trilingual (DE/EN/ES), 100/100 Lighthouse score across all metrics, JSON-LD structured data for local SEO, indexed on Google and verified in Google Search Console.",
-    tags: ["Next.js 16", "Tailwind 4", "Supabase", "Resend"],
     color: "cyan",
-    status: "Production",
-    metrics: ["100/100 Lighthouse", "3 languages", "Google Search Console"],
     githubUrl: "https://github.com/vidal-renao/limpiezas-najip-maritza",
     demoUrl: "https://www.dnamar.ch",
   },
 ];
 
 const colorMap: Record<
-  string,
+  ColorKey,
   { badge: string; tag: string; dot: string; border: string }
 > = {
   blue: {
@@ -86,6 +75,9 @@ export default function Projects() {
   const t = useTranslations("projects");
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
+
+  const items = t.raw("items") as ProjectTranslation[];
+  const projects = items.map((item, i) => ({ ...item, ...projectStatic[i] }));
 
   return (
     <section
@@ -186,11 +178,7 @@ export default function Projects() {
                       rel="noopener noreferrer"
                       className="text-xs text-white/40 hover:text-white transition-colors flex items-center gap-1"
                     >
-                      <svg
-                        className="w-4 h-4"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
                       </svg>
                       {t("code")}

@@ -146,12 +146,59 @@
     "title": "Projects",
     "subtitle": "Real-world systems engineered for performance, reliability, and scale.",
     "view": "Live Demo",
-    "code": "GitHub"
+    "code": "GitHub",
+    "items": [
+      {
+        "title": "MatchPoint AI",
+        "description": "AI-powered job matching platform. Candidates upload their CV and Claude AI extracts their full profile automatically, then matches them against live job offers using 4-dimensional scoring: Hard Skills, Experience, Culture Fit, and Logistics. Recruiters only see candidates above 90% match — alerts via WhatsApp and email.",
+        "tags": ["Next.js 16", "Claude AI", "Supabase", "Framer Motion"],
+        "metrics": ["AI CV parsing", "4D match scoring", "WhatsApp alerts"],
+        "status": "Production"
+      },
+      {
+        "title": "Invoice Auto",
+        "description": "Freelancer invoice automation SaaS. Upload a receipt photo or PDF and Claude Vision AI extracts all fields — client, amount, date, VAT — and generates a professional invoice ready to send. No manual data entry. Multi-currency (EUR/CHF), PWA installable, fiscal validation for Spain and Switzerland.",
+        "tags": ["Next.js 16", "Claude Vision AI", "Supabase", "PWA"],
+        "metrics": ["AI OCR extraction", "Auto invoice generation", "EUR · CHF"],
+        "status": "Production"
+      },
+      {
+        "title": "Parcel Tracker SaaS",
+        "description": "Parcel management platform for courier offices. Three-tier RBAC (Admin / Staff / Client), full package lifecycle tracking, digital proof of delivery with signature capture, and multi-channel notifications via WhatsApp and email. Public tracking page in 6 languages.",
+        "tags": ["Next.js 14", "Node.js", "PostgreSQL", "Twilio"],
+        "metrics": ["3-tier RBAC", "Digital signature", "6 languages"],
+        "status": "Production"
+      },
+      {
+        "title": "D'NAMAR GmbH",
+        "description": "Corporate website for a Swiss cleaning services company — live at dnamar.ch (Go-live April 2026). Trilingual (DE/EN/ES), 100/100 Lighthouse score across all metrics, JSON-LD structured data for local SEO, indexed on Google and verified in Google Search Console.",
+        "tags": ["Next.js 16", "Tailwind 4", "Supabase", "Resend"],
+        "metrics": ["100/100 Lighthouse", "3 languages", "Google Search Console"],
+        "status": "Production"
+      }
+    ]
   },
   "testimonials": {
-    "label": "Client Review",
+    "label": "Client Reviews",
     "title": "What Clients Say",
-    "quote": "Extremely satisfied! Working with Vidal was straightforward and professional. The website was implemented exactly according to my vision and looks modern and high-quality. I especially appreciate the fast communication and the reliable work. I can absolutely recommend him!"
+    "items": [
+      {
+        "quote": "Extremely satisfied! Working with Vidal was straightforward and professional. The website was implemented exactly according to my vision and looks modern and high-quality. I especially appreciate the fast communication and the reliable work. I can absolutely recommend him!",
+        "author": "Nadjib Rasuly",
+        "role": "CEO · D'Namar GmbH · Basel, Switzerland",
+        "initials": "NR",
+        "url": "https://www.dnamar.ch",
+        "urlLabel": "dnamar.ch · April 2026"
+      },
+      {
+        "quote": "From the first briefing to go-live, every technical detail was handled with precision and care. The trilingual platform Vidal built is fast, reliable, and exactly what our operations needed to work professionally.",
+        "author": "Maritza Najip",
+        "role": "Operations Manager · D'Namar GmbH · Basel, Switzerland",
+        "initials": "MN",
+        "url": "https://www.dnamar.ch",
+        "urlLabel": "dnamar.ch · April 2026"
+      }
+    ]
   },
   "contact": {
     "title": "Let's Connect",

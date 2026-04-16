@@ -146,12 +146,59 @@
     "title": "Proyectos",
     "subtitle": "Sistemas reales diseñados para rendimiento, fiabilidad y escala.",
     "view": "Demo en vivo",
-    "code": "GitHub"
+    "code": "GitHub",
+    "items": [
+      {
+        "title": "MatchPoint AI",
+        "description": "Plataforma de matching laboral con IA. Los candidatos suben su CV y Claude AI extrae su perfil completo automáticamente, que luego se empareja con ofertas de empleo en tiempo real usando scoring 4D: Hard Skills, Experiencia, Cultura y Logística. Los reclutadores solo ven candidatos con más del 90% de match — alertas por WhatsApp y email.",
+        "tags": ["Next.js 16", "Claude AI", "Supabase", "Framer Motion"],
+        "metrics": ["Parsing CV con IA", "Scoring 4D", "Alertas WhatsApp"],
+        "status": "Producción"
+      },
+      {
+        "title": "Invoice Auto",
+        "description": "SaaS de automatización de facturas para freelancers. Sube una foto del recibo o PDF y Claude Vision AI extrae todos los campos — cliente, importe, fecha, IVA — y genera una factura profesional lista para enviar. Sin entrada de datos manual. Multi-moneda (EUR/CHF), instalable como PWA, validación fiscal para España y Suiza.",
+        "tags": ["Next.js 16", "Claude Vision AI", "Supabase", "PWA"],
+        "metrics": ["OCR con IA", "Generación automática", "EUR · CHF"],
+        "status": "Producción"
+      },
+      {
+        "title": "Parcel Tracker SaaS",
+        "description": "Plataforma de gestión de paquetería para oficinas de mensajería. RBAC de tres niveles (Admin/Agente/Cliente), seguimiento completo del ciclo de vida del paquete, prueba de entrega digital con captura de firma y notificaciones multicanal por WhatsApp y email. Página de seguimiento pública en 6 idiomas.",
+        "tags": ["Next.js 14", "Node.js", "PostgreSQL", "Twilio"],
+        "metrics": ["RBAC 3 niveles", "Firma digital", "6 idiomas"],
+        "status": "Producción"
+      },
+      {
+        "title": "D'NAMAR GmbH",
+        "description": "Sitio web corporativo para una empresa de limpieza suiza — en producción en dnamar.ch (go-live abril 2026). Trilingüe (DE/EN/ES), 100/100 en Lighthouse en todas las métricas, datos estructurados JSON-LD para SEO local, indexado en Google y verificado en Google Search Console.",
+        "tags": ["Next.js 16", "Tailwind 4", "Supabase", "Resend"],
+        "metrics": ["100/100 Lighthouse", "3 idiomas", "Google Search Console"],
+        "status": "Producción"
+      }
+    ]
   },
   "testimonials": {
-    "label": "Opinión de Cliente",
+    "label": "Opiniones de Clientes",
     "title": "Lo que dicen los clientes",
-    "quote": "¡Muy satisfecho! La colaboración con Vidal fue sencilla y profesional. La página web fue realizada exactamente según mis especificaciones y tiene un aspecto moderno y de alta calidad. Especialmente valoro la comunicación rápida y el trabajo fiable. ¡Se lo recomiendo sin duda!"
+    "items": [
+      {
+        "quote": "¡Muy satisfecho! La colaboración con Vidal fue sencilla y profesional. La página web fue realizada exactamente según mis especificaciones y tiene un aspecto moderno y de alta calidad. Especialmente valoro la comunicación rápida y el trabajo fiable. ¡Se lo recomiendo sin duda!",
+        "author": "Nadjib Rasuly",
+        "role": "CEO · D'Namar GmbH · Basilea, Suiza",
+        "initials": "NR",
+        "url": "https://www.dnamar.ch",
+        "urlLabel": "dnamar.ch · Abril 2026"
+      },
+      {
+        "quote": "Desde el primer briefing hasta el go-live, cada detalle técnico fue gestionado con precisión y cuidado. La plataforma trilingüe que construyó Vidal es rápida, fiable y exactamente lo que nuestras operaciones necesitaban para funcionar de forma profesional.",
+        "author": "Maritza Najip",
+        "role": "Responsable de Operaciones · D'Namar GmbH · Basilea, Suiza",
+        "initials": "MN",
+        "url": "https://www.dnamar.ch",
+        "urlLabel": "dnamar.ch · Abril 2026"
+      }
+    ]
   },
   "contact": {
     "title": "Hablemos",

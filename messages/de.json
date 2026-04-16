@@ -146,12 +146,59 @@
     "title": "Projekte",
     "subtitle": "Reale Systeme entwickelt für Performance, Zuverlässigkeit und Skalierung.",
     "view": "Live Demo",
-    "code": "GitHub"
+    "code": "GitHub",
+    "items": [
+      {
+        "title": "MatchPoint AI",
+        "description": "KI-gestützte Job-Matching-Plattform. Kandidaten laden ihren Lebenslauf hoch und Claude AI extrahiert ihr Profil automatisch, das dann mit Live-Jobangeboten über 4-dimensionales Scoring abgeglichen wird: Hard Skills, Erfahrung, Cultural Fit und Logistik. Recruiter sehen nur Kandidaten über 90% Match — Benachrichtigungen via WhatsApp und E-Mail.",
+        "tags": ["Next.js 16", "Claude AI", "Supabase", "Framer Motion"],
+        "metrics": ["KI-Lebenslaufanalyse", "4D-Match-Scoring", "WhatsApp-Benachrichtigungen"],
+        "status": "Produktiv"
+      },
+      {
+        "title": "Invoice Auto",
+        "description": "Freelancer-Rechnungsautomatisierungs-SaaS. Laden Sie ein Belegfoto oder PDF hoch und Claude Vision AI extrahiert alle Felder — Auftraggeber, Betrag, Datum, MwSt. — und erstellt eine fertige Rechnung. Keine manuelle Dateneingabe. Multi-Währung (EUR/CHF), PWA-installierbar, steuerliche Validierung für Spanien und die Schweiz.",
+        "tags": ["Next.js 16", "Claude Vision AI", "Supabase", "PWA"],
+        "metrics": ["KI-OCR-Extraktion", "Automatische Rechnung", "EUR · CHF"],
+        "status": "Produktiv"
+      },
+      {
+        "title": "Parcel Tracker SaaS",
+        "description": "Paketverwaltungsplattform für Kurierdienstleistungen. Dreistufiges RBAC (Admin/Mitarbeiter/Kunde), vollständige Paketverfolgung, digitaler Liefernachweis mit Unterschriftenerfassung und Multi-Kanal-Benachrichtigungen via WhatsApp und E-Mail. Öffentliche Verfolgungsseite in 6 Sprachen.",
+        "tags": ["Next.js 14", "Node.js", "PostgreSQL", "Twilio"],
+        "metrics": ["3-stufiges RBAC", "Digitale Unterschrift", "6 Sprachen"],
+        "status": "Produktiv"
+      },
+      {
+        "title": "D'NAMAR GmbH",
+        "description": "Unternehmenswebsite für ein Schweizer Reinigungsunternehmen — live auf dnamar.ch (Go-live April 2026). Dreisprachig (DE/EN/ES), 100/100 Lighthouse-Score in allen Metriken, JSON-LD Strukturdaten für lokales SEO, indexiert bei Google und verifiziert in der Google Search Console.",
+        "tags": ["Next.js 16", "Tailwind 4", "Supabase", "Resend"],
+        "metrics": ["100/100 Lighthouse", "3 Sprachen", "Google Search Console"],
+        "status": "Produktiv"
+      }
+    ]
   },
   "testimonials": {
-    "label": "Kundenbewertung",
+    "label": "Kundenbewertungen",
     "title": "Was Kunden sagen",
-    "quote": "Sehr zufrieden! Die Zusammenarbeit mit Vidal war unkompliziert und professionell. Die Webseite wurde genau nach meinen Vorstellungen umgesetzt und sieht modern und hochwertig aus. Besonders schätze ich die schnelle Kommunikation und die zuverlässige Arbeit. Kann ich auf jeden Fall weiterempfehlen!"
+    "items": [
+      {
+        "quote": "Sehr zufrieden! Die Zusammenarbeit mit Vidal war unkompliziert und professionell. Die Webseite wurde genau nach meinen Vorstellungen umgesetzt und sieht modern und hochwertig aus. Besonders schätze ich die schnelle Kommunikation und die zuverlässige Arbeit. Kann ich auf jeden Fall weiterempfehlen!",
+        "author": "Nadjib Rasuly",
+        "role": "Geschäftsführer · D'Namar GmbH · Basel, Schweiz",
+        "initials": "NR",
+        "url": "https://www.dnamar.ch",
+        "urlLabel": "dnamar.ch · April 2026"
+      },
+      {
+        "quote": "Vom ersten Briefing bis zum Go-live wurde jedes technische Detail mit Präzision und Sorgfalt umgesetzt. Die mehrsprachige Plattform, die Vidal entwickelt hat, ist schnell, zuverlässig und genau das, was unsere operativen Abläufe brauchten.",
+        "author": "Maritza Najip",
+        "role": "Betriebsleiterin · D'Namar GmbH · Basel, Schweiz",
+        "initials": "MN",
+        "url": "https://www.dnamar.ch",
+        "urlLabel": "dnamar.ch · April 2026"
+      }
+    ]
   },
   "contact": {
     "title": "Kontakt aufnehmen",
