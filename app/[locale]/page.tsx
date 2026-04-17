@@ -8,12 +8,21 @@ import Projects from "@/components/sections/Projects";
 import Testimonials from "@/components/sections/Testimonials";
 import Contact from "@/components/sections/Contact";
 
-export default function Page() {
+type Locale = "en" | "de" | "es";
+
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const safeLocale = (["en", "de", "es"].includes(locale) ? locale : "en") as Locale;
+
   return (
     <>
       <NavBar />
       <main>
-        <Hero />
+        <Hero locale={safeLocale} />
         <Services />
         <Certifications />
         <TechStack />

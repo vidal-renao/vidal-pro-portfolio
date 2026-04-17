@@ -3,8 +3,15 @@
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import DownloadCVButton from "@/components/ui/DownloadCVButton";
 
-export default function Hero() {
+type Locale = "en" | "de" | "es";
+
+interface HeroProps {
+  locale?: Locale;
+}
+
+export default function Hero({ locale = "en" }: HeroProps) {
   const t = useTranslations("hero");
 
   return (
@@ -94,16 +101,7 @@ export default function Hero() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </a>
-              <a
-                href="/assets/Vidal_Renao_CV_EN.pdf"
-                download
-                className="flex items-center gap-2 border border-white/[0.1] hover:border-white/20 text-white/70 hover:text-white font-semibold rounded-full px-6 py-3 text-sm transition-all duration-200"
-              >
-                {t("cta_secondary")}
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                </svg>
-              </a>
+              <DownloadCVButton locale={locale} variant="ghost" />
             </motion.div>
 
             {/* Stats */}
