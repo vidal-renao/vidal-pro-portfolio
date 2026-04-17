@@ -12,13 +12,18 @@ type ProjectTranslation = {
   status: string;
 };
 
-type ColorKey = "violet" | "blue" | "emerald" | "cyan";
+type ColorKey = "violet" | "blue" | "emerald" | "cyan" | "amber";
 
 const projectStatic: {
   color: ColorKey;
   githubUrl: string;
   demoUrl: string | null;
 }[] = [
+  {
+    color: "amber",
+    githubUrl: "https://github.com/vidal-renao/ticket-system",
+    demoUrl: null,
+  },
   {
     color: "violet",
     githubUrl: "https://github.com/vidal-renao/matchpoint-ai",
@@ -45,6 +50,12 @@ const colorMap: Record<
   ColorKey,
   { badge: string; tag: string; dot: string; border: string }
 > = {
+  amber: {
+    badge: "bg-amber-500/10 text-amber-400 border-amber-500/20",
+    tag: "bg-amber-500/08 text-amber-400/80 border-amber-500/15",
+    dot: "bg-amber-400",
+    border: "hover:border-amber-500/20",
+  },
   blue: {
     badge: "bg-blue-500/10 text-blue-400 border-blue-500/20",
     tag: "bg-blue-500/08 text-blue-400/80 border-blue-500/15",

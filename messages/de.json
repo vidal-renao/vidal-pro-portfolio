@@ -149,6 +149,13 @@
     "code": "GitHub",
     "items": [
       {
+        "title": "Ticket System",
+        "description": "Enterprise-Plattform für Incident- und Aufgabenmanagement für IT-Teams. Tickets durchlaufen eine definierte Zustandsmaschine (Offen → Triage → In Bearbeitung → Gelöst), mit Claude AI, das jede Anfrage automatisch kategorisiert und Priorität P1–P4 zuweist. Multi-Tenant-RBAC (Admin / Techniker / Anforderer), SLA-Überwachung und Echtzeit-Benachrichtigungen — entwickelt für Swiss-DSG-Konformität.",
+        "tags": ["Next.js 15", "Supabase", "Claude AI"],
+        "metrics": ["KI-Auto-Triage", "SLA-Tracking", "DSG-konform"],
+        "status": "In Entwicklung"
+      },
+      {
         "title": "MatchPoint AI",
         "description": "KI-gestützte Job-Matching-Plattform. Kandidaten laden ihren Lebenslauf hoch und Claude AI extrahiert ihr Profil automatisch, das dann mit Live-Jobangeboten über 4-dimensionales Scoring abgeglichen wird: Hard Skills, Erfahrung, Cultural Fit und Logistik. Recruiter sehen nur Kandidaten über 90% Match — Benachrichtigungen via WhatsApp und E-Mail.",
         "tags": ["Next.js 16", "Claude AI", "Supabase", "Framer Motion"],

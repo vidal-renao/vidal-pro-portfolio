@@ -33,8 +33,9 @@ export default function DownloadCVButton({
 
   return (
     <a
-      href="/Vidal_Renao_Profile.pdf"
-      download="Vidal_Renao_Lopelo_IT_Profile.pdf"
+      href={`/${locale}/print`}
+      target="_blank"
+      rel="noopener noreferrer"
       className={`${baseClasses} ${variantClasses} ${className}`}
       aria-label={label}
     >
