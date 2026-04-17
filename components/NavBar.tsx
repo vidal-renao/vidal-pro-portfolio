@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { useEffect, useState } from "react";
 import Image from "next/image";
@@ -12,20 +12,16 @@ export default function NavBar() {
   const t = useTranslations("nav");
   const pathname = usePathname();
   const router = useRouter();
+  const locale = useLocale() as Locale;
   const [scrolled, setScrolled] = useState(false);
-  const [locale, setLocale] = useState<Locale>("en");
 
   useEffect(() => {
-    const seg = window.location.pathname.split("/")[1] as Locale;
-    setLocale(LOCALES.includes(seg) ? seg : "en");
-
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const switchLocale = (next: Locale) => {
-    setLocale(next);
     router.replace(pathname, { locale: next });
   };
 
