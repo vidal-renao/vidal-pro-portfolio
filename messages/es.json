@@ -16,16 +16,33 @@
     "cloud_title": "Cloud Transformation",
     "cloud_benefit": "Reduce costes. Fortalece la seguridad.",
     "cloud_desc": "Migración de su organización a Microsoft 365 y Azure. Gestión moderna de identidades con Entra ID, ciclo de vida automatizado de dispositivos con Intune & Autopilot — seguridad empresarial sin complejidad añadida.",
-    "cloud_tags": ["M365", "Azure", "Entra ID", "Intune", "Autopilot"],
+    "cloud_tags": [
+      "M365",
+      "Azure",
+      "Entra ID",
+      "Intune",
+      "Autopilot"
+    ],
     "apps_title": "Apps de Negocio a Medida",
     "apps_benefit": "Digitalice sus procesos. Elimine fricciones.",
     "apps_desc": "Progressive Web Apps que transforman procesos manuales en sistemas digitales rápidos, instalables y multilingüe. Desde logística hasta gestión de instalaciones — construidas para obtener 100/100 en rendimiento.",
     "apps_case": "→ Caso: Dnamar Facility Services — plataforma de operaciones en tiempo real en 3 idiomas.",
-    "apps_tags": ["Next.js", "PWA", "Multilingüe", "100/100"],
+    "apps_tags": [
+      "Next.js",
+      "PWA",
+      "Multilingüe",
+      "100/100"
+    ],
     "network_title": "Redes Híbridas",
     "network_benefit": "Conectividad fiable para operaciones multi-sede.",
     "network_desc": "Diseño de redes empresariales para empresas con múltiples sedes: segmentación VLAN, configuración VPN, DNS/DHCP e identidad híbrida — para que cada equipo esté conectado y cada dispositivo dentro de su perímetro de seguridad.",
-    "network_tags": ["CCNA", "VLAN", "VPN", "Windows Server", "AD"]
+    "network_tags": [
+      "CCNA",
+      "VLAN",
+      "VPN",
+      "Windows Server",
+      "AD"
+    ]
   },
   "hero": {
     "badge": "IT Infrastructure & AI Solutions Engineer · Basel, CH",
@@ -52,25 +69,48 @@
     "ccna_guarantee_label": "Qué significa para usted",
     "ccna_guarantee": "Su infraestructura de red es diseñada, asegurada y documentada por un profesional certificado por Cisco.",
     "ccna_desc": "Certificación formal en diseño de redes empresariales, switching, routing y seguridad. Su conectividad multi-sede, arquitectura VLAN y túneles VPN se construyen sobre protocolos estándar del sector — no sobre ensayo y error.",
-    "ccna_tags": ["Routing & Switching", "VLANs", "VPN", "Seguridad de Red", "TCP/IP"],
+    "ccna_tags": [
+      "Routing & Switching",
+      "VLANs",
+      "VPN",
+      "Seguridad de Red",
+      "TCP/IP"
+    ],
     "ccna_verify": "Verificar en Credly",
     "ai_title": "AI Development: From 0 to Production",
     "ai_issuer": "BIG school · Brais Moure & Romuald Fons",
     "ai_guarantee_label": "Qué significa para usted",
     "ai_guarantee": "Sus flujos de trabajo se automatizan y sus aplicaciones se entregan más rápido — con herramientas de IA punteras desde el primer día.",
     "ai_desc": "Formación especializada en desarrollo asistido por IA y automatización de flujos de trabajo. Aplicado a proyectos reales: ciclos de entrega más rápidos, generación de código más inteligente y sistemas fullstack que se adaptan.",
-    "ai_tags": ["Automatización IA", "Fullstack", "Herramientas LLM", "Productividad", "Next.js"],
+    "ai_tags": [
+      "Automatización IA",
+      "Fullstack",
+      "Herramientas LLM",
+      "Productividad",
+      "Next.js"
+    ],
     "ai_verify": "Ver Programa",
     "ecommerce_title": "E-commerce & Marketing Digital",
     "ecommerce_issuer": "Especialista Certificado",
     "ecommerce_guarantee_label": "Qué significa para usted",
     "ecommerce_guarantee": "Su presencia digital es técnicamente sólida y está optimizada para visibilidad y conversión.",
     "ecommerce_desc": "Expertise completo en plataformas e-commerce (PrestaShop, Joomla), gestión de bases de datos MySQL/PhpMyAdmin y optimización SEO/conversión. Su negocio online funciona sobre infraestructura que realmente rinde.",
-    "ecommerce_tags": ["PrestaShop", "Joomla", "MySQL", "SEO", "CRO"],
+    "ecommerce_tags": [
+      "PrestaShop",
+      "Joomla",
+      "MySQL",
+      "SEO",
+      "CRO"
+    ],
     "ecommerce_verify": "Ver Credencial",
     "trust_title": "Habilidades validadas en Infraestructura, Desarrollo e IA",
     "trust_subtitle": "Cubriendo todo el espectro técnico — desde la capa de red hasta la interfaz de usuario.",
-    "trust_badges": ["Cisco Certificado", "Early Adopter IA", "7+ Años IT Empresarial", "100/100 Lighthouse"]
+    "trust_badges": [
+      "Cisco Certificado",
+      "Early Adopter IA",
+      "7+ Años IT Empresarial",
+      "100/100 Lighthouse"
+    ]
   },
   "stack": {
     "title": "Stack Tecnológico",
@@ -149,38 +189,93 @@
     "code": "GitHub",
     "items": [
       {
-        "title": "Ticket System",
-        "description": "Plataforma enterprise de gestión de incidencias y tareas para equipos IT. Los tickets fluyen por una máquina de estados definida (Abierto → Triaje → En progreso → Resuelto), con Claude AI categorizando cada solicitud automáticamente y asignando prioridad P1–P4. RBAC multi-tenant (Admin / Técnico / Solicitante), seguimiento de SLA y notificaciones en tiempo real — construido con cumplimiento Swiss DSG.",
-        "tags": ["Next.js 15", "Supabase", "Claude AI"],
-        "metrics": ["Triaje automático IA", "SLA tracking", "DSG compliant"],
-        "status": "En desarrollo"
+        "title": "HelpDesk AI",
+        "description": "SaaS de helpdesk empresarial con IA para PYMEs suizas. Claude AI triaja automáticamente cada ticket — prioridad (crítica/alta/media/baja), categoría, sentimiento y detección de datos personales. RBAC multitenancy (Admin / Agente / Manager / Cliente), seguimiento de SLA con detección de incumplimientos, soporte multilingüe (DE/EN/ES) y cumplimiento DSG/nDSG suizo.",
+        "tags": [
+          "Next.js 15",
+          "Supabase",
+          "Claude AI"
+        ],
+        "metrics": [
+          "Triaje IA",
+          "Seguimiento SLA",
+          "Cumplimiento DSG"
+        ],
+        "status": "Producción"
+      },
+      {
+        "title": "HelpdeskAI MCP Server",
+        "description": "Servidor Model Context Protocol que expone la plataforma HelpDesk AI como 7 herramientas nativas de IA. Desplegado en Vercel via SSE — sin instalación local. Claude Desktop se conecta y gestiona tickets en lenguaje natural: crear, triar, priorizar, sugerir soluciones, actualizar estado y generar informes de cumplimiento SLA.",
+        "tags": [
+          "MCP SDK",
+          "Claude AI",
+          "Vercel SSE"
+        ],
+        "metrics": [
+          "7 tools MCP",
+          "SSE desplegado",
+          "Ops en lenguaje natural"
+        ],
+        "status": "Producción"
       },
       {
         "title": "MatchPoint AI",
-        "description": "Plataforma de matching laboral con IA. Los candidatos suben su CV y Claude AI extrae su perfil completo automáticamente, que luego se empareja con ofertas de empleo en tiempo real usando scoring 4D: Hard Skills, Experiencia, Cultura y Logística. Los reclutadores solo ven candidatos con más del 90% de match — alertas por WhatsApp y email.",
-        "tags": ["Next.js 16", "Claude AI", "Supabase", "Framer Motion"],
-        "metrics": ["Parsing CV con IA", "Scoring 4D", "Alertas WhatsApp"],
+        "description": "Plataforma de matching de empleo con IA. Los candidatos suben su CV y Claude AI extrae automáticamente su perfil completo, luego los empareja con ofertas usando scoring 4D: Habilidades, Experiencia, Cultura y Logística. Los recruiters solo ven candidatos por encima del 90% — alertas via WhatsApp y email.",
+        "tags": [
+          "Next.js 16",
+          "Claude AI",
+          "Supabase"
+        ],
+        "metrics": [
+          "Parsing CV con IA",
+          "Scoring 4D",
+          "Alertas WhatsApp"
+        ],
         "status": "Producción"
       },
       {
         "title": "Invoice Auto",
-        "description": "SaaS de automatización de facturas para freelancers. Sube una foto del recibo o PDF y Claude Vision AI extrae todos los campos — cliente, importe, fecha, IVA — y genera una factura profesional lista para enviar. Sin entrada de datos manual. Multi-moneda (EUR/CHF), instalable como PWA, validación fiscal para España y Suiza.",
-        "tags": ["Next.js 16", "Claude Vision AI", "Supabase", "PWA"],
-        "metrics": ["OCR con IA", "Generación automática", "EUR · CHF"],
+        "description": "SaaS de automatización de facturas para freelancers. Sube una foto o PDF de un recibo y Claude Vision AI extrae todos los campos — cliente, importe, fecha, IVA — y genera una factura profesional lista para enviar. Sin entrada manual de datos. Multi-divisa (EUR/CHF), instalable como PWA, validación fiscal para España y Suiza.",
+        "tags": [
+          "Next.js 16",
+          "Claude Vision AI",
+          "Supabase"
+        ],
+        "metrics": [
+          "OCR con IA",
+          "Generación automática",
+          "EUR · CHF"
+        ],
         "status": "Producción"
       },
       {
         "title": "Parcel Tracker SaaS",
-        "description": "Plataforma de gestión de paquetería para oficinas de mensajería. RBAC de tres niveles (Admin/Agente/Cliente), seguimiento completo del ciclo de vida del paquete, prueba de entrega digital con captura de firma y notificaciones multicanal por WhatsApp y email. Página de seguimiento pública en 6 idiomas.",
-        "tags": ["Next.js 14", "Node.js", "PostgreSQL", "Twilio"],
-        "metrics": ["RBAC 3 niveles", "Firma digital", "6 idiomas"],
+        "description": "Plataforma de gestión de paquetería para oficinas de mensajería. RBAC de tres niveles (Admin / Staff / Cliente), seguimiento completo del ciclo de vida del paquete, prueba de entrega digital con firma, y notificaciones multicanal via WhatsApp y email. Página de seguimiento pública en 6 idiomas.",
+        "tags": [
+          "Next.js 14",
+          "Node.js",
+          "PostgreSQL"
+        ],
+        "metrics": [
+          "RBAC 3 niveles",
+          "Firma digital",
+          "6 idiomas"
+        ],
         "status": "Producción"
       },
       {
         "title": "D'NAMAR GmbH",
-        "description": "Sitio web corporativo para una empresa de limpieza suiza — en producción en dnamar.ch (go-live abril 2026). Trilingüe (DE/EN/ES), 100/100 en Lighthouse en todas las métricas, datos estructurados JSON-LD para SEO local, indexado en Google y verificado en Google Search Console.",
-        "tags": ["Next.js 16", "Tailwind 4", "Supabase", "Resend"],
-        "metrics": ["100/100 Lighthouse", "3 idiomas", "Google Search Console"],
+        "description": "Web corporativa para empresa suiza de limpieza — en producción en dnamar.ch (Go-live abril 2026). Trilingüe (DE/EN/ES), puntuación 100/100 en Lighthouse en todas las métricas, datos estructurados JSON-LD para SEO local, indexada en Google y verificada en Google Search Console.",
+        "tags": [
+          "Next.js 16",
+          "Tailwind 4",
+          "Supabase"
+        ],
+        "metrics": [
+          "100/100 Lighthouse",
+          "3 idiomas",
+          "Google Search Console"
+        ],
         "status": "Producción"
       }
     ]

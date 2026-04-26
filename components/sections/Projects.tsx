@@ -12,7 +12,7 @@ type ProjectTranslation = {
   status: string;
 };
 
-type ColorKey = "violet" | "blue" | "emerald" | "cyan" | "amber";
+type ColorKey = "violet" | "blue" | "emerald" | "cyan" | "amber" | "rose" | "indigo";
 
 const projectStatic: {
   color: ColorKey;
@@ -22,7 +22,12 @@ const projectStatic: {
   {
     color: "amber",
     githubUrl: "https://github.com/vidal-renao/ticket-system",
-    demoUrl: null,
+    demoUrl: "https://ticket-system-sigma-pink.vercel.app",
+  },
+  {
+    color: "rose",
+    githubUrl: "https://github.com/vidal-renao/vidal-helpdesk-mcp",
+    demoUrl: "https://vidal-helpdesk-mcp.vercel.app/health",
   },
   {
     color: "violet",
@@ -46,7 +51,7 @@ const projectStatic: {
   },
 ];
 
-const colorMap: Record<
+const colorMap: Record
   ColorKey,
   { badge: string; tag: string; dot: string; border: string }
 > = {
@@ -80,6 +85,18 @@ const colorMap: Record<
     dot: "bg-cyan-400",
     border: "hover:border-cyan-500/20",
   },
+  rose: {
+    badge: "bg-rose-500/10 text-rose-400 border-rose-500/20",
+    tag: "bg-rose-500/08 text-rose-400/80 border-rose-500/15",
+    dot: "bg-rose-400",
+    border: "hover:border-rose-500/20",
+  },
+  indigo: {
+    badge: "bg-indigo-500/10 text-indigo-400 border-indigo-500/20",
+    tag: "bg-indigo-500/08 text-indigo-400/80 border-indigo-500/15",
+    dot: "bg-indigo-400",
+    border: "hover:border-indigo-500/20",
+  },
 };
 
 export default function Projects() {
@@ -97,7 +114,6 @@ export default function Projects() {
       ref={ref}
     >
       <div className="max-w-6xl mx-auto">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -115,7 +131,6 @@ export default function Projects() {
           </p>
         </motion.div>
 
-        {/* Grid */}
         <div className="grid md:grid-cols-2 gap-5">
           {projects.map((project, i) => {
             const colors = colorMap[project.color];
@@ -127,7 +142,6 @@ export default function Projects() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className={`group glass-card rounded-2xl p-6 flex flex-col gap-5 transition-all duration-300 ${colors.border} hover:shadow-xl`}
               >
-                {/* Top */}
                 <div className="flex items-start justify-between gap-3">
                   <h3 className="font-semibold text-white text-lg">
                     {project.title}
@@ -140,12 +154,10 @@ export default function Projects() {
                   </span>
                 </div>
 
-                {/* Description */}
                 <p className="text-sm text-white/50 leading-relaxed flex-1">
                   {project.description}
                 </p>
 
-                {/* Metrics */}
                 <div className="flex flex-wrap gap-2">
                   {project.metrics.map((m) => (
                     <span
@@ -157,7 +169,6 @@ export default function Projects() {
                   ))}
                 </div>
 
-                {/* Tags + Links */}
                 <div className="flex items-center justify-between gap-3 pt-3 border-t border-white/[0.05]">
                   <div className="flex flex-wrap gap-1.5">
                     {project.tags.slice(0, 3).map((tag) => (
@@ -171,7 +182,7 @@ export default function Projects() {
                   </div>
                   <div className="flex items-center gap-3 flex-none">
                     {project.demoUrl && (
-                      <a
+                      
                         href={project.demoUrl}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -183,7 +194,7 @@ export default function Projects() {
                         {t("view")}
                       </a>
                     )}
-                    <a
+                    
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
