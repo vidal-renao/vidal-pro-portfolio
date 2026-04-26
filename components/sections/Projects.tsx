@@ -51,10 +51,7 @@ const projectStatic: {
   },
 ];
 
-const colorMap: Record
-  ColorKey,
-  { badge: string; tag: string; dot: string; border: string }
-> = {
+const colorMap: Record<ColorKey, { badge: string; tag: string; dot: string; border: string }> = {
   amber: {
     badge: "bg-amber-500/10 text-amber-400 border-amber-500/20",
     tag: "bg-amber-500/08 text-amber-400/80 border-amber-500/15",
