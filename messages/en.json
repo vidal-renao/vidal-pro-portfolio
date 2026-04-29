@@ -25,7 +25,7 @@
     ],
     "apps_title": "Custom Business Apps",
     "apps_benefit": "Digitize your workflows. Eliminate friction.",
-    "apps_desc": "Purpose-built Progressive Web Apps (PWAs) that replace manual processes with fast, installable, multilingual digital systems. From logistics tracking to facility management — built to score 100/100 on performance.",
+    "apps_desc": "Purpose-built web applications and AI-integrated systems that replace manual processes with fast, installable, multilingual products. From operations platforms to autonomous audit pipelines — built to score 100/100 and ship on schedule.",
     "apps_case": "→ Case: Dnamar Facility Services — real-time operations platform across 3 languages.",
     "apps_tags": [
       "Next.js",
@@ -48,9 +48,9 @@
     "badge": "IT Infrastructure & AI Solutions Engineer · Basel, CH",
     "availability_swiss": "Immediate availability across Switzerland and Liechtenstein",
     "title": "IT Infrastructure & AI Solutions Engineer",
-    "title2": "Bridging Infrastructure & Business Innovation",
-    "subtitle": "Turning technical complexity into measurable business value — Cloud Transformation, Custom Business Apps, and Hybrid Networking for enterprises across Switzerland and Liechtenstein.",
-    "collaboration": "Open to individual projects and collective collaborations.",
+    "title2": "Enterprise IT. AI in Production. Full-Stack Delivery.",
+    "subtitle": "7+ years enterprise IT across multinational environments. AI systems live in production — autonomous audit pipelines, MCP server on Vercel, Claude Vision OCR. Direct client engagement from brief to go-live.",
+    "collaboration": "Available for direct client mandates and agency collaboration across CH/LI.",
     "cta_primary": "Let's Optimize Your Business",
     "cta_secondary": "Download CV",
     "stat1_value": "500+",
@@ -80,7 +80,7 @@
     "ai_title": "AI Development: From 0 to Production",
     "ai_issuer": "BIG school · Brais Moure & Romuald Fons",
     "ai_guarantee_label": "What this means for you",
-    "ai_guarantee": "Your workflows are automated and your apps are built faster — using cutting-edge AI tooling from day one.",
+    "ai_guarantee": "Your workflows are automated and apps shipped faster — with production-tested AI tooling from day one.",
     "ai_desc": "Specialized training in AI-assisted development and workflow automation by Spain's top tech educators. Applied to real projects: faster delivery cycles, smarter code generation, and full-stack systems that adapt.",
     "ai_tags": [
       "AI Automation",
@@ -107,7 +107,7 @@
     "trust_subtitle": "Covering the full technical spectrum — from network layer to user interface.",
     "trust_badges": [
       "Cisco Certified",
-      "AI Early Adopter",
+      "AI in Production",
       "7+ Years Enterprise IT",
       "100/100 Lighthouse"
     ]
@@ -184,7 +184,7 @@
   },
   "projects": {
     "title": "Projects",
-    "subtitle": "Real-world systems engineered for performance, reliability, and scale.",
+    "subtitle": "Production systems. Real clients. No mock data.",
     "view": "Live Demo",
     "code": "GitHub",
     "items": [
@@ -204,17 +204,17 @@
         "status": "Production"
       },
       {
-        "title": "HelpdeskAI MCP Server",
-        "description": "Model Context Protocol server that exposes the HelpDesk AI platform as 7 AI-native tools. Deployed on Vercel via SSE — no local installation required. Claude Desktop connects and manages tickets in natural language: create, triage, prioritize, suggest solutions, update status, and generate SLA compliance reports.",
+        "title": "Ticket Auditor",
+        "description": "Autonomous audit infrastructure on HelpDesk AI. GitHub Actions triggers hourly → Vercel Edge Function queries Supabase → Composio orchestrates AI analysis → Resend delivers executive HTML reports. MCP Server on Vercel SSE exposes 7 tools — Claude reads live business context without direct DB access. Full audit cycle in under 11 seconds.",
         "tags": [
-          "MCP SDK",
-          "Claude AI",
-          "Vercel SSE"
+          "Vercel Edge",
+          "GitHub Actions",
+          "Composio"
         ],
         "metrics": [
-          "7 MCP tools",
-          "SSE deployed",
-          "Natural language ops"
+          "<11s full cycle",
+          "7 MCP tools live",
+          "nDSG compliant"
         ],
         "status": "Production"
       },
@@ -305,7 +305,7 @@
   "contact": {
     "label": "Contact",
     "title": "Let's Connect",
-    "subtitle": "Open to Modern Workplace, Cloud Infrastructure, and AI Solutions roles in Switzerland & Liechtenstein.",
+    "subtitle": "Available for agency mandates, direct client projects, and AI integration work across Switzerland and Liechtenstein.",
     "availability": "Immediately Available · Switzerland & Liechtenstein",
     "copy": "Copy Email",
     "copied": "Copied!",

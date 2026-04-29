@@ -25,7 +25,7 @@
     ],
     "apps_title": "Maßgeschneiderte Business Apps",
     "apps_benefit": "Prozesse digitalisieren. Reibung eliminieren.",
-    "apps_desc": "Progressive Web Apps, die manuelle Prozesse in schnelle, installierbare, mehrsprachige digitale Systeme verwandeln. Von Logistik bis Facility Management — gebaut für 100/100 Performance.",
+    "apps_desc": "Maßgeschneiderte Webanwendungen und KI-integrierte Systeme, die manuelle Prozesse durch schnelle, installierbare, mehrsprachige Produkte ersetzen. Von Betriebsplattformen bis zu autonomen Audit-Pipelines — gebaut für 100/100 und pünktliche Lieferung.",
     "apps_case": "→ Referenz: Dnamar Facility Services — Echtzeit-Betriebsplattform in 3 Sprachen.",
     "apps_tags": [
       "Next.js",
@@ -48,9 +48,9 @@
     "badge": "IT Infrastructure & AI Solutions Engineer · Basel, CH",
     "availability_swiss": "Sofortige Verfügbarkeit in der gesamten Schweiz und Liechtenstein",
     "title": "IT Infrastructure & AI Solutions Engineer",
-    "title2": "Infrastruktur trifft Business Innovation",
-    "subtitle": "Technische Komplexität in messbaren Geschäftswert verwandeln — Cloud Transformation, Business Apps und Hybrid-Netzwerke für Unternehmen in der Schweiz und Liechtenstein.",
-    "collaboration": "Offen für Einzelprojekte und kollektive Zusammenarbeit.",
+    "title2": "Enterprise IT. KI im Betrieb. Vollständige Umsetzung.",
+    "subtitle": "7+ Jahre Enterprise IT in internationalen Umgebungen. KI-Systeme im Produktivbetrieb — autonome Audit-Pipelines, MCP-Server auf Vercel, Claude Vision OCR. Direkter Kundenkontakt vom Briefing bis Go-live.",
+    "collaboration": "Für direkte Mandate und Agenturzusammenarbeit in CH/LI verfügbar.",
     "cta_primary": "Jetzt Optimieren",
     "cta_secondary": "Lebenslauf",
     "stat1_value": "500+",
@@ -80,7 +80,7 @@
     "ai_title": "AI Development: From 0 to Production",
     "ai_issuer": "BIG school · Brais Moure & Romuald Fons",
     "ai_guarantee_label": "Was das für Sie bedeutet",
-    "ai_guarantee": "Ihre Workflows werden automatisiert und Ihre Apps schneller gebaut — mit modernsten KI-Tools von Anfang an.",
+    "ai_guarantee": "Ihre Workflows werden automatisiert und Apps schneller geliefert — mit im Produktivbetrieb getesteten KI-Tools von Anfang an.",
     "ai_desc": "Spezialisierte Ausbildung in KI-unterstützter Entwicklung und Workflow-Automatisierung. Angewendet auf reale Projekte: schnellere Lieferzyklen, intelligentere Code-Generierung und Full-Stack-Systeme, die sich anpassen.",
     "ai_tags": [
       "KI-Automatisierung",
@@ -107,7 +107,7 @@
     "trust_subtitle": "Das vollständige technische Spektrum — von der Netzwerkschicht bis zur Benutzeroberfläche.",
     "trust_badges": [
       "Cisco Zertifiziert",
-      "KI Early Adopter",
+      "KI in Produktion",
       "7+ Jahre Enterprise IT",
       "100/100 Lighthouse"
     ]
@@ -184,7 +184,7 @@
   },
   "projects": {
     "title": "Projekte",
-    "subtitle": "Reale Systeme entwickelt für Performance, Zuverlässigkeit und Skalierung.",
+    "subtitle": "Produktivsysteme. Echte Kunden. Keine Testdaten.",
     "view": "Live Demo",
     "code": "GitHub",
     "items": [
@@ -204,17 +204,17 @@
         "status": "Produktion"
       },
       {
-        "title": "HelpdeskAI MCP Server",
-        "description": "Model Context Protocol Server, der die HelpDesk AI-Plattform als 7 KI-native Tools bereitstellt. Auf Vercel via SSE deployed — keine lokale Installation erforderlich. Claude Desktop verbindet sich und verwaltet Tickets in natürlicher Sprache: erstellen, triagieren, priorisieren, Lösungen vorschlagen, Status aktualisieren und SLA-Berichte generieren.",
+        "title": "Ticket Auditor",
+        "description": "Autonome Audit-Infrastruktur auf Basis von HelpDesk AI. GitHub Actions löst stündlich aus → Vercel Edge Function fragt Supabase ab → Composio orchestriert die KI-Analyse → Resend liefert gebrandete Executive Reports. MCP-Server auf Vercel SSE stellt 7 Tools bereit — Claude liest den Live-Business-Kontext ohne direkten DB-Zugriff. Vollständiger Audit-Zyklus in unter 11 Sekunden.",
         "tags": [
-          "MCP SDK",
-          "Claude AI",
-          "Vercel SSE"
+          "Vercel Edge",
+          "GitHub Actions",
+          "Composio"
         ],
         "metrics": [
-          "7 MCP Tools",
-          "SSE deployed",
-          "Natural Language Ops"
+          "<11s Audit-Zyklus",
+          "7 MCP Tools live",
+          "nDSG-konform"
         ],
         "status": "Produktion"
       },
@@ -305,7 +305,7 @@
   "contact": {
     "label": "Kontakt",
     "title": "Kontakt aufnehmen",
-    "subtitle": "Offen für Modern Workplace, Cloud Infrastructure und AI Solutions Stellen in der Schweiz und Liechtenstein.",
+    "subtitle": "Für Agenturmandate, direkte Kundenprojekte und KI-Integrationsarbeit in der Schweiz und Liechtenstein verfügbar.",
     "availability": "Sofort Verfügbar · Schweiz & Liechtenstein",
     "copy": "E-Mail kopieren",
     "copied": "Kopiert!",
