@@ -37,6 +37,16 @@ const colorMap: Record<ColorKey, { badge: string; tag: string; dot: string; bord
   indigo: { badge: "bg-indigo-500/10 text-indigo-400 border-indigo-500/20", tag: "bg-indigo-500/08 text-indigo-400/80 border-indigo-500/15", dot: "bg-indigo-400", border: "hover:border-indigo-500/20" },
 };
 
+const gridVariants = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.09 } },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] } },
+};
+
 export default function Projects() {
   const t = useTranslations("projects");
   const ref = useRef(null);
@@ -51,7 +61,7 @@ export default function Projects() {
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-16"
         >
           <p className="text-xs font-semibold text-emerald-400 uppercase tracking-widest mb-3">Work</p>
@@ -59,19 +69,36 @@ export default function Projects() {
           <p className="text-white/50 max-w-xl mx-auto text-sm leading-relaxed">{t("subtitle")}</p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-5">
+        <motion.div
+          className="grid md:grid-cols-2 gap-5"
+          variants={gridVariants}
+          initial="hidden"
+          animate={inView ? "show" : "hidden"}
+        >
           {projects.map((project, i) => {
             const colors = colorMap[project.color];
+            const isDSG = i === 0;
             return (
               <motion.div
                 key={project.title}
-                initial={{ opacity: 0, y: 24 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className={`group glass-card rounded-2xl p-6 flex flex-col gap-5 transition-all duration-300 ${colors.border} hover:shadow-xl`}
+                variants={cardVariants}
+                whileHover={{ y: -6, scale: 1.01 }}
+                transition={{ duration: 0.22 }}
+                className={`group glass-card relative flex flex-col gap-5 overflow-hidden rounded-2xl p-6 transition-colors duration-300 ${colors.border} hover:shadow-xl`}
               >
+                <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white/[0.04] to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 <div className="flex items-start justify-between gap-3">
-                  <h3 className="font-semibold text-white text-lg">{project.title}</h3>
+                  <div className="flex flex-col gap-1.5 min-w-0">
+                    <h3 className="font-semibold text-white text-lg">{project.title}</h3>
+                    {isDSG && (
+                      <span className="inline-flex w-fit items-center gap-1 text-[10px] font-semibold text-emerald-400 border border-emerald-500/25 bg-emerald-500/08 rounded-full px-2 py-0.5">
+                        <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                        </svg>
+                        DSG/nDSG Compliant
+                      </span>
+                    )}
+                  </div>
                   <span className={`flex-none flex items-center gap-1.5 text-xs font-medium border rounded-full px-2.5 py-1 ${colors.badge}`}>
                     <span className={`w-1.5 h-1.5 rounded-full ${colors.dot}`} />
                     {project.status}
@@ -94,25 +121,37 @@ export default function Projects() {
                   </div>
                   <div className="flex items-center gap-3 flex-none">
                     {project.demoUrl && (
-                      <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="text-xs text-white/40 hover:text-white transition-colors flex items-center gap-1">
+                      <motion.a
+                        href={project.demoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1 text-xs text-white/40 transition-colors hover:text-white"
+                        whileHover={{ x: 2 }}
+                      >
                         <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                         </svg>
                         {t("view")}
-                      </a>
+                      </motion.a>
                     )}
-                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="text-xs text-white/40 hover:text-white transition-colors flex items-center gap-1">
+                    <motion.a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 text-xs text-white/40 transition-colors hover:text-white"
+                      whileHover={{ x: 2 }}
+                    >
                       <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
                       </svg>
                       {t("code")}
-                    </a>
+                    </motion.a>
                   </div>
                 </div>
               </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -5,6 +5,7 @@ import Certifications from "@/components/sections/Certifications";
 import TechStack from "@/components/sections/TechStack";
 import Experience from "@/components/sections/Experience";
 import Projects from "@/components/sections/Projects";
+import EcosystemSection from "@/components/sections/EcosystemSection";
 import Testimonials from "@/components/sections/Testimonials";
 import Contact from "@/components/sections/Contact";
 
@@ -21,15 +22,23 @@ export default async function Page({
   return (
     <>
       <NavBar />
-      <main>
+      <main className="relative overflow-hidden">
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute inset-x-0 top-0 h-[520px] bg-[radial-gradient(circle_at_top,rgba(37,99,235,0.14),transparent_58%)]" />
+          <div className="absolute right-0 top-[26rem] h-[28rem] w-[28rem] rounded-full bg-amber-500/6 blur-[120px]" />
+          <div className="absolute left-0 top-[70rem] h-[32rem] w-[32rem] rounded-full bg-sky-500/8 blur-[140px]" />
+        </div>
         <Hero locale={safeLocale} />
-        <Services />
-        <Certifications />
-        <TechStack />
-        <Experience />
-        <Projects />
-        <Testimonials />
-        <Contact />
+        <div className="relative z-10 flex flex-col">
+          <Services />
+          <Certifications />
+          <TechStack />
+          <Experience />
+          <Projects />
+          <EcosystemSection />
+          <Testimonials />
+          <Contact />
+        </div>
       </main>
     </>
   );

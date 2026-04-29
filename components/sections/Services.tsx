@@ -104,7 +104,8 @@ export default function Services() {
                 initial={{ opacity: 0, y: 28 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.55, delay: i * 0.12 }}
-                className={`group glass-card rounded-2xl p-6 flex flex-col gap-5 transition-all duration-300 hover:shadow-xl ${svc.borderHover} ${svc.bgGlow}`}
+                whileHover={{ y: -4 }}
+                className={`group glass-card rounded-2xl p-6 flex flex-col gap-5 transition-colors duration-300 hover:shadow-xl ${svc.borderHover} ${svc.bgGlow}`}
               >
                 {/* Icon + title */}
                 <div className="flex items-start gap-3">
