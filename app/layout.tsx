@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   keywords: [
     "IT Infrastructure Engineer Switzerland",
     "AI Solutions Engineer Basel",
+    "AI-Powered SaaS Infrastructure",
+    "Fullstack Developer Switzerland",
     "Full Stack Developer Switzerland",
     "Azure Consultant Basel",
     "Microsoft 365 Spezialist Schweiz",

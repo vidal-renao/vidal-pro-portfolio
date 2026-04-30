@@ -187,6 +187,25 @@
     "subtitle": "Production systems. Real clients. No mock data.",
     "view": "Live Demo",
     "code": "GitHub",
+    "architecture": {
+      "label": "Architecture Milestone",
+      "title": "AI-Powered SaaS Infrastructure & Multi-Schema Architecture",
+      "intro": "Designed and hardened as a production-grade SaaS foundation that showcases robust solution architecture, not just interface delivery: schema-segregated data domains, policy-aware API exposure, secure audit pipelines, and deployment automation aligned with Swiss DSG expectations.",
+      "achievements": [
+        "Implemented Supabase data-isolation architecture with segregated schemas across public, helpdesk, and scout for Swiss DSG compliance.",
+        "Configured advanced Row Level Security and selective PostgREST schema exposure to harden API boundaries and reduce tenant risk.",
+        "Developed Vercel-based audit pipelines with service role authentication for secure AI metadata handling and cross-schema persistence.",
+        "Automated delivery with GitHub Actions, establishing continuous deployment and real-time operational error visibility."
+      ],
+      "stack": [
+        "Next.js",
+        "Supabase",
+        "PostgreSQL",
+        "Vercel",
+        "GitHub Actions",
+        "AI Infrastructure"
+      ]
+    },
     "items": [
       {
         "title": "HelpDesk AI",
@@ -207,14 +226,16 @@
         "title": "Ticket Auditor",
         "description": "Autonomous audit infrastructure on HelpDesk AI. GitHub Actions triggers hourly → Vercel Edge Function queries Supabase → Composio orchestrates AI analysis → Resend delivers executive HTML reports. MCP Server on Vercel SSE exposes 7 tools — Claude reads live business context without direct DB access. Full audit cycle in under 11 seconds.",
         "tags": [
-          "Vercel Edge",
+          "Vercel",
           "GitHub Actions",
-          "Composio"
+          "AI Infrastructure",
+          "Supabase",
+          "PostgreSQL"
         ],
         "metrics": [
-          "<11s full cycle",
-          "7 MCP tools live",
-          "nDSG compliant"
+          "Multi-schema audit",
+          "Service-role secured",
+          "Swiss DSG aligned"
         ],
         "status": "Production"
       },

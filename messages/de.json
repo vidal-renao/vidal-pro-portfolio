@@ -187,6 +187,25 @@
     "subtitle": "Produktivsysteme. Echte Kunden. Keine Testdaten.",
     "view": "Live Demo",
     "code": "GitHub",
+    "architecture": {
+      "label": "Architektur-Meilenstein",
+      "title": "AI-Powered SaaS Infrastructure & Multi-Schema Architecture",
+      "intro": "Als produktionsreife SaaS-Basis entworfen und gehaertet, um robuste Solution Architecture statt nur Interface Delivery zu zeigen: schema-segregierte Datenbereiche, policy-gesteuerte API-Freigabe, sichere Audit-Pipelines und Deployment-Automatisierung im Einklang mit Swiss DSG.",
+      "achievements": [
+        "Implementierung einer Supabase-Datenisolationsarchitektur mit getrennten Schemas public, helpdesk und scout fuer Swiss-DSG-konforme Verarbeitung.",
+        "Erweiterte Konfiguration von Row Level Security und selektiver PostgREST-Schemafreigabe zur Haertung der API-Grenzen und Reduktion von Multi-Tenant-Risiken.",
+        "Entwicklung von Audit-Pipelines auf Vercel mit Service-Role-Authentifizierung fuer sichere KI-Metadatenverwaltung und Cross-Schema-Persistenz.",
+        "Automatisierung der Auslieferung mit GitHub Actions fuer Continuous Deployment und operative Fehlertransparenz in Echtzeit."
+      ],
+      "stack": [
+        "Next.js",
+        "Supabase",
+        "PostgreSQL",
+        "Vercel",
+        "GitHub Actions",
+        "AI Infrastructure"
+      ]
+    },
     "items": [
       {
         "title": "HelpDesk AI",
@@ -207,14 +226,16 @@
         "title": "Ticket Auditor",
         "description": "Autonome Audit-Infrastruktur auf Basis von HelpDesk AI. GitHub Actions löst stündlich aus → Vercel Edge Function fragt Supabase ab → Composio orchestriert die KI-Analyse → Resend liefert gebrandete Executive Reports. MCP-Server auf Vercel SSE stellt 7 Tools bereit — Claude liest den Live-Business-Kontext ohne direkten DB-Zugriff. Vollständiger Audit-Zyklus in unter 11 Sekunden.",
         "tags": [
-          "Vercel Edge",
+          "Vercel",
           "GitHub Actions",
-          "Composio"
+          "AI Infrastructure",
+          "Supabase",
+          "PostgreSQL"
         ],
         "metrics": [
-          "<11s Audit-Zyklus",
-          "7 MCP Tools live",
-          "nDSG-konform"
+          "Multi-Schema-Audit",
+          "Service-Role gehaertet",
+          "Swiss DSG ausgerichtet"
         ],
         "status": "Produktion"
       },

@@ -12,6 +12,14 @@ type ProjectTranslation = {
   status: string;
 };
 
+type ArchitectureTranslation = {
+  label: string;
+  title: string;
+  intro: string;
+  achievements: string[];
+  stack: string[];
+};
+
 type ColorKey = "violet" | "blue" | "emerald" | "cyan" | "amber" | "rose" | "indigo";
 
 const projectStatic: {
@@ -53,6 +61,7 @@ export default function Projects() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   const items = t.raw("items") as ProjectTranslation[];
+  const architecture = t.raw("architecture") as ArchitectureTranslation;
   const projects = items.map((item, i) => ({ ...item, ...projectStatic[i] }));
 
   return (
@@ -67,6 +76,52 @@ export default function Projects() {
           <p className="text-xs font-semibold text-emerald-400 uppercase tracking-widest mb-3">Work</p>
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">{t("title")}</h2>
           <p className="text-white/50 max-w-xl mx-auto text-sm leading-relaxed">{t("subtitle")}</p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
+          className="relative mb-8 overflow-hidden rounded-[28px] border border-cyan-500/20 bg-[linear-gradient(135deg,rgba(8,47,73,0.72),rgba(17,24,39,0.88))] p-7 md:p-9 shadow-[0_30px_120px_rgba(34,211,238,0.08)]"
+        >
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.18),transparent_32%),radial-gradient(circle_at_bottom_left,rgba(59,130,246,0.14),transparent_28%)]" />
+          <div className="relative grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+            <div>
+              <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.26em] text-cyan-300/80">
+                {architecture.label}
+              </p>
+              <h3 className="mb-4 text-2xl font-semibold text-white md:text-3xl">
+                {architecture.title}
+              </h3>
+              <p className="max-w-2xl text-sm leading-7 text-cyan-50/78 md:text-[15px]">
+                {architecture.intro}
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-white/10 bg-black/20 p-5 backdrop-blur-sm">
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-white/55">
+                SME Standard Highlights
+              </p>
+              <div className="mb-5 flex flex-wrap gap-2.5">
+                {architecture.stack.map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-xs font-medium text-cyan-100"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <div className="space-y-3">
+                {architecture.achievements.map((item) => (
+                  <div key={item} className="flex gap-3 text-sm leading-6 text-white/78">
+                    <span className="mt-1.5 h-2 w-2 flex-none rounded-full bg-cyan-300 shadow-[0_0_18px_rgba(103,232,249,0.65)]" />
+                    <p>{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </motion.div>
 
         <motion.div
@@ -115,7 +170,7 @@ export default function Projects() {
 
                 <div className="flex items-center justify-between gap-3 pt-3 border-t border-white/[0.05]">
                   <div className="flex flex-wrap gap-1.5">
-                    {project.tags.slice(0, 3).map((tag) => (
+                    {project.tags.map((tag) => (
                       <span key={tag} className={`text-xs border rounded-full px-2 py-0.5 ${colors.tag}`}>{tag}</span>
                     ))}
                   </div>
