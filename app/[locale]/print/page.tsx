@@ -147,8 +147,11 @@ export default async function PrintPage() {
             <p>Spain MEC · 2012 · Systems Administration, Networking, Linux/Windows Server</p>
           </div>
           <div className="entry">
-            <strong>Técnico Superior en Desarrollo de Aplicaciones y Sistemas</strong>
-            <p>Spain MEC · Software Development &amp; Systems Engineering</p>
+            <div className="entry-header">
+              <strong>Técnico Superior en Desarrollo de Aplicaciones Informáticas (DAI)</strong>
+              <a href="/assets/certs/Diplom.pdf" target="_blank" rel="noopener noreferrer" className="status">View Diploma</a>
+            </div>
+            <p>IES Pablo Serrano · Zaragoza, 2012 · Software Development &amp; Systems Engineering</p>
           </div>
           <div className="entry">
             <strong>E-commerce &amp; Digital Marketing Specialist</strong>
