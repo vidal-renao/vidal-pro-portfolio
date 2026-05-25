@@ -19,8 +19,12 @@ app/
 │       └── page.tsx        ← printable CV / PDF-ready resume
 ├── export/                 ← headless export routes (noindex)
 │   ├── layout.tsx          ← minimal HTML shell for Puppeteer capture
-│   └── ad-banner/
-│       └── page.tsx        ← renders OptimizedAdBanner at 1200×900
+│   ├── ad-banner/
+│   │   └── page.tsx        ← renders OptimizedAdBanner at 1200×900
+│   ├── business-card-a/
+│   │   └── page.tsx        ← renders BusinessCard Face A (contact)
+│   └── business-card-b/
+│       └── page.tsx        ← renders BusinessCard Face B (QR)
 └── layout.tsx              ← root layout (delegates to locale shell)
 
 components/
@@ -35,7 +39,8 @@ components/
 │   ├── Testimonials.tsx
 │   └── Contact.tsx         ← QR code, CV selector, social links
 ├── marketing/              ← standalone marketing assets
-│   └── OptimizedAdBanner.jsx  ← Livo.li print ad (1200×900, DE)
+│   ├── OptimizedAdBanner.jsx  ← Livo.li print ad (1200×900, DE)
+│   └── BusinessCard.jsx       ← European business card (85×55mm, 2 faces, print-ready)
 └── ui/                     ← primitives (PrintTrigger, etc.)
 
 messages/
@@ -50,7 +55,8 @@ public/
 └── icons/                  ← PWA icons (192, 512, 180px)
 
 scripts/
-└── export-ad-banner.mjs    ← Puppeteer screenshot → ads/livo-banner.png
+├── export-ad-banner.mjs    ← Puppeteer screenshot → ads/livo-banner.png
+└── export-business-card.mjs ← Puppeteer screenshot → ads/cara_A.png + cara_B.png
 ```
 
 ---
@@ -99,6 +105,32 @@ BROWSER_PATH="C:\path\to\chrome.exe" npm run export:ad
 
 ---
 
+### BusinessCard
+
+Two-sided European business card component for physical print distribution at DACH events and SME prospecting.
+
+| Property | Value |
+|---|---|
+| Format | European business card (85×55mm) |
+| Faces | A: Executive contact · B: QR connector |
+| Language | German (DACH market) |
+| Dimensions | 502×325 CSS px |
+| Output PNG | 1004×650 physical px (2× / ~300 DPI print) |
+| QR target | vidal-pro-portfolio.vercel.app |
+| Config | Single `CONFIG` object in `BusinessCard.jsx` |
+
+**Face A — Executive contact:** VR gradient monogram · name · role · contact details (T / E / W)  
+**Face B — QR connector:** centered QR code · "Scannen für Live-Projekte & Referenzen" · cyan URL
+
+**Export pipeline:**
+
+```
+npm run dev           ← dev server must be running on :3000
+npm run export:card   ← Puppeteer → cara_A.png + cara_B.png
+```
+
+---
+
 ## Commands
 
 ```bash
@@ -107,6 +139,7 @@ npm run build        # production build
 npm run start        # production server
 npm run lint         # ESLint
 npm run export:ad    # export Livo.li ad banner as high-res PNG
+npm run export:card  # export business card → cara_A.png + cara_B.png (85×55mm / ~300 DPI)
 ```
 
 ---
@@ -119,6 +152,8 @@ npm run export:ad    # export Livo.li ad banner as high-res PNG
 | `/de`, `/es` | German, Spanish portfolio |
 | `/en/print` | Printable CV — IT Infrastructure & AI Solutions Engineer |
 | `/export/ad-banner` | Headless export route (Puppeteer target, noindex) |
+| `/export/business-card-a` | Business card Face A — executive contact (noindex) |
+| `/export/business-card-b` | Business card Face B — QR connector (noindex) |
 
 ---
 
