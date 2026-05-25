@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { QRCodeSVG } from "qrcode.react";
 
 // Centralized Data Node — edit CONFIG to update any future publication
@@ -15,7 +14,7 @@ const CONFIG = {
     badge: "IT-INFRASTRUKTUR & KI-AUTOMATISIERUNG",
     title: "Ihre IT-Infrastruktur & digitale Zukunft – Alles aus einer Hand.",
     subtitle: "Flexibler IT-Spezialist für KMU in Liechtenstein und der Region.",
-    lead: "Läuft Ihre IT unrund oder suchen Sie nach Wegen, Ihr Unternehmen durch moderne Technologie effizienter aufzustellen? Ich verbinde solides Handwerk mit digitaler Innovation:",
+    lead: "Läuft Ihre IT nicht rund oder suchen Sie nach Wegen, Ihr Unternehmen durch moderne Technologie effizienter aufzustellen? Ich verbinde solides Handwerk mit digitaler Innovation:",
     services: [
       {
         icon: "🛠️",
