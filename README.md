@@ -119,14 +119,27 @@ Two-sided European business card component for physical print distribution at DA
 | QR target | vidal-pro-portfolio.vercel.app |
 | Config | Single `CONFIG` object in `BusinessCard.jsx` |
 
-**Face A — Executive contact:** VR gradient monogram · name · role · contact details (T / E / W)  
-**Face B — QR connector:** centered QR code · "Scannen für Live-Projekte & Referenzen" · cyan URL
+**Face A — IT services grid (German/DACH):** VR gold monogram · name · title · 3-column services (IT-Handwerk / Netzwerke / KI-SaaS) · contact rows (T / E / W) · location tag  
+**Face B — QR connector:** centered QR code (fgColor `#0B132B`, level H, size 112px) · "Scannen für Live-Projekte" · gold portfolio URL
 
-**Export pipeline:**
+**Export pipeline — portfolio assets:**
 
 ```
-npm run dev           ← dev server must be running on :3000
-npm run export:card   ← Puppeteer → cara_A.png + cara_B.png
+npm run dev                ← dev server must be running on :3000
+npm run export:card        ← Puppeteer → public/assets/ads/cara_A.png + cara_B.png
+```
+
+**Premium distribution — cv-workspace:**
+
+```
+npm run export:card:premium   ← saves to cv-workspace/business-card-premium/cara_A.png + cara_B.png
+```
+
+Or standalone (no npm context needed):
+
+```
+cd cv-workspace/business-card-premium
+node export-premium-card.mjs
 ```
 
 ---
@@ -139,7 +152,8 @@ npm run build        # production build
 npm run start        # production server
 npm run lint         # ESLint
 npm run export:ad    # export Livo.li ad banner as high-res PNG
-npm run export:card  # export business card → cara_A.png + cara_B.png (85×55mm / ~300 DPI)
+npm run export:card          # export business card → public/assets/ads/ (portfolio)
+npm run export:card:premium  # export business card → cv-workspace/business-card-premium/ (print distribution)
 ```
 
 ---

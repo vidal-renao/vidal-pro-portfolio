@@ -2,15 +2,17 @@
  * Puppeteer export script — renders /export/business-card-{a,b} and saves PNGs.
  *
  * Prerequisites: `npm run dev` must be running on port 3000.
- * Output:
- *   public/assets/ads/cara_A.png  — Face A: Executive contact  (1004×650px @ ~300 DPI)
- *   public/assets/ads/cara_B.png  — Face B: QR connector       (1004×650px @ ~300 DPI)
  *
- * Format: European business card 85×55mm
- * Physical pixels: 1004×650 (502×325 CSS px × deviceScaleFactor 2)
+ * Default output (portfolio assets):
+ *   public/assets/ads/cara_A.png  — Face A: IT-Handwerk/Netzwerke/KI-SaaS  (1004×650px @ ~300 DPI)
+ *   public/assets/ads/cara_B.png  — Face B: QR connector                    (1004×650px @ ~300 DPI)
+ *
+ * Premium distribution output (--out flag):
+ *   node scripts/export-business-card.mjs --out "C:\path\to\cv-workspace\business-card-premium"
  *
  * Usage:
- *   npm run export:card
+ *   npm run export:card           ← portfolio assets
+ *   npm run export:card:premium   ← cv-workspace distribution
  *
  * Override browser path:
  *   BROWSER_PATH="C:\path\to\chrome.exe" npm run export:card
@@ -20,8 +22,14 @@ import puppeteer from "puppeteer-core";
 import { existsSync, mkdirSync } from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import { parseArgs } from "util";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+const { values } = parseArgs({
+  options: { out: { type: "string" } },
+  strict: false,
+});
 
 const WINDOWS_BROWSERS = [
   "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
@@ -46,7 +54,10 @@ function findBrowser() {
 const CARD_W = 502;
 const CARD_H = 325;
 
-const outputDir = path.join(__dirname, "..", "public", "assets", "ads");
+const outputDir = values.out
+  ? path.resolve(values.out)
+  : path.join(__dirname, "..", "public", "assets", "ads");
+
 if (!existsSync(outputDir)) mkdirSync(outputDir, { recursive: true });
 
 const browser = await puppeteer.launch({
@@ -59,7 +70,7 @@ const page = await browser.newPage();
 await page.setViewport({ width: CARD_W, height: CARD_H, deviceScaleFactor: 2 });
 
 const FACES = [
-  { route: "business-card-a", filename: "cara_A.png", label: "Face A — Executive contact" },
+  { route: "business-card-a", filename: "cara_A.png", label: "Face A — IT-Handwerk / Netzwerke / KI-SaaS" },
   { route: "business-card-b", filename: "cara_B.png", label: "Face B — QR connector" },
 ];
 
@@ -84,3 +95,4 @@ console.log("");
 console.log(`   Viewport  : ${CARD_W}×${CARD_H} CSS px`);
 console.log(`   PNG size  : ${CARD_W * 2}×${CARD_H * 2} physical px (2× / ~300 DPI print)`);
 console.log(`   Format    : European business card 85×55mm`);
+console.log(`   Output    : ${outputDir}`);
