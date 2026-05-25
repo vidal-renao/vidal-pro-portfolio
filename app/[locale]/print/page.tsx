@@ -27,12 +27,16 @@ export default async function PrintPage() {
         {/* ── HEADER ── */}
         <header>
           <h1>Vidal Reñao Lopelo</h1>
-          <p className="role">IT-System Engineer &amp; Cloud Developer</p>
+          <p className="role">IT Infrastructure &amp; AI Solutions Engineer</p>
           <div className="meta">
             <span>Basel, Switzerland 🇨🇭</span>
             <span>vidalrenao.lab@outlook.com</span>
             <span>+41 77 972 62 99</span>
             <span>linkedin.com/in/vidalrenao</span>
+          </div>
+          <div className="meta">
+            <span>github.com/vidal-renao</span>
+            <span>vidal-pro-portfolio.vercel.app</span>
           </div>
           <div className="meta">
             <span>English C1</span>
@@ -137,6 +141,10 @@ export default async function PrintPage() {
           <div className="entry">
             <strong>AI Development: From 0 to Production</strong>
             <p>BIG School (Brais Moure &amp; Romuald Fons) · LLM Tooling, AI Automation, Fullstack</p>
+          </div>
+          <div className="entry">
+            <strong>Técnico Superior en Administración de Sistemas Informáticos en Red (ASIR)</strong>
+            <p>Spain MEC · 2012 · Systems Administration, Networking, Linux/Windows Server</p>
           </div>
           <div className="entry">
             <strong>Técnico Superior en Desarrollo de Aplicaciones y Sistemas</strong>

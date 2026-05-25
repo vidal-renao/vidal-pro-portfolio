@@ -5,7 +5,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://vidal-renao.dev"),
+  metadataBase: new URL("https://vidal-pro-portfolio.vercel.app"),
   title: "Vidal Reñao — IT Infrastructure & AI Solutions Engineer | Switzerland & Liechtenstein",
   description:
     "IT Infrastructure & AI Solutions Engineer in Basel, Switzerland. Building SaaS apps with Claude AI + Next.js while managing enterprise M365, Azure, Entra ID & Intune. Immediately available across Switzerland and Liechtenstein.",

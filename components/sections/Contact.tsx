@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import Image from "next/image";
+import { QRCodeSVG } from "qrcode.react";
 
 // ─── CVSelector sub-component ───────────────────────────────────────────────
 
@@ -312,6 +313,17 @@ export default function Contact() {
                 </>
               )}
             </button>
+            <div className="w-full border-t border-white/[0.06]" />
+            <div className="flex flex-col items-center gap-1.5">
+              <QRCodeSVG
+                value="https://vidal-pro-portfolio.vercel.app"
+                size={88}
+                bgColor="transparent"
+                fgColor="rgba(255,255,255,0.45)"
+                level="M"
+              />
+              <p className="text-[9px] text-white/20 font-mono">vidal-pro-portfolio.vercel.app</p>
+            </div>
           </motion.div>
         </div>
 
