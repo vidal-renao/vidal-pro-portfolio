@@ -26,13 +26,14 @@ const projectStatic: {
   color: ColorKey;
   githubUrl: string;
   demoUrl: string | null;
+  dsg?: boolean;
 }[] = [
-  { color: "amber", githubUrl: "https://github.com/vidal-renao/ticket-system", demoUrl: "https://ticket-system-sigma-pink.vercel.app" },
-  { color: "rose", githubUrl: "https://github.com/vidal-renao/vidal-helpdesk-mcp", demoUrl: "https://vidal-helpdesk-mcp.vercel.app/health" },
-  { color: "violet", githubUrl: "https://github.com/vidal-renao/matchpoint-ai", demoUrl: "https://matchpoint-gq5tnfo93-vidal-renaos-projects.vercel.app" },
-  { color: "blue", githubUrl: "https://github.com/vidal-renao/invoice-auto", demoUrl: "https://invoice-auto-3xjvcf07t-vidal-renaos-projects.vercel.app" },
-  { color: "emerald", githubUrl: "https://github.com/vidal-renao/cv-platform", demoUrl: "https://cv-platform-fzmv9ksb4-vidal-renaos-projects.vercel.app" },
-  { color: "cyan", githubUrl: "https://github.com/vidal-renao/limpiezas-najip-maritza", demoUrl: "https://www.dnamar.ch" },
+  { color: "cyan",    githubUrl: "https://github.com/vidal-renao/limpiezas-najip-maritza", demoUrl: "https://www.dnamar.ch" },
+  { color: "amber",   githubUrl: "https://github.com/vidal-renao/ticket-system",           demoUrl: "https://ticket-system-sigma-pink.vercel.app", dsg: true },
+  { color: "rose",    githubUrl: "https://github.com/vidal-renao/vidal-helpdesk-mcp",      demoUrl: "https://vidal-helpdesk-mcp.vercel.app/health" },
+  { color: "violet",  githubUrl: "https://github.com/vidal-renao/matchpoint-ai",           demoUrl: "https://matchpoint-gq5tnfo93-vidal-renaos-projects.vercel.app" },
+  { color: "blue",    githubUrl: "https://github.com/vidal-renao/invoice-auto",            demoUrl: "https://invoice-auto-3xjvcf07t-vidal-renaos-projects.vercel.app" },
+  { color: "emerald", githubUrl: "https://github.com/vidal-renao/cv-platform",             demoUrl: "https://cv-platform-fzmv9ksb4-vidal-renaos-projects.vercel.app" },
 ];
 
 const colorMap: Record<ColorKey, { badge: string; tag: string; dot: string; border: string }> = {
@@ -130,9 +131,9 @@ export default function Projects() {
           initial="hidden"
           animate={inView ? "show" : "hidden"}
         >
-          {projects.map((project, i) => {
+          {projects.map((project) => {
             const colors = colorMap[project.color];
-            const isDSG = i === 0;
+            const isDSG = project.dsg === true;
             return (
               <motion.div
                 key={project.title}

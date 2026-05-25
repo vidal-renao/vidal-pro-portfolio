@@ -233,6 +233,21 @@
     },
     "items": [
       {
+        "title": "D'NAMAR GmbH",
+        "description": "Web corporativa para empresa suiza de limpieza — en producción en dnamar.ch (Go-live abril 2026). Trilingüe (DE/EN/ES), puntuación 100/100 en Lighthouse en todas las métricas, datos estructurados JSON-LD para SEO local, indexada en Google y verificada en Google Search Console.",
+        "tags": [
+          "Next.js 16",
+          "Tailwind 4",
+          "Supabase"
+        ],
+        "metrics": [
+          "100/100 Lighthouse",
+          "3 idiomas",
+          "Google Search Console"
+        ],
+        "status": "Producción"
+      },
+      {
         "title": "HelpDesk AI",
         "description": "SaaS de helpdesk empresarial con IA para PYMEs suizas. Claude AI triaja automáticamente cada ticket — prioridad (crítica/alta/media/baja), categoría, sentimiento y detección de datos personales. RBAC multitenancy (Admin / Agente / Manager / Cliente), seguimiento de SLA con detección de incumplimientos, soporte multilingüe (DE/EN/ES) y cumplimiento DSG/nDSG suizo.",
         "tags": [
@@ -306,21 +321,6 @@
           "RBAC 3 niveles",
           "Firma digital",
           "6 idiomas"
-        ],
-        "status": "Producción"
-      },
-      {
-        "title": "D'NAMAR GmbH",
-        "description": "Web corporativa para empresa suiza de limpieza — en producción en dnamar.ch (Go-live abril 2026). Trilingüe (DE/EN/ES), puntuación 100/100 en Lighthouse en todas las métricas, datos estructurados JSON-LD para SEO local, indexada en Google y verificada en Google Search Console.",
-        "tags": [
-          "Next.js 16",
-          "Tailwind 4",
-          "Supabase"
-        ],
-        "metrics": [
-          "100/100 Lighthouse",
-          "3 idiomas",
-          "Google Search Console"
         ],
         "status": "Producción"
       }
