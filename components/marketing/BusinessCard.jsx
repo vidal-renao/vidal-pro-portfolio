@@ -23,7 +23,7 @@ const CONFIG = {
     phone:     "+41 77 972 62 99",
     email:     "vidalrenao.lab@outlook.com",
     web:       "vidal-pro-portfolio.vercel.app",
-    urlTarget: "https://vidal-pro-portfolio.vercel.app",
+    urlTarget: "https://vidal-pro-portfolio.vercel.app/en",
   },
   qrLabel: "Scannen für Live-Projekte & Referenzen",
 };
