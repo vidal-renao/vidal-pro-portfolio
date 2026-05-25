@@ -36,7 +36,7 @@ const CONFIG = {
       email: "✉️ vidalrenao.lab@outlook.com",
       urlDisplay: "🌐 vidal-pro-portfolio.vercel.app",
       urlTarget: "https://vidal-pro-portfolio.vercel.app",
-      qrLabel: "„Scannen für Live-Projekte"",
+      qrLabel: 'Scannen für Live-Projekte',
     },
   },
 };
