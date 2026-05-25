@@ -123,9 +123,34 @@
   },
   "experience": {
     "title": "Experience",
-    "subtitle": "Enterprise IT delivery across multi-national environments.",
+    "subtitle": "From Swiss integration to production AI platforms — enterprise IT delivery across Switzerland and international environments.",
     "present": "Present",
     "roles": [
+      {
+        "title": "IT & AI Solutions Engineer",
+        "company": "Self-Employed · Freelance",
+        "location": "Switzerland",
+        "period": "2025 – Present",
+        "highlights": [
+          "Running cloud-based platforms focused on availability, clean technical architecture, and reliable operations",
+          "Building helpdesk and workflow systems with SLA-aligned processes, role-based access control, and structured service logic",
+          "Translating infrastructure and operational thinking into modern SaaS environments — automation and continuous optimization",
+          "Active production portfolio: Ticket System, MatchPoint AI, Invoice Auto, HelpDesk AI"
+        ]
+      },
+      {
+        "title": "Operations & Logistics Technician",
+        "company": "Servo Personal & Treuhand GmbH · CareJob",
+        "location": "Basel, Switzerland",
+        "period": "2023 – 2025",
+        "badge": "Swiss Integration Phase",
+        "highlights": [
+          "Swiss integration phase — temporary roles in logistics, production, and construction to establish professional roots in Switzerland and deepen German language skills",
+          "Operated in structured Swiss environments with high standards for reliability, precision, and clean operational execution",
+          "Developed service orientation, professional discipline, and communication across diverse client-facing contexts",
+          "Throughout this period: continued building technical projects independently — HelpDesk AI platform, freelance IT work, and SaaS development"
+        ]
+      },
       {
         "title": "Technical Support Specialist & Systems Administrator",
         "company": "Lutelco Facilities",

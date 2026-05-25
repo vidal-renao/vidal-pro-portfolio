@@ -123,9 +123,34 @@
   },
   "experience": {
     "title": "Berufserfahrung",
-    "subtitle": "Enterprise-IT-Delivery in internationalen Umgebungen.",
+    "subtitle": "Von der Integrationsphase in der Schweiz bis zu KI-Plattformen in Produktion — Enterprise-IT-Delivery in der Schweiz und internationalen Umgebungen.",
     "present": "Heute",
     "roles": [
+      {
+        "title": "IT & KI Solutions Engineer",
+        "company": "Selbstständig · Freelance",
+        "location": "Schweiz",
+        "period": "2025 – Heute",
+        "highlights": [
+          "Betreibe cloudbasierte Plattformen mit Fokus auf Verfügbarkeit, sauberer technischer Struktur und zuverlässigem Betrieb",
+          "Setze produktive Helpdesk- und Workflow-Systeme mit SLA-nahen Prozessen, Rollenmodellen und strukturierter Service-Logik um",
+          "Übertrage Infrastruktur- und Betriebsdenken in moderne SaaS-Umgebungen und unterstütze Automatisierung und kontinuierliche Optimierung",
+          "Aktives Produktionsportfolio: Ticket System, MatchPoint AI, Invoice Auto, HelpDesk AI"
+        ]
+      },
+      {
+        "title": "Operations & Logistik-Techniker",
+        "company": "Servo Personal & Treuhand GmbH · CareJob",
+        "location": "Basel, Schweiz",
+        "period": "2023 – 2025",
+        "badge": "Schweizer Integrationsphase",
+        "highlights": [
+          "Integrationsphase in der Schweiz — Temporäreinsätze in Logistik, Produktion und Baustelle, um berufliche Wurzeln in der Schweiz zu legen und Deutschkenntnisse aktiv zu vertiefen",
+          "Arbeitete in strukturierten Schweizer Umgebungen mit hohen Anforderungen an Zuverlässigkeit, Präzision und saubere operative Umsetzung",
+          "Stärkte Serviceorientierung, Verbindlichkeit und die Zusammenarbeit mit unterschiedlichen Ansprechpartnern",
+          "Parallel dazu: eigenständige Entwicklung technischer Projekte — HelpDesk AI Plattform, IT-Freelancearbeit und SaaS-Entwicklung"
+        ]
+      },
       {
         "title": "IT-Support Spezialist & Systemadministrator",
         "company": "Lutelco Facilities",

@@ -15,6 +15,7 @@ export default function Experience() {
     location: string;
     period: string;
     highlights: string[];
+    badge?: string;
   }>;
 
   return (
@@ -73,6 +74,14 @@ export default function Experience() {
 
                 {/* Content */}
                 <div className="glass-card rounded-2xl p-6 flex-1 hover:border-white/12 transition-colors">
+                  {role.badge && (
+                    <div className="flex items-center gap-1.5 mb-3">
+                      <span className="text-xs">🇨🇭</span>
+                      <span className="text-[11px] font-semibold text-amber-400/90 uppercase tracking-wider">
+                        {role.badge}
+                      </span>
+                    </div>
+                  )}
                   <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
                     <div>
                       <h3 className="font-semibold text-white text-base leading-snug">

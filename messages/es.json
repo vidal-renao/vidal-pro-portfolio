@@ -123,9 +123,34 @@
   },
   "experience": {
     "title": "Experiencia",
-    "subtitle": "Entrega de TI empresarial en entornos multinacionales.",
+    "subtitle": "Desde la integración en Suiza hasta plataformas de IA en producción — entrega de TI empresarial en Suiza y entornos internacionales.",
     "present": "Presente",
     "roles": [
+      {
+        "title": "Ingeniero de Soluciones IT & IA",
+        "company": "Autónomo · Freelance",
+        "location": "Suiza",
+        "period": "2025 – Actualidad",
+        "highlights": [
+          "Gestión de plataformas en la nube con foco en disponibilidad, arquitectura técnica limpia y operaciones fiables",
+          "Implementación de sistemas helpdesk y flujos de trabajo con procesos alineados a SLA, control de acceso por roles y lógica de servicio estructurada",
+          "Traslado del pensamiento de infraestructura y operaciones a entornos SaaS modernos — automatización y optimización continua",
+          "Portfolio de producción activo: Ticket System, MatchPoint AI, Invoice Auto, HelpDesk AI"
+        ]
+      },
+      {
+        "title": "Técnico de Operaciones y Logística",
+        "company": "Servo Personal & Treuhand GmbH · CareJob",
+        "location": "Basel, Suiza",
+        "period": "2023 – 2025",
+        "badge": "Fase de Integración Suiza",
+        "highlights": [
+          "Fase de integración en Suiza — trabajos temporales en logística, producción y obra para establecer raíces profesionales en Suiza y mejorar el alemán activamente",
+          "Trabajé en entornos suizos estructurados con altos estándares de fiabilidad, precisión y ejecución operativa",
+          "Desarrollé orientación al servicio, disciplina profesional y comunicación con interlocutores diversos",
+          "Durante este período: continué desarrollando proyectos técnicos de forma independiente — plataforma HelpDesk AI, trabajo IT freelance y desarrollo SaaS"
+        ]
+      },
       {
         "title": "Especialista en Soporte Técnico y Administrador de Sistemas",
         "company": "Lutelco Facilities",
