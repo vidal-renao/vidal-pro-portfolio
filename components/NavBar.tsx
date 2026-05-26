@@ -3,7 +3,7 @@
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { useEffect, useState } from "react";
-import Image from "next/image";
+import Logo from "@/components/marketing/Logo";
 
 const LOCALES = ["en", "de", "es"] as const;
 type Locale = (typeof LOCALES)[number];
@@ -43,20 +43,12 @@ export default function NavBar() {
       }`}
     >
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        {/* Logo — photo avatar */}
-        <a href="#" className="flex items-center gap-2.5 group">
-          <div className="relative w-8 h-8 rounded-full overflow-hidden ring-1 ring-white/20 group-hover:ring-blue-400/60 transition-all duration-200">
-            <Image
-              src="/Photo.jpg"
-              alt="Vidal Reñao"
-              fill
-              className="object-cover object-top"
-              sizes="32px"
-            />
-          </div>
-          <span className="text-sm font-semibold text-white/80 group-hover:text-white transition-colors hidden sm:block">
-            Vidal Reñao
-          </span>
+        {/* Brand identity */}
+        <a href="#" className="group" aria-label="Vidal Reñao home">
+          <Logo
+            variant="inline"
+            className="h-10 w-auto max-w-[205px] sm:max-w-[245px] transition-opacity group-hover:opacity-90"
+          />
         </a>
 
         {/* Center links */}
