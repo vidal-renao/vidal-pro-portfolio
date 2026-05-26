@@ -323,6 +323,22 @@
           "6 Sprachen"
         ],
         "status": "Produktion"
+      },
+      {
+        "title": "CivicFund Web3 Lab",
+        "description": "Datenschutzbewusste Public-Goods-Finanzierungsoberfläche nach dem Prinzip Community-gesteuerter Plattformen. Wallet verbinden, zu Sepolia wechseln, Live-Saldo und Blockdaten lesen und eine nicht finanzielle Support-Intention mit transparenter Einwilligung signieren.",
+        "tags": [
+          "Next.js 16",
+          "wagmi",
+          "viem",
+          "TypeScript"
+        ],
+        "metrics": [
+          "Wallet-Verbindung",
+          "Sepolia Reads",
+          "EVM Message Signing"
+        ],
+        "status": "Lab"
       }
     ]
   },

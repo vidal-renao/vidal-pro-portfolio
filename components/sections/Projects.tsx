@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
@@ -34,6 +34,7 @@ const projectStatic: {
   { color: "violet",  githubUrl: "https://github.com/vidal-renao/matchpoint-ai",           demoUrl: "https://matchpoint-gq5tnfo93-vidal-renaos-projects.vercel.app" },
   { color: "blue",    githubUrl: "https://github.com/vidal-renao/invoice-auto",            demoUrl: "https://invoice-auto-3xjvcf07t-vidal-renaos-projects.vercel.app" },
   { color: "emerald", githubUrl: "https://github.com/vidal-renao/cv-platform",             demoUrl: "https://cv-platform-fzmv9ksb4-vidal-renaos-projects.vercel.app" },
+  { color: "indigo",  githubUrl: "https://github.com/vidal-renao/vidal-pro-portfolio",     demoUrl: null },
 ];
 
 const colorMap: Record<ColorKey, { badge: string; tag: string; dot: string; border: string }> = {
@@ -58,12 +59,17 @@ const cardVariants = {
 
 export default function Projects() {
   const t = useTranslations("projects");
+  const locale = useLocale();
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   const items = t.raw("items") as ProjectTranslation[];
   const architecture = t.raw("architecture") as ArchitectureTranslation;
-  const projects = items.map((item, i) => ({ ...item, ...projectStatic[i] }));
+  const projects = items.map((item, i) => ({
+    ...item,
+    ...projectStatic[i],
+    demoUrl: i === 6 ? `/${locale}/labs/community-fund` : projectStatic[i].demoUrl,
+  }));
 
   return (
     <section id="projects" className="py-28 px-6 border-t border-white/[0.04]" ref={ref}>

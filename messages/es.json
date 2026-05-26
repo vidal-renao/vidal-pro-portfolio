@@ -323,6 +323,22 @@
           "6 idiomas"
         ],
         "status": "Producción"
+      },
+      {
+        "title": "CivicFund Web3 Lab",
+        "description": "Interfaz de financiación de bienes públicos con privacidad, inspirada en plataformas gobernadas por la comunidad. Conecta una wallet, cambia a Sepolia, lee saldo y bloques reales y firma una intención de apoyo no financiera con consentimiento claro.",
+        "tags": [
+          "Next.js 16",
+          "wagmi",
+          "viem",
+          "TypeScript"
+        ],
+        "metrics": [
+          "Conexión wallet",
+          "Lectura Sepolia",
+          "Firma EVM"
+        ],
+        "status": "Lab"
       }
     ]
   },
