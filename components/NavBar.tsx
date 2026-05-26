@@ -14,6 +14,8 @@ export default function NavBar() {
   const router = useRouter();
   const locale = useLocale() as Locale;
   const [scrolled, setScrolled] = useState(false);
+  const homeAnchor = (section: string) =>
+    pathname === "/" ? `#${section}` : `/${locale}#${section}`;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -26,13 +28,13 @@ export default function NavBar() {
   };
 
   const navLinks = [
-    { href: "#services", label: t("services") },
-    { href: "#certifications", label: t("certifications") },
-    { href: "#stack", label: t("stack") },
-    { href: "#experience", label: t("experience") },
-    { href: "#projects", label: t("projects") },
+    { href: homeAnchor("services"), label: t("services") },
+    { href: homeAnchor("certifications"), label: t("certifications") },
+    { href: homeAnchor("stack"), label: t("stack") },
+    { href: homeAnchor("experience"), label: t("experience") },
+    { href: homeAnchor("projects"), label: t("projects") },
     { href: `/${locale}/labs/community-fund`, label: t("lab") },
-    { href: "#contact", label: t("contact") },
+    { href: homeAnchor("contact"), label: t("contact") },
   ];
 
   return (
@@ -45,7 +47,7 @@ export default function NavBar() {
     >
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
         {/* Brand identity */}
-        <a href="#" className="group" aria-label="Vidal Reñao home">
+        <a href={`/${locale}`} className="group" aria-label="Vidal Reñao home">
           <Logo
             variant="inline"
             className="h-10 w-auto max-w-[170px] sm:max-w-[245px] transition-opacity group-hover:opacity-90"
@@ -53,12 +55,12 @@ export default function NavBar() {
         </a>
 
         {/* Center links */}
-        <ul className="hidden md:flex items-center gap-4 lg:gap-7">
+        <ul className="hidden md:flex items-center gap-3 lg:gap-5">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className="text-sm text-white/45 hover:text-white transition-colors duration-200"
+                className="whitespace-nowrap text-sm text-white/45 hover:text-white transition-colors duration-200"
               >
                 {link.label}
               </a>
@@ -87,8 +89,8 @@ export default function NavBar() {
 
           {/* CTA */}
           <a
-            href="#contact"
-            className="hidden md:flex items-center gap-2 text-xs font-semibold bg-blue-500 hover:bg-blue-400 text-white rounded-full px-4 py-2 transition-all duration-200"
+            href={homeAnchor("contact")}
+            className="hidden whitespace-nowrap md:flex items-center gap-2 text-xs font-semibold bg-blue-500 hover:bg-blue-400 text-white rounded-full px-4 py-2 transition-all duration-200"
           >
             {t("hire")}
           </a>

@@ -343,6 +343,70 @@
       }
     ]
   },
+  "web3Lab": {
+    "metaTitle": "CivicFund Web3 Lab | Vidal Renao",
+    "metaDescription": "Eine Web3-Frontend-Demo für Public Goods mit Next.js, TypeScript, wagmi und viem auf Sepolia.",
+    "back": "Zurück zu den Projekten",
+    "badge": "Web3-Frontend-Demo",
+    "titlePrefix": "Civic",
+    "titleAccent": "Fund",
+    "subtitle": "Ein funktionaler Prototyp zum Entdecken gemeinschaftlicher Initiativen, Verbinden einer Wallet und Signieren einer Support-Intention im Sepolia-Testnetz.",
+    "stack": "Next.js 16 / TypeScript / wagmi / viem / Sepolia",
+    "verified": "Reale Blockchain-Integration",
+    "demoData": "Vorschläge und Beträge sind Demonstrationsdaten. Wallet-Verbindung, Sepolia-Blockdaten, Testnet-Saldo und Signatur sind echte Funktionen.",
+    "wallet": "Wallet",
+    "connect": "Wallet verbinden",
+    "disconnect": "Trennen",
+    "noWallet": "Verbinde eine Browser-Wallet wie MetaMask, um den Web3-Ablauf zu testen.",
+    "account": "Verbundenes Konto",
+    "network": "Netzwerk",
+    "balance": "Sepolia-Saldo",
+    "block": "Aktueller Sepolia-Block",
+    "wrongNetwork": "Wechsle zu Sepolia, um den Testsaldo zu lesen und sicher zu signieren.",
+    "switch": "Zu Sepolia wechseln",
+    "proposals": "Community-Vorschläge",
+    "demoBadge": "MVP / Demonstration",
+    "selected": "Ausgewählt",
+    "contributors": "Beitragende",
+    "funded": "finanziert",
+    "intention": "Support-Intention",
+    "signText": "Signiere eine nicht finanzielle Support-Intention. Es wird keine Transaktion gesendet und kein Guthaben bewegt.",
+    "sign": "Support-Intention signieren",
+    "signed": "Signatur lokal erfasst",
+    "signatureNote": "Diese EVM-Signatur zeigt die Wallet-Interaktion, ohne eine Spende auszulösen.",
+    "architecture": "Was dieses Projekt demonstriert",
+    "messageTitle": "CivicFund Support-Intention",
+    "messageProposal": "Vorschlag",
+    "messageWallet": "Wallet",
+    "notConnected": "nicht verbunden",
+    "messageNetwork": "Netzwerk",
+    "messageValue": "Wert",
+    "messagePurpose": "Zweck",
+    "messageNoTransaction": "Public-Goods-Demonstration; keine Transaktion angefordert",
+    "proposalItems": {
+      "privacy": {
+        "category": "Identität",
+        "title": "Datenschutzorientierte Community-Identität",
+        "summary": "Portable Nachweise belegen Mitgliedschaft, ohne persönliche Daten offenzulegen."
+      },
+      "learning": {
+        "category": "Bildung",
+        "title": "Offenes gemeinsames Lernen",
+        "summary": "Gemeinsame Bounties für von der Community organisierte Forschung und Workshops."
+      },
+      "coordination": {
+        "category": "Koordination",
+        "title": "Lokales Koordinations-Toolkit",
+        "summary": "Open-Source-Tools für Vorschläge, Events und transparente Beitragsverfolgung."
+      }
+    },
+    "bullets": [
+      "Wallet-Verbindung und Netzwerkwechsel über wagmi Connectors.",
+      "Sepolia-Saldo und Live-Blockdaten über viem-kompatible Hooks.",
+      "Message Signing mit klarer Einwilligung und ohne finanzielle Operation.",
+      "Responsive Oberfläche für ein gemeinschaftliches Finanzierungskonzept."
+    ]
+  },
   "testimonials": {
     "label": "Kundenbewertungen",
     "title": "Was Kunden sagen",

@@ -343,6 +343,70 @@
       }
     ]
   },
+  "web3Lab": {
+    "metaTitle": "CivicFund Web3 Lab | Vidal Renao",
+    "metaDescription": "Demo frontend Web3 de bienes públicos con Next.js, TypeScript, wagmi y viem sobre Sepolia.",
+    "back": "Volver a proyectos",
+    "badge": "Demo frontend Web3",
+    "titlePrefix": "Civic",
+    "titleAccent": "Fund",
+    "subtitle": "Prototipo funcional para explorar iniciativas comunitarias, conectar una wallet y firmar una intención de apoyo en la red de pruebas Sepolia.",
+    "stack": "Next.js 16 / TypeScript / wagmi / viem / Sepolia",
+    "verified": "Integración blockchain real",
+    "demoData": "Las propuestas y sus importes son datos de demostración. La conexión de wallet, el bloque Sepolia, el saldo testnet y la firma sí son funciones reales.",
+    "wallet": "Wallet",
+    "connect": "Conectar wallet",
+    "disconnect": "Desconectar",
+    "noWallet": "Conecta una wallet del navegador, como MetaMask, para probar el flujo Web3.",
+    "account": "Cuenta conectada",
+    "network": "Red",
+    "balance": "Saldo Sepolia",
+    "block": "Último bloque Sepolia",
+    "wrongNetwork": "Cambia a Sepolia para consultar el saldo de prueba y firmar de forma segura.",
+    "switch": "Cambiar a Sepolia",
+    "proposals": "Propuestas comunitarias",
+    "demoBadge": "MVP / demostración",
+    "selected": "Seleccionada",
+    "contributors": "colaboradores",
+    "funded": "financiado",
+    "intention": "Intención de apoyo",
+    "signText": "Firma una intención de apoyo no financiera. No se envía ninguna transacción ni salen fondos de tu wallet.",
+    "sign": "Firmar intención de apoyo",
+    "signed": "Firma capturada localmente",
+    "signatureNote": "Esta firma EVM demuestra una interacción con wallet sin iniciar una donación.",
+    "architecture": "Qué demuestra este proyecto",
+    "messageTitle": "Intención de apoyo CivicFund",
+    "messageProposal": "propuesta",
+    "messageWallet": "wallet",
+    "notConnected": "no conectada",
+    "messageNetwork": "red",
+    "messageValue": "valor",
+    "messagePurpose": "propósito",
+    "messageNoTransaction": "demostración de bienes públicos; no se solicita ninguna transacción",
+    "proposalItems": {
+      "privacy": {
+        "category": "Identidad",
+        "title": "Identidad comunitaria con privacidad",
+        "summary": "Credenciales portables que verifican membresía sin exponer datos personales."
+      },
+      "learning": {
+        "category": "Educación",
+        "title": "Aprendizaje abierto compartido",
+        "summary": "Recompensas compartidas para investigación y talleres dirigidos por la comunidad."
+      },
+      "coordination": {
+        "category": "Coordinación",
+        "title": "Kit de coordinación local",
+        "summary": "Herramientas abiertas para propuestas, eventos y seguimiento transparente de contribuciones."
+      }
+    },
+    "bullets": [
+      "Conexión de wallet y cambio de red mediante conectores wagmi.",
+      "Lectura del saldo Sepolia y de bloques en vivo mediante hooks compatibles con viem.",
+      "Firma de mensajes con consentimiento claro y sin operación financiera.",
+      "Interfaz responsive para un concepto de financiación comunitaria."
+    ]
+  },
   "testimonials": {
     "label": "Opiniones de Clientes",
     "title": "Lo que dicen los clientes",
