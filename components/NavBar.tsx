@@ -31,6 +31,7 @@ export default function NavBar() {
     { href: "#stack", label: t("stack") },
     { href: "#experience", label: t("experience") },
     { href: "#projects", label: t("projects") },
+    { href: `/${locale}/labs/community-fund`, label: t("lab") },
     { href: "#contact", label: t("contact") },
   ];
 
@@ -42,17 +43,17 @@ export default function NavBar() {
           : "bg-transparent"
       }`}
     >
-      <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <nav className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
         {/* Brand identity */}
         <a href="#" className="group" aria-label="Vidal Reñao home">
           <Logo
             variant="inline"
-            className="h-10 w-auto max-w-[205px] sm:max-w-[245px] transition-opacity group-hover:opacity-90"
+            className="h-10 w-auto max-w-[170px] sm:max-w-[245px] transition-opacity group-hover:opacity-90"
           />
         </a>
 
         {/* Center links */}
-        <ul className="hidden md:flex items-center gap-8">
+        <ul className="hidden md:flex items-center gap-4 lg:gap-7">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
@@ -73,7 +74,7 @@ export default function NavBar() {
               <button
                 key={l}
                 onClick={() => switchLocale(l)}
-                className={`px-2.5 py-1.5 transition-colors duration-150 ${
+                className={`px-2 py-1.5 sm:px-2.5 transition-colors duration-150 ${
                   locale === l
                     ? "bg-white/10 text-white"
                     : "text-white/40 hover:text-white/70"
@@ -93,6 +94,14 @@ export default function NavBar() {
           </a>
         </div>
       </nav>
+      <div className="flex justify-center px-4 pb-3 md:hidden">
+        <a
+          href={`/${locale}/labs/community-fund`}
+          className="rounded-full border border-cyan-400/25 bg-cyan-400/10 px-3.5 py-1.5 text-xs font-semibold text-cyan-200 transition-colors hover:bg-cyan-400/20"
+        >
+          {t("lab")}
+        </a>
+      </div>
     </header>
   );
 }
