@@ -6,6 +6,7 @@
     "experience": "Erfahrung",
     "projects": "Projekte",
     "lab": "Web3 Lab",
+    "productLab": "Produkt-Lab",
     "contact": "Kontakt",
     "hire": "Gespräch starten"
   },
@@ -340,6 +341,22 @@
           "EVM Message Signing"
         ],
         "status": "Lab"
+      },
+      {
+        "title": "TempoTutor Marketplace Lab",
+        "description": "Produkt-Lab fuer einen Musikunterricht-Marktplatz: Lehrerprofile entdecken, Lektion mit Stripe Test Checkout reservieren, Buchungen durch Supabase Auth und RLS schuetzen, Auszahlungen ueber Stripe Connect einrichten und Zahlungs-Webhooks idempotent verarbeiten.",
+        "tags": [
+          "Next.js 16",
+          "Supabase RLS",
+          "Stripe",
+          "Playwright"
+        ],
+        "metrics": [
+          "Test-Checkout",
+          "Auszahlungen",
+          "Idempotenter Webhook"
+        ],
+        "status": "Lab"
       }
     ]
   },
@@ -406,6 +423,79 @@
       "Message Signing mit klarer Einwilligung und ohne finanzielle Operation.",
       "Responsive Oberfläche für ein gemeinschaftliches Finanzierungskonzept."
     ]
+  },
+  "tempoTutorLab": {
+    "metaTitle": "TempoTutor Marketplace Lab | Vidal Renao",
+    "metaDescription": "Musikunterricht-Marktplatz mit Next.js, TypeScript, Supabase Auth und RLS, Stripe Checkout und Connect sowie Playwright.",
+    "back": "Zurueck zu den Projekten",
+    "badge": "Marketplace Produkt-Lab",
+    "subtitle": "Ein Buchungsmarktplatz fuer Musiklehrpersonen: Profile entdecken, eine Lektion reservieren, sicher bezahlen und Auszahlungen ueber eine nachvollziehbare Full-Stack-Architektur steuern.",
+    "integrationTitle": "Integrationsstatus",
+    "supabaseAuth": "Supabase Auth + RLS",
+    "stripeCheckout": "Stripe-Testzahlungen",
+    "webhookIdempotency": "Webhook-Idempotenz",
+    "configured": "Konfiguriert",
+    "demoMode": "Demo-Modus",
+    "setupRequired": "Bereit fuer Setup",
+    "demoNotice": "Die Marktplatzoberflaeche ist mit Seed-Profilen live. Reale Testzahlungen werden erst nach Konfiguration der Supabase- und Stripe-Testschluessel aktiviert.",
+    "marketplaceLabel": "Entdecken",
+    "chooseTeacher": "Musiklehrperson waehlen",
+    "seededProfiles": "Seed-Marktplatzprofile",
+    "bookingLabel": "Buchen",
+    "bookingSummary": "Ihre Lektion",
+    "total": "Gesamt",
+    "previewReservation": "Reservierung ansehen",
+    "payWithStripe": "Mit Stripe Test Checkout bezahlen",
+    "processing": "Verarbeitung...",
+    "paymentDisclosure": "Im Demo-Modus wird keine reale Belastung gestartet. Im konfigurierten Testmodus erfolgt die Weiterleitung zu Stripe Checkout mit gesicherter Buchung.",
+    "accountLabel": "Identitaet",
+    "authTitle": "Schuelerkonto",
+    "emailPlaceholder": "E-Mail fuer passwortlose Anmeldung",
+    "sendMagicLink": "Magic Link senden",
+    "signedInAs": "Angemeldet als",
+    "signOut": "Abmelden",
+    "teacherPayouts": "Auszahlungen einrichten",
+    "architectureLabel": "Architektur",
+    "architectureTitle": "Was dieser Build belegt",
+    "emailRequired": "Bitte zuerst eine gueltige E-Mail-Adresse eingeben.",
+    "setupAuth": "Supabase Auth ist konzipiert und bereit; fuer Magic Links Test-Umgebungsvariablen konfigurieren.",
+    "magicLinkSent": "Bitte E-Mail fuer den sicheren Anmeldelink pruefen.",
+    "signedOut": "Sie wurden abgemeldet.",
+    "previewReady": "Reservierungsvorschau erstellt. Mit Testschluesseln und Anmeldung oeffnet dieser Schritt Stripe Checkout.",
+    "checkoutSuccess": "Zahlung bestaetigt. Der idempotente Webhook aktualisiert die Buchung genau einmal.",
+    "checkoutCancelled": "Checkout abgebrochen. Der Termin bleibt fuer eine neue Reservierung verfuegbar.",
+    "checkoutError": "Checkout konnte nicht gestartet werden.",
+    "teacherSetupInfo": "Stripe-Connect-Onboarding wird nach Konfiguration fuer angemeldete Lehrpersonen aktiviert.",
+    "connectComplete": "Das Onboarding fuer Auszahlungen wurde erfolgreich zurueckgegeben.",
+    "connectError": "Onboarding fuer Auszahlungen konnte nicht gestartet werden.",
+    "instruments": {
+      "piano": "Klavier",
+      "guitar": "Gitarre",
+      "voice": "Gesangscoaching"
+    },
+    "levels": {
+      "beginner": "Anfaenger",
+      "intermediate": "Mittelstufe",
+      "advanced": "Fortgeschritten"
+    },
+    "architecture": {
+      "auth": {
+        "title": "Auth + Mandantentrennung",
+        "text": "Magic-Link-Anmeldung und PostgreSQL RLS begrenzen Buchungen auf Schueler und zugewiesene Lehrpersonen."
+      },
+      "payments": {
+        "title": "Checkout + Auszahlungen",
+        "text": "Stripe Test Checkout nimmt die Zahlung entgegen; Connect Express unterstuetzt Lehrpersonen-Onboarding und Auszahlungen."
+      },
+      "webhooks": {
+        "title": "Idempotenter Webhook",
+        "text": "Verifizierte Stripe-Ereignisse rufen eine atomare Datenbankfunktion mit unveraenderlichem Unique Event Record auf."
+      },
+      "testing": {
+        "title": "Qualitaetsworkflow",
+        "text": "Playwright deckt Auswahl und Buchungspfad ab; API-Grenzen validieren Eingaben vor externen Aufrufen."
+      }
+    }
   },
   "testimonials": {
     "label": "Kundenbewertungen",

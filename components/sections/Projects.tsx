@@ -35,6 +35,7 @@ const projectStatic: {
   { color: "blue",    githubUrl: "https://github.com/vidal-renao/invoice-auto",            demoUrl: "https://invoice-auto-3xjvcf07t-vidal-renaos-projects.vercel.app" },
   { color: "emerald", githubUrl: "https://github.com/vidal-renao/cv-platform",             demoUrl: "https://cv-platform-fzmv9ksb4-vidal-renaos-projects.vercel.app" },
   { color: "indigo",  githubUrl: "https://github.com/vidal-renao/vidal-pro-portfolio",     demoUrl: null },
+  { color: "violet",  githubUrl: "https://github.com/vidal-renao/vidal-pro-portfolio",     demoUrl: null },
 ];
 
 const colorMap: Record<ColorKey, { badge: string; tag: string; dot: string; border: string }> = {
@@ -68,7 +69,12 @@ export default function Projects() {
   const projects = items.map((item, i) => ({
     ...item,
     ...projectStatic[i],
-    demoUrl: i === 6 ? `/${locale}/labs/community-fund` : projectStatic[i].demoUrl,
+    demoUrl:
+      i === 6
+        ? `/${locale}/labs/community-fund`
+        : i === 7
+          ? `/${locale}/labs/tempo-tutor`
+          : projectStatic[i].demoUrl,
   }));
 
   return (

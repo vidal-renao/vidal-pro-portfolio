@@ -19,6 +19,7 @@ This repository owns only the production web experience:
 | `components/sections/` | Online profile, services, projects and contact content |
 | `messages/` | Translation content |
 | `public/assets/` | Public web assets and downloadable credentials |
+| `app/[locale]/labs/tempo-tutor/` | Marketplace product lab with Stripe/Supabase integration |
 
 Physical marketing production, cards, flyers and tailored CV working files are
 maintained independently in the sibling `cv-workspace` repository.
@@ -41,6 +42,7 @@ npm install
 npm run dev
 npm run lint
 npm run build
+npm run test:e2e
 npm run start
 ```
 

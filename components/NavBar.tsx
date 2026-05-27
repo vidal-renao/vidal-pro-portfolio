@@ -33,6 +33,7 @@ export default function NavBar() {
     { href: homeAnchor("stack"), label: t("stack") },
     { href: homeAnchor("experience"), label: t("experience") },
     { href: homeAnchor("projects"), label: t("projects") },
+    { href: `/${locale}/labs/tempo-tutor`, label: t("productLab") },
     { href: `/${locale}/labs/community-fund`, label: t("lab") },
     { href: homeAnchor("contact"), label: t("contact") },
   ];
@@ -96,7 +97,13 @@ export default function NavBar() {
           </a>
         </div>
       </nav>
-      <div className="flex justify-center px-4 pb-3 md:hidden">
+      <div className="flex justify-center gap-2 px-4 pb-3 md:hidden">
+        <a
+          href={`/${locale}/labs/tempo-tutor`}
+          className="rounded-full border border-fuchsia-400/25 bg-fuchsia-400/10 px-3.5 py-1.5 text-xs font-semibold text-fuchsia-200 transition-colors hover:bg-fuchsia-400/20"
+        >
+          {t("productLab")}
+        </a>
         <a
           href={`/${locale}/labs/community-fund`}
           className="rounded-full border border-cyan-400/25 bg-cyan-400/10 px-3.5 py-1.5 text-xs font-semibold text-cyan-200 transition-colors hover:bg-cyan-400/20"
