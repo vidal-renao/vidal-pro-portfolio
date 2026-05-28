@@ -20,14 +20,23 @@ type ArchitectureTranslation = {
   stack: string[];
 };
 
-type ColorKey = "violet" | "blue" | "emerald" | "cyan" | "amber" | "rose" | "indigo";
+type ColorKey = "violet" | "blue" | "emerald" | "cyan" | "amber" | "rose" | "indigo" | "lime";
 
 const projectStatic: {
   color: ColorKey;
   githubUrl: string;
   demoUrl: string | null;
   dsg?: boolean;
+  featured?: boolean;
 }[] = [
+  // ★ Star project
+  {
+    color: "lime",
+    featured: true,
+    githubUrl: "https://github.com/vidal-renao/aura-ai",
+    demoUrl: "https://aura-ai-smoky.vercel.app",
+  },
+  // Grid projects
   { color: "cyan",    githubUrl: "https://github.com/vidal-renao/limpiezas-najip-maritza", demoUrl: "https://www.dnamar.ch" },
   { color: "amber",   githubUrl: "https://github.com/vidal-renao/ticket-system",           demoUrl: "https://ticket-system-sigma-pink.vercel.app", dsg: true },
   { color: "rose",    githubUrl: "https://github.com/vidal-renao/vidal-helpdesk-mcp",      demoUrl: "https://vidal-helpdesk-mcp.vercel.app/health" },
@@ -38,14 +47,15 @@ const projectStatic: {
   { color: "violet",  githubUrl: "https://github.com/vidal-renao/vidal-pro-portfolio",     demoUrl: null },
 ];
 
-const colorMap: Record<ColorKey, { badge: string; tag: string; dot: string; border: string }> = {
-  amber: { badge: "bg-amber-500/10 text-amber-400 border-amber-500/20", tag: "bg-amber-500/08 text-amber-400/80 border-amber-500/15", dot: "bg-amber-400", border: "hover:border-amber-500/20" },
-  blue: { badge: "bg-blue-500/10 text-blue-400 border-blue-500/20", tag: "bg-blue-500/08 text-blue-400/80 border-blue-500/15", dot: "bg-blue-400", border: "hover:border-blue-500/20" },
-  violet: { badge: "bg-violet-500/10 text-violet-400 border-violet-500/20", tag: "bg-violet-500/08 text-violet-400/80 border-violet-500/15", dot: "bg-violet-400", border: "hover:border-violet-500/20" },
+const colorMap: Record<ColorKey, { badge: string; tag: string; dot: string; border: string; glow?: string }> = {
+  lime:    { badge: "bg-lime-500/10 text-lime-400 border-lime-500/20",   tag: "bg-lime-500/08 text-lime-300/80 border-lime-500/15",   dot: "bg-lime-400",   border: "hover:border-lime-500/30",   glow: "shadow-[0_0_80px_rgba(163,230,53,0.07)]" },
+  amber:   { badge: "bg-amber-500/10 text-amber-400 border-amber-500/20", tag: "bg-amber-500/08 text-amber-400/80 border-amber-500/15", dot: "bg-amber-400",  border: "hover:border-amber-500/20" },
+  blue:    { badge: "bg-blue-500/10 text-blue-400 border-blue-500/20",   tag: "bg-blue-500/08 text-blue-400/80 border-blue-500/15",   dot: "bg-blue-400",   border: "hover:border-blue-500/20" },
+  violet:  { badge: "bg-violet-500/10 text-violet-400 border-violet-500/20", tag: "bg-violet-500/08 text-violet-400/80 border-violet-500/15", dot: "bg-violet-400", border: "hover:border-violet-500/20" },
   emerald: { badge: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20", tag: "bg-emerald-500/08 text-emerald-400/80 border-emerald-500/15", dot: "bg-emerald-400", border: "hover:border-emerald-500/20" },
-  cyan: { badge: "bg-cyan-500/10 text-cyan-400 border-cyan-500/20", tag: "bg-cyan-500/08 text-cyan-400/80 border-cyan-500/15", dot: "bg-cyan-400", border: "hover:border-cyan-500/20" },
-  rose: { badge: "bg-rose-500/10 text-rose-400 border-rose-500/20", tag: "bg-rose-500/08 text-rose-400/80 border-rose-500/15", dot: "bg-rose-400", border: "hover:border-rose-500/20" },
-  indigo: { badge: "bg-indigo-500/10 text-indigo-400 border-indigo-500/20", tag: "bg-indigo-500/08 text-indigo-400/80 border-indigo-500/15", dot: "bg-indigo-400", border: "hover:border-indigo-500/20" },
+  cyan:    { badge: "bg-cyan-500/10 text-cyan-400 border-cyan-500/20",   tag: "bg-cyan-500/08 text-cyan-400/80 border-cyan-500/15",   dot: "bg-cyan-400",   border: "hover:border-cyan-500/20" },
+  rose:    { badge: "bg-rose-500/10 text-rose-400 border-rose-500/20",   tag: "bg-rose-500/08 text-rose-400/80 border-rose-500/15",   dot: "bg-rose-400",   border: "hover:border-rose-500/20" },
+  indigo:  { badge: "bg-indigo-500/10 text-indigo-400 border-indigo-500/20", tag: "bg-indigo-500/08 text-indigo-400/80 border-indigo-500/15", dot: "bg-indigo-400", border: "hover:border-indigo-500/20" },
 };
 
 const gridVariants = {
@@ -66,16 +76,20 @@ export default function Projects() {
 
   const items = t.raw("items") as ProjectTranslation[];
   const architecture = t.raw("architecture") as ArchitectureTranslation;
+
   const projects = items.map((item, i) => ({
     ...item,
     ...projectStatic[i],
     demoUrl:
-      i === 6
+      i === 7
         ? `/${locale}/labs/community-fund`
-        : i === 7
+        : i === 8
           ? `/${locale}/labs/tempo-tutor`
           : projectStatic[i].demoUrl,
   }));
+
+  const [starProject, ...gridProjects] = projects;
+  const starColors = colorMap[starProject.color as ColorKey];
 
   return (
     <section id="projects" className="py-28 px-6 border-t border-white/[0.04]" ref={ref}>
@@ -91,6 +105,7 @@ export default function Projects() {
           <p className="text-white/50 max-w-xl mx-auto text-sm leading-relaxed">{t("subtitle")}</p>
         </motion.div>
 
+        {/* Architecture banner */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -137,14 +152,91 @@ export default function Projects() {
           </div>
         </motion.div>
 
+        {/* ★ Star project — Aura AI featured card */}
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
+          whileHover={{ y: -4 }}
+          className={`group relative mb-5 overflow-hidden rounded-2xl border border-lime-500/20 bg-[linear-gradient(135deg,rgba(10,20,5,0.88),rgba(17,24,10,0.92))] p-6 md:p-8 transition-colors duration-300 ${starColors.glow} hover:border-lime-500/35`}
+        >
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(163,230,53,0.06),transparent_45%)]" />
+          <div className="relative flex flex-col gap-5 md:flex-row md:items-start md:gap-8">
+            {/* Left: title + description */}
+            <div className="flex-1 min-w-0">
+              <div className="flex flex-wrap items-center gap-2.5 mb-3">
+                <span className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.22em] text-lime-400 border border-lime-500/25 bg-lime-500/08 rounded-full px-2.5 py-1">
+                  <span className="h-1.5 w-1.5 rounded-full bg-lime-400 animate-pulse" />
+                  Star Project
+                </span>
+                <span className={`flex items-center gap-1.5 text-xs font-medium border rounded-full px-2.5 py-1 ${starColors.badge}`}>
+                  <span className={`w-1.5 h-1.5 rounded-full ${starColors.dot}`} />
+                  {starProject.status}
+                </span>
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2 md:text-2xl">{starProject.title}</h3>
+              <p className="text-sm text-white/55 leading-relaxed md:text-[15px] md:leading-7">
+                {starProject.description}
+              </p>
+            </div>
+
+            {/* Right: metrics + tags + links */}
+            <div className="flex flex-col gap-4 md:w-64 shrink-0">
+              <div className="flex flex-wrap gap-2">
+                {starProject.metrics.map((m) => (
+                  <span key={m} className="text-xs text-white/40 bg-white/[0.04] border border-white/[0.06] rounded-full px-2.5 py-1">
+                    {m}
+                  </span>
+                ))}
+              </div>
+              <div className="flex flex-wrap gap-1.5">
+                {starProject.tags.map((tag) => (
+                  <span key={tag} className={`text-xs border rounded-full px-2 py-0.5 ${starColors.tag}`}>
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <div className="flex items-center gap-4 pt-2 border-t border-white/[0.05]">
+                {starProject.demoUrl && (
+                  <motion.a
+                    href={starProject.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 text-xs font-medium text-lime-400/80 transition-colors hover:text-lime-300"
+                    whileHover={{ x: 2 }}
+                  >
+                    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                    {t("view")}
+                  </motion.a>
+                )}
+                <motion.a
+                  href={starProject.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-xs font-medium text-white/40 transition-colors hover:text-white"
+                  whileHover={{ x: 2 }}
+                >
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                  </svg>
+                  {t("code")}
+                </motion.a>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Regular project grid */}
         <motion.div
           className="grid md:grid-cols-2 gap-5"
           variants={gridVariants}
           initial="hidden"
           animate={inView ? "show" : "hidden"}
         >
-          {projects.map((project) => {
-            const colors = colorMap[project.color];
+          {gridProjects.map((project) => {
+            const colors = colorMap[project.color as ColorKey];
             const isDSG = project.dsg === true;
             return (
               <motion.div

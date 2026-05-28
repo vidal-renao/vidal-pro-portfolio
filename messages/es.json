@@ -215,25 +215,32 @@
     "view": "Demo en vivo",
     "code": "GitHub",
     "architecture": {
-      "label": "Hito de Arquitectura",
-      "title": "AI-Powered SaaS Infrastructure & Multi-Schema Architecture",
-      "intro": "Disenado y endurecido como una base SaaS de nivel productivo que proyecta arquitectura de soluciones robustas, no solo interfaz: dominios de datos segregados por esquema, exposicion de API controlada por politicas, pipelines de auditoria seguros y automatizacion de despliegue alineada con Swiss DSG.",
+      "label": "Proyecto Estrella — En Producción",
+      "title": "Aura AI — SaaS de Revenue Intelligence Multi-Tenant",
+      "intro": "Infraestructura SaaS multi-tenant de alto rendimiento para la optimización dinámica de ingresos y márgenes comerciales en tiempo real. Integra WebSockets nativos con replicación de PostgreSQL para actualizaciones instantáneas de UI, un motor FinOps pre-algorítmico que optimiza el consumo de contexto en modelos de IA (reducción del 82,4% en costos de API), una línea de tiempo para auditoría y trazabilidad corporativa según la normativa DSG, y un laboratorio de ingeniería de caos para garantizar una tolerancia a fallos del 100% en nodos de borde.",
       "achievements": [
-        "Implementacion de arquitectura de aislamiento de datos en Supabase con esquemas segregados public, helpdesk y scout para cumplimiento Swiss DSG.",
-        "Configuracion avanzada de Row Level Security y exposicion selectiva de esquemas en PostgREST para endurecer las fronteras de la API y reducir riesgo multitenant.",
-        "Desarrollo de pipelines de auditoria en Vercel con autenticacion service role para gestion segura de metadatos de IA y persistencia cross-schema.",
-        "Automatizacion de despliegue con GitHub Actions, estableciendo entrega continua y visibilidad operativa de errores en tiempo real."
+        "Pipeline WebSocket nativo con Supabase Realtime — actualizaciones de precios sin latencia vía slot de replicación PostgreSQL.",
+        "Filtro FinOps pre-algorítmico: 82,4% de reducción de contexto antes de la invocación LLM, minimizando el costo de API de Anthropic por ciclo de análisis.",
+        "Registro de auditoría inmutable alineado con Swiss DSG/nDSG — esquema INSERT-only con trazabilidad completa de decisiones estratégicas.",
+        "Laboratorio Chaos Engineering: inyección de fallos en 3 modos (timeout / API_DOWN / payload corrupto) para validar 100% de resiliencia en nodos de borde."
       ],
       "stack": [
-        "Next.js",
-        "Supabase",
+        "Next.js 16",
+        "TypeScript",
+        "Supabase Realtime",
         "PostgreSQL",
-        "Vercel",
-        "GitHub Actions",
-        "AI Infrastructure"
+        "Anthropic API",
+        "Vercel Edge"
       ]
     },
     "items": [
+      {
+        "title": "Aura AI — Revenue Intelligence",
+        "description": "SaaS multi-tenant para optimización de ingresos y márgenes en tiempo real. WebSockets nativos con replicación PostgreSQL para actualizaciones instantáneas de UI. Motor FinOps pre-algorítmico reduce costos de API de IA en un 82,4%. Registro de auditoría corporativa inmutable alineado con Swiss DSG. Laboratorio de Chaos Engineering valida tolerancia a fallos del 100% en nodos de borde.",
+        "tags": ["Next.js 16", "TypeScript", "Supabase Realtime", "Anthropic API", "Vercel Edge"],
+        "metrics": ["82,4% reducción costo API", "WebSocket tiempo real", "Chaos Engineering"],
+        "status": "Producción"
+      },
       {
         "title": "D'NAMAR GmbH",
         "description": "Web corporativa para empresa suiza de limpieza — en producción en dnamar.ch (Go-live abril 2026). Trilingüe (DE/EN/ES), puntuación 100/100 en Lighthouse en todas las métricas, datos estructurados JSON-LD para SEO local, indexada en Google y verificada en Google Search Console.",

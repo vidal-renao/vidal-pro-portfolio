@@ -215,25 +215,32 @@
     "view": "Live Demo",
     "code": "GitHub",
     "architecture": {
-      "label": "Architecture Milestone",
-      "title": "AI-Powered SaaS Infrastructure & Multi-Schema Architecture",
-      "intro": "Designed and hardened as a production-grade SaaS foundation that showcases robust solution architecture, not just interface delivery: schema-segregated data domains, policy-aware API exposure, secure audit pipelines, and deployment automation aligned with Swiss DSG expectations.",
+      "label": "Star Project — Live in Production",
+      "title": "Aura AI — Multi-Tenant Revenue Intelligence SaaS",
+      "intro": "High-performance multi-tenant SaaS infrastructure for real-time revenue and commercial margin optimization. Integrates native WebSockets with PostgreSQL replication for instant UI updates, a pre-algorithmic FinOps engine that reduces AI API costs by 82.4%, a corporate audit trail for Swiss DSG traceability, and a chaos engineering lab guaranteeing 100% fault tolerance at edge nodes.",
       "achievements": [
-        "Implemented Supabase data-isolation architecture with segregated schemas across public, helpdesk, and scout for Swiss DSG compliance.",
-        "Configured advanced Row Level Security and selective PostgREST schema exposure to harden API boundaries and reduce tenant risk.",
-        "Developed Vercel-based audit pipelines with service role authentication for secure AI metadata handling and cross-schema persistence.",
-        "Automated delivery with GitHub Actions, establishing continuous deployment and real-time operational error visibility."
+        "Native WebSocket pipeline with Supabase Realtime — zero-latency product price updates via PostgreSQL replication slot.",
+        "Pre-algorithmic FinOps filter: 82.4% context reduction before LLM invocation, minimizing Anthropic API cost per analysis cycle.",
+        "Immutable audit log aligned with Swiss DSG/nDSG — INSERT-only schema with full strategic decision traceability.",
+        "Chaos Engineering Lab: 3-mode fault injection (timeout / API_DOWN / corrupt payload) validating 100% edge node resilience."
       ],
       "stack": [
-        "Next.js",
-        "Supabase",
+        "Next.js 16",
+        "TypeScript",
+        "Supabase Realtime",
         "PostgreSQL",
-        "Vercel",
-        "GitHub Actions",
-        "AI Infrastructure"
+        "Anthropic API",
+        "Vercel Edge"
       ]
     },
     "items": [
+      {
+        "title": "Aura AI — Revenue Intelligence",
+        "description": "Multi-tenant SaaS for real-time revenue and margin optimization. Native WebSockets with PostgreSQL replication for instant UI updates. Pre-algorithmic FinOps engine reduces AI API costs by 82.4%. Immutable corporate audit trail aligned with Swiss DSG. Chaos Engineering lab validates 100% fault tolerance at edge nodes.",
+        "tags": ["Next.js 16", "TypeScript", "Supabase Realtime", "Anthropic API", "Vercel Edge"],
+        "metrics": ["82.4% API cost reduction", "WebSocket realtime", "Chaos Engineering"],
+        "status": "Production"
+      },
       {
         "title": "D'NAMAR GmbH",
         "description": "Corporate website for a Swiss cleaning services company — live at dnamar.ch (Go-live April 2026). Trilingual (DE/EN/ES), 100/100 Lighthouse score across all metrics, JSON-LD structured data for local SEO, indexed on Google and verified in Google Search Console.",

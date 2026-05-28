@@ -215,25 +215,32 @@
     "view": "Live Demo",
     "code": "GitHub",
     "architecture": {
-      "label": "Architektur-Meilenstein",
-      "title": "AI-Powered SaaS Infrastructure & Multi-Schema Architecture",
-      "intro": "Als produktionsreife SaaS-Basis entworfen und gehaertet, um robuste Solution Architecture statt nur Interface Delivery zu zeigen: schema-segregierte Datenbereiche, policy-gesteuerte API-Freigabe, sichere Audit-Pipelines und Deployment-Automatisierung im Einklang mit Swiss DSG.",
+      "label": "Star Project — Live in Produktion",
+      "title": "Aura AI — Multi-Tenant Revenue Intelligence SaaS",
+      "intro": "Hochleistungs-Multi-Tenant-SaaS-Infrastruktur für Echtzeit-Umsatz- und Margenoptimierung. Native WebSockets mit PostgreSQL-Replikation für sofortige UI-Updates, ein pre-algorithmisches FinOps-Filter, das KI-API-Kosten um 82,4 % reduziert, ein unveränderliches Corporate Audit Log nach Swiss DSG und ein Chaos Engineering Lab für 100 % Fehlertoleranz an Edge Nodes.",
       "achievements": [
-        "Implementierung einer Supabase-Datenisolationsarchitektur mit getrennten Schemas public, helpdesk und scout fuer Swiss-DSG-konforme Verarbeitung.",
-        "Erweiterte Konfiguration von Row Level Security und selektiver PostgREST-Schemafreigabe zur Haertung der API-Grenzen und Reduktion von Multi-Tenant-Risiken.",
-        "Entwicklung von Audit-Pipelines auf Vercel mit Service-Role-Authentifizierung fuer sichere KI-Metadatenverwaltung und Cross-Schema-Persistenz.",
-        "Automatisierung der Auslieferung mit GitHub Actions fuer Continuous Deployment und operative Fehlertransparenz in Echtzeit."
+        "Native WebSocket-Pipeline mit Supabase Realtime — latenzfreie Preisupdates über PostgreSQL-Replikationsslot.",
+        "Pre-algorithmisches FinOps-Filter: 82,4 % Kontextreduktion vor LLM-Aufruf, minimiert Anthropic-API-Kosten pro Analyse.",
+        "Unveränderliches Audit-Log nach Swiss DSG/nDSG — INSERT-only Schema mit vollständiger strategischer Entscheidungsnachverfolgbarkeit.",
+        "Chaos Engineering Lab: 3-Modi-Fehlerinjektion (Timeout / API_DOWN / korrumpierte Payload) zur Validierung von 100 % Edge-Node-Resilienz."
       ],
       "stack": [
-        "Next.js",
-        "Supabase",
+        "Next.js 16",
+        "TypeScript",
+        "Supabase Realtime",
         "PostgreSQL",
-        "Vercel",
-        "GitHub Actions",
-        "AI Infrastructure"
+        "Anthropic API",
+        "Vercel Edge"
       ]
     },
     "items": [
+      {
+        "title": "Aura AI — Revenue Intelligence",
+        "description": "Multi-Tenant SaaS für Echtzeit-Umsatz- und Margenoptimierung. Native WebSockets mit PostgreSQL-Replikation für sofortige UI-Updates. Pre-algorithmisches FinOps-Filter reduziert KI-API-Kosten um 82,4 %. Unveränderliches Corporate Audit Log nach Swiss DSG. Chaos Engineering Lab validiert 100 % Fehlertoleranz an Edge Nodes.",
+        "tags": ["Next.js 16", "TypeScript", "Supabase Realtime", "Anthropic API", "Vercel Edge"],
+        "metrics": ["82,4 % API-Kostenreduktion", "WebSocket Echtzeit", "Chaos Engineering"],
+        "status": "Produktion"
+      },
       {
         "title": "D'NAMAR GmbH",
         "description": "Unternehmenswebsite für ein Schweizer Reinigungsunternehmen — live auf dnamar.ch (Go-live April 2026). Dreisprachig (DE/EN/ES), 100/100 Lighthouse-Score in allen Metriken, JSON-LD strukturierte Daten für lokales SEO, bei Google indexiert und in der Google Search Console verifiziert.",
