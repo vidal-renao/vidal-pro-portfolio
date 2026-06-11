@@ -216,13 +216,13 @@
     "code": "GitHub",
     "architecture": {
       "label": "Star Project — Live in Produktion",
-      "title": "Aura AI — Multi-Tenant Revenue Intelligence SaaS",
-      "intro": "Hochleistungs-Multi-Tenant-SaaS-Infrastruktur für Echtzeit-Umsatz- und Margenoptimierung. Native WebSockets mit PostgreSQL-Replikation für sofortige UI-Updates, ein pre-algorithmisches FinOps-Filter, das KI-API-Kosten um 82,4 % reduziert, ein unveränderliches Corporate Audit Log nach Swiss DSG und ein Chaos Engineering Lab für 100 % Fehlertoleranz an Edge Nodes.",
+      "title": "Aura AI — KI-gestützte SaaS-Infrastruktur für Revenue Intelligence",
+      "intro": "Multi-Tenant-SaaS für Produktmanagement und kommerzielle Margenwachstum. Erzwingt Row Level Security (RLS) mit mandantenspezifischer PostgreSQL-Schema-Isolierung — validiert unter gleichzeitiger Schreiblast ohne mandantenübergreifende Datenlecks. Ein pre-algorithmisches FinOps-Filter reduziert 82,4 % der Token-Kontext vor jeder Anthropic-API-Aufrufung und liefert eine quantifizierte, reproduzierbare Kosteneinsparung pro Analysezyklus. Ein INSERT-only unveränderliches Audit-Schema gewährleistet vollständige DSG/nDSG-Nachverfolgbarkeit für jede Preisentscheidung. Ein 3-Modus Chaos-Engineering-Lab (Netzwerkpartition · Cold Start · Parallel-Überlast) validiert 100 % Fehlertoleranz an Vercel-Edge-Knoten.",
       "achievements": [
-        "Native WebSocket-Pipeline mit Supabase Realtime — latenzfreie Preisupdates über PostgreSQL-Replikationsslot.",
-        "Pre-algorithmisches FinOps-Filter: 82,4 % Kontextreduktion vor LLM-Aufruf, minimiert Anthropic-API-Kosten pro Analyse.",
-        "Unveränderliches Audit-Log nach Swiss DSG/nDSG — INSERT-only Schema mit vollständiger strategischer Entscheidungsnachverfolgbarkeit.",
-        "Chaos Engineering Lab: 3-Modi-Fehlerinjektion (Timeout / API_DOWN / korrumpierte Payload) zur Validierung von 100 % Edge-Node-Resilienz."
+        "RLS + Multi-Tenant-Isolation: PostgreSQL Row Level Security pro Mandant ohne gemeinsam genutztes Schema — validiert unter gleichzeitiger Schreiblast.",
+        "Automatisiertes Schema-Hardening: Security Policies auf Tabellenebene, service-role-only Write-Paths und gesperrter öffentlicher Zugriff eliminieren alle Privilege-Escalation-Vektoren auf Datenbankebene.",
+        "Pre-algorithmisches FinOps-Filter: 82,4 % Token-Kontextreduktion vor LLM-Aufruf — quantifizierte, reproduzierbare Kosteneinsparung pro Analysezyklus, keine Schätzung.",
+        "INSERT-only unveränderliches Audit-Log nach Swiss DSG/nDSG — manipulationssichere Nachverfolgbarkeit jeder strategischen Preisentscheidung, Compliant by Design."
       ],
       "stack": [
         "Next.js 16",
@@ -236,55 +236,53 @@
     "items": [
       {
         "title": "Aura AI — Revenue Intelligence",
-        "description": "Multi-Tenant SaaS für Echtzeit-Umsatz- und Margenoptimierung. Native WebSockets mit PostgreSQL-Replikation für sofortige UI-Updates. Pre-algorithmisches FinOps-Filter reduziert KI-API-Kosten um 82,4 %. Unveränderliches Corporate Audit Log nach Swiss DSG. Chaos Engineering Lab validiert 100 % Fehlertoleranz an Edge Nodes.",
-        "tags": ["Next.js 16", "TypeScript", "Supabase Realtime", "Anthropic API", "Vercel Edge"],
-        "metrics": ["82,4 % API-Kostenreduktion", "WebSocket Echtzeit", "Chaos Engineering"],
+        "description": "KI-gestützte SaaS-Infrastruktur für Produktmanagement und Margenoptimierung. PostgreSQL Row Level Security pro Mandant ohne gemeinsam genutztes Schema — validiert unter gleichzeitiger Schreiblast ohne mandantenübergreifende Datenlecks. Automatisiertes Schema-Hardening: Security Policies auf Tabellenebene, service-role-only Write-Paths und gesperrter öffentlicher Schemazugriff eliminieren alle Privilege-Escalation-Vektoren auf Datenbankebene. Pre-algorithmisches FinOps-Filter: 82,4 % Token-Kontextreduktion vor jeder Anthropic-API-Aufrufung — quantifizierte, reproduzierbare Kosteneinsparung pro Analysezyklus. INSERT-only unveränderliches Audit-Log nach Swiss DSG/nDSG — manipulationssichere Nachverfolgbarkeit jeder Preisentscheidung.",
+        "tags": ["Next.js 16", "TypeScript", "Supabase RLS", "Anthropic API", "Vercel Edge"],
+        "metrics": ["RLS Multi-Tenant", "82,4 % API-Kosten", "DSG Audit-Trail"],
         "status": "Produktion"
       },
       {
         "title": "D'NAMAR GmbH",
-        "description": "Unternehmenswebsite für ein Schweizer Reinigungsunternehmen — live auf dnamar.ch (Go-live April 2026). Dreisprachig (DE/EN/ES), 100/100 Lighthouse-Score in allen Metriken, JSON-LD strukturierte Daten für lokales SEO, bei Google indexiert und in der Google Search Console verifiziert.",
+        "description": "Produktionsplattform für ein Basler Facility-Services-Unternehmen — live auf dnamar.ch seit April 2026. Vollständige SMTP-Infrastrukturmigration von Resend auf eigenständigen Nodemailer-Transport (NOVATREND, Port 465 SSL/TLS) — eliminiert Third-Party-E-Mail-Abhängigkeit und gewährleistet DSG-konforme Datenresidenz in der Schweiz für alle Kontakteinsendungen. JSON-LD LocalBusiness mit explizitem addressLocality Basel und areaServed: [CH, LI] für gezieltes organisches Indexieren von Facility-Suchanfragen in NW-Schweiz. Dreisprachiges SSG (DE/EN/ES), 100/100 Lighthouse in allen vier Metriken, Google Search Console verifiziert.",
         "tags": [
           "Next.js 16",
-          "Tailwind 4",
-          "Supabase"
+          "Nodemailer SMTP",
+          "JSON-LD SEO"
         ],
         "metrics": [
           "100/100 Lighthouse",
-          "3 Sprachen",
-          "Google Search Console"
+          "Unabh. SMTP",
+          "Lokales SEO Basel"
         ],
         "status": "Produktion"
       },
       {
-        "title": "HelpDesk AI",
-        "description": "KI-gestütztes Helpdesk-SaaS für Schweizer KMU. Claude AI triagiert automatisch jedes Ticket — Priorität (kritisch/hoch/mittel/niedrig), Kategorie, Stimmung und PII-Erkennung. Multi-Tenant RBAC (Admin / Agent / Manager / Kunde), SLA-Überwachung mit Verletzungserkennung, mehrsprachiger Support (DE/EN/ES) und vollständige DSG/nDSG-Konformität.",
+        "title": "HelpDesk AI + OmniCommand",
+        "description": "Enterprise-Workflow-Automatisierung für Schweizer KMU auf Basis des Model Context Protocol (MCP). Ein MCP-Server auf Vercel SSE stellt 7 autonome KI-Tools bereit — Claude-Agenten nutzen ausschließlich Kontextschemata der MCP-Schicht und halten strenge Trennung zwischen LLM-Orchestrierungsebene und PostgreSQL-Backend ohne direkten Datenbankzugriff. Ticket-Triage-Pipeline pro Eingang: Prioritätsklassifizierung, Kategorierouting, Stimmungsanalyse und PII-Erkennung vor jeder Datenspeicherung. Multi-Tenant RBAC (Admin / Agent / Manager / Customer), automatische SLA-Verletzungserkennung mit Eskalationslogik, dreisprachige Oberfläche (DE/EN/ES) und INSERT-only Audit-Log nach Swiss DSG/nDSG.",
         "tags": [
           "Next.js 15",
-          "Supabase",
+          "MCP Server",
           "Claude AI"
         ],
         "metrics": [
-          "KI-Triage",
-          "SLA-Tracking",
+          "7 MCP-Tools",
+          "SLA-Automatisierung",
           "DSG-konform"
         ],
         "status": "Produktion"
       },
       {
-        "title": "Ticket Auditor",
-        "description": "Autonome Audit-Infrastruktur auf Basis von HelpDesk AI. GitHub Actions löst stündlich aus → Vercel Edge Function fragt Supabase ab → Composio orchestriert die KI-Analyse → Resend liefert gebrandete Executive Reports. MCP-Server auf Vercel SSE stellt 7 Tools bereit — Claude liest den Live-Business-Kontext ohne direkten DB-Zugriff. Vollständiger Audit-Zyklus in unter 11 Sekunden.",
+        "title": "Ticket Auditor — Autonome CI/CD",
+        "description": "Vollständig autonome Audit-Pipeline. GitHub Actions stündlich → Vercel Edge Function → KI-Analyse via MCP → Resend liefert gebrandete Executive Reports. Claude liest Live-Business-Kontext über 7 MCP-Tools ohne direkten DB-Zugriff. Vollständiger Audit-Zyklus in unter 11 Sekunden, kein menschlicher Eingriff. Service-Role gesichert. Swiss DSG konform.",
         "tags": [
-          "Vercel",
+          "Vercel Edge",
           "GitHub Actions",
-          "AI Infrastructure",
-          "Supabase",
-          "PostgreSQL"
+          "MCP Protocol"
         ],
         "metrics": [
-          "Multi-Schema-Audit",
-          "Service-Role gehaertet",
-          "Swiss DSG ausgerichtet"
+          "<11s Audit-Zyklus",
+          "Kein Eingriff",
+          "Swiss DSG"
         ],
         "status": "Produktion"
       },
@@ -542,6 +540,21 @@
     "cv_support": "IT-Support & Customer Success",
     "cv_support_desc": "ITIL, Helpdesk, Benutzerverwaltung, SLA",
     "cv_ai": "KI & Full-Stack Entwickler",
-    "cv_ai_desc": "Next.js, Claude AI, Supabase, PWA, TypeScript"
+    "cv_ai_desc": "Next.js, Claude AI, Supabase, PWA, TypeScript",
+    "form_label": "Nachricht senden",
+    "form_name": "Name",
+    "form_name_ph": "Ihr Name",
+    "form_email": "E-Mail",
+    "form_email_ph": "ihre@email.com",
+    "form_subject": "Betreff",
+    "form_subject_ph": "Womit kann ich Ihnen helfen?",
+    "form_message": "Nachricht",
+    "form_message_ph": "Beschreiben Sie Ihr Projekt oder Anliegen…",
+    "form_submit": "Nachricht senden",
+    "form_submitting": "Wird gesendet…",
+    "form_success_title": "Nachricht gesendet",
+    "form_success_msg": "Ich melde mich innerhalb von 24 Stunden.",
+    "form_send_another": "Weitere Nachricht senden",
+    "form_error_msg": "Senden fehlgeschlagen. Bitte direkt per E-Mail kontaktieren."
   }
 }

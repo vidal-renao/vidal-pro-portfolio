@@ -39,7 +39,7 @@ export default async function Page({
           <EcosystemSection />
           <ProofOfConcept />
           <Testimonials />
-          <Contact />
+          <Contact locale={safeLocale} />
         </div>
       </main>
     </>

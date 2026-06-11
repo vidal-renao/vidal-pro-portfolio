@@ -18,6 +18,7 @@ const geistMono = Geist_Mono({
 });
 
 const BASE_URL = "https://vidal-pro-portfolio.vercel.app";
+const BASE = BASE_URL;
 
 const META: Record<string, { title: string; description: string }> = {
   en: {
@@ -84,25 +85,65 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Vidal Reñao",
-  jobTitle: "IT Infrastructure & AI Solutions Engineer",
-  url: "https://vidal-pro-portfolio.vercel.app",
-  image: "https://vidal-pro-portfolio.vercel.app/Photo.jpg",
-  email: "vidalrenao.lab@outlook.com",
-  telephone: "+41779726299",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Basel",
-    addressCountry: "CH",
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "@id": `${BASE}/#webpage`,
+    name: "Vidal Reñao — IT Infrastructure & AI Solutions Engineer",
+    url: BASE,
+    description:
+      "IT Infrastructure & AI Solutions Engineer based in Basel, Switzerland. Enterprise M365, Azure, Claude AI, and full-stack SaaS delivery.",
+    mainEntity: {
+      "@type": "Person",
+      "@id": `${BASE}/#person`,
+      name: "Vidal Reñao",
+      jobTitle: "IT Infrastructure & AI Solutions Engineer",
+      url: BASE,
+      image: `${BASE}/Photo.jpg`,
+      email: "vidalrenao.lab@outlook.com",
+      telephone: "+41779726299",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Basel",
+        addressRegion: "Basel-Stadt",
+        addressCountry: "CH",
+      },
+      knowsLanguage: ["en", "de", "es"],
+      hasOccupation: {
+        "@type": "Occupation",
+        name: "IT Infrastructure & AI Solutions Engineer",
+        occupationLocation: { "@type": "Country", name: "Switzerland" },
+        skills:
+          "Azure, Microsoft 365, Entra ID, Intune, Claude AI, Next.js, Supabase, PowerShell, CCNA",
+      },
+      sameAs: [
+        "https://linkedin.com/in/vidalrenao",
+        "https://github.com/vidal-renao",
+      ],
+    },
   },
-  sameAs: [
-    "https://linkedin.com/in/vidalrenao",
-    "https://github.com/vidal-renao",
-  ],
-};
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": `${BASE}/#business`,
+    name: "Vidal Reñao — IT & AI Consulting",
+    description:
+      "IT Infrastructure, AI-Powered SaaS, and Microsoft 365 consultancy for Swiss SMEs. Available across Switzerland and Liechtenstein.",
+    url: BASE,
+    telephone: "+41779726299",
+    email: "vidalrenao.lab@outlook.com",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Basel",
+      addressRegion: "Basel-Stadt",
+      addressCountry: "CH",
+    },
+    areaServed: ["CH", "LI"],
+    priceRange: "$$",
+    employee: { "@id": `${BASE}/#person` },
+  },
+];
 
 export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params;
@@ -124,6 +165,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className="bg-[#060606] text-white antialiased">
         <ServiceWorkerRegistration />

@@ -33,9 +33,8 @@ export default function DownloadCVButton({
 
   return (
     <a
-      href={`/${locale}/print`}
-      target="_blank"
-      rel="noopener noreferrer"
+      href="/api/download?format=pdf"
+      download="Vidal_Renao_CV_EN.pdf"
       className={`${baseClasses} ${variantClasses} ${className}`}
       aria-label={label}
     >

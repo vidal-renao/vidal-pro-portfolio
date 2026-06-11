@@ -216,13 +216,13 @@
     "code": "GitHub",
     "architecture": {
       "label": "Proyecto Estrella — En Producción",
-      "title": "Aura AI — SaaS de Revenue Intelligence Multi-Tenant",
-      "intro": "Infraestructura SaaS multi-tenant de alto rendimiento para la optimización dinámica de ingresos y márgenes comerciales en tiempo real. Integra WebSockets nativos con replicación de PostgreSQL para actualizaciones instantáneas de UI, un motor FinOps pre-algorítmico que optimiza el consumo de contexto en modelos de IA (reducción del 82,4% en costos de API), una línea de tiempo para auditoría y trazabilidad corporativa según la normativa DSG, y un laboratorio de ingeniería de caos para garantizar una tolerancia a fallos del 100% en nodos de borde.",
+      "title": "Aura AI — Infraestructura SaaS con IA para Revenue Intelligence",
+      "intro": "SaaS multi-tenant diseñado para gestión de producto y optimización de márgenes comerciales. Aplica Row Level Security (RLS) con aislamiento de esquema PostgreSQL por tenant — validado bajo carga concurrente de escritura sin filtraciones entre tenants. Un motor FinOps pre-algorítmico filtra el 82,4% del contexto de tokens antes de cualquier invocación a la API de Anthropic, ofreciendo una reducción de coste cuantificada y reproducible por ciclo de análisis. Un esquema de auditoría inmutable INSERT-only proporciona trazabilidad completa DSG/nDSG para cada decisión de precios. Un laboratorio Chaos Engineering de 3 modos (partición de red · cold start · sobrecarga concurrente) valida el 100% de tolerancia a fallos en nodos edge de Vercel.",
       "achievements": [
-        "Pipeline WebSocket nativo con Supabase Realtime — actualizaciones de precios sin latencia vía slot de replicación PostgreSQL.",
-        "Filtro FinOps pre-algorítmico: 82,4% de reducción de contexto antes de la invocación LLM, minimizando el costo de API de Anthropic por ciclo de análisis.",
-        "Registro de auditoría inmutable alineado con Swiss DSG/nDSG — esquema INSERT-only con trazabilidad completa de decisiones estratégicas.",
-        "Laboratorio Chaos Engineering: inyección de fallos en 3 modos (timeout / API_DOWN / payload corrupto) para validar 100% de resiliencia en nodos de borde."
+        "RLS + aislamiento multi-tenant: Row Level Security de PostgreSQL aplicado por tenant sin esquema compartido — validado bajo carga de escritura concurrente.",
+        "Schema hardening automatizado: políticas de seguridad a nivel de tabla, write-paths exclusivos de service-role y acceso público revocado eliminan todos los vectores de escalada de privilegios en la capa de base de datos.",
+        "Motor FinOps pre-algorítmico: 82,4% de reducción de contexto de tokens antes de la invocación LLM — ahorro de coste cuantificado y reproducible por ciclo de análisis, no estimado.",
+        "Registro de auditoría inmutable INSERT-only alineado con Swiss DSG/nDSG — trazabilidad a prueba de manipulaciones para cada decisión estratégica de precios, compliant by design."
       ],
       "stack": [
         "Next.js 16",
@@ -236,55 +236,53 @@
     "items": [
       {
         "title": "Aura AI — Revenue Intelligence",
-        "description": "SaaS multi-tenant para optimización de ingresos y márgenes en tiempo real. WebSockets nativos con replicación PostgreSQL para actualizaciones instantáneas de UI. Motor FinOps pre-algorítmico reduce costos de API de IA en un 82,4%. Registro de auditoría corporativa inmutable alineado con Swiss DSG. Laboratorio de Chaos Engineering valida tolerancia a fallos del 100% en nodos de borde.",
-        "tags": ["Next.js 16", "TypeScript", "Supabase Realtime", "Anthropic API", "Vercel Edge"],
-        "metrics": ["82,4% reducción costo API", "WebSocket tiempo real", "Chaos Engineering"],
+        "description": "Infraestructura SaaS con IA para gestión de producto y optimización de márgenes comerciales. Row Level Security por tenant en PostgreSQL sin esquema compartido — validado bajo carga de escritura concurrente sin filtraciones entre tenants. Pipeline de hardening automático: políticas de seguridad a nivel de tabla, write-paths exclusivos de service-role y revocación de acceso público eliminan todos los vectores de escalada de privilegios en la capa de base de datos. Motor FinOps pre-algorítmico: filtra el 82,4% del contexto de tokens antes de cualquier invocación a la API de Anthropic — reducción de coste cuantificada y reproducible por ciclo de análisis. Registro de auditoría inmutable INSERT-only alineado con Swiss DSG/nDSG — trazabilidad a prueba de manipulaciones para cada decisión de precios.",
+        "tags": ["Next.js 16", "TypeScript", "Supabase RLS", "Anthropic API", "Vercel Edge"],
+        "metrics": ["RLS multi-tenant", "82,4% costo API", "Audit trail DSG"],
         "status": "Producción"
       },
       {
         "title": "D'NAMAR GmbH",
-        "description": "Web corporativa para empresa suiza de limpieza — en producción en dnamar.ch (Go-live abril 2026). Trilingüe (DE/EN/ES), puntuación 100/100 en Lighthouse en todas las métricas, datos estructurados JSON-LD para SEO local, indexada en Google y verificada en Google Search Console.",
+        "description": "Plataforma en producción para una empresa de servicios de limpieza en Basilea — live en dnamar.ch desde abril 2026. Migración completa de infraestructura SMTP de Resend a Nodemailer autoalojado (NOVATREND, puerto 465 SSL/TLS) — elimina dependencia de email transaccional de terceros y garantiza residencia de datos conforme al DSG suizo para todas las solicitudes de contacto. Datos estructurados JSON-LD LocalBusiness con addressLocality Basilea y areaServed: [CH, LI] para indexación orgánica dirigida de búsquedas de servicios de instalaciones en el noroeste de Suiza. SSG trilingüe (DE/EN/ES), 100/100 Lighthouse en las cuatro métricas, verificada e indexada en Google Search Console.",
         "tags": [
           "Next.js 16",
-          "Tailwind 4",
-          "Supabase"
+          "Nodemailer SMTP",
+          "JSON-LD SEO"
         ],
         "metrics": [
           "100/100 Lighthouse",
-          "3 idiomas",
-          "Google Search Console"
+          "SMTP independiente",
+          "SEO local Basilea"
         ],
         "status": "Producción"
       },
       {
-        "title": "HelpDesk AI",
-        "description": "SaaS de helpdesk empresarial con IA para PYMEs suizas. Claude AI triaja automáticamente cada ticket — prioridad (crítica/alta/media/baja), categoría, sentimiento y detección de datos personales. RBAC multitenancy (Admin / Agente / Manager / Cliente), seguimiento de SLA con detección de incumplimientos, soporte multilingüe (DE/EN/ES) y cumplimiento DSG/nDSG suizo.",
+        "title": "HelpDesk AI + OmniCommand",
+        "description": "Automatización de flujos empresariales para PYMEs suizas sobre el Model Context Protocol (MCP). Un servidor MCP en Vercel SSE expone 7 herramientas AI autónomas — los agentes Claude consumen únicamente esquemas de contexto de la capa MCP, manteniendo separación estricta entre el plano de orquestación LLM y el backend PostgreSQL sin acceso directo a la base de datos. Pipeline de triaje AI por ticket entrante: clasificación de prioridad, enrutamiento por categoría, análisis de sentimiento y detección de PII antes de cualquier almacenamiento. RBAC multi-tenant (Admin / Agente / Manager / Cliente), detección automática de incumplimiento SLA con lógica de escalación, interfaz trilingüe (DE/EN/ES) y registros de auditoría INSERT-only alineados con Swiss DSG/nDSG.",
         "tags": [
           "Next.js 15",
-          "Supabase",
+          "MCP Server",
           "Claude AI"
         ],
         "metrics": [
-          "Triaje IA",
-          "Seguimiento SLA",
+          "7 herramientas MCP",
+          "Automatización SLA",
           "Cumplimiento DSG"
         ],
         "status": "Producción"
       },
       {
-        "title": "Ticket Auditor",
-        "description": "Infraestructura de auditoría autónoma sobre HelpDesk AI. GitHub Actions dispara cada hora → Función Edge en Vercel consulta Supabase → Composio orquesta el análisis AI → Resend entrega informes ejecutivos HTML. El servidor MCP en Vercel SSE expone 7 herramientas — Claude lee el contexto de negocio en vivo sin acceso directo a la DB. Ciclo de auditoría completo en menos de 11 segundos.",
+        "title": "Ticket Auditor — CI/CD Autónomo",
+        "description": "Pipeline de auditoría completamente autónomo. GitHub Actions dispara cada hora → Vercel Edge Function → análisis IA vía MCP → Resend entrega informes ejecutivos HTML. Claude lee contexto de negocio en vivo a través de 7 herramientas MCP sin acceso directo a la DB. Ciclo de auditoría completo en menos de 11 segundos, sin intervención humana. Protegido con service-role. Alineado con Swiss DSG.",
         "tags": [
-          "Vercel",
+          "Vercel Edge",
           "GitHub Actions",
-          "AI Infrastructure",
-          "Supabase",
-          "PostgreSQL"
+          "MCP Protocol"
         ],
         "metrics": [
-          "Auditoria multi-schema",
-          "Service role seguro",
-          "Swiss DSG alineado"
+          "<11s ciclo auditoría",
+          "Sin intervención",
+          "Swiss DSG"
         ],
         "status": "Producción"
       },
@@ -542,6 +540,21 @@
     "cv_support": "IT Support & Customer Success",
     "cv_support_desc": "ITIL, Helpdesk, Gestión de usuarios, SLA",
     "cv_ai": "Desarrollador AI & Full-Stack",
-    "cv_ai_desc": "Next.js, Claude AI, Supabase, PWA, TypeScript"
+    "cv_ai_desc": "Next.js, Claude AI, Supabase, PWA, TypeScript",
+    "form_label": "Enviar un mensaje",
+    "form_name": "Nombre",
+    "form_name_ph": "Tu nombre",
+    "form_email": "Email",
+    "form_email_ph": "tu@email.com",
+    "form_subject": "Asunto",
+    "form_subject_ph": "¿En qué puedo ayudarte?",
+    "form_message": "Mensaje",
+    "form_message_ph": "Describe tu proyecto o consulta…",
+    "form_submit": "Enviar mensaje",
+    "form_submitting": "Enviando…",
+    "form_success_title": "Mensaje enviado",
+    "form_success_msg": "Te respondo en menos de 24 horas.",
+    "form_send_another": "Enviar otro mensaje",
+    "form_error_msg": "Error al enviar. Por favor escríbeme directamente."
   }
 }

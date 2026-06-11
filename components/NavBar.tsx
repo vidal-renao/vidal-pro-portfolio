@@ -3,7 +3,7 @@
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { useEffect, useState } from "react";
-import Logo from "@/components/marketing/Logo";
+import BrandLogo from "@/components/ui/BrandLogo";
 
 const LOCALES = ["en", "de", "es"] as const;
 type Locale = (typeof LOCALES)[number];
@@ -63,12 +63,9 @@ export default function NavBar() {
       >
         <nav className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
           {/* Brand */}
-          <a href={`/${locale}`} className="group shrink-0" aria-label="Vidal Reñao home">
-            <Logo
-              variant="inline"
-              className="h-10 w-auto max-w-[170px] sm:max-w-[245px] transition-opacity group-hover:opacity-90"
-            />
-          </a>
+          <div className="shrink-0">
+            <BrandLogo href={`/${locale}`} />
+          </div>
 
           {/* Desktop nav links */}
           <ul className="hidden md:flex items-center gap-3 lg:gap-5">
