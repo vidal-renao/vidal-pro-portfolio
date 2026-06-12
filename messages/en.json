@@ -51,7 +51,7 @@
     "availability_swiss": "Immediate availability across Switzerland and Liechtenstein",
     "title": "IT Infrastructure & AI Solutions Engineer",
     "title2": "Enterprise IT. AI in Production. Full-Stack Delivery.",
-    "subtitle": "7+ years enterprise IT across multinational environments. AI systems live in production — autonomous audit pipelines, MCP server on Vercel, Claude Vision OCR. Direct client engagement from brief to go-live.",
+    "subtitle": "7+ years enterprise IT across multinational environments. AI systems live in production — WhatsApp SaaS platform (RAG + pgvector), autonomous audit pipelines, MCP server on Vercel, Claude Vision OCR. Direct client engagement from brief to go-live.",
     "collaboration": "Available for direct client mandates and agency collaboration across CH/LI.",
     "cta_primary": "Let's Optimize Your Business",
     "cta_secondary": "Download CV",
@@ -257,8 +257,23 @@
         "status": "Production"
       },
       {
+        "title": "WAAI SaaS — WhatsApp AI Agent Platform",
+        "description": "Multi-tenant SaaS platform allowing businesses to deploy Claude-powered WhatsApp agents without code. Full 9-phase implementation: SSR auth, tenant isolation, agent lifecycle, RAG knowledge base, WhatsApp webhooks, lead capture, AI↔human handoff, analytics, and billing readiness. RAG pipeline: document chunking, OpenAI embeddings (text-embedding-3-small, 1536-dim), pgvector semantic search. AI↔human handoff system with async state control and RBAC (owner/admin/agent_manager/human_agent). 100% RLS coverage across all tables with workspace-scoped policies — zero secrets exposed client-side. Validated with 52 automated smoke tests (0% failure rate), 4 health checks, and a full E2E runbook. Factory/Strategy pattern for hot-swap embedding provider with zero code changes.",
+        "tags": [
+          "Next.js 16",
+          "Claude API",
+          "pgvector RAG"
+        ],
+        "metrics": [
+          "52 tests · 0 fail",
+          "RAG pipeline",
+          "Multi-tenant RLS"
+        ],
+        "status": "Production"
+      },
+      {
         "title": "HelpDesk AI + OmniCommand",
-        "description": "Enterprise workflow automation for Swiss SMEs built on the Model Context Protocol (MCP). An MCP Server deployed on Vercel SSE exposes 7 autonomous AI tools — Claude agents consume only context schemas from the MCP layer, maintaining strict separation between the LLM orchestration plane and the PostgreSQL backend with zero direct database access. Per-ticket AI triage pipeline: priority classification, category routing, sentiment analysis, and PII detection before any data reaches storage. Multi-tenant RBAC (Admin / Agent / Manager / Customer), automated SLA breach detection with escalation logic, trilingual support (DE/EN/ES), and INSERT-only audit logs aligned with Swiss DSG/nDSG.",
+        "description": "Enterprise helpdesk platform with MCP-powered CI/CD hardening. Deployed Zero-Trust CORS: dynamic middleware replacing wildcard (*) policies, validating Origin against ALLOWED_ORIGINS env var. Defensive Bash CI/CD scripts eliminate silent-failure pipelines by isolating http_code, headers, and payloads. Supabase multi-schema isolation (.schema('helpdesk') vs public) prevents cross-schema data leakage. Vitest integration with high-fidelity Supabase/Resend mocks — 8/8 tests green, --passWithNoTests permanently removed. Zod structural validation (z.infer<>) eliminates any-typed MCP tool inputs. MCP Server on Vercel SSE exposes 7 autonomous AI tools with strict LLM/DB separation. Multi-tenant RBAC, automated SLA breach detection, trilingual (DE/EN/ES), Swiss DSG/nDSG compliant.",
         "tags": [
           "Next.js 15",
           "MCP Server",
@@ -266,7 +281,7 @@
         ],
         "metrics": [
           "7 MCP tools",
-          "SLA automation",
+          "Zero-Trust CI/CD",
           "DSG compliant"
         ],
         "status": "Production"
@@ -318,16 +333,16 @@
       },
       {
         "title": "Parcel Tracker SaaS",
-        "description": "Parcel management platform for courier offices. Three-tier RBAC (Admin / Staff / Client), full package lifecycle tracking, digital proof of delivery with signature capture, and multi-channel notifications via WhatsApp and email. Public tracking page in 6 languages.",
+        "description": "End-to-end logistics SaaS for international courier operations. Three-tier RBAC (Admin / Staff / Client) with automatic role assignment on registration. Full package lifecycle (Arrived → Ready → Picked Up) with Canvas API digital delivery proof — in-browser signature capture and photo upload. Multi-channel notifications on every status change via Twilio WhatsApp Business API and Resend branded email. Analytics dashboard: revenue by period, package volume, top clients. AI-audited security: JWT + bcrypt + Helmet, Zod validation on all API inputs, zero exposed credentials in git history. Public zero-login tracking at /track/[number] — SEO-friendly, fully translated. Native 6-language i18n (DE/EN/ES/FR/IT/PT) with zero page reload on switch. PWA installable.",
         "tags": [
           "Next.js 14",
-          "Node.js",
-          "PostgreSQL"
+          "Node.js/Express",
+          "Twilio · Resend"
         ],
         "metrics": [
           "3-tier RBAC",
-          "Digital signature",
-          "6 languages"
+          "6-language PWA",
+          "AI-audited security"
         ],
         "status": "Production"
       },

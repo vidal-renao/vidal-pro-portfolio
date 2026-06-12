@@ -257,8 +257,23 @@
         "status": "Produktion"
       },
       {
+        "title": "WAAI SaaS — WhatsApp AI Agent Platform",
+        "description": "Multi-Tenant-SaaS-Plattform, mit der Unternehmen Claude-gestützte WhatsApp-Agenten ohne Code deployen. 9-Phasen-Implementierung: SSR-Auth, Tenant-Isolierung, Agent-Lifecycle, RAG-Wissensbasis, WhatsApp-Webhooks, Lead-Erfassung, KI↔Mensch-Handoff, Analytics und Billing-Readiness. RAG-Pipeline: Dokumenten-Chunking, OpenAI-Embeddings (text-embedding-3-small, 1536-dim), pgvector-Semantiksuche. KI↔Mensch-Handoff mit asynchroner Zustandskontrolle und RBAC (owner/admin/agent_manager/human_agent). 100% RLS-Abdeckung über alle Tabellen mit workspace-scoped Policies. Validiert mit 52 automatisierten Smoke-Tests (0% Fehlerrate), 4 Health-Checks und vollständigem E2E-Runbook.",
+        "tags": [
+          "Next.js 16",
+          "Claude API",
+          "pgvector RAG"
+        ],
+        "metrics": [
+          "52 Tests · 0 Fehler",
+          "RAG-Pipeline",
+          "Multi-Tenant RLS"
+        ],
+        "status": "Produktion"
+      },
+      {
         "title": "HelpDesk AI + OmniCommand",
-        "description": "Enterprise-Workflow-Automatisierung für Schweizer KMU auf Basis des Model Context Protocol (MCP). Ein MCP-Server auf Vercel SSE stellt 7 autonome KI-Tools bereit — Claude-Agenten nutzen ausschließlich Kontextschemata der MCP-Schicht und halten strenge Trennung zwischen LLM-Orchestrierungsebene und PostgreSQL-Backend ohne direkten Datenbankzugriff. Ticket-Triage-Pipeline pro Eingang: Prioritätsklassifizierung, Kategorierouting, Stimmungsanalyse und PII-Erkennung vor jeder Datenspeicherung. Multi-Tenant RBAC (Admin / Agent / Manager / Customer), automatische SLA-Verletzungserkennung mit Eskalationslogik, dreisprachige Oberfläche (DE/EN/ES) und INSERT-only Audit-Log nach Swiss DSG/nDSG.",
+        "description": "Enterprise-Helpdesk mit MCP-gestütztem CI/CD-Hardening. Zero-Trust CORS: dynamisches Middleware ersetzt Wildcard-(*)-Policies durch Validierung des Origin-Headers gegen ALLOWED_ORIGINS. Defensive Bash-CI/CD-Skripte eliminieren Silent-Failure-Pipelines durch Isolierung von http_code, Headers und Payloads. Supabase-Multi-Schema-Isolation (.schema('helpdesk') vs public) verhindert Cross-Schema-Datenlecks. Vitest-Integration mit High-Fidelity-Mocks — 8/8 Tests grün. Zod-Strukturvalidierung (z.infer<>) eliminiert any-typisierte MCP-Tool-Eingaben. MCP-Server auf Vercel SSE stellt 7 autonome KI-Tools bereit mit strikter LLM/DB-Trennung. Multi-Tenant RBAC, SLA-Verletzungserkennung, dreisprachig (DE/EN/ES), Swiss DSG/nDSG-konform.",
         "tags": [
           "Next.js 15",
           "MCP Server",
@@ -266,7 +281,7 @@
         ],
         "metrics": [
           "7 MCP-Tools",
-          "SLA-Automatisierung",
+          "Zero-Trust CI/CD",
           "DSG-konform"
         ],
         "status": "Produktion"
@@ -318,7 +333,7 @@
       },
       {
         "title": "Parcel Tracker SaaS",
-        "description": "Paketverwaltungsplattform für Kurierbüros. Drei-Ebenen-RBAC (Admin / Mitarbeiter / Kunde), vollständige Paketverfolgung, digitaler Liefernachweis mit Unterschrift und Mehrkanal-Benachrichtigungen via WhatsApp und E-Mail. Öffentliche Tracking-Seite in 6 Sprachen.",
+        "description": "End-to-End-Logistik-SaaS für internationalen Kurierbetrieb. Drei-Ebenen-RBAC (Admin / Mitarbeiter / Kunde) mit automatischer Rollenzuweisung bei Registrierung. Vollständiger Paket-Lifecycle mit Canvas-API-Liefernachweis — Unterschrift und Foto direkt im Browser. Mehrkanal-Benachrichtigungen bei jeder Statusänderung via Twilio WhatsApp Business API und Resend. Analytics-Dashboard: Umsatz nach Zeitraum, Paketvolumen, Top-Kunden. KI-auditierte Sicherheit: JWT + bcrypt + Helmet, Zod-Validierung auf allen API-Eingaben. Öffentliche Zero-Login-Tracking-Seite in 6 Sprachen (DE/EN/ES/FR/IT/PT), als PWA installierbar.",
         "tags": [
           "Next.js 14",
           "Node.js",

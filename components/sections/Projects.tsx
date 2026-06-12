@@ -38,11 +38,12 @@ const projectStatic: {
   },
   // Grid projects
   { color: "cyan",    githubUrl: "https://github.com/vidal-renao/limpiezas-najip-maritza", demoUrl: "https://www.dnamar.ch" },
+  { color: "emerald", githubUrl: "https://github.com/vidal-renao/waai-saas",               demoUrl: "https://waai-saas.vercel.app" },
   { color: "amber",   githubUrl: "https://github.com/vidal-renao/ticket-system",           demoUrl: "https://ticket-system-sigma-pink.vercel.app", dsg: true },
   { color: "rose",    githubUrl: "https://github.com/vidal-renao/vidal-helpdesk-mcp",      demoUrl: "https://vidal-helpdesk-mcp.vercel.app/health" },
   { color: "violet",  githubUrl: "https://github.com/vidal-renao/matchpoint-ai",           demoUrl: "https://matchpoint-gq5tnfo93-vidal-renaos-projects.vercel.app" },
   { color: "blue",    githubUrl: "https://github.com/vidal-renao/invoice-auto",            demoUrl: "https://invoice-auto-3xjvcf07t-vidal-renaos-projects.vercel.app" },
-  { color: "emerald", githubUrl: "https://github.com/vidal-renao/cv-platform",             demoUrl: "https://cv-platform-fzmv9ksb4-vidal-renaos-projects.vercel.app" },
+  { color: "emerald", githubUrl: "https://github.com/vidal-renao/cv-platform",             demoUrl: "https://cv-platform-theta.vercel.app" },
   { color: "indigo",  githubUrl: "https://github.com/vidal-renao/vidal-pro-portfolio",     demoUrl: null },
   { color: "violet",  githubUrl: "https://github.com/vidal-renao/vidal-pro-portfolio",     demoUrl: null },
 ];
@@ -81,9 +82,9 @@ export default function Projects() {
     ...item,
     ...projectStatic[i],
     demoUrl:
-      i === 7
+      i === 8
         ? `/${locale}/labs/community-fund`
-        : i === 8
+        : i === 9
           ? `/${locale}/labs/tempo-tutor`
           : projectStatic[i].demoUrl,
   }));

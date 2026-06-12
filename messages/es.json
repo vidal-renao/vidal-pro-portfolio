@@ -257,8 +257,23 @@
         "status": "Producción"
       },
       {
+        "title": "WAAI SaaS — WhatsApp AI Agent Platform",
+        "description": "Plataforma SaaS multi-tenant que permite a negocios desplegar agentes WhatsApp con Claude sin escribir código. Implementación en 9 fases: auth SSR, aislamiento de tenant, ciclo de vida de agentes, base de conocimiento RAG, webhooks WhatsApp, captura de leads, handoff IA↔humano, analytics y preparación de billing. Pipeline RAG: chunking de documentos, embeddings OpenAI (text-embedding-3-small, 1536-dim), búsqueda semántica con pgvector. Sistema de handoff IA↔humano con control de estado asíncrono y RBAC (owner/admin/agent_manager/human_agent). Cobertura RLS 100% en todas las tablas con políticas por workspace. Validado con 52 smoke tests automáticos (0% fallos), 4 health checks y runbook E2E completo.",
+        "tags": [
+          "Next.js 16",
+          "Claude API",
+          "pgvector RAG"
+        ],
+        "metrics": [
+          "52 tests · 0 fallos",
+          "Pipeline RAG",
+          "Multi-tenant RLS"
+        ],
+        "status": "Producción"
+      },
+      {
         "title": "HelpDesk AI + OmniCommand",
-        "description": "Automatización de flujos empresariales para PYMEs suizas sobre el Model Context Protocol (MCP). Un servidor MCP en Vercel SSE expone 7 herramientas AI autónomas — los agentes Claude consumen únicamente esquemas de contexto de la capa MCP, manteniendo separación estricta entre el plano de orquestación LLM y el backend PostgreSQL sin acceso directo a la base de datos. Pipeline de triaje AI por ticket entrante: clasificación de prioridad, enrutamiento por categoría, análisis de sentimiento y detección de PII antes de cualquier almacenamiento. RBAC multi-tenant (Admin / Agente / Manager / Cliente), detección automática de incumplimiento SLA con lógica de escalación, interfaz trilingüe (DE/EN/ES) y registros de auditoría INSERT-only alineados con Swiss DSG/nDSG.",
+        "description": "Plataforma de helpdesk empresarial con CI/CD hardening vía MCP. Zero-Trust CORS: middleware dinámico que reemplaza políticas comodín (*) validando el Origin contra ALLOWED_ORIGINS. Scripts Bash defensivos en CI/CD eliminan fallos silenciosos aislando http_code, headers y payloads. Aislamiento multi-schema Supabase (.schema('helpdesk') vs public) previene filtraciones entre esquemas. Integración Vitest con mocks de alta fidelidad — 8/8 tests en verde. Validación estructural Zod (z.infer<>) elimina inputs any-tipados en herramientas MCP. Servidor MCP en Vercel SSE expone 7 herramientas AI autónomas con separación estricta LLM/DB. RBAC multi-tenant, detección de incumplimiento SLA, trilingüe (DE/EN/ES), conforme Swiss DSG/nDSG.",
         "tags": [
           "Next.js 15",
           "MCP Server",
@@ -266,7 +281,7 @@
         ],
         "metrics": [
           "7 herramientas MCP",
-          "Automatización SLA",
+          "Zero-Trust CI/CD",
           "Cumplimiento DSG"
         ],
         "status": "Producción"
@@ -318,7 +333,7 @@
       },
       {
         "title": "Parcel Tracker SaaS",
-        "description": "Plataforma de gestión de paquetería para oficinas de mensajería. RBAC de tres niveles (Admin / Staff / Cliente), seguimiento completo del ciclo de vida del paquete, prueba de entrega digital con firma, y notificaciones multicanal via WhatsApp y email. Página de seguimiento pública en 6 idiomas.",
+        "description": "SaaS logístico end-to-end para operaciones de mensajería internacional. RBAC de tres niveles (Admin / Staff / Cliente) con asignación de rol automática al registrarse. Ciclo de vida completo del paquete con prueba de entrega digital via Canvas API — firma en navegador y foto adjunta. Notificaciones multicanal en cada cambio de estado via Twilio WhatsApp Business API y Resend. Dashboard de analítica: ingresos por período, volumen de paquetes, top clientes. Seguridad auditada por IA: JWT + bcrypt + Helmet, validación Zod en todos los inputs de la API. Página pública de seguimiento sin login en 6 idiomas (DE/EN/ES/FR/IT/PT), instalable como PWA.",
         "tags": [
           "Next.js 14",
           "Node.js",
