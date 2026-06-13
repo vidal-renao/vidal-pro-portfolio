@@ -89,7 +89,8 @@ export default function Projects() {
           : projectStatic[i].demoUrl,
   }));
 
-  const [starProject, ...gridProjects] = projects;
+  const [starProject, ...allGridProjects] = projects;
+  const gridProjects = allGridProjects.filter((p) => p.status !== "Lab");
   const starColors = colorMap[starProject.color as ColorKey];
 
   return (

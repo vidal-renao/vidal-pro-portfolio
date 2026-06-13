@@ -43,12 +43,13 @@ export default function NavBar() {
     setIsMenuOpen(false);
   };
 
-  const navLinks = [
+  const navLinks: { href: string; label: string; highlight?: boolean }[] = [
     { href: homeAnchor("services"), label: t("services") },
     { href: homeAnchor("certifications"), label: t("certifications") },
     { href: homeAnchor("stack"), label: t("stack") },
     { href: homeAnchor("experience"), label: t("experience") },
     { href: homeAnchor("projects"), label: t("projects") },
+    { href: `/${locale}/consultation`, label: t("consultation"), highlight: true },
     { href: homeAnchor("contact"), label: t("contact") },
   ];
 
@@ -71,12 +72,22 @@ export default function NavBar() {
           <ul className="hidden md:flex items-center gap-3 lg:gap-5">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <a
-                  href={link.href}
-                  className="whitespace-nowrap text-sm text-white/45 hover:text-white transition-colors duration-200"
-                >
-                  {link.label}
-                </a>
+                {link.highlight ? (
+                  <a
+                    href={link.href}
+                    className="whitespace-nowrap flex items-center gap-1.5 text-xs font-semibold text-blue-400 border border-blue-500/30 bg-blue-500/08 rounded-full px-3 py-1.5 hover:bg-blue-500/15 hover:border-blue-500/50 transition-all duration-200"
+                  >
+                    <span className="h-1.5 w-1.5 rounded-full bg-blue-400 animate-pulse" />
+                    {link.label}
+                  </a>
+                ) : (
+                  <a
+                    href={link.href}
+                    className="whitespace-nowrap text-sm text-white/45 hover:text-white transition-colors duration-200"
+                  >
+                    {link.label}
+                  </a>
+                )}
               </li>
             ))}
           </ul>
@@ -149,8 +160,15 @@ export default function NavBar() {
                   <a
                     href={link.href}
                     onClick={() => setIsMenuOpen(false)}
-                    className="flex items-center px-3 py-3 text-sm text-white/55 hover:text-white hover:bg-white/[0.04] rounded-lg transition-colors duration-150"
+                    className={`flex items-center gap-2 px-3 py-3 text-sm rounded-lg transition-colors duration-150 ${
+                      link.highlight
+                        ? "text-blue-400 font-semibold hover:bg-blue-500/08"
+                        : "text-white/55 hover:text-white hover:bg-white/4"
+                    }`}
                   >
+                    {link.highlight && (
+                      <span className="h-1.5 w-1.5 rounded-full bg-blue-400 animate-pulse flex-none" />
+                    )}
                     {link.label}
                   </a>
                 </li>
