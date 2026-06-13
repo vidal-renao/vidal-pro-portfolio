@@ -95,13 +95,13 @@ const cvOptions = [
 const cvColorMap = {
   blue: "hover:border-blue-500/25 hover:bg-blue-500/[0.05]",
   violet: "hover:border-violet-500/25 hover:bg-violet-500/[0.05]",
-  emerald: "hover:border-emerald-500/25 hover:bg-emerald-500/[0.05]",
+  emerald: "hover:border-emerald-500/25 hover:bg-emerald-500/5",
 };
 
 // ─── Input styles ─────────────────────────────────────────────────────────────
 
 const inputCls =
-  "w-full rounded-xl border border-white/[0.08] bg-white/[0.03] px-3.5 py-2.5 text-sm text-white placeholder-white/25 focus:outline-none focus:border-blue-500/40 focus:bg-white/[0.05] transition-all duration-200";
+  "w-full rounded-xl border border-white/[0.08] bg-white/[0.03] px-3.5 py-2.5 text-base text-white placeholder-white/25 focus:outline-none focus:border-blue-500/40 focus:bg-white/[0.05] transition-all duration-200";
 
 // ─── Contact form ─────────────────────────────────────────────────────────────
 
@@ -171,7 +171,7 @@ function ContactForm({ locale }: { locale: Locale }) {
             {["Azure", "M365", "Claude AI", "Next.js"].map((tag) => (
               <span
                 key={tag}
-                className="text-[9px] text-white/35 border border-white/[0.06] rounded-full px-1.5 py-0.5 leading-none"
+                className="text-[9px] text-white/35 border border-white/6 rounded-full px-1.5 py-0.5 leading-none"
               >
                 {tag}
               </span>
@@ -241,7 +241,7 @@ function ContactForm({ locale }: { locale: Locale }) {
               }}
             />
 
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div className="flex flex-col gap-1.5">
                 <label className="text-xs text-white/40 font-medium" htmlFor="cf-name">
                   {t("form_name")}
@@ -308,7 +308,7 @@ function ContactForm({ locale }: { locale: Locale }) {
             <button
               type="submit"
               disabled={status === "submitting"}
-              className="flex items-center justify-center gap-2 rounded-xl bg-blue-500 hover:bg-blue-400 active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed text-white text-sm font-semibold py-3 transition-all duration-200"
+              className="w-full flex items-center justify-center gap-2 rounded-xl bg-blue-500 hover:bg-blue-400 active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed text-white text-sm font-semibold py-3 transition-all duration-200"
             >
               {status === "submitting" ? (
                 <>
@@ -413,7 +413,7 @@ export default function Contact({ locale = "en" }: ContactProps) {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="contact" className="py-28 px-6 border-t border-white/[0.04]" ref={ref}>
+    <section id="contact" className="py-28 px-6 border-t border-white/4" ref={ref}>
       <div className="max-w-6xl mx-auto">
 
         {/* Section header */}
@@ -432,7 +432,7 @@ export default function Contact({ locale = "en" }: ContactProps) {
           <p className="text-white/50 text-sm leading-relaxed max-w-xl mx-auto">
             {t("subtitle")}
           </p>
-          <div className="inline-flex items-center gap-2 border border-emerald-500/20 bg-emerald-500/[0.05] text-emerald-400 rounded-full px-4 py-2 text-xs font-medium mt-5">
+          <div className="inline-flex items-center gap-2 border border-emerald-500/20 bg-emerald-500/5 text-emerald-400 rounded-full px-4 py-2 text-xs font-medium mt-5">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
             {t("availability")}
           </div>
@@ -472,7 +472,7 @@ export default function Contact({ locale = "en" }: ContactProps) {
               </div>
 
               {/* Direct contact details */}
-              <div className="space-y-2.5 pt-4 border-t border-white/[0.06]">
+              <div className="space-y-2.5 pt-4 border-t border-white/6">
                 <a
                   href="tel:+41779726299"
                   className="group flex items-center gap-3 rounded-lg px-0 py-0.5 transition-colors"
@@ -507,8 +507,8 @@ export default function Contact({ locale = "en" }: ContactProps) {
               </div>
 
               {/* Market badges */}
-              <div className="flex flex-wrap gap-1.5 mt-4 pt-3.5 border-t border-white/[0.06]">
-                <span className="text-[10px] text-blue-300/75 border border-blue-500/20 bg-blue-500/[0.06] rounded-full px-2.5 py-0.5 font-medium">
+              <div className="flex flex-wrap gap-1.5 mt-4 pt-3.5 border-t border-white/6">
+                <span className="text-[10px] text-blue-300/75 border border-blue-500/20 bg-blue-500/6 rounded-full px-2.5 py-0.5 font-medium">
                   🇨🇭 Switzerland
                 </span>
                 <span className="text-[10px] text-white/40 border border-white/[0.07] rounded-full px-2.5 py-0.5">
@@ -582,7 +582,7 @@ export default function Contact({ locale = "en" }: ContactProps) {
                   <motion.a
                     key={opt.key}
                     href={`mailto:${EMAIL}?subject=${encodeURIComponent(opt.subject)}`}
-                    className={`group flex items-center gap-3 p-3 rounded-xl border border-white/[0.06] bg-white/[0.02] transition-all duration-200 ${cvColorMap[opt.color]}`}
+                    className={`group flex items-center gap-3 p-3 rounded-xl border border-white/6 bg-white/2 transition-all duration-200 ${cvColorMap[opt.color]}`}
                     whileHover={{ y: -2, scale: 1.01 }}
                   >
                     <span className="text-base leading-none flex-none">{opt.icon}</span>
@@ -627,11 +627,11 @@ export default function Contact({ locale = "en" }: ContactProps) {
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-16 pt-8 border-t border-white/[0.04] flex flex-col sm:flex-row items-center justify-between gap-5"
+          className="mt-16 pt-8 border-t border-white/4 flex flex-col sm:flex-row items-center justify-between gap-5"
         >
           <BrandLogo />
 
-          <p className="text-xs text-white/20 order-last sm:order-none">
+          <p className="text-xs text-white/20 order-last sm:order-0">
             © 2026 Vidal Ecosystem · Basel, Switzerland
           </p>
 

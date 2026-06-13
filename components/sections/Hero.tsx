@@ -110,7 +110,7 @@ export default function Hero({ locale = "en" }: HeroProps) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.42 }}
-              className="flex w-full items-center gap-8 border-t border-white/[0.06] pt-6"
+              className="flex w-full items-center gap-4 sm:gap-8 border-t border-white/[0.06] pt-6"
             >
               {[
                 { value: t("stat1_value"), label: t("stat1_label") },

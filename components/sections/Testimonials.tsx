@@ -55,7 +55,7 @@ export default function Testimonials() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: i * 0.15 }}
-                className="glass-card rounded-2xl p-8 relative flex flex-col"
+                className="glass-card rounded-2xl p-5 md:p-8 relative flex flex-col"
               >
                 {/* Quote mark */}
                 <svg
