@@ -70,7 +70,7 @@ export default function NavBar() {
           </div>
 
           {/* Desktop nav links */}
-          <ul className="hidden md:flex items-center gap-3 lg:gap-5">
+          <ul className="hidden lg:flex items-center gap-3 lg:gap-5">
             {navLinks.map((link) => (
               <li key={link.href}>
                 {link.highlight ? (
@@ -118,15 +118,15 @@ export default function NavBar() {
             {/* CTA — desktop only */}
             <a
               href={homeAnchor("contact")}
-              className="hidden md:flex whitespace-nowrap items-center gap-2 text-xs font-semibold bg-blue-500 hover:bg-blue-400 text-white rounded-full px-4 py-2 transition-all duration-200"
+              className="hidden lg:flex whitespace-nowrap items-center gap-2 text-xs font-semibold bg-blue-500 hover:bg-blue-400 text-white rounded-full px-4 py-2 transition-all duration-200"
             >
               {t("hire")}
             </a>
 
-            {/* Hamburger — mobile only */}
+            {/* Hamburger — mobile/tablet */}
             <button
               onClick={() => setIsMenuOpen((v) => !v)}
-              className="md:hidden flex items-center justify-center w-9 h-9 rounded-lg border border-white/[0.08] bg-white/[0.03] text-white/60 hover:text-white transition-colors duration-200"
+              className="lg:hidden flex items-center justify-center w-9 h-9 rounded-lg border border-white/[0.08] bg-white/[0.03] text-white/60 hover:text-white transition-colors duration-200"
               aria-label={isMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={isMenuOpen}
             >
@@ -151,9 +151,9 @@ export default function NavBar() {
           </div>
         </nav>
 
-        {/* Mobile menu — slide down */}
+        {/* Mobile/tablet menu — slide down */}
         <div
-          className={`md:hidden overflow-hidden transition-[max-height,opacity] duration-300 ease-in-out ${
+          className={`lg:hidden overflow-hidden transition-[max-height,opacity] duration-300 ease-in-out ${
             isMenuOpen ? "max-h-[28rem] opacity-100" : "max-h-0 opacity-0"
           }`}
         >
@@ -192,10 +192,10 @@ export default function NavBar() {
         </div>
       </header>
 
-      {/* Backdrop for mobile menu */}
+      {/* Backdrop for mobile/tablet menu */}
       {isMenuOpen && (
         <div
-          className="md:hidden fixed inset-0 z-40 bg-black/40 backdrop-blur-[2px]"
+          className="lg:hidden fixed inset-0 z-40 bg-black/40 backdrop-blur-[2px]"
           style={{ top: "64px" }}
           onClick={() => setIsMenuOpen(false)}
           aria-hidden="true"

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import NavBar from "@/components/NavBar";
+import { ConsultationIntakeForm } from "@/components/ui/ConsultationIntakeForm";
 
 type Locale = "en" | "de" | "es";
 
@@ -463,6 +464,11 @@ export default async function ConsultationPage({
 
             <p className="mt-6 text-center text-xs text-white/35">{c.pricing_note}</p>
           </div>
+        </section>
+
+        {/* INTAKE FORM */}
+        <section className="relative z-10 border-t border-white/[0.04]">
+          <ConsultationIntakeForm locale={safeLocale} backHref={backLink} />
         </section>
 
         {/* FINAL CTA */}
