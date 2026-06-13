@@ -50,6 +50,18 @@ const techData = [
       { name: "Firewall (nftables)", level: 75 },
     ],
   },
+  {
+    category: "dev",
+    color: "rose",
+    items: [
+      { name: "Next.js / TypeScript", level: 88 },
+      { name: "Supabase / PostgreSQL", level: 85 },
+      { name: "Claude API / OpenAI", level: 82 },
+      { name: "RAG Pipeline / pgvector", level: 78 },
+      { name: "GitHub Actions CI/CD", level: 80 },
+      { name: "REST APIs / Webhooks", level: 84 },
+    ],
+  },
 ];
 
 const colorMap: Record<string, { bar: string; badge: string; glow: string }> =
@@ -74,6 +86,11 @@ const colorMap: Record<string, { bar: string; badge: string; glow: string }> =
       badge: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
       glow: "group-hover:shadow-emerald-500/10",
     },
+    rose: {
+      bar: "bg-rose-500",
+      badge: "bg-rose-500/10 text-rose-400 border-rose-500/20",
+      glow: "group-hover:shadow-rose-500/10",
+    },
   };
 
 function RadarChart() {
@@ -83,7 +100,7 @@ function RadarChart() {
     { label: "Infrastructure", value: 91 },
     { label: "Automation", value: 78 },
     { label: "Networking", value: 84 },
-    { label: "Dev / AI", value: 70 },
+    { label: "Dev / AI", value: 82 },
   ];
 
   const size = 280;
@@ -215,7 +232,7 @@ export default function TechStack() {
 
         <div className="grid lg:grid-cols-[1fr_280px] gap-12 items-start">
           {/* Skills grid */}
-          <div className="grid sm:grid-cols-2 gap-4">
+          <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-4">
             {techData.map((group, gi) => {
               const colors = colorMap[group.color];
               return (

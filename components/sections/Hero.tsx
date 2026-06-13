@@ -93,7 +93,7 @@ export default function Hero({ locale = "en" }: HeroProps) {
               className="flex flex-wrap items-center gap-3"
             >
               <motion.a
-                href="#services"
+                href={`/${locale}/consultation`}
                 className="group flex items-center gap-2 rounded-full bg-blue-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-500/20 transition-all duration-200 hover:bg-blue-400"
                 whileHover={{ y: -2, scale: 1.01 }}
                 whileTap={{ scale: 0.99 }}
