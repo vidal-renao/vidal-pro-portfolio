@@ -4,6 +4,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { useEffect, useState } from "react";
 import BrandLogo from "@/components/ui/BrandLogo";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 const LOCALES = ["en", "de", "es"] as const;
 type Locale = (typeof LOCALES)[number];
@@ -110,6 +111,9 @@ export default function NavBar() {
                 </button>
               ))}
             </div>
+
+            {/* Theme toggle */}
+            <ThemeToggle />
 
             {/* CTA — desktop only */}
             <a

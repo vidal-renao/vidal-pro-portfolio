@@ -1,0 +1,213 @@
+/* ═══════════════════════════════════════════════════
+   VIDAL PORTFOLIO DESIGN SYSTEM v1.0
+   Enterprise Dark/Light Mode — CSS Variables
+═══════════════════════════════════════════════════ */
+
+/* ───────────────────────────────────────────────────
+   DARK MODE (default)
+─────────────────────────────────────────────────── */
+:root,
+[data-theme="dark"] {
+  /* FONDOS — 8-layer depth system */
+  --bg-void:      #060606;
+  --bg-base:      #0a0a0f;
+  --bg-surface:   #111118;
+  --bg-elevated:  #1a1a24;
+  --bg-overlay:   #22222e;
+  --bg-input:     #0d0d15;
+  --bg-hover:     #15151f;
+  --bg-accent:    rgba(79, 156, 249, 0.08);
+
+  /* BORDES */
+  --border-subtle:   rgba(255, 255, 255, 0.04);
+  --border-default:  rgba(255, 255, 255, 0.08);
+  --border-muted:    rgba(255, 255, 255, 0.14);
+  --border-emphasis: rgba(255, 255, 255, 0.24);
+
+  /* TEXTOS */
+  --text-primary:   #e8eaf0;
+  --text-secondary: #8b8fa8;
+  --text-muted:     #5a5e70;
+  --text-disabled:  #3a3d50;
+
+  /* COLORES ACENTO */
+  --accent-blue:   #4f9cf9;
+  --accent-gold:   #f5a623;
+  --accent-green:  #3fb950;
+  --accent-red:    #f85149;
+  --accent-purple: #bc8cff;
+
+  /* GLOW Y EFECTOS */
+  --glow-blue:   0 0 20px rgba(79, 156, 249, 0.3), 0 0 60px rgba(79, 156, 249, 0.1);
+  --glow-gold:   0 0 20px rgba(245, 166, 35, 0.3), 0 0 60px rgba(245, 166, 35, 0.1);
+  --glow-subtle: 0 0 12px rgba(79, 156, 249, 0.18);
+
+  /* GRADIENTES */
+  --gradient-cosmos:  linear-gradient(135deg, #060606 0%, #080812 50%, #06060e 100%);
+  --gradient-surface: linear-gradient(135deg, #111118 0%, #1a1a24 100%);
+  --gradient-blue:    linear-gradient(135deg, #4f9cf9 0%, #1a6fd4 100%);
+  --gradient-gold:    linear-gradient(135deg, #f5a623 0%, #e8941a 100%);
+
+  /* TIPOGRAFÍA */
+  --font-sans:  var(--font-geist-sans), -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono:  var(--font-geist-mono), 'Fira Code', monospace;
+
+  /* SOMBRAS */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.7);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.8);
+
+  /* RADIOS */
+  --radius-sm:   6px;
+  --radius-md:   10px;
+  --radius-lg:   16px;
+  --radius-xl:   24px;
+  --radius-full: 9999px;
+
+  /* TRANSICIONES */
+  --transition-fast:   150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow:   400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ───────────────────────────────────────────────────
+   LIGHT MODE
+─────────────────────────────────────────────────── */
+[data-theme="light"] {
+  --bg-void:      #ffffff;
+  --bg-base:      #f6f8fa;
+  --bg-surface:   #ffffff;
+  --bg-elevated:  #f0f2f5;
+  --bg-overlay:   #e8eaed;
+  --bg-input:     #ffffff;
+  --bg-hover:     #eef0f3;
+  --bg-accent:    rgba(9, 105, 218, 0.06);
+
+  --border-subtle:   rgba(31, 35, 40, 0.05);
+  --border-default:  rgba(31, 35, 40, 0.12);
+  --border-muted:    rgba(31, 35, 40, 0.20);
+  --border-emphasis: rgba(31, 35, 40, 0.32);
+
+  --text-primary:   #1a1d23;
+  --text-secondary: #57606a;
+  --text-muted:     #818d97;
+  --text-disabled:  #bdc4cd;
+
+  --accent-blue:   #0969da;
+  --accent-gold:   #9a6700;
+  --accent-green:  #1a7f37;
+  --accent-red:    #d1242f;
+  --accent-purple: #8250df;
+
+  --glow-blue:   0 0 10px rgba(9, 105, 218, 0.2), 0 0 30px rgba(9, 105, 218, 0.08);
+  --glow-gold:   0 0 10px rgba(154, 103, 0, 0.2);
+  --glow-subtle: 0 0 6px rgba(9, 105, 218, 0.12);
+
+  --gradient-cosmos:  linear-gradient(135deg, #f0f6ff 0%, #f6f8fa 50%, #f0f4ff 100%);
+  --gradient-surface: linear-gradient(135deg, #ffffff 0%, #f6f8fa 100%);
+  --gradient-blue:    linear-gradient(135deg, #0969da 0%, #0550ae 100%);
+  --gradient-gold:    linear-gradient(135deg, #9a6700 0%, #7d5412 100%);
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.10);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.15);
+}
+
+/* ───────────────────────────────────────────────────
+   COMPONENTES BASE
+─────────────────────────────────────────────────── */
+
+/* Card base */
+.ds-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    background var(--transition-fast);
+}
+.ds-card:hover {
+  border-color: var(--border-muted);
+  box-shadow: var(--glow-subtle), var(--shadow-md);
+  background: var(--bg-hover);
+}
+
+/* Card with blue glow on hover */
+.ds-card-glow:hover {
+  box-shadow: var(--glow-blue), var(--shadow-md);
+  border-color: rgba(79, 156, 249, 0.3);
+}
+[data-theme="light"] .ds-card-glow:hover {
+  border-color: rgba(9, 105, 218, 0.25);
+}
+
+/* Glass effect — navbar only */
+.ds-glass {
+  background: rgba(6, 6, 6, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-color: var(--border-subtle);
+}
+[data-theme="light"] .ds-glass {
+  background: rgba(255, 255, 255, 0.80);
+}
+
+/* Badge */
+.ds-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 600;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-default);
+  color: var(--text-primary);
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+
+/* Buttons */
+.ds-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  padding: 10px 18px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.ds-btn-primary {
+  background: var(--accent-blue);
+  color: white;
+}
+.ds-btn-primary:hover {
+  box-shadow: var(--glow-blue), var(--shadow-md);
+  opacity: 0.92;
+}
+
+.ds-btn-secondary {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-default);
+  color: var(--text-primary);
+}
+.ds-btn-secondary:hover {
+  background: var(--bg-hover);
+  border-color: var(--border-muted);
+}
+
+/* ───────────────────────────────────────────────────
+   THEME TRANSITION — smooth mode switch
+─────────────────────────────────────────────────── */
+html {
+  transition:
+    background-color var(--transition-normal),
+    color var(--transition-normal);
+}
