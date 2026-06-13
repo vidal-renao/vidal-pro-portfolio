@@ -1,4 +1,17 @@
 import type { Metadata, Viewport } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import { BrightnessControl } from "@/components/ui/BrightnessControl";
+import "@/app/globals.css";
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
 
 export const viewport: Viewport = {
   themeColor: "#060606",
@@ -62,12 +75,27 @@ export const metadata: Metadata = {
   },
 };
 
-// html/body are rendered by app/[locale]/layout.tsx so that lang={locale} is set correctly.
-// This root layout is required by Next.js but delegates the shell to the locale layout.
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return children as React.ReactElement;
+  return (
+    <html
+      suppressHydrationWarning
+      className={`${geistSans.variable} ${geistMono.variable}`}
+    >
+      <head>
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+      </head>
+      <body className="bg-[#060606] text-white antialiased">
+        {children}
+        <BrightnessControl />
+      </body>
+    </html>
+  );
 }
