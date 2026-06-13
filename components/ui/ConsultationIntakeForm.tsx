@@ -294,7 +294,7 @@ export function ConsultationIntakeForm({ locale, backHref }: Props) {
   };
 
   const inputClass =
-    "w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white placeholder-white/25 focus:outline-none focus:border-blue-500/50 focus:bg-white/[0.06] transition-all duration-150 text-sm";
+    "w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/8 text-white placeholder-white/25 focus:outline-none focus:border-blue-500/50 focus:bg-white/[0.06] transition-all duration-150 text-base";
 
   if (submitted) {
     return (
@@ -323,7 +323,7 @@ export function ConsultationIntakeForm({ locale, backHref }: Props) {
 
       <form onSubmit={handleSubmit} className="space-y-8">
         {/* STEP 1 — Sector */}
-        <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6">
+        <div className="rounded-2xl border border-white/6 bg-white/2 p-6">
           <p className="mb-5 text-sm font-semibold text-white">{c.step1}</p>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {sectors.map((s) => (
@@ -337,7 +337,7 @@ export function ConsultationIntakeForm({ locale, backHref }: Props) {
                 className={`flex items-center gap-3 rounded-xl border px-4 py-3.5 text-left text-sm font-medium transition-all duration-150 ${
                   sectorId === s.id
                     ? "border-blue-500/50 bg-blue-500/10 text-white"
-                    : "border-white/[0.08] bg-white/[0.02] text-white/55 hover:border-white/20 hover:text-white/80"
+                    : "border-white/8 bg-white/2 text-white/55 hover:border-white/20 hover:text-white/80"
                 }`}
               >
                 <span className="text-lg leading-none">{s.icon}</span>
@@ -352,7 +352,7 @@ export function ConsultationIntakeForm({ locale, backHref }: Props) {
 
         {/* STEP 2 — Options (shown after sector selected) */}
         {selectedSector && (
-          <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6">
+          <div className="rounded-2xl border border-white/6 bg-white/2 p-6">
             <p className="mb-1 text-sm font-semibold text-white">{c.step2}</p>
             <p className="mb-5 text-xs text-white/35">{c.step2sub}</p>
             <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
@@ -364,7 +364,7 @@ export function ConsultationIntakeForm({ locale, backHref }: Props) {
                     className={`flex cursor-pointer items-center gap-3 rounded-xl border px-4 py-3 transition-all duration-150 ${
                       checked
                         ? "border-blue-500/40 bg-blue-500/08 text-white"
-                        : "border-white/[0.06] bg-white/[0.02] text-white/55 hover:border-white/15 hover:text-white/75"
+                        : "border-white/6 bg-white/2 text-white/55 hover:border-white/15 hover:text-white/75"
                     }`}
                   >
                     <span
@@ -395,7 +395,7 @@ export function ConsultationIntakeForm({ locale, backHref }: Props) {
         )}
 
         {/* STEP 3 — Contact info */}
-        <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6">
+        <div className="rounded-2xl border border-white/6 bg-white/2 p-6">
           <p className="mb-5 text-sm font-semibold text-white">{c.step3}</p>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             <input

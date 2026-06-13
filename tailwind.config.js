@@ -7,6 +7,9 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        xs: "375px",
+      },
       animation: {
         shine: "shine 0.8s ease-in-out",
       },

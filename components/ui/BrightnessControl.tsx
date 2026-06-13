@@ -5,8 +5,10 @@ import { useState, useEffect } from "react";
 export function BrightnessControl() {
   const [brightness, setBrightness] = useState(100);
   const [visible, setVisible] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const saved = localStorage.getItem("site-brightness");
     if (saved) {
       const value = parseInt(saved, 10);
@@ -28,8 +30,10 @@ export function BrightnessControl() {
     localStorage.removeItem("site-brightness");
   };
 
+  if (!mounted) return null;
+
   return (
-    <div className="fixed bottom-5 right-5 z-[9999]">
+    <div className="fixed bottom-20 right-4 sm:bottom-5 sm:right-5 z-9999">
       {visible ? (
         <div className="flex flex-col gap-3 rounded-2xl border border-white/[0.1] bg-[#0d0d0d]/95 p-4 shadow-2xl backdrop-blur-md w-48">
           <div className="flex items-center justify-between">
