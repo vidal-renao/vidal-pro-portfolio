@@ -15,14 +15,14 @@ export default function Hero({ locale = "en" }: HeroProps) {
   const t = useTranslations("hero");
 
   return (
-    <section className="relative flex min-h-screen flex-col justify-center overflow-hidden grid-bg">
+    <section className="relative flex flex-col justify-center overflow-hidden grid-bg">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 right-0 h-[600px] w-[600px] rounded-full bg-blue-500/8 blur-[120px]" />
         <div className="absolute bottom-0 left-0 h-[400px] w-[400px] rounded-full bg-violet-500/6 blur-[100px]" />
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-6xl px-6 pb-12 pt-20">
-        <div className="grid min-h-[calc(100vh-120px)] items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="grid sm:min-h-[calc(100vh-120px)] items-center gap-6 sm:gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="order-2 flex flex-col items-start gap-6 lg:order-1">
             <div className="flex flex-col gap-2">
               <motion.div
@@ -144,14 +144,14 @@ export default function Hero({ locale = "en" }: HeroProps) {
 
               <div className="relative rounded-full bg-gradient-to-tr from-blue-500 via-violet-400 to-blue-400 p-[3px]">
                 <div className="rounded-full bg-[#060606] p-[3px]">
-                  <div className="relative h-[260px] w-[260px] overflow-hidden rounded-full md:h-[320px] md:w-[320px] lg:h-[360px] lg:w-[360px]">
+                  <div className="relative h-50 w-50 overflow-hidden rounded-full sm:h-65 sm:w-65 md:h-80 md:w-80 lg:h-90 lg:w-90">
                     <Image
                       src="/Photo.jpg"
                       alt="Vidal Renao - IT Solutions Engineer"
                       fill
                       className="object-cover object-top"
                       priority
-                      sizes="(max-width: 768px) 260px, (max-width: 1024px) 320px, 360px"
+                      sizes="(max-width: 640px) 200px, (max-width: 768px) 260px, (max-width: 1024px) 320px, 360px"
                     />
                   </div>
                 </div>
