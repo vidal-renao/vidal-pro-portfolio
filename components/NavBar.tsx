@@ -9,6 +9,12 @@ import { ThemeToggle } from "@/components/ui/ThemeToggle";
 const LOCALES = ["en", "de", "es"] as const;
 type Locale = (typeof LOCALES)[number];
 
+const MOBILE_CTA: Record<Locale, string> = {
+  en: "Free Analysis →",
+  de: "Kostenlos →",
+  es: "Análisis Gratuito →",
+};
+
 export default function NavBar() {
   const t = useTranslations("nav");
   const pathname = usePathname();
@@ -65,7 +71,7 @@ export default function NavBar() {
       >
         <nav className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col lg:flex-row lg:items-center lg:justify-between lg:h-16 lg:gap-3">
 
-          {/* Row 1: Brand + desktop nav + right controls */}
+          {/* Row 1: Brand + desktop nav + right controls (always visible) */}
           <div className="flex items-center justify-between h-14 lg:h-full lg:flex-1 gap-3">
             {/* Brand */}
             <div className="shrink-0">
@@ -97,18 +103,18 @@ export default function NavBar() {
             </ul>
 
             {/* Right controls: language + ThemeToggle + desktop CTA */}
-            <div className="flex items-center gap-2 sm:gap-3">
-              {/* Language toggle */}
-              <div className="flex items-center border border-white/[0.08] rounded-full overflow-hidden text-xs font-medium">
-                {LOCALES.map((l, i) => (
+            <div className="flex items-center gap-2">
+              {/* Language selector — visible on ALL screens */}
+              <div className="flex items-center gap-0.5 bg-white/8 rounded-lg px-1 py-1">
+                {LOCALES.map((l) => (
                   <button
                     key={l}
                     onClick={() => switchLocale(l)}
-                    className={`px-2 py-1.5 sm:px-2.5 transition-colors duration-150 ${
+                    className={`px-2 py-1 rounded-md text-xs font-bold uppercase transition-all duration-150 ${
                       locale === l
-                        ? "bg-white/10 text-white"
-                        : "text-white/40 hover:text-white/70"
-                    } ${i < LOCALES.length - 1 ? "border-r border-white/[0.08]" : ""}`}
+                        ? "bg-blue-500 text-white"
+                        : "text-white/65 hover:text-white hover:bg-white/10"
+                    }`}
                   >
                     {l.toUpperCase()}
                   </button>
@@ -128,32 +134,37 @@ export default function NavBar() {
             </div>
           </div>
 
-          {/* Row 2: Hamburger — mobile/tablet only, below logo */}
-          <div className="lg:hidden flex items-center pb-2">
+          {/* Row 2: Hamburger + mini CTA — mobile/tablet only, below logo */}
+          <div className="lg:hidden flex items-center justify-between w-full pt-2 pb-1 border-t border-white/8">
             <button
               onClick={() => setIsMenuOpen((v) => !v)}
-              className="flex items-center justify-center w-9 h-9 rounded-lg border border-white/[0.08] bg-white/[0.03] text-white/60 hover:text-white transition-colors duration-200"
+              className="flex flex-col justify-center gap-1.5 p-2 rounded-lg hover:bg-white/8 transition-colors duration-200"
               aria-label={isMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={isMenuOpen}
             >
-              <span className="relative flex h-5 w-5 flex-col items-center justify-center gap-[5px]">
-                <span
-                  className={`block h-px w-4 bg-current transition-all duration-300 origin-center ${
-                    isMenuOpen ? "rotate-45 translate-y-[6px]" : ""
-                  }`}
-                />
-                <span
-                  className={`block h-px w-4 bg-current transition-all duration-300 ${
-                    isMenuOpen ? "opacity-0 scale-x-0" : ""
-                  }`}
-                />
-                <span
-                  className={`block h-px w-4 bg-current transition-all duration-300 origin-center ${
-                    isMenuOpen ? "-rotate-45 -translate-y-[6px]" : ""
-                  }`}
-                />
-              </span>
+              <span
+                className={`block h-0.5 w-6 bg-white transition-all duration-300 origin-center ${
+                  isMenuOpen ? "rotate-45 translate-y-2" : ""
+                }`}
+              />
+              <span
+                className={`block h-0.5 w-6 bg-white transition-all duration-300 ${
+                  isMenuOpen ? "opacity-0 scale-x-0" : ""
+                }`}
+              />
+              <span
+                className={`block h-0.5 w-6 bg-white transition-all duration-300 origin-center ${
+                  isMenuOpen ? "-rotate-45 -translate-y-2" : ""
+                }`}
+              />
             </button>
+
+            <a
+              href={`/${locale}/consultation`}
+              className="text-xs font-bold px-3 py-1.5 rounded-full bg-blue-500 text-white hover:bg-blue-400 transition-colors duration-200"
+            >
+              {MOBILE_CTA[locale]}
+            </a>
           </div>
         </nav>
 
@@ -202,7 +213,7 @@ export default function NavBar() {
       {isMenuOpen && (
         <div
           className="lg:hidden fixed inset-0 z-40 bg-black/40 backdrop-blur-[2px]"
-          style={{ top: "100px" }}
+          style={{ top: "104px" }}
           onClick={() => setIsMenuOpen(false)}
           aria-hidden="true"
         />
