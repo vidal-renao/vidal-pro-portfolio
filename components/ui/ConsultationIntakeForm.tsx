@@ -267,6 +267,8 @@ export function ConsultationIntakeForm({ locale, backHref }: Props) {
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
   const [form, setForm] = useState({ name: "", company: "", email: "", phone: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
 
   const selectedSector = sectors.find((s) => s.id === sectorId);
 
@@ -275,12 +277,40 @@ export function ConsultationIntakeForm({ locale, backHref }: Props) {
       prev.includes(opt) ? prev.filter((o) => o !== opt) : [...prev, opt]
     );
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!sectorId || !form.name || !form.email) return;
+    if (!sectorId || !form.name || !form.email || isSubmitting) return;
+
+    setIsSubmitting(true);
+    setSubmitError(false);
 
     const sectorLabel = selectedSector?.label ?? sectorId;
     const optionsList = selectedOptions.length > 0 ? selectedOptions.join(", ") : "—";
+
+    try {
+      const response = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          phone: form.phone || "",
+          company: form.company || "",
+          sector: sectorLabel,
+          selectedOptions,
+          locale,
+          message: "",
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("API error");
+      }
+    } catch {
+      setSubmitError(true);
+      setIsSubmitting(false);
+      return;
+    }
 
     const waText =
       locale === "de"
@@ -290,6 +320,7 @@ export function ConsultationIntakeForm({ locale, backHref }: Props) {
         : `Hello Vidal, I'm ${form.name}${form.company ? ` from ${form.company}` : ""}. Industry: ${sectorLabel}. I need: ${optionsList}. Contact: ${form.email}${form.phone ? ` / ${form.phone}` : ""}.`;
 
     window.open(`https://wa.me/41779726299?text=${encodeURIComponent(waText)}`, "_blank");
+    setIsSubmitting(false);
     setSubmitted(true);
   };
 
@@ -431,13 +462,32 @@ export function ConsultationIntakeForm({ locale, backHref }: Props) {
           </div>
         </div>
 
+        {submitError && (
+          <div className="rounded-xl border border-red-500/20 bg-red-500/8 px-4 py-3 text-sm text-red-400">
+            {locale === "de"
+              ? "Fehler beim Senden. Bitte versuche es erneut."
+              : locale === "es"
+              ? "Error al enviar. Por favor inténtalo de nuevo."
+              : "Something went wrong. Please try again."}
+            <button
+              type="button"
+              onClick={() => setSubmitError(false)}
+              className="ml-2 underline opacity-70 hover:opacity-100"
+            >
+              {locale === "de" ? "Erneut versuchen" : locale === "es" ? "Reintentar" : "Retry"}
+            </button>
+          </div>
+        )}
+
         <button
           type="submit"
-          disabled={!sectorId || !form.name || !form.email}
+          disabled={!sectorId || !form.name || !form.email || isSubmitting}
           className="flex w-full items-center justify-center gap-2 rounded-full bg-blue-500 py-4 text-sm font-semibold text-white shadow-lg shadow-blue-500/20 transition-all duration-200 hover:bg-blue-400 disabled:cursor-not-allowed disabled:opacity-40"
         >
-          {c.submit}
-          <ArrowRight size={16} />
+          {isSubmitting
+            ? (locale === "de" ? "Wird gesendet…" : locale === "es" ? "Enviando…" : "Sending…")
+            : c.submit}
+          {!isSubmitting && <ArrowRight size={16} />}
         </button>
       </form>
     </div>
