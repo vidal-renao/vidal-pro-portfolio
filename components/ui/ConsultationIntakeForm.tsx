@@ -319,7 +319,7 @@ export function ConsultationIntakeForm({ locale, backHref }: Props) {
         {c.sectionLabel}
       </p>
       <h2 className="mb-2 text-2xl sm:text-3xl font-bold text-white">{c.sectionTitle}</h2>
-      <p className="mb-10 text-sm text-white/45">{c.sectionSub}</p>
+      <p className="mb-10 text-sm text-white/50">{c.sectionSub}</p>
 
       <form onSubmit={handleSubmit} className="space-y-8">
         {/* STEP 1 — Sector */}
@@ -354,7 +354,7 @@ export function ConsultationIntakeForm({ locale, backHref }: Props) {
         {selectedSector && (
           <div className="rounded-2xl border border-white/6 bg-white/2 p-6">
             <p className="mb-1 text-sm font-semibold text-white">{c.step2}</p>
-            <p className="mb-5 text-xs text-white/35">{c.step2sub}</p>
+            <p className="mb-5 text-xs text-white/50">{c.step2sub}</p>
             <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
               {selectedSector.options.map((opt) => {
                 const checked = selectedOptions.includes(opt);

@@ -285,7 +285,17 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const safeLocale = (["en", "de", "es"].includes(locale) ? locale : "en") as Locale;
-  return meta[safeLocale];
+  return {
+    ...meta[safeLocale],
+    alternates: {
+      canonical: `https://vidal-pro-portfolio.vercel.app/${safeLocale}/consultation`,
+      languages: {
+        en: "/en/consultation",
+        de: "/de/consultation",
+        es: "/es/consultation",
+      },
+    },
+  };
 }
 
 export function generateStaticParams() {
@@ -318,7 +328,7 @@ export default async function ConsultationPage({
         <section className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 pb-12 sm:pb-16 pt-20 sm:pt-28">
           <a
             href={backLink}
-            className="mb-8 inline-flex items-center gap-1.5 text-xs text-white/40 transition-colors hover:text-white/70"
+            className="mb-8 inline-flex items-center gap-1.5 text-xs text-white/50 transition-colors hover:text-white/70"
           >
             <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -383,7 +393,7 @@ export default async function ConsultationPage({
               {c.case_label}
             </p>
             <h2 className="mb-1 text-2xl sm:text-3xl font-bold text-white">{c.case_title}</h2>
-            <p className="mb-8 text-sm text-white/40">{c.case_sub}</p>
+            <p className="mb-8 text-sm text-white/50">{c.case_sub}</p>
 
             <div className="grid gap-6 lg:grid-cols-2">
               <div className="rounded-2xl border border-cyan-500/20 bg-[linear-gradient(135deg,rgba(8,47,73,0.72),rgba(17,24,39,0.88))] p-7">
@@ -462,7 +472,7 @@ export default async function ConsultationPage({
               ))}
             </div>
 
-            <p className="mt-6 text-center text-xs text-white/35">{c.pricing_note}</p>
+            <p className="mt-6 text-center text-xs text-white/50">{c.pricing_note}</p>
           </div>
         </section>
 

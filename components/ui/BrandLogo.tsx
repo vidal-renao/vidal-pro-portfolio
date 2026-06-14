@@ -9,7 +9,7 @@ export default function BrandLogo({ href = "/" }: BrandLogoProps) {
     <Link
       href={href}
       className="group flex items-center gap-3 select-none rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/40 focus-visible:ring-offset-2 focus-visible:ring-offset-[#060606]"
-      aria-label="Vidal Reñao — Portfolio"
+      aria-label="Vidal Reñao Lopelo — Home"
     >
       {/* Monogram badge */}
       <div className="relative w-[42px] h-[42px] flex-none overflow-hidden rounded-[11px] shadow-[0_2px_16px_rgba(59,130,246,0.18),0_0_0_1px_rgba(255,255,255,0.07)]">
