@@ -63,70 +63,76 @@ export default function NavBar() {
             : "bg-transparent"
         }`}
       >
-        <nav className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
-          {/* Brand */}
-          <div className="shrink-0">
-            <BrandLogo href={`/${locale}`} />
-          </div>
+        <nav className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col lg:flex-row lg:items-center lg:justify-between lg:h-16 lg:gap-3">
 
-          {/* Desktop nav links */}
-          <ul className="hidden lg:flex items-center gap-3 lg:gap-5">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                {link.highlight ? (
-                  <a
-                    href={link.href}
-                    className="whitespace-nowrap flex items-center gap-1.5 text-xs font-semibold text-blue-400 border border-blue-500/30 bg-blue-500/08 rounded-full px-3 py-1.5 hover:bg-blue-500/15 hover:border-blue-500/50 transition-all duration-200"
-                  >
-                    <span className="h-1.5 w-1.5 rounded-full bg-blue-400 animate-pulse" />
-                    {link.label}
-                  </a>
-                ) : (
-                  <a
-                    href={link.href}
-                    className="whitespace-nowrap text-sm text-white/45 hover:text-white transition-colors duration-200"
-                  >
-                    {link.label}
-                  </a>
-                )}
-              </li>
-            ))}
-          </ul>
-
-          {/* Right actions */}
-          <div className="flex items-center gap-2 sm:gap-3">
-            {/* Language toggle */}
-            <div className="flex items-center border border-white/[0.08] rounded-full overflow-hidden text-xs font-medium">
-              {LOCALES.map((l, i) => (
-                <button
-                  key={l}
-                  onClick={() => switchLocale(l)}
-                  className={`px-2 py-1.5 sm:px-2.5 transition-colors duration-150 ${
-                    locale === l
-                      ? "bg-white/10 text-white"
-                      : "text-white/40 hover:text-white/70"
-                  } ${i < LOCALES.length - 1 ? "border-r border-white/[0.08]" : ""}`}
-                >
-                  {l.toUpperCase()}
-                </button>
-              ))}
+          {/* Row 1: Brand + desktop nav + right controls */}
+          <div className="flex items-center justify-between h-14 lg:h-full lg:flex-1 gap-3">
+            {/* Brand */}
+            <div className="shrink-0">
+              <BrandLogo href={`/${locale}`} />
             </div>
 
-            {/* Theme toggle */}
-            <ThemeToggle />
+            {/* Desktop nav links */}
+            <ul className="hidden lg:flex items-center gap-3 lg:gap-5">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  {link.highlight ? (
+                    <a
+                      href={link.href}
+                      className="whitespace-nowrap flex items-center gap-1.5 text-xs font-semibold text-blue-400 border border-blue-500/30 bg-blue-500/08 rounded-full px-3 py-1.5 hover:bg-blue-500/15 hover:border-blue-500/50 transition-all duration-200"
+                    >
+                      <span className="h-1.5 w-1.5 rounded-full bg-blue-400 animate-pulse" />
+                      {link.label}
+                    </a>
+                  ) : (
+                    <a
+                      href={link.href}
+                      className="whitespace-nowrap text-sm text-white/45 hover:text-white transition-colors duration-200"
+                    >
+                      {link.label}
+                    </a>
+                  )}
+                </li>
+              ))}
+            </ul>
 
-            {/* CTA — desktop only */}
-            <a
-              href={homeAnchor("contact")}
-              className="hidden lg:flex whitespace-nowrap items-center gap-2 text-xs font-semibold bg-blue-500 hover:bg-blue-400 text-white rounded-full px-4 py-2 transition-all duration-200"
-            >
-              {t("hire")}
-            </a>
+            {/* Right controls: language + ThemeToggle + desktop CTA */}
+            <div className="flex items-center gap-2 sm:gap-3">
+              {/* Language toggle */}
+              <div className="flex items-center border border-white/[0.08] rounded-full overflow-hidden text-xs font-medium">
+                {LOCALES.map((l, i) => (
+                  <button
+                    key={l}
+                    onClick={() => switchLocale(l)}
+                    className={`px-2 py-1.5 sm:px-2.5 transition-colors duration-150 ${
+                      locale === l
+                        ? "bg-white/10 text-white"
+                        : "text-white/40 hover:text-white/70"
+                    } ${i < LOCALES.length - 1 ? "border-r border-white/[0.08]" : ""}`}
+                  >
+                    {l.toUpperCase()}
+                  </button>
+                ))}
+              </div>
 
-            {/* Hamburger — mobile/tablet */}
+              {/* Theme toggle */}
+              <ThemeToggle />
+
+              {/* CTA — desktop only */}
+              <a
+                href={homeAnchor("contact")}
+                className="hidden lg:flex whitespace-nowrap items-center gap-2 text-xs font-semibold bg-blue-500 hover:bg-blue-400 text-white rounded-full px-4 py-2 transition-all duration-200"
+              >
+                {t("hire")}
+              </a>
+            </div>
+          </div>
+
+          {/* Row 2: Hamburger — mobile/tablet only, below logo */}
+          <div className="lg:hidden flex items-center pb-2">
             <button
               onClick={() => setIsMenuOpen((v) => !v)}
-              className="lg:hidden flex items-center justify-center w-9 h-9 rounded-lg border border-white/[0.08] bg-white/[0.03] text-white/60 hover:text-white transition-colors duration-200"
+              className="flex items-center justify-center w-9 h-9 rounded-lg border border-white/[0.08] bg-white/[0.03] text-white/60 hover:text-white transition-colors duration-200"
               aria-label={isMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={isMenuOpen}
             >
@@ -196,7 +202,7 @@ export default function NavBar() {
       {isMenuOpen && (
         <div
           className="lg:hidden fixed inset-0 z-40 bg-black/40 backdrop-blur-[2px]"
-          style={{ top: "64px" }}
+          style={{ top: "100px" }}
           onClick={() => setIsMenuOpen(false)}
           aria-hidden="true"
         />
