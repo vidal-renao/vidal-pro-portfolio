@@ -72,7 +72,7 @@ export default function Services() {
     >
       {/* Background accent */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-blue-500/04 rounded-full blur-[100px]" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-200 h-100 bg-blue-500/4 rounded-full blur-[100px]" />
       </div>
 
       <div className="relative max-w-6xl mx-auto">
@@ -109,7 +109,7 @@ export default function Services() {
               >
                 {/* Icon + title */}
                 <div className="flex items-start gap-3">
-                  <div className={`p-2.5 rounded-xl border border-white/[0.08] bg-white/[0.04] ${svc.accentColor} flex-none`}>
+                  <div className={`p-2.5 rounded-xl border border-white/8 bg-white/4 ${svc.accentColor} flex-none`}>
                     {svc.icon}
                   </div>
                   <div>
@@ -136,7 +136,7 @@ export default function Services() {
                 )}
 
                 {/* Tags */}
-                <div className="flex flex-wrap gap-1.5 pt-3 border-t border-white/[0.05]">
+                <div className="flex flex-wrap gap-1.5 pt-3 border-t border-white/5">
                   {tags.map((tag: string) => (
                     <span
                       key={tag}
@@ -179,7 +179,7 @@ export default function Services() {
             </a>
             <a
               href="mailto:vidalrenao.lab@outlook.com"
-              className="flex items-center gap-2 border border-white/[0.1] hover:border-white/20 text-white/60 hover:text-white rounded-full px-5 py-3 text-sm transition-all duration-200"
+              className="flex items-center gap-2 border border-white/10 hover:border-white/20 text-white/60 hover:text-white rounded-full px-5 py-3 text-sm transition-all duration-200"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />

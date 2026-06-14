@@ -294,7 +294,7 @@ export function ConsultationIntakeForm({ locale, backHref }: Props) {
   };
 
   const inputClass =
-    "w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/8 text-white placeholder-white/25 focus:outline-none focus:border-blue-500/50 focus:bg-white/[0.06] transition-all duration-150 text-base";
+    "w-full px-4 py-3 rounded-xl bg-white/4 border border-white/8 text-white placeholder-white/25 focus:outline-none focus:border-blue-500/50 focus:bg-white/6 transition-all duration-150 text-base";
 
   if (submitted) {
     return (

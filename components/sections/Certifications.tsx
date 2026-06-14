@@ -83,8 +83,8 @@ export default function Certifications() {
     >
       {/* Background accent */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 right-1/4 w-[600px] h-[400px] bg-violet-500/04 rounded-full blur-[100px]" />
-        <div className="absolute bottom-0 left-1/4 w-[400px] h-[300px] bg-cyan-500/03 rounded-full blur-[80px]" />
+        <div className="absolute top-0 right-1/4 w-150 h-100 bg-violet-500/4 rounded-full blur-[100px]" />
+        <div className="absolute bottom-0 left-1/4 w-100 h-75 bg-cyan-500/3 rounded-full blur-[80px]" />
       </div>
 
       <div className="relative max-w-6xl mx-auto">
@@ -124,7 +124,7 @@ export default function Certifications() {
                     href={cert.certPdf}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="relative block h-44 bg-white/[0.02] border-b border-white/[0.06] overflow-hidden cursor-pointer"
+                    className="relative block h-44 bg-white/2 border-b border-white/6 overflow-hidden cursor-pointer"
                     title="Click to open certificate"
                   >
                     <Image
@@ -150,7 +150,7 @@ export default function Certifications() {
                 <div className="p-6 flex flex-col gap-5 flex-1">
                   {/* Icon + title */}
                   <div className="flex items-start gap-3">
-                    <div className={`p-2.5 rounded-xl border border-white/[0.08] bg-white/[0.04] ${cert.accentColor} flex-none`}>
+                    <div className={`p-2.5 rounded-xl border border-white/8 bg-white/4 ${cert.accentColor} flex-none`}>
                       {cert.icon}
                     </div>
                     <div className="flex-1 min-w-0">
@@ -181,7 +181,7 @@ export default function Certifications() {
                   </p>
 
                   {/* Tags */}
-                  <div className="flex flex-wrap gap-1.5 pt-3 border-t border-white/[0.05]">
+                  <div className="flex flex-wrap gap-1.5 pt-3 border-t border-white/5">
                     {tags.map((tag: string) => (
                       <span
                         key={tag}
@@ -242,7 +242,7 @@ export default function Certifications() {
           </div>
           <div className="flex items-center gap-2 flex-wrap justify-center sm:justify-end">
             {(t.raw("trust_badges") as string[]).map((badge: string) => (
-              <span key={badge} className="text-[10.5px] font-medium border border-white/[0.08] rounded-full px-3 py-1 text-white/50">
+              <span key={badge} className="text-[10.5px] font-medium border border-white/8 rounded-full px-3 py-1 text-white/50">
                 {badge}
               </span>
             ))}

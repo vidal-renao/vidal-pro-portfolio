@@ -44,7 +44,7 @@ export default function Experience() {
         {/* Timeline */}
         <div className="relative">
           {/* Vertical line */}
-          <div className="absolute left-[11px] top-3 bottom-3 w-px bg-white/[0.06]" />
+          <div className="absolute left-2.75 top-3 bottom-3 w-px bg-white/6" />
 
           <div className="space-y-10">
             {roles.map((role, i) => (
@@ -58,7 +58,7 @@ export default function Experience() {
                 {/* Dot */}
                 <div className="relative flex-none">
                   <div
-                    className={`w-[23px] h-[23px] rounded-full border-2 flex items-center justify-center z-10 relative ${
+                    className={`w-5.75 h-5.75 rounded-full border-2 flex items-center justify-center z-10 relative ${
                       i === 0
                         ? "border-blue-500 bg-blue-500/20"
                         : "border-white/20 bg-[#060606]"
