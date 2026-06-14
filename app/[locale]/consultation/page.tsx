@@ -315,7 +315,7 @@ export default async function ConsultationPage({
         </div>
 
         {/* HERO */}
-        <section className="relative z-10 mx-auto max-w-6xl px-6 pb-16 pt-28">
+        <section className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 pb-12 sm:pb-16 pt-20 sm:pt-28">
           <a
             href={backLink}
             className="mb-8 inline-flex items-center gap-1.5 text-xs text-white/40 transition-colors hover:text-white/70"
@@ -339,12 +339,12 @@ export default async function ConsultationPage({
 
           <p className="mb-8 max-w-xl text-base text-white/50 md:text-lg">{c.sub}</p>
 
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-col sm:flex-row gap-3">
             <a
               href={waLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-full bg-blue-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-500/20 transition-all duration-200 hover:bg-blue-400"
+              className="flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-blue-500 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/20 transition-all duration-200 hover:bg-blue-400"
             >
               {c.cta_primary}
               <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -355,21 +355,21 @@ export default async function ConsultationPage({
         </section>
 
         {/* WHO I WORK WITH */}
-        <section className="relative z-10 border-t border-white/[0.04] py-20 px-6">
+        <section className="relative z-10 border-t border-white/4 py-12 sm:py-20 px-4 sm:px-6">
           <div className="mx-auto max-w-6xl">
             <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-blue-400">
               {c.clients_label}
             </p>
-            <h2 className="mb-10 text-2xl font-bold text-white md:text-3xl">{c.clients_title}</h2>
+            <h2 className="mb-6 sm:mb-10 text-2xl sm:text-3xl font-bold text-white">{c.clients_title}</h2>
             <div className="grid gap-5 md:grid-cols-3">
               {c.clients.map((client) => (
                 <div
                   key={client.name}
-                  className="glass-card rounded-2xl p-6 border border-white/[0.06] hover:border-blue-500/20 transition-colors duration-300"
+                  className="glass-card rounded-2xl p-6 border border-white/6 hover:border-blue-500/20 transition-colors duration-300"
                 >
                   <span className="mb-3 block text-2xl">{client.icon}</span>
                   <h3 className="mb-2 font-semibold text-white">{client.name}</h3>
-                  <p className="text-sm text-white/50 leading-relaxed">{client.desc}</p>
+                  <p className="text-sm sm:text-base text-white/50 leading-relaxed">{client.desc}</p>
                 </div>
               ))}
             </div>
@@ -377,12 +377,12 @@ export default async function ConsultationPage({
         </section>
 
         {/* CASE STUDY: D'Namar */}
-        <section className="relative z-10 border-t border-white/[0.04] py-20 px-6">
+        <section className="relative z-10 border-t border-white/4 py-12 sm:py-20 px-4 sm:px-6">
           <div className="mx-auto max-w-6xl">
             <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-cyan-400">
               {c.case_label}
             </p>
-            <h2 className="mb-1 text-2xl font-bold text-white md:text-3xl">{c.case_title}</h2>
+            <h2 className="mb-1 text-2xl sm:text-3xl font-bold text-white">{c.case_title}</h2>
             <p className="mb-8 text-sm text-white/40">{c.case_sub}</p>
 
             <div className="grid gap-6 lg:grid-cols-2">
@@ -397,16 +397,16 @@ export default async function ConsultationPage({
                 </ul>
               </div>
 
-              <div className="flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-white/[0.02] p-7">
+              <div className="flex flex-col justify-between rounded-2xl border border-white/8 bg-white/2 p-7">
                 <blockquote>
                   <svg className="mb-4 h-7 w-7 text-emerald-500/25" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                   </svg>
-                  <p className="text-sm italic leading-relaxed text-white/70 md:text-base">
+                  <p className="text-sm sm:text-base italic leading-relaxed text-white/70">
                     {c.case_quote}
                   </p>
                 </blockquote>
-                <div className="mt-6 flex items-center gap-3 border-t border-white/[0.06] pt-5">
+                <div className="mt-6 flex items-center gap-3 border-t border-white/6 pt-5">
                   <div className="flex h-10 w-10 flex-none items-center justify-center rounded-xl border border-cyan-500/20 bg-cyan-500/10">
                     <span className="text-xs font-bold text-cyan-400">NR</span>
                   </div>
@@ -425,18 +425,18 @@ export default async function ConsultationPage({
         </section>
 
         {/* SERVICES & PRICING */}
-        <section className="relative z-10 border-t border-white/[0.04] py-20 px-6">
+        <section className="relative z-10 border-t border-white/4 py-12 sm:py-20 px-4 sm:px-6">
           <div className="mx-auto max-w-6xl">
             <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-blue-400">
               {c.services_label}
             </p>
-            <h2 className="mb-10 text-2xl font-bold text-white md:text-3xl">{c.services_title}</h2>
+            <h2 className="mb-6 sm:mb-10 text-2xl sm:text-3xl font-bold text-white">{c.services_title}</h2>
 
             <div className="grid gap-5 md:grid-cols-3">
               {c.services.map((service, i) => (
                 <div
                   key={service.name}
-                  className="glass-card flex flex-col gap-4 rounded-2xl border border-white/[0.06] p-6 transition-colors duration-300 hover:border-blue-500/20"
+                  className="glass-card flex flex-col gap-4 rounded-2xl border border-white/6 p-6 transition-colors duration-300 hover:border-blue-500/20"
                 >
                   <div>
                     <div className="mb-2 flex items-start justify-between gap-2">
@@ -452,7 +452,7 @@ export default async function ConsultationPage({
                     {service.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="rounded-full border border-white/[0.08] bg-white/[0.03] px-2 py-0.5 text-xs text-white/50"
+                        className="rounded-full border border-white/8 bg-white/3 px-2 py-0.5 text-xs text-white/50"
                       >
                         {tag}
                       </span>
@@ -467,12 +467,12 @@ export default async function ConsultationPage({
         </section>
 
         {/* INTAKE FORM */}
-        <section className="relative z-10 border-t border-white/[0.04]">
+        <section className="relative z-10 border-t border-white/4">
           <ConsultationIntakeForm locale={safeLocale} backHref={backLink} />
         </section>
 
         {/* FINAL CTA */}
-        <section className="relative z-10 border-t border-white/[0.04] py-24 px-6">
+        <section className="relative z-10 border-t border-white/4 py-12 sm:py-20 px-4 sm:px-6">
           <div className="mx-auto max-w-2xl text-center">
             <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-emerald-400">
               {c.cta_label}
@@ -494,7 +494,7 @@ export default async function ConsultationPage({
               </a>
               <a
                 href={emailLink}
-                className="flex w-full items-center justify-center gap-2 rounded-full border border-white/[0.1] bg-white/[0.03] px-7 py-3.5 text-sm font-semibold text-white/70 transition-all duration-200 hover:border-white/20 hover:text-white sm:w-auto"
+                className="flex w-full items-center justify-center gap-2 rounded-full border border-white/10 bg-white/3 px-7 py-3.5 text-sm font-semibold text-white/70 transition-all duration-200 hover:border-white/20 hover:text-white sm:w-auto"
               >
                 {c.cta_email}
               </a>

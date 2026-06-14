@@ -318,7 +318,7 @@ export function ConsultationIntakeForm({ locale, backHref }: Props) {
       <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-blue-400">
         {c.sectionLabel}
       </p>
-      <h2 className="mb-2 text-2xl font-bold text-white md:text-3xl">{c.sectionTitle}</h2>
+      <h2 className="mb-2 text-2xl sm:text-3xl font-bold text-white">{c.sectionTitle}</h2>
       <p className="mb-10 text-sm text-white/45">{c.sectionSub}</p>
 
       <form onSubmit={handleSubmit} className="space-y-8">
@@ -363,7 +363,7 @@ export function ConsultationIntakeForm({ locale, backHref }: Props) {
                     key={opt}
                     className={`flex cursor-pointer items-center gap-3 rounded-xl border px-4 py-3 transition-all duration-150 ${
                       checked
-                        ? "border-blue-500/40 bg-blue-500/08 text-white"
+                        ? "border-blue-500/40 bg-blue-500/8 text-white"
                         : "border-white/6 bg-white/2 text-white/55 hover:border-white/15 hover:text-white/75"
                     }`}
                   >
