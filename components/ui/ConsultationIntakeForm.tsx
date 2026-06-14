@@ -314,7 +314,7 @@ export function ConsultationIntakeForm({ locale, backHref }: Props) {
   }
 
   return (
-    <div className="mx-auto max-w-6xl px-6 py-20">
+    <div className="mx-auto max-w-6xl px-4 sm:px-6 py-10 sm:py-16 lg:py-20">
       <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-blue-400">
         {c.sectionLabel}
       </p>

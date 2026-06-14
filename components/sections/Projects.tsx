@@ -94,13 +94,13 @@ export default function Projects() {
   const starColors = colorMap[starProject.color as ColorKey];
 
   return (
-    <section id="projects" className="py-28 px-6 border-t border-white/[0.04]" ref={ref}>
+    <section id="projects" className="py-12 sm:py-20 lg:py-28 px-4 sm:px-6 border-t border-white/4" ref={ref}>
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 lg:mb-16"
         >
           <p className="text-xs font-semibold text-emerald-400 uppercase tracking-widest mb-3">Work</p>
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">{t("title")}</h2>
@@ -112,7 +112,7 @@ export default function Projects() {
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
-          className="relative mb-8 overflow-hidden rounded-[28px] border border-cyan-500/20 bg-[linear-gradient(135deg,rgba(8,47,73,0.72),rgba(17,24,39,0.88))] p-7 md:p-9 shadow-[0_30px_120px_rgba(34,211,238,0.08)]"
+          className="relative mb-8 overflow-hidden rounded-[28px] border border-cyan-500/20 bg-[linear-gradient(135deg,rgba(8,47,73,0.72),rgba(17,24,39,0.88))] p-4 sm:p-7 md:p-9 shadow-[0_30px_120px_rgba(34,211,238,0.08)]"
         >
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.18),transparent_32%),radial-gradient(circle_at_bottom_left,rgba(59,130,246,0.14),transparent_28%)]" />
           <div className="relative grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
@@ -246,7 +246,7 @@ export default function Projects() {
                 variants={cardVariants}
                 whileHover={{ y: -6, scale: 1.01 }}
                 transition={{ duration: 0.22 }}
-                className={`group glass-card relative flex flex-col gap-5 overflow-hidden rounded-2xl p-6 transition-colors duration-300 ${colors.border} hover:shadow-xl`}
+                className={`group glass-card relative flex flex-col gap-5 overflow-hidden rounded-2xl p-4 sm:p-6 transition-colors duration-300 ${colors.border} hover:shadow-xl`}
               >
                 <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white/[0.04] to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 <div className="flex items-start justify-between gap-3">

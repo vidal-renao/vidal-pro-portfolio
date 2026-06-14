@@ -210,14 +210,14 @@ export default function TechStack() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="stack" className="py-28 px-6" ref={ref}>
+    <section id="stack" className="py-12 sm:py-20 lg:py-28 px-4 sm:px-6" ref={ref}>
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 lg:mb-16"
         >
           <p className="text-xs font-semibold text-blue-400 uppercase tracking-widest mb-3">
             Stack
@@ -230,7 +230,7 @@ export default function TechStack() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-[1fr_280px] gap-12 items-start">
+        <div className="grid lg:grid-cols-[1fr_280px] gap-6 sm:gap-8 lg:gap-12 items-start">
           {/* Skills grid */}
           <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-4">
             {techData.map((group, gi) => {
@@ -284,7 +284,7 @@ export default function TechStack() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="glass-card rounded-2xl p-8 flex flex-col items-center gap-4 lg:sticky lg:top-24"
+            className="glass-card rounded-2xl p-5 sm:p-8 flex flex-col items-center gap-4 lg:sticky lg:top-24"
           >
             <p className="text-xs text-white/40 uppercase tracking-widest font-semibold">
               Competency Radar

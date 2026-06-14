@@ -21,7 +21,7 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="py-28 px-6 border-t border-white/[0.04]"
+      className="py-12 sm:py-20 lg:py-28 px-4 sm:px-6 border-t border-white/4"
       ref={ref}
     >
       <div className="max-w-4xl mx-auto">
@@ -30,7 +30,7 @@ export default function Experience() {
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-8 sm:mb-12 lg:mb-16"
         >
           <p className="text-xs font-semibold text-violet-400 uppercase tracking-widest mb-3">
             Career
@@ -53,7 +53,7 @@ export default function Experience() {
                 initial={{ opacity: 0, x: -24 }}
                 animate={inView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="relative flex gap-6"
+                className="relative flex gap-3 sm:gap-6"
               >
                 {/* Dot */}
                 <div className="relative flex-none">
@@ -73,7 +73,7 @@ export default function Experience() {
                 </div>
 
                 {/* Content */}
-                <div className="glass-card rounded-2xl p-6 flex-1 hover:border-white/12 transition-colors">
+                <div className="glass-card rounded-2xl p-4 sm:p-6 flex-1 hover:border-white/12 transition-colors">
                   {role.badge && (
                     <div className="flex items-center gap-1.5 mb-3">
                       <span className="text-xs">🇨🇭</span>

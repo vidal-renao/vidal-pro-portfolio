@@ -142,7 +142,7 @@ export default function ProofOfConcept() {
 
   return (
     <>
-      <section id="proof" className="py-28 px-6 border-t border-white/[0.04] relative overflow-hidden">
+      <section id="proof" className="py-12 sm:py-20 lg:py-28 px-4 sm:px-6 border-t border-white/4 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[400px] bg-violet-500/[0.03] rounded-full blur-[120px]" />
         </div>
@@ -153,7 +153,7 @@ export default function ProofOfConcept() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
-            className="text-center mb-16"
+            className="text-center mb-8 sm:mb-12 lg:mb-16"
           >
             <div className="inline-flex items-center gap-2 mb-4">
               <span className="text-xs font-semibold text-violet-400 uppercase tracking-widest">

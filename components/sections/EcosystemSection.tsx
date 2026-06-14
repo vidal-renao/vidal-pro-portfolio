@@ -136,7 +136,7 @@ const card = {
 
 export default function EcosystemSection() {
   return (
-    <section id="ecosystem" className="py-28 px-6 border-t border-white/[0.04] relative overflow-hidden">
+    <section id="ecosystem" className="py-12 sm:py-20 lg:py-28 px-4 sm:px-6 border-t border-white/4 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[400px] bg-blue-500/[0.03] rounded-full blur-[120px]" />
       </div>
@@ -147,7 +147,7 @@ export default function EcosystemSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 lg:mb-16"
         >
           <p className="text-xs font-semibold text-blue-400 uppercase tracking-widest mb-3">
             Flagship Ecosystem
@@ -179,7 +179,7 @@ export default function EcosystemSection() {
                 rel="noopener noreferrer"
                 whileHover={{ y: -6 }}
                 transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
-                className={`group relative flex flex-col p-7 rounded-2xl border border-white/[0.07] glass-card ${cl.border} hover:shadow-xl ${cl.shadow} transition-colors duration-300`}
+                className={`group relative flex flex-col p-4 sm:p-7 rounded-2xl border border-white/[0.07] glass-card ${cl.border} hover:shadow-xl ${cl.shadow} transition-colors duration-300`}
                 style={{ textDecoration: "none" }}
               >
                 <div className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white/[0.03] to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 rounded-t-2xl" />

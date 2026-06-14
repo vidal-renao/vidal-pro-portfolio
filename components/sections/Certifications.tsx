@@ -78,7 +78,7 @@ export default function Certifications() {
   return (
     <section
       id="certifications"
-      className="py-28 px-6 border-t border-white/[0.04] relative overflow-hidden"
+      className="py-12 sm:py-20 lg:py-28 px-4 sm:px-6 border-t border-white/4 relative overflow-hidden"
       ref={ref}
     >
       {/* Background accent */}
@@ -93,7 +93,7 @@ export default function Certifications() {
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 lg:mb-16"
         >
           <p className="text-xs font-semibold text-violet-400 uppercase tracking-widest mb-3">
             {t("label")}
@@ -227,7 +227,7 @@ export default function Certifications() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.45 }}
-          className="mt-10 glass-card rounded-2xl px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-4"
+          className="mt-6 sm:mt-10 glass-card rounded-2xl px-4 sm:px-8 py-4 sm:py-5 flex flex-col sm:flex-row items-center justify-between gap-4"
         >
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center flex-none">

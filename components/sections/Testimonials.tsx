@@ -28,7 +28,7 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="py-20 px-6 border-t border-white/[0.04]"
+      className="py-10 sm:py-16 lg:py-20 px-4 sm:px-6 border-t border-white/4"
       ref={ref}
     >
       <div className="max-w-5xl mx-auto">
@@ -36,7 +36,7 @@ export default function Testimonials() {
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-6 sm:mb-10 lg:mb-12"
         >
           <p className="text-xs font-semibold text-emerald-400 uppercase tracking-widest mb-3">
             {t("label")}

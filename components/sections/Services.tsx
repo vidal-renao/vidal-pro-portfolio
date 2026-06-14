@@ -67,7 +67,7 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="py-28 px-6 border-t border-white/[0.04] relative overflow-hidden"
+      className="py-12 sm:py-20 lg:py-28 px-4 sm:px-6 border-t border-white/4 relative overflow-hidden"
       ref={ref}
     >
       {/* Background accent */}
@@ -81,7 +81,7 @@ export default function Services() {
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 lg:mb-16"
         >
           <p className="text-xs font-semibold text-blue-400 uppercase tracking-widest mb-3">
             {t("label")}
@@ -95,7 +95,7 @@ export default function Services() {
         </motion.div>
 
         {/* ── Service cards ── */}
-        <div className="grid md:grid-cols-3 gap-5 mb-14">
+        <div className="grid md:grid-cols-3 gap-5 mb-8 sm:mb-14">
           {services.map((svc, i) => {
             const tags = t.raw(`${svc.key}_tags`) as string[];
             return (
@@ -156,7 +156,7 @@ export default function Services() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="glass-card rounded-2xl px-8 py-7 flex flex-col sm:flex-row items-center justify-between gap-6"
+          className="glass-card rounded-2xl px-4 sm:px-8 py-5 sm:py-7 flex flex-col sm:flex-row items-center justify-between gap-6"
         >
           <div>
             <p className="font-semibold text-white text-lg">

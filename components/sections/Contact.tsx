@@ -413,7 +413,7 @@ export default function Contact({ locale = "en" }: ContactProps) {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="contact" className="py-28 px-6 border-t border-white/4" ref={ref}>
+    <section id="contact" className="py-12 sm:py-20 lg:py-28 px-4 sm:px-6 border-t border-white/4" ref={ref}>
       <div className="max-w-6xl mx-auto">
 
         {/* Section header */}
@@ -421,7 +421,7 @@ export default function Contact({ locale = "en" }: ContactProps) {
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.55 }}
-          className="text-center mb-12"
+          className="text-center mb-6 sm:mb-10 lg:mb-12"
         >
           <p className="text-xs font-semibold text-blue-400 uppercase tracking-widest mb-3">
             {t("label")}
@@ -627,7 +627,7 @@ export default function Contact({ locale = "en" }: ContactProps) {
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-16 pt-8 border-t border-white/4 flex flex-col sm:flex-row items-center justify-between gap-5"
+          className="mt-8 sm:mt-16 pt-6 sm:pt-8 border-t border-white/4 flex flex-col sm:flex-row items-center justify-between gap-5"
         >
           <BrandLogo />
 
