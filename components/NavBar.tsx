@@ -9,11 +9,6 @@ import { ThemeToggle } from "@/components/ui/ThemeToggle";
 const LOCALES = ["en", "de", "es"] as const;
 type Locale = (typeof LOCALES)[number];
 
-const MOBILE_CTA: Record<Locale, string> = {
-  en: "Free Analysis →",
-  de: "Kostenlos →",
-  es: "Análisis Gratuito →",
-};
 
 export default function NavBar() {
   const t = useTranslations("nav");
@@ -104,8 +99,8 @@ export default function NavBar() {
 
             {/* Right controls: language + ThemeToggle + desktop CTA */}
             <div className="flex items-center gap-2">
-              {/* Language selector — visible on ALL screens */}
-              <div className="flex items-center gap-0.5 bg-white/8 rounded-lg px-1 py-1">
+              {/* Language selector — desktop only (mobile: Row 2) */}
+              <div className="hidden lg:flex items-center gap-0.5 bg-white/8 rounded-lg px-1 py-1">
                 {LOCALES.map((l) => (
                   <button
                     key={l}
@@ -121,8 +116,10 @@ export default function NavBar() {
                 ))}
               </div>
 
-              {/* Theme toggle */}
-              <ThemeToggle />
+              {/* Theme toggle — desktop only (mobile: Row 2) */}
+              <div className="hidden lg:block">
+                <ThemeToggle />
+              </div>
 
               {/* CTA — desktop only */}
               <a
@@ -159,12 +156,25 @@ export default function NavBar() {
               />
             </button>
 
-            <a
-              href={`/${locale}/consultation`}
-              className="text-xs font-bold px-3 py-1.5 rounded-full bg-blue-500 text-white hover:bg-blue-400 transition-colors duration-200"
-            >
-              {MOBILE_CTA[locale]}
-            </a>
+            <div className="flex items-center gap-2">
+              {/* Language selector — mobile Row 2 */}
+              <div className="flex items-center gap-0.5 bg-white/8 rounded-lg px-1 py-1">
+                {LOCALES.map((l) => (
+                  <button
+                    key={l}
+                    onClick={() => switchLocale(l)}
+                    className={`px-2 py-1 rounded-md text-xs font-bold uppercase transition-all duration-150 ${
+                      locale === l
+                        ? "bg-blue-500 text-white"
+                        : "text-white/65 hover:text-white hover:bg-white/10"
+                    }`}
+                  >
+                    {l.toUpperCase()}
+                  </button>
+                ))}
+              </div>
+              <ThemeToggle />
+            </div>
           </div>
         </nav>
 
