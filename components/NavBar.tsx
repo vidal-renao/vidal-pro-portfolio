@@ -1,14 +1,12 @@
 "use client";
 
 import { useLocale, useTranslations } from "next-intl";
-import { usePathname, useRouter } from "@/i18n/navigation";
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { useEffect, useState } from "react";
-import BrandLogo from "@/components/ui/BrandLogo";
-import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import Image from "next/image";
 
 const LOCALES = ["en", "de", "es"] as const;
 type Locale = (typeof LOCALES)[number];
-
 
 export default function NavBar() {
   const t = useTranslations("nav");
@@ -16,218 +14,100 @@ export default function NavBar() {
   const router = useRouter();
   const locale = useLocale() as Locale;
   const [scrolled, setScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const homeAnchor = (section: string) =>
-    pathname === "/" ? `#${section}` : `/${locale}#${section}`;
 
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
+    const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [isMenuOpen]);
-
   const switchLocale = (next: Locale) => {
     router.replace(pathname, { locale: next });
-    setIsMenuOpen(false);
   };
 
-  const navLinks: { href: string; label: string; highlight?: boolean }[] = [
-    { href: homeAnchor("services"), label: t("services") },
-    { href: homeAnchor("certifications"), label: t("certifications") },
-    { href: homeAnchor("stack"), label: t("stack") },
-    { href: homeAnchor("experience"), label: t("experience") },
-    { href: homeAnchor("projects"), label: t("projects") },
-    { href: `/${locale}/consultation`, label: t("consultation"), highlight: true },
-    { href: homeAnchor("contact"), label: t("contact") },
+  const isHome = pathname === "/";
+
+  const navLinks = [
+    { href: isHome ? "#services" : "/#services", label: t("services") },
+    { href: isHome ? "#certifications" : "/#certifications", label: t("certifications") },
+    { href: isHome ? "#stack" : "/#stack", label: t("stack") },
+    { href: isHome ? "#experience" : "/#experience", label: t("experience") },
+    { href: isHome ? "#projects" : "/#projects", label: t("projects") },
+    { href: "/brand", label: t("brand"), isBrand: true },
+    { href: isHome ? "#contact" : "/#contact", label: t("contact") },
   ];
 
   return (
-    <>
-      <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled || isMenuOpen
-            ? "bg-[#060606]/95 backdrop-blur-md border-b border-white/[0.06]"
-            : "bg-transparent"
-        }`}
-      >
-        <nav className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col lg:flex-row lg:items-center lg:justify-between lg:h-16 lg:gap-3">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-[#060606]/90 backdrop-blur-md border-b border-white/[0.06]"
+          : "bg-transparent"
+      }`}
+    >
+      <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+        {/* Logo — photo avatar */}
+        <Link href="/" className="flex items-center gap-2.5 group">
+          <div className="relative w-8 h-8 rounded-full overflow-hidden ring-1 ring-white/20 group-hover:ring-blue-400/60 transition-all duration-200">
+            <Image
+              src="/Photo.jpg"
+              alt="Vidal Reñao"
+              fill
+              className="object-cover object-top"
+              sizes="32px"
+            />
+          </div>
+          <span className="text-sm font-semibold text-white/80 group-hover:text-white transition-colors hidden sm:block">
+            Vidal Reñao
+          </span>
+        </Link>
 
-          {/* Row 1: Brand + desktop nav + right controls (always visible) */}
-          <div className="flex items-center justify-between h-14 lg:h-full lg:flex-1 gap-3">
-            {/* Brand */}
-            <div className="shrink-0">
-              <BrandLogo href={`/${locale}`} />
-            </div>
-
-            {/* Desktop nav links */}
-            <ul className="hidden lg:flex items-center gap-3 lg:gap-5">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  {link.highlight ? (
-                    <a
-                      href={link.href}
-                      className="whitespace-nowrap flex items-center gap-1.5 text-xs font-semibold text-blue-400 border border-blue-500/30 bg-blue-500/08 rounded-full px-3 py-1.5 hover:bg-blue-500/15 hover:border-blue-500/50 transition-all duration-200"
-                    >
-                      <span className="h-1.5 w-1.5 rounded-full bg-blue-400 animate-pulse" />
-                      {link.label}
-                    </a>
-                  ) : (
-                    <a
-                      href={link.href}
-                      className="whitespace-nowrap text-sm text-white/45 hover:text-white transition-colors duration-200"
-                    >
-                      {link.label}
-                    </a>
-                  )}
-                </li>
-              ))}
-            </ul>
-
-            {/* Right controls: language + ThemeToggle + desktop CTA */}
-            <div className="flex items-center gap-2">
-              {/* Language selector — desktop only (mobile: Row 2) */}
-              <div className="hidden lg:flex items-center gap-0.5 bg-white/8 rounded-lg px-1 py-1">
-                {LOCALES.map((l) => (
-                  <button
-                    key={l}
-                    onClick={() => switchLocale(l)}
-                    className={`px-2 py-1 rounded-md text-xs font-bold uppercase transition-all duration-150 ${
-                      locale === l
-                        ? "bg-blue-500 text-white"
-                        : "text-white/65 hover:text-white hover:bg-white/10"
-                    }`}
-                  >
-                    {l.toUpperCase()}
-                  </button>
-                ))}
-              </div>
-
-              {/* Theme toggle — desktop only (mobile: Row 2) */}
-              <div className="hidden lg:block">
-                <ThemeToggle />
-              </div>
-
-              {/* CTA — desktop only */}
-              <a
-                href={homeAnchor("contact")}
-                className="hidden lg:flex whitespace-nowrap items-center gap-2 text-xs font-semibold bg-blue-500 hover:bg-blue-400 text-white rounded-full px-4 py-2 transition-all duration-200"
+        {/* Center links */}
+        <ul className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <li key={link.href}>
+              <Link
+                href={link.href}
+                className={`text-sm transition-colors duration-200 ${
+                  link.isBrand && pathname.startsWith("/brand")
+                    ? "text-blue-400 font-medium"
+                    : "text-white/45 hover:text-white"
+                }`}
               >
-                {t("hire")}
-              </a>
-            </div>
+                {link.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        {/* Right actions */}
+        <div className="flex items-center gap-3">
+          {/* 3-language toggle */}
+          <div className="flex items-center border border-white/[0.08] rounded-full overflow-hidden text-xs font-medium">
+            {LOCALES.map((l, i) => (
+              <button
+                key={l}
+                onClick={() => switchLocale(l)}
+                className={`px-2.5 py-1.5 transition-colors duration-150 ${
+                  locale === l
+                    ? "bg-white/10 text-white"
+                    : "text-white/40 hover:text-white/70"
+                } ${i < LOCALES.length - 1 ? "border-r border-white/[0.08]" : ""}`}
+              >
+                {l.toUpperCase()}
+              </button>
+            ))}
           </div>
 
-          {/* Row 2: Hamburger + mini CTA — mobile/tablet only, below logo */}
-          <div className="lg:hidden flex items-center justify-between w-full pt-2 pb-1 border-t border-white/8">
-            <button
-              onClick={() => setIsMenuOpen((v) => !v)}
-              className="flex flex-col justify-center gap-1.5 p-2 rounded-lg hover:bg-white/8 transition-colors duration-200"
-              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-              aria-expanded={isMenuOpen}
-            >
-              <span
-                className={`block h-0.5 w-6 bg-white transition-all duration-300 origin-center ${
-                  isMenuOpen ? "rotate-45 translate-y-2" : ""
-                }`}
-              />
-              <span
-                className={`block h-0.5 w-6 bg-white transition-all duration-300 ${
-                  isMenuOpen ? "opacity-0 scale-x-0" : ""
-                }`}
-              />
-              <span
-                className={`block h-0.5 w-6 bg-white transition-all duration-300 origin-center ${
-                  isMenuOpen ? "-rotate-45 -translate-y-2" : ""
-                }`}
-              />
-            </button>
-
-            <div className="flex items-center gap-2">
-              {/* Language selector — mobile Row 2 */}
-              <div className="flex items-center gap-0.5 bg-white/8 rounded-lg px-1 py-1">
-                {LOCALES.map((l) => (
-                  <button
-                    key={l}
-                    onClick={() => switchLocale(l)}
-                    className={`px-2 py-1 rounded-md text-xs font-bold uppercase transition-all duration-150 ${
-                      locale === l
-                        ? "bg-blue-500 text-white"
-                        : "text-white/65 hover:text-white hover:bg-white/10"
-                    }`}
-                  >
-                    {l.toUpperCase()}
-                  </button>
-                ))}
-              </div>
-              <ThemeToggle />
-            </div>
-          </div>
-        </nav>
-
-        {/* Mobile/tablet menu — slide down */}
-        <div
-          className={`lg:hidden overflow-hidden transition-[max-height,opacity] duration-300 ease-in-out ${
-            isMenuOpen ? "max-h-[28rem] opacity-100" : "max-h-0 opacity-0"
-          }`}
-        >
-          <div className="px-4 pb-6 pt-3 border-t border-white/[0.06] bg-[#060606]/95 backdrop-blur-md">
-            <ul className="flex flex-col gap-0.5 mb-5">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    onClick={() => setIsMenuOpen(false)}
-                    className={`flex items-center gap-2 px-3 py-3 text-sm rounded-lg transition-colors duration-150 ${
-                      link.highlight
-                        ? "text-blue-400 font-semibold hover:bg-blue-500/08"
-                        : "text-white/55 hover:text-white hover:bg-white/4"
-                    }`}
-                  >
-                    {link.highlight && (
-                      <span className="h-1.5 w-1.5 rounded-full bg-blue-400 animate-pulse flex-none" />
-                    )}
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-            <a
-              href={homeAnchor("contact")}
-              onClick={() => setIsMenuOpen(false)}
-              className="flex w-full items-center justify-center gap-2 rounded-full bg-blue-500 px-4 py-3 text-sm font-semibold text-white transition-all duration-200 hover:bg-blue-400 active:scale-[0.98]"
-            >
-              {t("hire")}
-              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a>
-          </div>
+          {/* CTA */}
+          <Link
+            href={isHome ? "#contact" : "/#contact"}
+            className="hidden md:flex items-center gap-2 text-xs font-semibold bg-blue-500 hover:bg-blue-400 text-white rounded-full px-4 py-2 transition-all duration-200"
+          >
+            {t("hire")}
+          </Link>
         </div>
-      </header>
-
-      {/* Backdrop for mobile/tablet menu */}
-      {isMenuOpen && (
-        <div
-          className="lg:hidden fixed inset-0 z-40 bg-black/40 backdrop-blur-[2px]"
-          style={{ top: "104px" }}
-          onClick={() => setIsMenuOpen(false)}
-          aria-hidden="true"
-        />
-      )}
-    </>
+      </nav>
+    </header>
   );
 }
