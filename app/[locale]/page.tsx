@@ -5,8 +5,6 @@ import Certifications from "@/components/sections/Certifications";
 import TechStack from "@/components/sections/TechStack";
 import Experience from "@/components/sections/Experience";
 import Projects from "@/components/sections/Projects";
-import EcosystemSection from "@/components/sections/EcosystemSection";
-import ProofOfConcept from "@/components/sections/ProofOfConcept";
 import Testimonials from "@/components/sections/Testimonials";
 import Contact from "@/components/sections/Contact";
 
@@ -36,8 +34,6 @@ export default async function Page({
           <TechStack />
           <Experience />
           <Projects />
-          <EcosystemSection />
-          <ProofOfConcept />
           <Testimonials />
           <Contact locale={safeLocale} />
         </div>

@@ -443,7 +443,7 @@ export default async function ConsultationPage({
             <h2 className="mb-6 sm:mb-10 text-2xl sm:text-3xl font-bold text-white">{c.services_title}</h2>
 
             <div className="grid gap-5 md:grid-cols-3">
-              {c.services.map((service, i) => (
+              {c.services.map((service) => (
                 <div
                   key={service.name}
                   className="glass-card flex flex-col gap-4 rounded-2xl border border-white/6 p-6 transition-colors duration-300 hover:border-blue-500/20"
