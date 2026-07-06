@@ -17,6 +17,9 @@ Market: Swiss & DACH SMEs · Basel, Switzerland
 | Deployment | Vercel |
 | PWA | @ducanh2912/next-pwa |
 | Testing | Playwright E2E |
+| Email | Nodemailer + Resend |
+| Payments | Stripe |
+| Web3 | wagmi + viem |
 
 ## Execution Rules (Non-Negotiable)
 1. **Zero filler** — direct to solution. No "analyzing...", "exploring...", "perfect!".
@@ -76,3 +79,59 @@ Market: Swiss & DACH SMEs · Basel, Switzerland
 - Pre-commit hook runs documentation sync
 - `docs/update-script-registry.ps1` regenerates script docs
 - `git config core.hooksPath .githooks` binds automation
+
+## Code Quality Standards
+- **ESLint**: Use next/core-web-vitals + typescript configs
+- **Prettier**: Format code on save
+- **Husky**: Pre-commit hooks for linting
+- **Commitlint**: Conventional commits enforcement
+
+## Security Standards
+- **Input Validation**: Zod schemas at all API boundaries
+- **Rate Limiting**: IP-based rate limiting on all POST endpoints
+- **CSRF Protection**: SameSite cookies, CSRF tokens where applicable
+- **XSS Prevention**: React auto-escaping, sanitize user inputs
+- **Secrets Management**: Environment variables only, never hardcoded
+- **Dependencies**: Regular audit with `npm audit`
+
+## Performance Standards
+- **Lighthouse Score**: Maintain 100/100 on all metrics
+- **Core Web Vitals**: LCP < 2.5s, FID < 100ms, CLS < 0.1
+- **Bundle Size**: Monitor with `next build` output
+- **Image Optimization**: Use next/image with proper sizing
+- **Font Optimization**: Use next/font with display: swap
+
+## Testing Standards
+- **E2E Coverage**: Critical user journeys with Playwright
+- **Unit Tests**: Optional but recommended for complex logic
+- **Integration Tests**: API route testing
+- **Visual Regression**: Screenshot comparisons for UI components
+
+## Documentation Standards
+- **README.md**: Always up-to-date with latest changes
+- **ARCHITECTURE.md**: Mermaid diagrams for complex flows
+- **ADR.md**: Architecture Decision Records for significant choices
+- **API Documentation**: OpenAPI/Swagger for public APIs
+- **Component Storybook**: Visual documentation for UI components
+
+## Deployment Standards
+- **CI/CD**: GitHub Actions with automated testing
+- **Preview Deployments**: PR previews for all changes
+- **Production Deployment**: Manual approval required
+- **Rollback Strategy**: Vercel instant rollback capability
+- **Monitoring**: Vercel Analytics + Speed Insights
+
+## Environment Variables
+See `.env.example` for complete list of required and optional variables.
+
+## Commands
+```bash
+npm run dev          # Development server (localhost:3000)
+npm run build        # Production build
+npm run start        # Production server
+npm run lint         # ESLint check
+npm run typecheck    # TypeScript type checking
+npm run test:e2e     # Playwright E2E tests
+npm run format       # Prettier formatting
+npm run audit        # Security audit
+```
