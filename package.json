@@ -18,8 +18,7 @@
     "docker:build": "docker build -t vidal-pro-portfolio .",
     "docker:run": "docker run -p 3000:3000 vidal-pro-portfolio",
     "docker:compose": "docker-compose up -d",
-    "docker:down": "docker-compose down",
-    "prepare": "husky install"
+    "docker:down": "docker-compose down"
   },
   "dependencies": {
     "@ducanh2912/next-pwa": "^10.2.9",
