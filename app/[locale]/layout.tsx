@@ -22,19 +22,19 @@ const BASE = BASE_URL;
 
 const META: Record<string, { title: string; description: string }> = {
   en: {
-    title: "Vidal Reñao — Senior Fullstack & AI Developer",
+    title: "Vidal Reñao — Fullstack Developer & IT Specialist",
     description:
-      "Senior Fullstack & AI Developer in Basel, Switzerland. Next.js · TypeScript · Supabase · Claude AI · AI Agents · RAG · Digital Personal Branding · HR-Tech · CCNA",
+      "Websites, apps and AI automation for your business — gyms, restaurants, salons, clinics, shops and agencies. Fullstack developer & IT specialist in Basel: Next.js, AI, Windows, Linux, networks, Microsoft 365, CCNA.",
   },
   de: {
-    title: "Vidal Reñao — Senior Fullstack & AI Developer",
+    title: "Vidal Reñao — Fullstack-Entwickler & IT-Spezialist",
     description:
-      "Senior Fullstack & AI Developer in Basel, Schweiz. Next.js · TypeScript · Supabase · Claude AI · KI-Agenten · RAG · Digitale Personenmarke · HR-Tech · CCNA",
+      "Websites, Apps und KI-Automatisierung für dein Unternehmen — Fitnessstudios, Restaurants, Friseure, Praxen, Läden und Agenturen. Fullstack-Entwickler & IT-Spezialist in Basel: Next.js, KI, Windows, Linux, Netzwerke, Microsoft 365, CCNA.",
   },
   es: {
-    title: "Vidal Reñao — Senior Fullstack & AI Developer",
+    title: "Vidal Reñao — Desarrollador Fullstack & Especialista IT",
     description:
-      "Senior Fullstack & AI Developer en Basilea, Suiza. Next.js · TypeScript · Supabase · Claude AI · Agentes IA · RAG · Imagen Personal Digital · RRHH-Tech · CCNA",
+      "Webs, apps y automatización con IA para tu negocio — gimnasios, restaurantes, peluquerías, clínicas, tiendas y agencias. Desarrollador fullstack y especialista IT en Basilea: Next.js, IA, Windows, Linux, redes, Microsoft 365, CCNA.",
   },
 };
 
@@ -66,7 +66,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           url: "/Photo.jpg",
           width: 800,
           height: 800,
-          alt: "Vidal Reñao — Senior Fullstack & AI Developer",
+          alt: "Vidal Reñao — Fullstack Developer & IT Specialist",
         },
       ],
       locale: locale === "de" ? "de_CH" : locale === "es" ? "es_ES" : "en_US",
@@ -90,15 +90,15 @@ const jsonLd = [
     "@context": "https://schema.org",
     "@type": "ProfilePage",
     "@id": `${BASE}/#webpage`,
-    name: "Vidal Reñao — Senior Fullstack & AI Developer",
+    name: "Vidal Reñao — Fullstack Developer & IT Specialist",
     url: BASE,
     description:
-      "Senior Fullstack & AI Developer based in Basel, Switzerland. Next.js, TypeScript, Supabase, Claude AI agents, digital personal branding, and HR-tech.",
+      "Fullstack developer & IT specialist based in Basel, Switzerland. Websites, apps and AI automation for businesses of every sector, plus systems administration: Windows, Linux, networks and Microsoft 365.",
     mainEntity: {
       "@type": "Person",
       "@id": `${BASE}/#person`,
       name: "Vidal Reñao",
-      jobTitle: "Senior Fullstack & AI Developer",
+      jobTitle: "Fullstack Developer & IT Specialist",
       url: BASE,
       image: `${BASE}/Photo.jpg`,
       email: "vidalrenao.lab@outlook.com",
@@ -112,10 +112,10 @@ const jsonLd = [
       knowsLanguage: ["en", "de", "es"],
       hasOccupation: {
         "@type": "Occupation",
-        name: "Senior Fullstack & AI Developer",
+        name: "Fullstack Developer & IT Specialist",
         occupationLocation: { "@type": "Country", name: "Switzerland" },
         skills:
-          "Next.js, TypeScript, Supabase, PostgreSQL, Claude AI, AI Agents, RAG, MCP, Digital Personal Branding, HR-Tech, CCNA",
+          "Next.js, TypeScript, Supabase, Claude AI, Web Development, App Development, Windows Server, Active Directory, Linux, VMware, Networking, Microsoft 365, CCNA",
       },
       sameAs: [
         "https://linkedin.com/in/vidalrenao",
@@ -127,9 +127,9 @@ const jsonLd = [
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "@id": `${BASE}/#business`,
-    name: "Vidal Reñao — Fullstack & AI Development",
+    name: "Vidal Reñao — Web, Apps & IT",
     description:
-      "Fullstack & AI development, AI-powered SaaS, and digital personal branding for Swiss SMEs. Available across Switzerland and Liechtenstein.",
+      "Websites, apps, AI automation and IT support for small businesses of every sector — gyms, restaurants, salons, clinics and shops. Available across Switzerland and Liechtenstein.",
     url: BASE,
     telephone: "+41779726299",
     email: "vidalrenao.lab@outlook.com",

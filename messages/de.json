@@ -49,12 +49,13 @@
     ]
   },
   "hero": {
-    "badge": "Senior Fullstack & AI Developer · Basel, CH",
+    "badge": "Fullstack-Entwickler & IT-Spezialist · Basel, CH",
     "availability_swiss": "Sofortige Verfügbarkeit in der gesamten Schweiz und Liechtenstein",
-    "title": "Senior Fullstack & AI Developer",
-    "title2": "KI-gestützte Web-Produkte, von der Idee bis Go-live. Kein Ausfall. Keine versteckten Kosten.",
-    "subtitle": "Full-Stack-Entwicklung und KI-Integration im Produktivbetrieb — Multi-Tenant-SaaS-Plattformen, Claude-Agenten, autonome Pipelines, RAG und MCP-Server. Vom Briefing bis zum Deployment: ein Ansprechpartner, vollständige Umsetzung.",
-    "collaboration": "Für direkte Projekte, KI-Integration und Agenturzusammenarbeit in CH/LI verfügbar.",
+    "title": "Fullstack-Entwickler & IT-Spezialist",
+    "title2": "Websites, Apps und KI-Automatisierung für dein Unternehmen.",
+    "subtitle": "Ob Fitnessstudio, Restaurant, Friseur, Praxis oder Laden: Ich baue deine Website und App, automatisiere deinen Alltag mit KI und kümmere mich um die Technik —Systeme, Windows, Linux und Netzwerke— damit alles läuft. Ein Ansprechpartner, vom Briefing bis zum Ergebnis.",
+    "sectors": "Fitnessstudios · Restaurants · Friseure · Praxen · Läden & mehr",
+    "collaboration": "Für Unternehmen aller Branchen und Agenturzusammenarbeit in CH/LI verfügbar.",
     "cta_primary": "Kostenlose Beratung buchen",
     "cta_secondary": "Lebenslauf",
     "stat1_value": "10+",
@@ -558,31 +559,32 @@
     "form_error_msg": "Senden fehlgeschlagen. Bitte direkt per E-Mail kontaktieren."
   },
   "cv": {
-    "role": "Senior Fullstack & AI Developer",
-    "specialties": "Digitale Personenmarke · HR-Tech",
+    "role": "Fullstack-Entwickler & IT-Spezialist",
+    "specialties": "Webentwicklung · KI · Systemadministration",
     "available": "Sofort verfügbar",
     "profileTitle": "Berufsprofil",
-    "profile": "Senior Full-Stack-Entwickler, spezialisiert auf KI-gestützte Web-Produkte, digitale Personenmarke und HR-Tech. Ich bringe Projekte vom Briefing bis in die Produktion — Multi-Tenant-SaaS-Plattformen, Claude-Agenten, RAG-Pipelines und MCP-Server — auf einem Next.js-, TypeScript- und Supabase-Stack. Mit solidem Netzwerk- und Infrastrukturfundament (CCNA-zertifiziert). Dreisprachig (DE/EN/ES), mit Sitz in Basel.",
+    "profile": "Fullstack-Entwickler und IT-Spezialist mit Sitz in Basel und über einem Jahrzehnt Erfahrung. Ich baue Websites, Apps und KI-Automatisierung für Unternehmen aller Branchen —Fitnessstudios, Restaurants, Friseure, Praxen, Läden und Agenturen— und kümmere mich auch um die Systemseite: Windows Server, Active Directory, Linux, Netzwerke und Microsoft 365 (CCNA-zertifiziert). Vom Briefing bis zum Ergebnis, ein einziger Ansprechpartner. Dreisprachig (DE/EN/ES).",
     "competenciesTitle": "Kernkompetenzen",
     "competencies": [
-      "Full-Stack-Entwicklung — Next.js, React, TypeScript",
-      "KI-Integration — Claude API, Agenten, RAG, MCP",
-      "Backend & Daten — Supabase, PostgreSQL, RLS",
-      "Produktlieferung — vom Briefing bis zur Produktion",
-      "Digitale Personenmarke & Portfolio-Engineering",
-      "HR-Tech — KI-CV-Parsing & Kandidaten-Matching",
-      "Cloud & DevEx — Vercel, CI/CD, PWA",
-      "Netzwerkfundament — CCNA, TCP/IP, VPN"
+      "Websites & Apps — Next.js, React, TypeScript, PWA",
+      "KI-Automatisierung — Claude, Chatbots, Workflows",
+      "Backend & Daten — Supabase, PostgreSQL, APIs",
+      "Systemadministration — Windows Server, Active Directory, M365",
+      "Linux & Virtualisierung — Debian/Ubuntu, VMware, Hyper-V",
+      "Netzwerke — CCNA, TCP/IP, DNS/DHCP, VLAN, VPN",
+      "Cloud & Delivery — Vercel, CI/CD, vom Briefing bis Go-live",
+      "Dreisprachige Kundenarbeit — DE / EN / ES"
     ],
     "experienceTitle": "Berufserfahrung",
     "present": "Heute",
     "knowledgeTitle": "Technische Kenntnisse",
     "knowledge": [
       { "area": "Frontend", "detail": "Next.js 16 · React 19 · TypeScript · Tailwind CSS · Framer Motion" },
-      { "area": "Backend & Daten", "detail": "Supabase · PostgreSQL · RLS · Node.js · Zod · REST-APIs" },
-      { "area": "KI & Automatisierung", "detail": "Claude API · KI-Agenten · RAG · pgvector · MCP-Server" },
-      { "area": "Cloud & Delivery", "detail": "Vercel · GitHub Actions · PWA · Microsoft 365 · Azure" },
-      { "area": "Netzwerk", "detail": "CCNA · TCP/IP · DNS/DHCP · VLAN · VPN · Firewall" }
+      { "area": "Backend & Daten", "detail": "Supabase · PostgreSQL · Node.js · Zod · REST-APIs" },
+      { "area": "KI & Automatisierung", "detail": "Claude · Chatbots · Workflow-Automatisierung · OCR" },
+      { "area": "Systeme & Server", "detail": "Windows Server · Active Directory · Microsoft 365 · VMware · Hyper-V · Linux" },
+      { "area": "Netzwerk", "detail": "CCNA · TCP/IP · DNS/DHCP · VLAN · VPN · Firewall" },
+      { "area": "Cloud & Delivery", "detail": "Vercel · GitHub Actions · PWA · Azure · CI/CD" }
     ],
     "certsTitle": "Zertifizierungen & Weiterbildung",
     "certs": [

@@ -19,7 +19,7 @@ const credentials: Credential[] = [
   { key: "ai_agentprog", family: "violet", monogram: "AI", pdf: "/assets/certs/ai-agent-programming.pdf" },
   { key: "ai_agents", family: "fuchsia", monogram: "AI", pdf: "/assets/certs/ai-zero-to-agents.pdf" },
   { key: "ai_production", family: "sky", monogram: "AI", pdf: "/assets/certs/ai-zero-to-production.pdf" },
-  { key: "ccna", family: "cyan", monogram: "CC", pdf: "/assets/certs/Cisco-Certification.pdf" },
+  { key: "ccna", family: "cyan", monogram: "CC", pdf: "/assets/certs/CCNA-Cisco.pdf" },
   { key: "diploma", family: "amber", monogram: "DAI", pdf: "/assets/certs/Diplom.pdf" },
 ];
 

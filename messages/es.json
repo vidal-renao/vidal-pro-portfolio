@@ -49,12 +49,13 @@
     ]
   },
   "hero": {
-    "badge": "Senior Fullstack & AI Developer · Basel, CH",
+    "badge": "Desarrollador Fullstack & Especialista IT · Basel, CH",
     "availability_swiss": "Disponibilidad inmediata en toda Suiza y Liechtenstein",
-    "title": "Senior Fullstack & AI Developer",
-    "title2": "Productos web con IA, de la idea al go-live. Sin Cortes. Sin Costes Ocultos.",
-    "subtitle": "Desarrollo fullstack e integración de IA en producción — plataformas SaaS multi-tenant, agentes con Claude, pipelines autónomos, RAG y servidores MCP. Del briefing al despliegue: un interlocutor, entrega completa.",
-    "collaboration": "Disponible para proyectos directos, integración de IA y colaboración con agencias en CH/LI.",
+    "title": "Desarrollador Fullstack & Especialista IT",
+    "title2": "Webs, apps y automatización con IA para tu negocio.",
+    "subtitle": "Da igual si tienes un gimnasio, un restaurante, una peluquería, una clínica o una tienda: te creo la web y la app, automatizo tu día a día con IA y me encargo de la parte técnica —sistemas, Windows, Linux y redes— para que todo funcione. Un solo interlocutor, del briefing al resultado.",
+    "sectors": "Gimnasios · Restaurantes · Peluquerías · Clínicas · Tiendas y más",
+    "collaboration": "Disponible para negocios de cualquier sector y colaboración con agencias en CH/LI.",
     "cta_primary": "Reservar consulta gratuita",
     "cta_secondary": "Descargar CV",
     "stat1_value": "10+",
@@ -558,31 +559,32 @@
     "form_error_msg": "Error al enviar. Por favor escríbeme directamente."
   },
   "cv": {
-    "role": "Senior Fullstack & AI Developer",
-    "specialties": "Imagen Personal Digital · RRHH-Tech",
+    "role": "Desarrollador Fullstack & Especialista IT",
+    "specialties": "Desarrollo Web · IA · Administración de Sistemas",
     "available": "Disponible ahora",
     "profileTitle": "Perfil Profesional",
-    "profile": "Desarrollador fullstack senior especializado en productos web con IA, imagen personal digital y tecnología para RRHH. Llevo los proyectos del briefing a producción — plataformas SaaS multi-tenant, agentes con Claude, pipelines RAG y servidores MCP — sobre un stack Next.js, TypeScript y Supabase. Con una base sólida de redes e infraestructura (certificado CCNA). Trilingüe (DE/EN/ES), con base en Basilea.",
+    "profile": "Desarrollador fullstack y especialista IT afincado en Basilea, con más de una década en el sector. Creo webs, apps y automatizaciones con IA para negocios de todos los sectores —gimnasios, restaurantes, peluquerías, clínicas, tiendas y agencias— y me encargo también de la parte de sistemas: Windows Server, Active Directory, Linux, redes y Microsoft 365 (certificado CCNA). Del briefing al resultado, un solo interlocutor. Trilingüe (DE/EN/ES).",
     "competenciesTitle": "Competencias Clave",
     "competencies": [
-      "Desarrollo fullstack — Next.js, React, TypeScript",
-      "Integración de IA — Claude API, agentes, RAG, MCP",
-      "Backend y datos — Supabase, PostgreSQL, RLS",
-      "Entrega de producto — del briefing a producción",
-      "Imagen personal digital e ingeniería de portfolio",
-      "RRHH-Tech — parsing de CV con IA y matching de candidatos",
-      "Cloud y DevEx — Vercel, CI/CD, PWA",
-      "Base de redes — CCNA, TCP/IP, VPN"
+      "Webs y apps — Next.js, React, TypeScript, PWA",
+      "Automatización con IA — Claude, chatbots, flujos de trabajo",
+      "Backend y datos — Supabase, PostgreSQL, APIs",
+      "Administración de sistemas — Windows Server, Active Directory, M365",
+      "Linux y virtualización — Debian/Ubuntu, VMware, Hyper-V",
+      "Redes — CCNA, TCP/IP, DNS/DHCP, VLAN, VPN",
+      "Cloud y entrega — Vercel, CI/CD, del briefing al go-live",
+      "Trabajo trilingüe con cliente — DE / EN / ES"
     ],
     "experienceTitle": "Experiencia Profesional",
     "present": "Actualidad",
     "knowledgeTitle": "Conocimientos Técnicos",
     "knowledge": [
       { "area": "Frontend", "detail": "Next.js 16 · React 19 · TypeScript · Tailwind CSS · Framer Motion" },
-      { "area": "Backend y Datos", "detail": "Supabase · PostgreSQL · RLS · Node.js · Zod · APIs REST" },
-      { "area": "IA y Automatización", "detail": "Claude API · Agentes IA · RAG · pgvector · Servidores MCP" },
-      { "area": "Cloud y Entrega", "detail": "Vercel · GitHub Actions · PWA · Microsoft 365 · Azure" },
-      { "area": "Redes", "detail": "CCNA · TCP/IP · DNS/DHCP · VLAN · VPN · Firewall" }
+      { "area": "Backend y Datos", "detail": "Supabase · PostgreSQL · Node.js · Zod · APIs REST" },
+      { "area": "IA y Automatización", "detail": "Claude · Chatbots · Automatización de flujos · OCR" },
+      { "area": "Sistemas y Servidores", "detail": "Windows Server · Active Directory · Microsoft 365 · VMware · Hyper-V · Linux" },
+      { "area": "Redes", "detail": "CCNA · TCP/IP · DNS/DHCP · VLAN · VPN · Firewall" },
+      { "area": "Cloud y Entrega", "detail": "Vercel · GitHub Actions · PWA · Azure · CI/CD" }
     ],
     "certsTitle": "Certificaciones y Formación",
     "certs": [

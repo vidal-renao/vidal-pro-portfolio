@@ -19,8 +19,8 @@ interface ContactProps {
 }
 
 const EMAIL = "vidalrenao.lab@outlook.com";
-const ROLE = "Senior Fullstack & AI Developer";
-const ROLE_SPEC = "Digital Branding · HR-Tech";
+const ROLE = "Fullstack Developer & IT Specialist";
+const ROLE_SPEC = "Web · Apps · IA · Sistemas";
 
 // ─── External links (single source — no duplication elsewhere) ────────────────
 
