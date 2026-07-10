@@ -1,100 +1,85 @@
 import { getTranslations } from "next-intl/server";
 import PrintTrigger from "@/components/ui/PrintTrigger";
 
-export default async function PrintPage() {
-  const t = await getTranslations();
+type Role = {
+  title: string;
+  company: string;
+  location: string;
+  period: string;
+  highlights: string[];
+};
 
-  const roles = t.raw("experience.roles") as Array<{
-    title: string;
-    company: string;
-    location: string;
-    period: string;
-    highlights: string[];
-  }>;
+export default async function PrintPage({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ locale: string }>;
+  searchParams: Promise<{ print?: string }>;
+}) {
+  const { locale } = await params;
+  const { print } = await searchParams;
+  const t = await getTranslations({ locale, namespace: "cv" });
+  const te = await getTranslations({ locale, namespace: "experience" });
 
-  const projects = t.raw("projects.items") as Array<{
-    title: string;
-    description: string;
-    tags: string[];
-    metrics: string[];
-    status: string;
-  }>;
+  const roles = te.raw("roles") as Role[];
+  const competencies = t.raw("competencies") as string[];
+  const knowledge = t.raw("knowledge") as { area: string; detail: string }[];
+  const certs = t.raw("certs") as { title: string; detail: string }[];
+  const languages = t.raw("languages") as { lang: string; level: string }[];
 
   return (
     <>
-      <PrintTrigger />
-      <div className="print-profile">
-        {/* ── HEADER ── */}
-        <header>
-          <h1>Vidal Reñao Lopelo</h1>
-          <p className="role">IT Infrastructure &amp; AI Solutions Engineer</p>
-          <div className="meta">
-            <span>Basel, Switzerland 🇨🇭</span>
-            <span>vidalrenao.lab@outlook.com</span>
-            <span>+41 77 972 62 99</span>
-            <span>linkedin.com/in/vidalrenao</span>
+      <PrintTrigger auto={print === "1"} />
+      <div className="cv">
+        {/* ── HEADER BAND ── */}
+        <header className="cv-head">
+          <div className="cv-head-main">
+            <h1>Vidal Reñao Lopelo</h1>
+            <p className="cv-role">{t("role")}</p>
+            <p className="cv-spec">{t("specialties")}</p>
           </div>
-          <div className="meta">
-            <span>github.com/vidal-renao</span>
-            <span>vidal-pro-portfolio.vercel.app</span>
-          </div>
-          <div className="meta">
-            <span>English C1</span>
-            <span>German B2</span>
-            <span>Spanish Native</span>
-            <span>Immediate availability</span>
+          <div className="cv-head-side">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/Photo.jpg" alt="Vidal Reñao Lopelo" className="cv-photo" />
+            <ul className="cv-contact">
+              <li>Basel, Switzerland</li>
+              <li>+41 77 972 62 99</li>
+              <li>vidalrenao.lab@outlook.com</li>
+              <li>linkedin.com/in/vidalrenao</li>
+              <li>github.com/vidal-renao</li>
+              <li className="cv-avail">{t("available")}</li>
+            </ul>
           </div>
         </header>
 
-        <hr />
-
-        {/* ── SUMMARY ── */}
+        {/* ── PROFILE ── */}
         <section>
-          <h2>Professional Summary</h2>
-          <p>
-            Senior IT Infrastructure &amp; AI Solutions Engineer with 7+ years delivering
-            enterprise-grade systems across Cloud Transformation, Active Directory,
-            Microsoft 365, and AI-powered SaaS development. Specialization:
-            AI-Powered SaaS Infrastructure for Swiss &amp; DACH SMEs.
-          </p>
+          <div className="cv-bar">{t("profileTitle")}</div>
+          <p className="cv-profile">{t("profile")}</p>
         </section>
 
-        <hr />
-
-        {/* ── PROJECTS ── */}
+        {/* ── KEY COMPETENCIES ── */}
         <section>
-          <h2>Projects in Production</h2>
-          {projects.map((p) => (
-            <div key={p.title} className="entry">
-              <div className="entry-header">
-                <strong>{p.title}</strong>
-                <span className="status">{p.status}</span>
-              </div>
-              <p>{p.description}</p>
-              <div className="tags">
-                {p.tags.map((tag) => (
-                  <span key={tag} className="tag">{tag}</span>
-                ))}
-                {p.metrics.map((m) => (
-                  <span key={m} className="metric">{m}</span>
-                ))}
-              </div>
-            </div>
-          ))}
+          <div className="cv-bar">{t("competenciesTitle")}</div>
+          <ul className="cv-comp">
+            {competencies.map((c) => (
+              <li key={c}>{c}</li>
+            ))}
+          </ul>
         </section>
-
-        <hr />
 
         {/* ── EXPERIENCE ── */}
         <section>
-          <h2>Professional Experience</h2>
+          <div className="cv-bar">{t("experienceTitle")}</div>
           {roles.map((r) => (
-            <div key={r.company} className="entry">
-              <div className="entry-header">
+            <div key={`${r.company}-${r.period}`} className="cv-entry">
+              <div className="cv-entry-head">
                 <strong>{r.title}</strong>
-                <span className="period">{r.period}</span>
+                <span className="cv-period">{r.period}</span>
               </div>
-              <p className="company">{r.company} · {r.location}</p>
+              <p className="cv-company">
+                {r.company} · {r.location}
+              </p>
               <ul>
                 {r.highlights.map((h) => (
                   <li key={h}>{h}</li>
@@ -104,111 +89,140 @@ export default async function PrintPage() {
           ))}
         </section>
 
-        <hr />
-
-        {/* ── TECH STACK ── */}
+        {/* ── TECHNICAL KNOWLEDGE ── */}
         <section>
-          <h2>Core Skills</h2>
-          <div className="skills-grid">
-            <div>
-              <h3>Cloud &amp; Identity</h3>
-              <p>Microsoft Azure · Microsoft 365 · Entra ID · Intune · Autopilot · Azure Arc</p>
-            </div>
-            <div>
-              <h3>Infrastructure</h3>
-              <p>Windows Server 2025 · Active Directory · Group Policy · VMware vSphere · Hyper-V · Linux/Debian</p>
-            </div>
-            <div>
-              <h3>Networking</h3>
-              <p>CCNA · TCP/IP · DNS/DHCP · VLAN · VPN · Firewall (nftables)</p>
-            </div>
-            <div>
-              <h3>Development &amp; AI</h3>
-              <p>Next.js · TypeScript · Supabase · Claude API · PowerShell · Tailwind CSS · Framer Motion</p>
-            </div>
+          <div className="cv-bar">{t("knowledgeTitle")}</div>
+          <div className="cv-know">
+            {knowledge.map((k) => (
+              <div key={k.area} className="cv-know-row">
+                <span className="cv-know-label">{k.area}</span>
+                <span className="cv-know-detail">{k.detail}</span>
+              </div>
+            ))}
           </div>
         </section>
-
-        <hr />
 
         {/* ── CERTIFICATIONS ── */}
         <section>
-          <h2>Certifications</h2>
-          <div className="entry">
-            <strong>CCNA Discovery: Routing &amp; Switching in the Enterprise</strong>
-            <p>Cisco Networking Academy · Routing, Switching, VLANs, VPN, Network Security</p>
-          </div>
-          <div className="entry">
-            <strong>AI Development: From 0 to Production</strong>
-            <p>BIG School (Brais Moure &amp; Romuald Fons) · LLM Tooling, AI Automation, Fullstack</p>
-          </div>
-          <div className="entry">
-            <strong>Técnico Superior en Administración de Sistemas Informáticos en Red (ASIR)</strong>
-            <p>Spain MEC · 2012 · Systems Administration, Networking, Linux/Windows Server</p>
-          </div>
-          <div className="entry">
-            <div className="entry-header">
-              <strong>Técnico Superior en Desarrollo de Aplicaciones Informáticas (DAI)</strong>
-              <a href="/assets/certs/Diplom.pdf" target="_blank" rel="noopener noreferrer" className="status">View Diploma</a>
-            </div>
-            <p>IES Pablo Serrano · Zaragoza, 2012 · Software Development &amp; Systems Engineering</p>
-          </div>
-          <div className="entry">
-            <strong>E-commerce &amp; Digital Marketing Specialist</strong>
-            <p>PrestaShop · Joomla · MySQL · SEO/CRO</p>
+          <div className="cv-bar">{t("certsTitle")}</div>
+          <div className="cv-certs">
+            {certs.map((c) => (
+              <div key={c.title} className="cv-cert">
+                <strong>{c.title}</strong>
+                <span>{c.detail}</span>
+              </div>
+            ))}
           </div>
         </section>
 
-        <hr />
+        {/* ── LANGUAGES ── */}
+        <section>
+          <div className="cv-bar">{t("languagesTitle")}</div>
+          <div className="cv-langs">
+            {languages.map((l) => (
+              <div key={l.lang} className="cv-lang">
+                <span className="cv-lang-name">{l.lang}</span>
+                <span className="cv-lang-level">{l.level}</span>
+              </div>
+            ))}
+          </div>
+        </section>
 
-        <footer>
-          <p>vidalrenao.lab@outlook.com · +41 77 972 62 99 · linkedin.com/in/vidalrenao · github.com/vidal-renao</p>
+        <footer className="cv-foot">
+          <span>vidalrenao.lab@outlook.com · +41 77 972 62 99 · linkedin.com/in/vidalrenao</span>
+          <span className="cv-foot-note">{t("footerNote")}</span>
         </footer>
       </div>
 
       <style>{`
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: Arial, Helvetica, sans-serif; font-size: 11pt; color: #111; background: white; }
-        .print-profile { max-width: 800px; margin: 0 auto; padding: 32px 40px; }
+        body { font-family: Arial, Helvetica, sans-serif; color: #1f2937; background: #eef1f5; }
+        .cv { max-width: 820px; margin: 24px auto; background: #fff; }
 
-        header { margin-bottom: 16px; }
-        header h1 { font-size: 22pt; font-weight: 700; color: #0f172a; margin-bottom: 4px; }
-        header .role { font-size: 13pt; color: #3b82f6; font-weight: 600; margin-bottom: 8px; }
-        header .meta { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 9pt; color: #555; margin-bottom: 4px; }
+        /* Header band */
+        .cv-head {
+          display: flex; justify-content: space-between; gap: 24px;
+          background: linear-gradient(135deg, #16304f 0%, #1e3a5f 60%, #24476f 100%);
+          color: #fff; padding: 26px 32px;
+        }
+        .cv-head-main { display: flex; flex-direction: column; justify-content: center; }
+        .cv-head h1 { font-size: 27pt; font-weight: 800; letter-spacing: -0.01em; line-height: 1.05; }
+        .cv-role { font-size: 12.5pt; font-weight: 700; color: #8fc0ff; margin-top: 8px; }
+        .cv-spec { font-size: 9.5pt; color: #c7d6ea; margin-top: 3px; letter-spacing: 0.02em; }
+        .cv-head-side { display: flex; align-items: center; gap: 16px; }
+        .cv-photo { width: 78px; height: 78px; border-radius: 10px; object-fit: cover; object-position: top; border: 2px solid rgba(255,255,255,0.35); flex: none; }
+        .cv-contact { list-style: none; font-size: 8.5pt; line-height: 1.7; color: #dbe6f4; }
+        .cv-contact .cv-avail { color: #7fe0b0; font-weight: 700; margin-top: 3px; }
 
-        hr { border: none; border-top: 1px solid #e2e8f0; margin: 14px 0; }
+        /* Body */
+        section { padding: 0 32px; margin-top: 16px; }
+        .cv-bar {
+          background: #1e3a5f; color: #fff; font-size: 9.5pt; font-weight: 700;
+          text-transform: uppercase; letter-spacing: 0.1em;
+          padding: 5px 12px; border-radius: 3px; margin-bottom: 10px;
+        }
+        .cv-profile { font-size: 9.5pt; line-height: 1.6; color: #374151; }
 
-        section { margin-bottom: 4px; }
-        h2 { font-size: 11pt; font-weight: 700; color: #1e3a5f; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; }
-        h3 { font-size: 10pt; font-weight: 700; color: #334155; margin-bottom: 3px; }
-
-        .entry { margin-bottom: 12px; }
-        .entry-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px; }
-        .entry strong { font-size: 11pt; color: #0f172a; }
-        .status { font-size: 8.5pt; color: #3b82f6; font-weight: 600; }
-        .period { font-size: 9pt; color: #64748b; }
-        .company { font-size: 9.5pt; color: #3b82f6; margin-bottom: 4px; }
-        p { font-size: 9.5pt; color: #475569; line-height: 1.5; margin-top: 3px; }
-        ul { padding-left: 16px; margin-top: 4px; }
-        li { font-size: 9.5pt; color: #475569; line-height: 1.55; }
-
-        .tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
-        .tag { font-size: 8pt; background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; border-radius: 99px; padding: 1px 8px; }
-        .metric { font-size: 8pt; background: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; border-radius: 99px; padding: 1px 8px; }
-
-        .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-        footer { margin-top: 16px; text-align: center; font-size: 8.5pt; color: #94a3b8; }
-
-        @media print {
-          body { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
-          .print-profile { padding: 0; }
-          @page { margin: 18mm 20mm; size: A4; }
+        /* Competencies */
+        .cv-comp {
+          list-style: none; display: grid; grid-template-columns: 1fr 1fr;
+          gap: 5px 24px;
+        }
+        .cv-comp li {
+          font-size: 9pt; color: #374151; line-height: 1.4; padding-left: 16px; position: relative;
+        }
+        .cv-comp li::before {
+          content: ""; position: absolute; left: 0; top: 5px;
+          width: 7px; height: 7px; border-radius: 2px; background: #2563eb;
         }
 
-        @media screen {
-          body { background: #f8fafc; }
-          .print-profile { box-shadow: 0 4px 24px rgba(0,0,0,0.1); border-radius: 8px; margin: 32px auto; background: white; }
+        /* Experience */
+        .cv-entry { margin-bottom: 12px; }
+        .cv-entry-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+        .cv-entry-head strong { font-size: 10.5pt; color: #0f172a; }
+        .cv-period { font-size: 8.5pt; color: #64748b; white-space: nowrap; }
+        .cv-company { font-size: 9pt; color: #2563eb; font-weight: 600; margin: 1px 0 4px; }
+        .cv-entry ul { padding-left: 16px; }
+        .cv-entry li { font-size: 9pt; color: #475569; line-height: 1.5; }
+
+        /* Knowledge */
+        .cv-know { display: flex; flex-direction: column; gap: 6px; }
+        .cv-know-row { display: grid; grid-template-columns: 150px 1fr; gap: 12px; align-items: center; }
+        .cv-know-label {
+          font-size: 8.5pt; font-weight: 700; color: #1e3a5f;
+          background: #eef4fb; border: 1px solid #d6e4f5; border-radius: 4px;
+          padding: 4px 10px; text-align: left;
+        }
+        .cv-know-detail { font-size: 9pt; color: #475569; }
+
+        /* Certifications */
+        .cv-certs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; }
+        .cv-cert { display: flex; flex-direction: column; }
+        .cv-cert strong { font-size: 9.5pt; color: #0f172a; }
+        .cv-cert span { font-size: 8.5pt; color: #64748b; margin-top: 1px; }
+
+        /* Languages */
+        .cv-langs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+        .cv-lang {
+          border: 1px solid #d6e4f5; border-radius: 6px; overflow: hidden; text-align: center;
+        }
+        .cv-lang-name { display: block; background: #1e3a5f; color: #fff; font-size: 9pt; font-weight: 700; padding: 5px; }
+        .cv-lang-level { display: block; font-size: 8.5pt; color: #475569; padding: 6px; }
+
+        /* Footer */
+        .cv-foot {
+          margin: 22px 0 0; padding: 12px 32px 26px; border-top: 1px solid #e2e8f0;
+          display: flex; flex-direction: column; align-items: center; gap: 3px;
+          font-size: 8pt; color: #94a3b8; text-align: center;
+        }
+        .cv-foot-note { font-style: italic; }
+
+        @media print {
+          body { background: #fff; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+          .cv { margin: 0; max-width: none; }
+          section { break-inside: avoid; }
+          .cv-entry { break-inside: avoid; }
+          @page { margin: 12mm 0; size: A4; }
         }
       `}</style>
     </>

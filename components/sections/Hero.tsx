@@ -52,7 +52,7 @@ export default function Hero({ locale = "en" }: HeroProps) {
                 className="flex w-fit items-center gap-2 rounded-full border border-sky-500/20 bg-sky-500/5 px-4 py-1.5 text-xs text-sky-200/85"
               >
                 <span className="h-1.5 w-1.5 rounded-full bg-sky-300" />
-                AI-Powered SaaS Infrastructure Architect
+                Fullstack · AI Agents · Digital Personal Branding · HR-Tech
               </motion.div>
             </div>
 
@@ -147,7 +147,7 @@ export default function Hero({ locale = "en" }: HeroProps) {
                   <div className="relative h-50 w-50 overflow-hidden rounded-full sm:h-65 sm:w-65 md:h-80 md:w-80 lg:h-90 lg:w-90">
                     <Image
                       src="/Photo.jpg"
-                      alt="Vidal Renao - IT Solutions Engineer"
+                      alt="Vidal Reñao — Senior Fullstack & AI Developer"
                       fill
                       className="object-cover object-top"
                       priority
@@ -179,7 +179,7 @@ export default function Hero({ locale = "en" }: HeroProps) {
                 <svg className="h-3.5 w-3.5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
-                <p className="text-xs font-semibold text-blue-300">IT & AI Engineer</p>
+                <p className="text-xs font-semibold text-blue-300">Fullstack & AI</p>
               </motion.div>
             </div>
           </motion.div>

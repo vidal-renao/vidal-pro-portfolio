@@ -2,11 +2,12 @@
 
 import { useEffect } from "react";
 
-export default function PrintTrigger() {
+export default function PrintTrigger({ auto = true }: { auto?: boolean }) {
   useEffect(() => {
-    const timer = setTimeout(() => window.print(), 800);
+    if (!auto) return;
+    const timer = setTimeout(() => window.print(), 700);
     return () => clearTimeout(timer);
-  }, []);
+  }, [auto]);
 
   return null;
 }

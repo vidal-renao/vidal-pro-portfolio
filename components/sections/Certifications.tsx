@@ -3,72 +3,172 @@
 import { useTranslations } from "next-intl";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import Image from "next/image";
 
-// ── Certification static data ─────────────────────────────────────────────────
+// ── Credential data (visual props live here; copy lives in i18n) ──────────────
 
-const certs = [
-  {
-    key: "ccna",
-    accentColor: "text-cyan-400",
-    borderHover: "hover:border-cyan-500/30",
-    tagColor: "bg-cyan-500/08 text-cyan-400/80 border-cyan-500/20",
-    badgeColor: "bg-cyan-500/10 text-cyan-300 border-cyan-500/20",
-    bgGlow: "group-hover:shadow-cyan-500/08",
-    certImage: "/assets/certs/CCNA-Cisco.png",
-    certPdf: "/assets/certs/Cisco-Certification.pdf",
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
-      </svg>
-    ),
-    issuerIcon: (
-      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M1.258 12C1.258 6.071 6.07 1.258 12 1.258S22.742 6.071 22.742 12 17.929 22.742 12 22.742 1.258 17.929 1.258 12zm3.01 0c0 4.27 3.462 7.732 7.732 7.732s7.732-3.462 7.732-7.732S16.27 4.268 12 4.268 4.268 7.73 4.268 12zm2.967 0A4.768 4.768 0 0112 7.235 4.768 4.768 0 0116.765 12 4.768 4.768 0 0112 16.765 4.768 4.768 0 017.235 12z"/>
-      </svg>
-    ),
+type Family = "violet" | "fuchsia" | "sky" | "cyan" | "amber";
+
+interface Credential {
+  key: string;
+  family: Family;
+  monogram: string;
+  pdf: string;
+}
+
+const credentials: Credential[] = [
+  { key: "ai_agentprog", family: "violet", monogram: "AI", pdf: "/assets/certs/ai-agent-programming.pdf" },
+  { key: "ai_agents", family: "fuchsia", monogram: "AI", pdf: "/assets/certs/ai-zero-to-agents.pdf" },
+  { key: "ai_production", family: "sky", monogram: "AI", pdf: "/assets/certs/ai-zero-to-production.pdf" },
+  { key: "ccna", family: "cyan", monogram: "CC", pdf: "/assets/certs/Cisco-Certification.pdf" },
+  { key: "diploma", family: "amber", monogram: "DAI", pdf: "/assets/certs/Diplom.pdf" },
+];
+
+// Full literal class names so Tailwind's JIT keeps them.
+const familyStyles: Record<
+  Family,
+  { text: string; bar: string; seal: string; badge: string; hoverBorder: string; glow: string; tag: string }
+> = {
+  violet: {
+    text: "text-violet-300",
+    bar: "bg-violet-500/70",
+    seal: "border-violet-500/30 bg-violet-500/10 text-violet-200",
+    badge: "border-violet-500/25 bg-violet-500/10 text-violet-300",
+    hoverBorder: "hover:border-violet-500/40",
+    glow: "hover:shadow-[0_0_40px_-12px_rgba(139,92,246,0.5)]",
+    tag: "border-violet-500/20 bg-violet-500/[0.06] text-violet-200/80",
   },
-  {
-    key: "ai",
-    accentColor: "text-violet-400",
-    borderHover: "hover:border-violet-500/30",
-    tagColor: "bg-violet-500/08 text-violet-400/80 border-violet-500/20",
-    badgeColor: "bg-violet-500/10 text-violet-300 border-violet-500/20",
-    bgGlow: "group-hover:shadow-violet-500/08",
-    certImage: "/assets/certs/Certificado-IA.png",
-    certPdf: "/assets/certs/Certificado-IA.pdf",
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
-      </svg>
-    ),
-    issuerIcon: (
-      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-      </svg>
-    ),
+  fuchsia: {
+    text: "text-fuchsia-300",
+    bar: "bg-fuchsia-500/70",
+    seal: "border-fuchsia-500/30 bg-fuchsia-500/10 text-fuchsia-200",
+    badge: "border-fuchsia-500/25 bg-fuchsia-500/10 text-fuchsia-300",
+    hoverBorder: "hover:border-fuchsia-500/40",
+    glow: "hover:shadow-[0_0_40px_-12px_rgba(217,70,239,0.5)]",
+    tag: "border-fuchsia-500/20 bg-fuchsia-500/[0.06] text-fuchsia-200/80",
   },
-  {
-    key: "ecommerce",
-    accentColor: "text-amber-400",
-    borderHover: "hover:border-amber-500/30",
-    tagColor: "bg-amber-500/08 text-amber-400/80 border-amber-500/20",
-    badgeColor: "bg-amber-500/10 text-amber-300 border-amber-500/20",
-    bgGlow: "group-hover:shadow-amber-500/08",
-    certImage: null,
-    certPdf: null,
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
-      </svg>
-    ),
-    issuerIcon: (
-      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
-      </svg>
-    ),
+  sky: {
+    text: "text-sky-300",
+    bar: "bg-sky-500/70",
+    seal: "border-sky-500/30 bg-sky-500/10 text-sky-200",
+    badge: "border-sky-500/25 bg-sky-500/10 text-sky-300",
+    hoverBorder: "hover:border-sky-500/40",
+    glow: "hover:shadow-[0_0_40px_-12px_rgba(14,165,233,0.5)]",
+    tag: "border-sky-500/20 bg-sky-500/[0.06] text-sky-200/80",
   },
-] as const;
+  cyan: {
+    text: "text-cyan-300",
+    bar: "bg-cyan-500/70",
+    seal: "border-cyan-500/30 bg-cyan-500/10 text-cyan-200",
+    badge: "border-cyan-500/25 bg-cyan-500/10 text-cyan-300",
+    hoverBorder: "hover:border-cyan-500/40",
+    glow: "hover:shadow-[0_0_40px_-12px_rgba(6,182,212,0.5)]",
+    tag: "border-cyan-500/20 bg-cyan-500/[0.06] text-cyan-200/80",
+  },
+  amber: {
+    text: "text-amber-300",
+    bar: "bg-amber-500/70",
+    seal: "border-amber-500/30 bg-amber-500/10 text-amber-200",
+    badge: "border-amber-500/25 bg-amber-500/10 text-amber-300",
+    hoverBorder: "hover:border-amber-500/40",
+    glow: "hover:shadow-[0_0_40px_-12px_rgba(245,158,11,0.5)]",
+    tag: "border-amber-500/20 bg-amber-500/[0.06] text-amber-200/80",
+  },
+};
+
+function CredentialCard({
+  credential,
+  index,
+  inView,
+}: {
+  credential: Credential;
+  index: number;
+  inView: boolean;
+}) {
+  const t = useTranslations("certifications");
+  const s = familyStyles[credential.family];
+  const k = credential.key;
+  const year = t(`${k}_year`);
+  const tags = t.raw(`${k}_tags`) as string[];
+
+  return (
+    <motion.a
+      href={credential.pdf}
+      target="_blank"
+      rel="noopener noreferrer"
+      initial={{ opacity: 0, y: 26 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.5, delay: index * 0.08 }}
+      whileHover={{ y: -4 }}
+      className={`group relative flex flex-col gap-4 overflow-hidden rounded-2xl glass-card p-5 pl-6 transition-all duration-300 ${s.hoverBorder} ${s.glow}`}
+    >
+      {/* Left accent bar — signature device */}
+      <span className={`absolute inset-y-0 left-0 w-1 ${s.bar}`} aria-hidden="true" />
+
+      {/* Top row: seal + verified/year meta */}
+      <div className="flex items-start justify-between gap-3">
+        <div
+          className={`flex h-12 w-12 flex-none items-center justify-center rounded-xl border text-sm font-black tracking-tight ${s.seal}`}
+        >
+          {credential.monogram}
+        </div>
+        <div className="flex flex-col items-end gap-1.5">
+          <span
+            className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[10px] font-semibold ${s.badge}`}
+          >
+            <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.4}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+            </svg>
+            {t("verified")}
+          </span>
+          {year && (
+            <span className="font-mono text-[10px] tracking-wider text-white/30">{year}</span>
+          )}
+        </div>
+      </div>
+
+      {/* Meaning eyebrow + title */}
+      <div className="flex flex-col gap-1.5">
+        <p className={`text-[11px] font-semibold ${s.text}`}>{t(`${k}_meaning`)}</p>
+        <h3 className="text-base font-bold leading-snug text-white">{t(`${k}_title`)}</h3>
+        <p className="font-mono text-[11px] tracking-tight text-white/35">{t(`${k}_issuer`)}</p>
+      </div>
+
+      {/* Description */}
+      <p className="flex-1 text-[13px] leading-relaxed text-white/50">{t(`${k}_desc`)}</p>
+
+      {/* Tags */}
+      <div className="flex flex-wrap gap-1.5">
+        {tags.map((tag) => (
+          <span
+            key={tag}
+            className={`rounded-full border px-2.5 py-0.5 text-[10.5px] font-medium ${s.tag}`}
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
+
+      {/* Open certificate action */}
+      <div className="mt-1 flex items-center gap-2 border-t border-white/5 pt-3.5">
+        <svg className={`h-4 w-4 flex-none ${s.text}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+        </svg>
+        <span className="text-xs font-semibold text-white/70 transition-colors group-hover:text-white">
+          {t("open")}
+        </span>
+        <svg
+          className="ml-auto h-3.5 w-3.5 flex-none text-white/25 transition-all group-hover:translate-x-0.5 group-hover:text-white/55"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={2}
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+        </svg>
+      </div>
+    </motion.a>
+  );
+}
 
 export default function Certifications() {
   const t = useTranslations("certifications");
@@ -78,171 +178,65 @@ export default function Certifications() {
   return (
     <section
       id="certifications"
-      className="py-12 sm:py-20 lg:py-28 px-4 sm:px-6 border-t border-white/4 relative overflow-hidden"
+      className="relative overflow-hidden border-t border-white/4 px-4 py-12 sm:px-6 sm:py-20 lg:py-28"
       ref={ref}
     >
-      {/* Background accent */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 right-1/4 w-150 h-100 bg-violet-500/4 rounded-full blur-[100px]" />
-        <div className="absolute bottom-0 left-1/4 w-100 h-75 bg-cyan-500/3 rounded-full blur-[80px]" />
+      {/* Background accents */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute right-1/4 top-0 h-100 w-150 rounded-full bg-violet-500/4 blur-[100px]" />
+        <div className="absolute bottom-0 left-1/4 h-75 w-100 rounded-full bg-cyan-500/3 blur-[80px]" />
       </div>
 
-      <div className="relative max-w-6xl mx-auto">
-        {/* ── Section header ── */}
+      <div className="relative mx-auto max-w-6xl">
+        {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-8 sm:mb-12 lg:mb-16"
+          className="mb-8 text-center sm:mb-12 lg:mb-16"
         >
-          <p className="text-xs font-semibold text-violet-400 uppercase tracking-widest mb-3">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-violet-400">
             {t("label")}
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="mb-4 text-3xl font-bold tracking-tight text-white md:text-4xl">
             {t("title")}
           </h2>
-          <p className="text-white/50 max-w-2xl mx-auto text-sm leading-relaxed">
+          <p className="mx-auto max-w-2xl text-sm leading-relaxed text-white/50">
             {t("subtitle")}
           </p>
         </motion.div>
 
-        {/* ── Cert cards ── */}
-        <div className="grid md:grid-cols-3 gap-5">
-          {certs.map((cert, i) => {
-            const tags = t.raw(`${cert.key}_tags`) as string[];
-            return (
-              <motion.div
-                key={cert.key}
-                initial={{ opacity: 0, y: 28 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.55, delay: i * 0.12 }}
-                className={`group glass-card rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:shadow-xl ${cert.borderHover} ${cert.bgGlow}`}
-              >
-                {/* Certificate image preview */}
-                {cert.certImage && cert.certPdf && (
-                  <a
-                    href={cert.certPdf}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="relative block h-44 bg-white/2 border-b border-white/6 overflow-hidden cursor-pointer"
-                    title="Click to open certificate"
-                  >
-                    <Image
-                      src={cert.certImage}
-                      alt={t(`${cert.key}_title`)}
-                      fill
-                      className="object-contain p-3 transition-transform duration-500 group-hover:scale-[1.03]"
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                    />
-                    {/* Hover overlay */}
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
-                      <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-1.5 bg-black/60 rounded-full px-3 py-1.5 text-[10px] font-semibold text-white">
-                        <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-                        </svg>
-                        {t(`${cert.key}_verify`)}
-                      </div>
-                    </div>
-                  </a>
-                )}
-
-                {/* Card body */}
-                <div className="p-6 flex flex-col gap-5 flex-1">
-                  {/* Icon + title */}
-                  <div className="flex items-start gap-3">
-                    <div className={`p-2.5 rounded-xl border border-white/8 bg-white/4 ${cert.accentColor} flex-none`}>
-                      {cert.icon}
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="font-semibold text-white text-sm leading-snug">
-                        {t(`${cert.key}_title`)}
-                      </h3>
-                      {/* Issuer badge */}
-                      <div className={`inline-flex items-center gap-1.5 mt-1.5 px-2 py-0.5 rounded-full border text-[10px] font-semibold ${cert.badgeColor}`}>
-                        <span className={cert.accentColor}>{cert.issuerIcon}</span>
-                        {t(`${cert.key}_issuer`)}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Guarantee headline */}
-                  <div className="flex flex-col gap-1">
-                    <p className={`text-xs font-bold uppercase tracking-wider ${cert.accentColor}`}>
-                      {t(`${cert.key}_guarantee_label`)}
-                    </p>
-                    <p className="text-sm font-semibold text-white leading-snug">
-                      {t(`${cert.key}_guarantee`)}
-                    </p>
-                  </div>
-
-                  {/* Description */}
-                  <p className="text-sm text-white/50 leading-relaxed flex-1">
-                    {t(`${cert.key}_desc`)}
-                  </p>
-
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-1.5 pt-3 border-t border-white/5">
-                    {tags.map((tag: string) => (
-                      <span
-                        key={tag}
-                        className={`text-[10.5px] font-medium border rounded-full px-2.5 py-0.5 ${cert.tagColor}`}
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* PDF / verify button */}
-                  {cert.certPdf ? (
-                    <a
-                      href={cert.certPdf}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`flex items-center justify-center gap-2 w-full rounded-xl py-2.5 text-xs font-semibold border transition-all duration-200 ${cert.badgeColor} hover:brightness-125`}
-                    >
-                      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-                      </svg>
-                      {t(`${cert.key}_verify`)}
-                      <svg className="w-3 h-3 opacity-60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-                      </svg>
-                    </a>
-                  ) : (
-                    <div className={`flex items-center justify-center gap-2 w-full rounded-xl py-2.5 text-xs font-semibold border ${cert.badgeColor} opacity-50`}>
-                      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
-                      </svg>
-                      {t(`${cert.key}_verify`)}
-                    </div>
-                  )}
-                </div>
-              </motion.div>
-            );
-          })}
+        {/* Credential grid */}
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {credentials.map((c, i) => (
+            <CredentialCard key={c.key} credential={c} index={i} inView={inView} />
+          ))}
         </div>
 
-        {/* ── Bottom trust strip ── */}
+        {/* Bottom trust strip */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.45 }}
-          className="mt-6 sm:mt-10 glass-card rounded-2xl px-4 sm:px-8 py-4 sm:py-5 flex flex-col sm:flex-row items-center justify-between gap-4"
+          className="mt-6 flex flex-col items-center justify-between gap-4 rounded-2xl glass-card px-4 py-4 sm:mt-10 sm:flex-row sm:px-8 sm:py-5"
         >
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center flex-none">
-              <svg className="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+            <div className="flex h-8 w-8 flex-none items-center justify-center rounded-full border border-emerald-500/20 bg-emerald-500/10">
+              <svg className="h-4 w-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
               </svg>
             </div>
             <div>
               <p className="text-sm font-semibold text-white">{t("trust_title")}</p>
-              <p className="text-xs text-white/40 mt-0.5">{t("trust_subtitle")}</p>
+              <p className="mt-0.5 text-xs text-white/40">{t("trust_subtitle")}</p>
             </div>
           </div>
-          <div className="flex items-center gap-2 flex-wrap justify-center sm:justify-end">
-            {(t.raw("trust_badges") as string[]).map((badge: string) => (
-              <span key={badge} className="text-[10.5px] font-medium border border-white/8 rounded-full px-3 py-1 text-white/50">
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:justify-end">
+            {(t.raw("trust_badges") as string[]).map((badge) => (
+              <span
+                key={badge}
+                className="rounded-full border border-white/8 px-3 py-1 text-[10.5px] font-medium text-white/50"
+              >
                 {badge}
               </span>
             ))}

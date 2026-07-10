@@ -12,22 +12,22 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://vidal-pro-portfolio.vercel.app"),
-  title: "Vidal Reñao — IT Infrastructure & AI Solutions Engineer | Switzerland & Liechtenstein",
+  title: "Vidal Reñao — Senior Fullstack & AI Developer | Switzerland & Liechtenstein",
   description:
-    "IT Infrastructure & AI Solutions Engineer in Basel, Switzerland. Building SaaS apps with Claude AI + Next.js while managing enterprise M365, Azure, Entra ID & Intune. Immediately available across Switzerland and Liechtenstein.",
+    "Senior Fullstack & AI Developer in Basel, Switzerland. Building AI-powered SaaS with Claude, Next.js, TypeScript & Supabase — plus digital personal branding and HR-tech. Immediately available across Switzerland and Liechtenstein.",
   keywords: [
-    "IT Infrastructure Engineer Switzerland",
-    "AI Solutions Engineer Basel",
-    "AI-Powered SaaS Infrastructure",
     "Fullstack Developer Switzerland",
-    "Full Stack Developer Switzerland",
-    "Azure Consultant Basel",
-    "Microsoft 365 Spezialist Schweiz",
-    "Entra ID Intune Liechtenstein",
+    "Full Stack Developer Basel",
+    "AI Developer Switzerland",
+    "AI Agents Developer",
     "Next.js Developer Switzerland",
+    "TypeScript Developer Basel",
     "Claude AI Developer",
+    "Supabase Developer Switzerland",
+    "Digital Personal Branding",
+    "HR-Tech Developer",
+    "RAG MCP Developer",
     "CCNA Network Engineer Switzerland",
-    "Modern Workplace Engineer Schweiz",
   ],
   manifest: "/manifest.json",
   icons: {
@@ -46,24 +46,24 @@ export const metadata: Metadata = {
     title: "Vidal Reñao",
   },
   openGraph: {
-    title: "Vidal Reñao — IT Infrastructure & AI Solutions Engineer | Switzerland & Liechtenstein",
+    title: "Vidal Reñao — Senior Fullstack & AI Developer | Switzerland & Liechtenstein",
     description:
-      "IT Infrastructure & AI Solutions Engineer in Basel — immediately available across Switzerland and Liechtenstein. Azure · M365 · Next.js · Claude AI · CCNA.",
+      "Senior Fullstack & AI Developer in Basel — immediately available across Switzerland and Liechtenstein. Next.js · TypeScript · Supabase · Claude AI · AI Agents · CCNA.",
     images: [
       {
         url: "/Photo.jpg",
         width: 872,
         height: 927,
-        alt: "Vidal Reñao — IT Infrastructure & AI Solutions Engineer",
+        alt: "Vidal Reñao — Senior Fullstack & AI Developer",
       },
     ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Vidal Reñao — IT Infrastructure & AI Solutions Engineer",
+    title: "Vidal Reñao — Senior Fullstack & AI Developer",
     description:
-      "IT Infrastructure & AI Solutions Engineer in Basel, Switzerland. Azure · M365 · Next.js · Claude AI.",
+      "Senior Fullstack & AI Developer in Basel, Switzerland. Next.js · TypeScript · Supabase · Claude AI.",
     images: ["/Photo.jpg"],
   },
 };

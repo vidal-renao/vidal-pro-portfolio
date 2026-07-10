@@ -22,19 +22,19 @@ const BASE = BASE_URL;
 
 const META: Record<string, { title: string; description: string }> = {
   en: {
-    title: "Vidal Reñao — IT Infrastructure & AI Solutions Engineer",
+    title: "Vidal Reñao — Senior Fullstack & AI Developer",
     description:
-      "IT Infrastructure & AI Solutions Engineer in Basel, Switzerland. Azure · M365 · Entra ID · Intune · Claude AI · Next.js · CCNA",
+      "Senior Fullstack & AI Developer in Basel, Switzerland. Next.js · TypeScript · Supabase · Claude AI · AI Agents · RAG · Digital Personal Branding · HR-Tech · CCNA",
   },
   de: {
-    title: "Vidal Reñao — IT-Infrastruktur & KI-Lösungsingenieur",
+    title: "Vidal Reñao — Senior Fullstack & AI Developer",
     description:
-      "IT-Infrastruktur & KI-Lösungsingenieur in Basel, Schweiz. Azure · M365 · Entra ID · Intune · Claude AI · Next.js · CCNA",
+      "Senior Fullstack & AI Developer in Basel, Schweiz. Next.js · TypeScript · Supabase · Claude AI · KI-Agenten · RAG · Digitale Personenmarke · HR-Tech · CCNA",
   },
   es: {
-    title: "Vidal Reñao — Ingeniero de Infraestructura IT & Soluciones IA",
+    title: "Vidal Reñao — Senior Fullstack & AI Developer",
     description:
-      "Ingeniero de Infraestructura IT & Soluciones IA en Basilea, Suiza. Azure · M365 · Entra ID · Intune · Claude AI · Next.js · CCNA",
+      "Senior Fullstack & AI Developer en Basilea, Suiza. Next.js · TypeScript · Supabase · Claude AI · Agentes IA · RAG · Imagen Personal Digital · RRHH-Tech · CCNA",
   },
 };
 
@@ -66,7 +66,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           url: "/Photo.jpg",
           width: 800,
           height: 800,
-          alt: "Vidal Reñao — IT Infrastructure & AI Solutions Engineer",
+          alt: "Vidal Reñao — Senior Fullstack & AI Developer",
         },
       ],
       locale: locale === "de" ? "de_CH" : locale === "es" ? "es_ES" : "en_US",
@@ -90,15 +90,15 @@ const jsonLd = [
     "@context": "https://schema.org",
     "@type": "ProfilePage",
     "@id": `${BASE}/#webpage`,
-    name: "Vidal Reñao — IT Infrastructure & AI Solutions Engineer",
+    name: "Vidal Reñao — Senior Fullstack & AI Developer",
     url: BASE,
     description:
-      "IT Infrastructure & AI Solutions Engineer based in Basel, Switzerland. Enterprise M365, Azure, Claude AI, and full-stack SaaS delivery.",
+      "Senior Fullstack & AI Developer based in Basel, Switzerland. Next.js, TypeScript, Supabase, Claude AI agents, digital personal branding, and HR-tech.",
     mainEntity: {
       "@type": "Person",
       "@id": `${BASE}/#person`,
       name: "Vidal Reñao",
-      jobTitle: "IT Infrastructure & AI Solutions Engineer",
+      jobTitle: "Senior Fullstack & AI Developer",
       url: BASE,
       image: `${BASE}/Photo.jpg`,
       email: "vidalrenao.lab@outlook.com",
@@ -112,10 +112,10 @@ const jsonLd = [
       knowsLanguage: ["en", "de", "es"],
       hasOccupation: {
         "@type": "Occupation",
-        name: "IT Infrastructure & AI Solutions Engineer",
+        name: "Senior Fullstack & AI Developer",
         occupationLocation: { "@type": "Country", name: "Switzerland" },
         skills:
-          "Azure, Microsoft 365, Entra ID, Intune, Claude AI, Next.js, Supabase, PowerShell, CCNA",
+          "Next.js, TypeScript, Supabase, PostgreSQL, Claude AI, AI Agents, RAG, MCP, Digital Personal Branding, HR-Tech, CCNA",
       },
       sameAs: [
         "https://linkedin.com/in/vidalrenao",
@@ -127,9 +127,9 @@ const jsonLd = [
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "@id": `${BASE}/#business`,
-    name: "Vidal Reñao — IT & AI Consulting",
+    name: "Vidal Reñao — Fullstack & AI Development",
     description:
-      "IT Infrastructure, AI-Powered SaaS, and Microsoft 365 consultancy for Swiss SMEs. Available across Switzerland and Liechtenstein.",
+      "Fullstack & AI development, AI-powered SaaS, and digital personal branding for Swiss SMEs. Available across Switzerland and Liechtenstein.",
     url: BASE,
     telephone: "+41779726299",
     email: "vidalrenao.lab@outlook.com",
