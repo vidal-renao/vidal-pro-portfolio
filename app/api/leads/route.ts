@@ -21,6 +21,10 @@ async function sendWhatsAppNotification(lead: {
   const WHATSAPP_TOKEN = process.env.WHATSAPP_TOKEN;
   const PHONE_NUMBER_ID = process.env.WHATSAPP_PHONE_NUMBER_ID;
   const NOTIFICATION_NUMBER = process.env.WHATSAPP_NOTIFICATION_NUMBER;
+  // Optional: when set, the notification is sent as an approved template
+  // (required to reach you outside the 24-hour customer-service window).
+  const TEMPLATE_NAME = process.env.WHATSAPP_TEMPLATE_NAME;
+  const TEMPLATE_LANG = process.env.WHATSAPP_TEMPLATE_LANG || 'es';
 
   if (!WHATSAPP_TOKEN || !PHONE_NUMBER_ID || !NOTIFICATION_NUMBER) {
     console.warn('WhatsApp env vars missing, skipping notification');
@@ -28,15 +32,46 @@ async function sendWhatsAppNotification(lead: {
   }
 
   try {
-    const message =
-      `🚀 *Nuevo Lead - Portfolio*\n\n` +
-      `*Nombre:* ${lead.name}\n` +
-      `*Email:* ${lead.email}\n` +
-      (lead.phone ? `*Teléfono:* ${lead.phone}\n` : '') +
-      (lead.company ? `*Empresa:* ${lead.company}\n` : '') +
-      `*Sector:* ${lead.sector}\n` +
-      (lead.selectedOptions?.length ? `*Necesidades:* ${lead.selectedOptions.join(', ')}\n` : '') +
-      `*Idioma:* ${lead.locale.toUpperCase()}`;
+    const needs = lead.selectedOptions?.length ? lead.selectedOptions.join(', ') : '—';
+
+    // Template body must be: {{1}} name · {{2}} sector · {{3}} email · {{4}} needs
+    const payload = TEMPLATE_NAME
+      ? {
+          messaging_product: 'whatsapp',
+          to: NOTIFICATION_NUMBER,
+          type: 'template',
+          template: {
+            name: TEMPLATE_NAME,
+            language: { code: TEMPLATE_LANG },
+            components: [
+              {
+                type: 'body',
+                parameters: [
+                  { type: 'text', text: lead.name },
+                  { type: 'text', text: lead.sector },
+                  { type: 'text', text: lead.email },
+                  { type: 'text', text: needs },
+                ],
+              },
+            ],
+          },
+        }
+      : {
+          messaging_product: 'whatsapp',
+          to: NOTIFICATION_NUMBER,
+          type: 'text',
+          text: {
+            body:
+              `🚀 *Nuevo Lead - Portfolio*\n\n` +
+              `*Nombre:* ${lead.name}\n` +
+              `*Email:* ${lead.email}\n` +
+              (lead.phone ? `*Teléfono:* ${lead.phone}\n` : '') +
+              (lead.company ? `*Empresa:* ${lead.company}\n` : '') +
+              `*Sector:* ${lead.sector}\n` +
+              (lead.selectedOptions?.length ? `*Necesidades:* ${needs}\n` : '') +
+              `*Idioma:* ${lead.locale.toUpperCase()}`,
+          },
+        };
 
     const response = await fetch(
       `https://graph.facebook.com/v21.0/${PHONE_NUMBER_ID}/messages`,
@@ -46,12 +81,7 @@ async function sendWhatsAppNotification(lead: {
           Authorization: `Bearer ${WHATSAPP_TOKEN}`,
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          messaging_product: 'whatsapp',
-          to: NOTIFICATION_NUMBER,
-          type: 'text',
-          text: { body: message },
-        }),
+        body: JSON.stringify(payload),
       }
     );
 
