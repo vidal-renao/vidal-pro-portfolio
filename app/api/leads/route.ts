@@ -9,6 +9,66 @@ const supabase = createClient(
 
 const resend = new Resend(process.env.RESEND_API_KEY!);
 
+async function sendWhatsAppNotification(lead: {
+  name: string;
+  email: string;
+  phone?: string;
+  company?: string;
+  sector: string;
+  selectedOptions?: string[];
+  locale: string;
+}) {
+  const WHATSAPP_TOKEN = process.env.WHATSAPP_TOKEN;
+  const PHONE_NUMBER_ID = process.env.WHATSAPP_PHONE_NUMBER_ID;
+  const NOTIFICATION_NUMBER = process.env.WHATSAPP_NOTIFICATION_NUMBER;
+
+  if (!WHATSAPP_TOKEN || !PHONE_NUMBER_ID || !NOTIFICATION_NUMBER) {
+    console.warn('WhatsApp env vars missing, skipping notification');
+    return { sent: false, reason: 'missing_env_vars' };
+  }
+
+  try {
+    const message =
+      `🚀 *Nuevo Lead - Portfolio*\n\n` +
+      `*Nombre:* ${lead.name}\n` +
+      `*Email:* ${lead.email}\n` +
+      (lead.phone ? `*Teléfono:* ${lead.phone}\n` : '') +
+      (lead.company ? `*Empresa:* ${lead.company}\n` : '') +
+      `*Sector:* ${lead.sector}\n` +
+      (lead.selectedOptions?.length ? `*Necesidades:* ${lead.selectedOptions.join(', ')}\n` : '') +
+      `*Idioma:* ${lead.locale.toUpperCase()}`;
+
+    const response = await fetch(
+      `https://graph.facebook.com/v21.0/${PHONE_NUMBER_ID}/messages`,
+      {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${WHATSAPP_TOKEN}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          messaging_product: 'whatsapp',
+          to: NOTIFICATION_NUMBER,
+          type: 'text',
+          text: { body: message },
+        }),
+      }
+    );
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      console.error('WhatsApp API error:', data);
+      return { sent: false, reason: data.error?.message || 'unknown_error' };
+    }
+
+    return { sent: true, messageId: data.messages?.[0]?.id };
+  } catch (error) {
+    console.error('WhatsApp send error:', error);
+    return { sent: false, reason: 'exception' };
+  }
+}
+
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
@@ -139,11 +199,23 @@ export async function POST(req: NextRequest) {
       console.error('Resend error:', emailError);
     }
 
+    const whatsappResult = await sendWhatsAppNotification({
+      name, email, phone, company, sector, selectedOptions, locale,
+    });
+
+    if (whatsappResult.sent) {
+      await supabase
+        .from('portfolio_leads')
+        .update({ whatsapp_sent: true })
+        .eq('id', lead.id);
+    }
+
     return NextResponse.json({
       success: true,
       leadId: lead.id,
       emailSent,
-      whatsappSent: false,
+      whatsappSent: whatsappResult.sent,
+      whatsappReason: whatsappResult.sent ? undefined : whatsappResult.reason,
     });
 
   } catch (error) {
