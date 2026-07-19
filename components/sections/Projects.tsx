@@ -3,6 +3,7 @@
 import { useLocale, useTranslations } from "next-intl";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
 
 type ProjectTranslation = {
   title: string;
@@ -28,6 +29,7 @@ const projectStatic: {
   demoUrl: string | null;
   dsg?: boolean;
   featured?: boolean;
+  image?: string;
 }[] = [
   // ★ Star project
   {
@@ -46,6 +48,7 @@ const projectStatic: {
   { color: "emerald", githubUrl: "https://github.com/vidal-renao/cv-platform",             demoUrl: "https://cv-platform-theta.vercel.app" },
   { color: "indigo",  githubUrl: "https://github.com/vidal-renao/vidal-pro-portfolio",     demoUrl: null },
   { color: "violet",  githubUrl: "https://github.com/vidal-renao/vidal-pro-portfolio",     demoUrl: null },
+  { color: "rose",    githubUrl: "https://github.com/vidal-renao/naturae-cosmetics",       demoUrl: "https://naturae-cosmetics.vercel.app", image: "/screenshots/naturae-cosmetics-hero.png" },
 ];
 
 const colorMap: Record<ColorKey, { badge: string; tag: string; dot: string; border: string; glow?: string }> = {
@@ -249,6 +252,17 @@ export default function Projects() {
                 className={`group glass-card relative flex flex-col gap-5 overflow-hidden rounded-2xl p-4 sm:p-6 transition-colors duration-300 ${colors.border} hover:shadow-xl`}
               >
                 <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white/[0.04] to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                {project.image && (
+                  <div className="relative -mx-4 -mt-4 aspect-video overflow-hidden rounded-t-2xl sm:-mx-6 sm:-mt-6">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
+                  </div>
+                )}
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex flex-col gap-1.5 min-w-0">
                     <h3 className="font-semibold text-white text-lg">{project.title}</h3>

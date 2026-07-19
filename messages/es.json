@@ -373,6 +373,21 @@
           "Webhook idempotente"
         ],
         "status": "Lab"
+      },
+      {
+        "title": "NATURÆ Cosmetics — Cosmética artesanal suiza",
+        "description": "E-commerce y PWA para una marca de cosmética natural artesanal de Basilea, desarrollada compliance-first bajo la normativa suiza de cosmética VKos: sin pasarela de pago hasta que el Product Information File (PIF) de cada producto esté certificado — el carrito deriva en un traspaso de pedido por WhatsApp respaldado por un historial de pedidos inmutable y protegido con RLS, en vez de un flujo de checkout. Instalable en Android e iOS mediante un manifest escrito a mano y un service worker que solo cachea same-origin (sin next-pwa, iconos generados on-demand con next/og) — el filtro de origen evita específicamente que las respuestas de autenticación/carrito de Supabase se cacheen y repliquen entre usuarios en un dispositivo compartido. Catálogo trilingüe DE/EN/ES con carrito sincronizado por usuario vía Supabase (fusión local+remoto al iniciar sesión), galerías de producto con zoom y tiras de recomendados/vistos recientemente desde el historial local. Navegación verificada como sticky y sin overflow con pruebas reales en Chromium headless sobre seis anchos de viewport Android (320–430px).",
+        "tags": [
+          "Next.js 15",
+          "Supabase RLS",
+          "PWA"
+        ],
+        "metrics": [
+          "VKos conforme",
+          "PWA iOS/Android",
+          "DE/EN/ES"
+        ],
+        "status": "Producción"
       }
     ]
   },

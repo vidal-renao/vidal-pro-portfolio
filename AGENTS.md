@@ -67,6 +67,7 @@ Market: Swiss & DACH SMEs · Basel, Switzerland
 | CV Platform | https://cv-platform-theta.vercel.app | ✅ |
 | MatchPoint AI | https://matchpoint-gq5tnfo93-vidal-renaos-projects.vercel.app | ❌ Vercel login |
 | Invoice Auto | https://invoice-auto-3xjvcf07t-vidal-renaos-projects.vercel.app | ❌ Vercel login |
+| NATURÆ Cosmetics | https://naturae-cosmetics.vercel.app | ✅ |
 
 ## Compliance (Swiss DSG/nDSG)
 - RLS mandatory on all Supabase tables with user data

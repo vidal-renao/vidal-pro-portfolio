@@ -52,8 +52,6 @@ components/
 │   ├── TechStack.tsx           ← Skill bars · SVG Radar chart
 │   ├── Experience.tsx          ← Timeline (2010 → present)
 │   ├── Projects.tsx            ← Star project (Aura AI) + 8-card grid
-│   ├── EcosystemSection.tsx    ← Three-pillar showcase: HelpDesk · MCP · Ticket Auditor
-│   ├── ProofOfConcept.tsx      ← 8-screenshot lightbox gallery
 │   ├── Testimonials.tsx        ← Client reviews (D'Namar GmbH · Basel)
 │   └── Contact.tsx             ← Corporate card · form · CV selector · DownloadCenter
 └── ui/
