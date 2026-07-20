@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import PrintTrigger from "@/components/ui/PrintTrigger";
+import { EMAIL_ADDRESSES, resolveEmailVariant } from "@/lib/cv/emailVariants";
 
 type Role = {
   title: string;
@@ -14,10 +15,11 @@ export default async function PrintPage({
   searchParams,
 }: {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ print?: string }>;
+  searchParams: Promise<{ print?: string; email?: string }>;
 }) {
   const { locale } = await params;
-  const { print } = await searchParams;
+  const { print, email } = await searchParams;
+  const emailAddress = EMAIL_ADDRESSES[resolveEmailVariant(email)];
   const t = await getTranslations({ locale, namespace: "cv" });
   const te = await getTranslations({ locale, namespace: "experience" });
 
@@ -44,7 +46,7 @@ export default async function PrintPage({
             <ul className="cv-contact">
               <li>Basel, Switzerland</li>
               <li>+41 77 972 62 99</li>
-              <li>vidalrenao.lab@outlook.com</li>
+              <li>{emailAddress}</li>
               <li>linkedin.com/in/vidalrenao</li>
               <li>github.com/vidal-renao</li>
               <li className="cv-avail">{t("available")}</li>
@@ -129,7 +131,7 @@ export default async function PrintPage({
         </section>
 
         <footer className="cv-foot">
-          <span>vidalrenao.lab@outlook.com · +41 77 972 62 99 · linkedin.com/in/vidalrenao</span>
+          <span>{emailAddress} · +41 77 972 62 99 · linkedin.com/in/vidalrenao</span>
           <span className="cv-foot-note">{t("footerNote")}</span>
         </footer>
       </div>

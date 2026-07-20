@@ -1,42 +1,33 @@
 import { NextRequest, NextResponse } from "next/server";
-import path from "path";
-import fs from "fs";
+import { routing } from "@/i18n/routing";
+import { buildCvDocx } from "@/lib/cv/buildCvDocx";
+import { resolveEmailVariant } from "@/lib/cv/emailVariants";
 
-const ASSETS: Record<string, { file: string; contentType: string; filename: string }> = {
-  pdf: {
-    file: "assets/Vidal_Renao_CV_EN.pdf",
-    contentType: "application/pdf",
-    filename: "Vidal_Renao_CV.pdf",
-  },
-  word: {
-    file: "assets/Vidal_Renao_CV_EN.docx",
-    contentType: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-    filename: "Vidal_Renao_CV.docx",
-  },
-};
+function isSupportedLocale(value: string): value is (typeof routing.locales)[number] {
+  return (routing.locales as readonly string[]).includes(value);
+}
 
 export async function GET(request: NextRequest) {
-  const format = request.nextUrl.searchParams.get("format") ?? "pdf";
+  const format = request.nextUrl.searchParams.get("format") ?? "word";
+  const localeParam = request.nextUrl.searchParams.get("locale") ?? routing.defaultLocale;
+  const emailVariant = resolveEmailVariant(request.nextUrl.searchParams.get("email"));
 
-  const asset = ASSETS[format];
-  if (!asset) {
+  if (format !== "word") {
     return NextResponse.json({ error: "Invalid format" }, { status: 400 });
   }
 
-  const filePath = path.join(process.cwd(), "public", asset.file);
-
-  if (!fs.existsSync(filePath)) {
-    return NextResponse.json({ error: "File not found" }, { status: 404 });
+  if (!isSupportedLocale(localeParam)) {
+    return NextResponse.json({ error: "Invalid locale" }, { status: 400 });
   }
 
-  const fileBuffer = fs.readFileSync(filePath);
+  const buffer = await buildCvDocx(localeParam, emailVariant);
 
-  return new NextResponse(fileBuffer, {
+  return new NextResponse(new Uint8Array(buffer), {
     status: 200,
     headers: {
-      "Content-Type": asset.contentType,
-      "Content-Disposition": `attachment; filename="${asset.filename}"`,
-      "Cache-Control": "public, max-age=3600, stale-while-revalidate=86400",
+      "Content-Type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "Content-Disposition": `attachment; filename="Vidal_Renao_CV_${localeParam.toUpperCase()}.docx"`,
+      "Cache-Control": "no-store",
       "X-Content-Type-Options": "nosniff",
       "X-Frame-Options": "DENY",
       "Referrer-Policy": "strict-origin-when-cross-origin",

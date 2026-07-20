@@ -105,8 +105,8 @@ i18n/
 
 | Route | Method | Rate Limit | Purpose |
 | --- | --- | --- | --- |
-| `/api/download?format=pdf` | `GET` | — | Serves `public/assets/Vidal_Renao_CV_EN.pdf` · `Content-Disposition: attachment` · 1-hour cache |
-| `/api/download?format=word` | `GET` | — | Serves `public/assets/Vidal_Renao_CV_EN.docx` · `Content-Disposition: attachment` |
+| `/[locale]/print?print=1&email=outlook\|gmx` | `GET` | — | Print-ready CV (PDF via browser print) · locale + contact-email variant |
+| `/api/download?format=word&locale=en\|de\|es&email=outlook\|gmx` | `GET` | — | Generates CV `.docx` on the fly (`docx` package, mirrors the print CV) · `Content-Disposition: attachment` |
 | `/api/contact` | `POST` | 3 req/hr per IP | Zod-validated · honeypot field (inline style) · in-memory IP rate limiting · Nodemailer SMTP |
 
 ---
@@ -212,9 +212,8 @@ Sitemap at `/sitemap.xml` covers all 3 locale routes. `robots.ts` allows all cra
 | `/es` | Spanish portfolio |
 | `/en/labs/community-fund` | CivicFund Web3 Lab (wagmi · viem · Sepolia) |
 | `/en/labs/tempo-tutor` | TempoTutor Marketplace Lab (Stripe · Supabase Auth) |
-| `/en/print` | Print-optimized CV view |
-| `/api/download?format=pdf` | CV download — PDF, `Content-Disposition: attachment` |
-| `/api/download?format=word` | CV download — Word .docx |
+| `/en/print?email=outlook\|gmx` | Print-optimized CV view — PDF via browser print, contact-email variant |
+| `/api/download?format=word&locale=..&email=..` | CV download — Word `.docx`, generated per locale + email variant |
 | `/api/contact` | Contact form handler (POST) |
 
 ---
