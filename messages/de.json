@@ -616,5 +616,18 @@
       { "lang": "Deutsch", "level": "B2" }
     ],
     "footerNote": "Referenzen auf Anfrage verfügbar"
+  },
+  "cvSystems": {
+    "role": "IT-System Engineer",
+    "specialties": "Windows Server · VMware vSphere · IT-Infrastruktur",
+    "profile": "IT-Ingenieur mit über 7 Jahren Erfahrung in der Implementierung und dem Betrieb heterogener IT-Infrastrukturen. Spezialist in Windows Server, VMware vSphere, Hyper-V (Server- und Client-Virtualisierung) und Microsoft-Technologien — mit nachgewiesenem Betrieb für 500+ Benutzer in Unternehmensumgebungen. Projektumsetzung end-to-end: von der Netzwerkarchitektur bis zur Cloud-Migration. CCNA-zertifiziert. Deutsch B2, Englisch C1. EU-Staatsbürger mit Ausweis B — keine Arbeitserlaubnis erforderlich. Führerschein Kat. B.",
+    "residency": "EU-Bürger | Ausweis B (5 J.)",
+    "nationality": "Nationalität: Spanisch (EU-Staatsbürger)",
+    "license": "Führerschein Kategorie B",
+    "educationTitle": "Ausbildung",
+    "education": [
+      { "title": "Höhere Berufsausbildung", "detail": "Systemadministration & Netzwerke" },
+      { "title": "Höhere Berufsausbildung", "detail": "Anwendungsentwicklung" }
+    ]
   }
 }

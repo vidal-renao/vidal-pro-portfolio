@@ -15,19 +15,26 @@ export default async function PrintPage({
   searchParams,
 }: {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ print?: string; email?: string }>;
+  searchParams: Promise<{ print?: string; email?: string; variant?: string }>;
 }) {
   const { locale } = await params;
-  const { print, email } = await searchParams;
+  const { print, email, variant } = await searchParams;
   const emailAddress = EMAIL_ADDRESSES[resolveEmailVariant(email)];
+  const isSystemsVariant = variant === "systems";
   const t = await getTranslations({ locale, namespace: "cv" });
   const te = await getTranslations({ locale, namespace: "experience" });
+  const ts = await getTranslations({ locale, namespace: "cvSystems" });
 
   const roles = te.raw("roles") as Role[];
   const competencies = t.raw("competencies") as string[];
   const knowledge = t.raw("knowledge") as { area: string; detail: string }[];
   const certs = t.raw("certs") as { title: string; detail: string }[];
   const languages = t.raw("languages") as { lang: string; level: string }[];
+  const education = ts.raw("education") as { title: string; detail: string }[];
+
+  const role = isSystemsVariant ? ts("role") : t("role");
+  const specialties = isSystemsVariant ? ts("specialties") : t("specialties");
+  const profile = isSystemsVariant ? ts("profile") : t("profile");
 
   return (
     <>
@@ -37,8 +44,8 @@ export default async function PrintPage({
         <header className="cv-head">
           <div className="cv-head-main">
             <h1>Vidal Reñao Lopelo</h1>
-            <p className="cv-role">{t("role")}</p>
-            <p className="cv-spec">{t("specialties")}</p>
+            <p className="cv-role">{role}</p>
+            <p className="cv-spec">{specialties}</p>
           </div>
           <div className="cv-head-side">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -49,6 +56,7 @@ export default async function PrintPage({
               <li>{emailAddress}</li>
               <li>linkedin.com/in/vidalrenao</li>
               <li>github.com/vidal-renao</li>
+              {isSystemsVariant && <li>{ts("residency")}</li>}
               <li className="cv-avail">{t("available")}</li>
             </ul>
           </div>
@@ -57,7 +65,7 @@ export default async function PrintPage({
         {/* ── PROFILE ── */}
         <section>
           <div className="cv-bar">{t("profileTitle")}</div>
-          <p className="cv-profile">{t("profile")}</p>
+          <p className="cv-profile">{profile}</p>
         </section>
 
         {/* ── KEY COMPETENCIES ── */}
@@ -117,6 +125,21 @@ export default async function PrintPage({
           </div>
         </section>
 
+        {/* ── EDUCATION (systems variant only) ── */}
+        {isSystemsVariant && (
+          <section>
+            <div className="cv-bar">{ts("educationTitle")}</div>
+            <div className="cv-certs">
+              {education.map((e) => (
+                <div key={e.detail} className="cv-cert">
+                  <strong>{e.title}</strong>
+                  <span>{e.detail}</span>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
         {/* ── LANGUAGES ── */}
         <section>
           <div className="cv-bar">{t("languagesTitle")}</div>
@@ -132,6 +155,11 @@ export default async function PrintPage({
 
         <footer className="cv-foot">
           <span>{emailAddress} · +41 77 972 62 99 · linkedin.com/in/vidalrenao</span>
+          {isSystemsVariant && (
+            <span>
+              {ts("nationality")} · {ts("license")}
+            </span>
+          )}
           <span className="cv-foot-note">{t("footerNote")}</span>
         </footer>
       </div>

@@ -616,5 +616,18 @@
       { "lang": "Alemán", "level": "B2" }
     ],
     "footerNote": "Referencias disponibles a petición"
+  },
+  "cvSystems": {
+    "role": "Ingeniero de Sistemas TI",
+    "specialties": "Windows Server · VMware vSphere · Infraestructura TI",
+    "profile": "Ingeniero TI con más de 7 años de experiencia implementando y operando infraestructuras TI heterogéneas. Especialista en Windows Server, VMware vSphere, Hyper-V (virtualización de servidor y cliente) y tecnologías Microsoft — con operación demostrada para 500+ usuarios en entornos empresariales. Ejecución de proyectos end-to-end: desde la arquitectura de red hasta la migración a la nube. Certificado CCNA. Alemán B2, inglés C1. Ciudadano de la UE con permiso B — sin necesidad de autorización de trabajo. Carné de conducir categoría B.",
+    "residency": "Ciudadano UE | Permiso B (5 años)",
+    "nationality": "Nacionalidad: Española (ciudadano UE)",
+    "license": "Carné de conducir categoría B",
+    "educationTitle": "Formación",
+    "education": [
+      { "title": "Ciclo Formativo de Grado Superior", "detail": "Administración de Sistemas y Redes" },
+      { "title": "Ciclo Formativo de Grado Superior", "detail": "Desarrollo de Aplicaciones" }
+    ]
   }
 }

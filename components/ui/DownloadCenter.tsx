@@ -13,28 +13,46 @@ interface DownloadCenterProps {
 
 const ui: Record<
   Locale,
-  { heading: string; hint: string; pdf: string; word: string; emailLabel: string }
+  {
+    heading: string;
+    hint: string;
+    pdf: string;
+    word: string;
+    emailLabel: string;
+    variantLabel: string;
+    variantFullstack: string;
+    variantSystems: string;
+  }
 > = {
   en: {
     heading: "Download CV",
-    hint: "Pick a language and email, then choose PDF or Word.",
+    hint: "Pick a CV focus, language and email, then choose PDF or Word.",
     pdf: "PDF",
     word: "Word",
     emailLabel: "Contact email",
+    variantLabel: "CV focus",
+    variantFullstack: "Fullstack & AI",
+    variantSystems: "IT Systems",
   },
   de: {
     heading: "Lebenslauf herunterladen",
-    hint: "Sprache und E-Mail wählen, dann PDF oder Word auswählen.",
+    hint: "CV-Fokus, Sprache und E-Mail wählen, dann PDF oder Word auswählen.",
     pdf: "PDF",
     word: "Word",
     emailLabel: "Kontakt-E-Mail",
+    variantLabel: "CV-Fokus",
+    variantFullstack: "Fullstack & KI",
+    variantSystems: "IT-Systeme",
   },
   es: {
     heading: "Descargar CV",
-    hint: "Elige idioma y correo, luego PDF o Word.",
+    hint: "Elige enfoque de CV, idioma y correo, luego PDF o Word.",
     pdf: "PDF",
     word: "Word",
     emailLabel: "Correo de contacto",
+    variantLabel: "Enfoque del CV",
+    variantFullstack: "Fullstack & IA",
+    variantSystems: "Sistemas TI",
   },
 };
 
@@ -49,9 +67,12 @@ const EMAIL_OPTIONS: { code: EmailVariant; label: string }[] = [
   { code: "gmx", label: EMAIL_ADDRESSES.gmx },
 ];
 
+type CvVariant = "fullstack" | "systems";
+
 export default function DownloadCenter({ locale = "en" }: DownloadCenterProps) {
   const t = ui[locale];
   const [email, setEmail] = useState<EmailVariant>("outlook");
+  const [cvVariant, setCvVariant] = useState<CvVariant>("fullstack");
 
   return (
     <div className="glass-card rounded-2xl p-5">
@@ -63,6 +84,34 @@ export default function DownloadCenter({ locale = "en" }: DownloadCenterProps) {
         </p>
       </div>
       <p className="mb-3.5 text-xs text-white/35">{t.hint}</p>
+
+      {/* CV focus selector */}
+      <div className="mb-3.5">
+        <p className="mb-1.5 text-[10px] font-semibold uppercase tracking-widest text-white/30">
+          {t.variantLabel}
+        </p>
+        <div className="grid grid-cols-2 gap-2">
+          {(
+            [
+              { code: "fullstack", label: t.variantFullstack },
+              { code: "systems", label: t.variantSystems },
+            ] as const
+          ).map((opt) => (
+            <button
+              key={opt.code}
+              type="button"
+              onClick={() => setCvVariant(opt.code)}
+              className={`rounded-lg border px-2 py-1.5 text-[11px] font-medium transition-all duration-200 ${
+                cvVariant === opt.code
+                  ? "border-blue-500/40 bg-blue-500/[0.08] text-blue-200"
+                  : "border-white/[0.07] bg-white/[0.02] text-white/45 hover:border-white/15 hover:text-white/70"
+              }`}
+            >
+              {opt.label}
+            </button>
+          ))}
+        </div>
+      </div>
 
       {/* Email selector */}
       <div className="mb-3.5">
@@ -101,7 +150,7 @@ export default function DownloadCenter({ locale = "en" }: DownloadCenterProps) {
 
             <div className="mt-1 flex w-full flex-col gap-1">
               <a
-                href={`/${lang.code}/print?print=1&email=${email}`}
+                href={`/${lang.code}/print?print=1&email=${email}&variant=${cvVariant}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group/btn flex items-center justify-center gap-1 rounded-md border border-white/[0.06] bg-white/[0.02] px-2 py-1 text-[10px] font-medium text-white/40 transition-colors hover:border-blue-500/30 hover:text-blue-300/90"
@@ -110,7 +159,7 @@ export default function DownloadCenter({ locale = "en" }: DownloadCenterProps) {
                 {t.pdf}
               </a>
               <a
-                href={`/api/download?format=word&locale=${lang.code}&email=${email}`}
+                href={`/api/download?format=word&locale=${lang.code}&email=${email}&variant=${cvVariant}`}
                 className="group/btn flex items-center justify-center gap-1 rounded-md border border-white/[0.06] bg-white/[0.02] px-2 py-1 text-[10px] font-medium text-white/40 transition-colors hover:border-blue-500/30 hover:text-blue-300/90"
               >
                 <FileType className="h-3 w-3" aria-hidden="true" />

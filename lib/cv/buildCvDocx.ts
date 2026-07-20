@@ -22,6 +22,8 @@ type Role = {
   highlights: string[];
 };
 
+export type CvVariant = "fullstack" | "systems";
+
 const NAVY = "1e3a5f";
 const NAVY_DARK = "16304f";
 const ACCENT = "2563eb";
@@ -55,24 +57,37 @@ function bullet(text: string): Paragraph {
   });
 }
 
-export async function buildCvDocx(locale: string, emailVariant: EmailVariant): Promise<Buffer> {
+export async function buildCvDocx(
+  locale: string,
+  emailVariant: EmailVariant,
+  cvVariant: CvVariant = "fullstack"
+): Promise<Buffer> {
   const email = EMAIL_ADDRESSES[emailVariant];
+  const isSystemsVariant = cvVariant === "systems";
   const t = await getTranslations({ locale, namespace: "cv" });
   const te = await getTranslations({ locale, namespace: "experience" });
+  const ts = await getTranslations({ locale, namespace: "cvSystems" });
 
   const roles = te.raw("roles") as Role[];
   const competencies = t.raw("competencies") as string[];
   const knowledge = t.raw("knowledge") as { area: string; detail: string }[];
   const certs = t.raw("certs") as { title: string; detail: string }[];
   const languages = t.raw("languages") as { lang: string; level: string }[];
+  const education = ts.raw("education") as { title: string; detail: string }[];
 
-  const contactLine = [
+  const role = isSystemsVariant ? ts("role") : t("role");
+  const specialties = isSystemsVariant ? ts("specialties") : t("specialties");
+  const profile = isSystemsVariant ? ts("profile") : t("profile");
+
+  const contactParts = [
     "Basel, Switzerland",
     "+41 77 972 62 99",
     email,
     "linkedin.com/in/vidalrenao",
     "github.com/vidal-renao",
-  ].join("  ·  ");
+  ];
+  if (isSystemsVariant) contactParts.push(ts("residency"));
+  const contactLine = contactParts.join("  ·  ");
 
   const doc = new Document({
     sections: [
@@ -102,14 +117,14 @@ export async function buildCvDocx(locale: string, emailVariant: EmailVariant): P
             shading: { type: ShadingType.CLEAR, color: "auto", fill: NAVY_DARK },
             spacing: { after: 40 },
             children: [
-              new TextRun({ text: t("role"), bold: true, size: 22, color: "8fc0ff", font: "Arial" }),
+              new TextRun({ text: role, bold: true, size: 22, color: "8fc0ff", font: "Arial" }),
             ],
           }),
           new Paragraph({
             shading: { type: ShadingType.CLEAR, color: "auto", fill: NAVY_DARK },
             spacing: { after: 40 },
             children: [
-              new TextRun({ text: t("specialties"), size: 17, color: "c7d6ea", font: "Arial" }),
+              new TextRun({ text: specialties, size: 17, color: "c7d6ea", font: "Arial" }),
             ],
           }),
           new Paragraph({
@@ -129,7 +144,7 @@ export async function buildCvDocx(locale: string, emailVariant: EmailVariant): P
           sectionBar(t("profileTitle")),
           new Paragraph({
             spacing: { after: 160 },
-            children: [new TextRun({ text: t("profile"), size: 18, color: TEXT, font: "Arial" })],
+            children: [new TextRun({ text: profile, size: 18, color: TEXT, font: "Arial" })],
           }),
 
           // Competencies
@@ -214,6 +229,23 @@ export async function buildCvDocx(locale: string, emailVariant: EmailVariant): P
               })
           ),
 
+          // Education (systems variant only)
+          ...(isSystemsVariant
+            ? [
+                sectionBar(ts("educationTitle")),
+                ...education.map(
+                  (e) =>
+                    new Paragraph({
+                      spacing: { after: 60 },
+                      children: [
+                        new TextRun({ text: `${e.title}  —  `, bold: true, size: 18, color: "0f172a", font: "Arial" }),
+                        new TextRun({ text: e.detail, size: 16, color: MUTED, font: "Arial" }),
+                      ],
+                    })
+                ),
+              ]
+            : []),
+
           // Languages
           sectionBar(t("languagesTitle")),
           new Table({
@@ -264,6 +296,22 @@ export async function buildCvDocx(locale: string, emailVariant: EmailVariant): P
               }),
             ],
           }),
+          ...(isSystemsVariant
+            ? [
+                new Paragraph({
+                  alignment: AlignmentType.CENTER,
+                  spacing: { before: 40 },
+                  children: [
+                    new TextRun({
+                      text: `${ts("nationality")} · ${ts("license")}`,
+                      size: 15,
+                      color: MUTED,
+                      font: "Arial",
+                    }),
+                  ],
+                }),
+              ]
+            : []),
           new Paragraph({
             alignment: AlignmentType.CENTER,
             spacing: { before: 40 },

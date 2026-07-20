@@ -616,5 +616,18 @@
       { "lang": "German", "level": "B2" }
     ],
     "footerNote": "References available on request"
+  },
+  "cvSystems": {
+    "role": "IT Systems Engineer",
+    "specialties": "Windows Server · VMware vSphere · IT Infrastructure",
+    "profile": "IT engineer with 7+ years of experience deploying and operating heterogeneous IT infrastructures. Specialist in Windows Server, VMware vSphere, Hyper-V (server and client virtualization) and Microsoft technologies — with proven operations for 500+ users in enterprise environments. End-to-end project delivery: from network architecture to cloud migration. CCNA certified. German B2, English C1. EU citizen with Permit B — no work permit required. Category B driving licence.",
+    "residency": "EU citizen | Permit B (5 yrs)",
+    "nationality": "Nationality: Spanish (EU citizen)",
+    "license": "Category B driving licence",
+    "educationTitle": "Education",
+    "education": [
+      { "title": "Higher Vocational Diploma", "detail": "Systems Administration & Networking" },
+      { "title": "Higher Vocational Diploma", "detail": "Software Application Development" }
+    ]
   }
 }
