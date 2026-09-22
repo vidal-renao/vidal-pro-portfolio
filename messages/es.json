@@ -76,31 +76,56 @@
     "ai_agentprog_year": "2026",
     "ai_agentprog_meaning": "Agentes que actúan, no solo responden",
     "ai_agentprog_desc": "Diseño e implementación de agentes de IA autónomos con uso de herramientas, memoria y orquestación — el núcleo de los sistemas que llevo a producción.",
-    "ai_agentprog_tags": ["Agentes IA", "Tool Use", "Orquestación", "LLM"],
+    "ai_agentprog_tags": [
+      "Agentes IA",
+      "Tool Use",
+      "Orquestación",
+      "LLM"
+    ],
     "ai_agents_title": "IA: De Cero a Agentes",
     "ai_agents_issuer": "BIG School",
     "ai_agents_year": "2026",
     "ai_agents_meaning": "Del prompt al sistema que decide",
     "ai_agents_desc": "Recorrido completo desde el prompting hasta arquitecturas de agentes con RAG y memoria, aplicado a productos reales en producción.",
-    "ai_agents_tags": ["RAG", "Embeddings", "Prompt Design", "Automatización"],
+    "ai_agents_tags": [
+      "RAG",
+      "Embeddings",
+      "Prompt Design",
+      "Automatización"
+    ],
     "ai_production_title": "IA: De Cero a Producción",
     "ai_production_issuer": "BIG School",
     "ai_production_year": "2026",
     "ai_production_meaning": "IA que se despliega y se mantiene",
     "ai_production_desc": "Desarrollo fullstack asistido por IA hasta el despliegue: ciclos más rápidos, generación de código y sistemas que aguantan en el tiempo.",
-    "ai_production_tags": ["Fullstack", "Next.js", "Despliegue", "DevEx"],
+    "ai_production_tags": [
+      "Fullstack",
+      "Next.js",
+      "Despliegue",
+      "DevEx"
+    ],
     "ccna_title": "CCNA — Routing & Switching",
     "ccna_issuer": "Cisco Networking Academy",
     "ccna_year": "",
     "ccna_meaning": "La red bajo control, por diseño",
     "ccna_desc": "Certificación formal en redes empresariales: switching, routing, VLAN, VPN y seguridad — la base sólida sobre la que corre el software.",
-    "ccna_tags": ["Routing & Switching", "VLAN", "VPN", "TCP/IP"],
+    "ccna_tags": [
+      "Routing & Switching",
+      "VLAN",
+      "VPN",
+      "TCP/IP"
+    ],
     "diploma_title": "Desarrollo de Aplicaciones Informáticas",
     "diploma_issuer": "IES · España",
     "diploma_year": "2012",
     "diploma_meaning": "Ingeniería de software desde la base",
     "diploma_desc": "Título superior en desarrollo de software: programación, bases de datos y arquitectura de aplicaciones — el cimiento formal del perfil fullstack.",
-    "diploma_tags": ["Software", "Bases de datos", "Backend", "POO"],
+    "diploma_tags": [
+      "Software",
+      "Bases de datos",
+      "Backend",
+      "POO"
+    ],
     "trust_title": "Cubro el espectro completo: de la red a la interfaz",
     "trust_subtitle": "Desarrollo fullstack e IA en el centro; redes e infraestructura como base.",
     "trust_badges": [
@@ -233,8 +258,18 @@
       {
         "title": "Aura AI — Revenue Intelligence",
         "description": "Infraestructura SaaS con IA para gestión de producto y optimización de márgenes comerciales. Row Level Security por tenant en PostgreSQL sin esquema compartido — validado bajo carga de escritura concurrente sin filtraciones entre tenants. Pipeline de hardening automático: políticas de seguridad a nivel de tabla, write-paths exclusivos de service-role y revocación de acceso público eliminan todos los vectores de escalada de privilegios en la capa de base de datos. Motor FinOps pre-algorítmico: filtra el 82,4% del contexto de tokens antes de cualquier invocación a la API de Anthropic — reducción de coste cuantificada y reproducible por ciclo de análisis. Registro de auditoría inmutable INSERT-only alineado con Swiss DSG/nDSG — trazabilidad a prueba de manipulaciones para cada decisión de precios.",
-        "tags": ["Next.js 16", "TypeScript", "Supabase RLS", "Anthropic API", "Vercel Edge"],
-        "metrics": ["RLS multi-tenant", "82,4% costo API", "Audit trail DSG"],
+        "tags": [
+          "Next.js 16",
+          "TypeScript",
+          "Supabase RLS",
+          "Anthropic API",
+          "Vercel Edge"
+        ],
+        "metrics": [
+          "RLS multi-tenant",
+          "82,4% costo API",
+          "Audit trail DSG"
+        ],
         "status": "Producción"
       },
       {
@@ -313,17 +348,17 @@
         "status": "Producción"
       },
       {
-        "title": "Invoice Auto",
-        "description": "SaaS de automatización de facturas para freelancers. Sube una foto o PDF de un recibo y Claude Vision AI extrae todos los campos — cliente, importe, fecha, IVA — y genera una factura profesional lista para enviar. Sin entrada manual de datos. Multi-divisa (EUR/CHF), instalable como PWA, validación fiscal para España y Suiza.",
+        "title": "Invoice Auto — Facturas y motor de decisión de pagos",
+        "description": "SaaS de gestión de facturas para autónomos y pymes que operan entre España y Suiza. Subes la foto o el PDF de una factura, Claude Vision extrae todos los campos y el motor fiscal valida el IVA contra los tipos legales del país y detecta la inversión del sujeto pasivo. Encima va lo que de verdad cuesta dinero en cuentas a pagar: un motor de decisión que responde, factura a factura, si el pago es seguro —pagar, revisar o detener, siempre con la evidencia delante—. Detiene los duplicados exactos, las cuentas sin verificar y el patrón del fraude del cambio de IBAN (la factura pide otro IBAN distinto al verificado); manda a revisión los posibles duplicados y los importes anómalos frente a la mediana del proveedor. Un IBAN nuevo o cambiado se confirma por un canal independiente y espera un periodo de enfriamiento antes de poder pagarse. El resultado es un fichero ISO 20022 pain.001.001.09 —válido para SEPA y para el estándar suizo— que se sube a la banca online: la aplicación no mueve dinero. Las reglas críticas se revalidan dentro de PostgreSQL con funciones SECURITY DEFINER y un registro de auditoría que la propia base rechaza modificar o borrar, así que un fallo de la aplicación no puede programar un pago a una cuenta sin verificar ni pagar dos veces la misma factura. Demo pública sin registro.",
         "tags": [
           "Next.js 16",
-          "Claude Vision AI",
-          "Supabase"
+          "ISO 20022",
+          "Supabase RLS"
         ],
         "metrics": [
-          "OCR con IA",
-          "Generación automática",
-          "EUR · CHF"
+          "pain.001 validado con XSD",
+          "Antifraude IBAN",
+          "132 pruebas"
         ],
         "status": "Producción"
       },
@@ -386,6 +421,21 @@
           "VKos conforme",
           "PWA iOS/Android",
           "DE/EN/ES"
+        ],
+        "status": "Producción"
+      },
+      {
+        "title": "SolarPilot — Preestudio solar con trazabilidad",
+        "description": "Herramienta de captación para instaladoras fotovoltaicas españolas: con una dirección y el consumo anual devuelve un preestudio completo —potencia, paneles, producción mes a mes, autoconsumo, ahorro, amortización y comparativa con batería— en lugar de un formulario que promete que «te llamamos». La producción sale de PVGIS (Comisión Europea), no de una estimación inventada, y cada número lleva su origen y su nivel de confianza: el usuario ve qué está medido, qué está estimado y qué no se sabe todavía. Aplica la compensación de excedentes según el RD 244/2019 (solo descuenta hasta el término de energía de la factura, nunca genera saldo a favor) y separa las ayudas que se descuentan del retorno de las que solo son potenciales, como las bonificaciones municipales de IBI e ICIO. Incluye el embudo comercial: captura del lead con consentimiento versionado, propuesta imprimible y pipeline interno. Todo el dominio es funcional y puro, probado con 137 pruebas, y las capturas del repositorio se generan contra una base efímera para que ningún dato real acabe en el README.",
+        "tags": [
+          "Next.js 15",
+          "PVGIS",
+          "Drizzle ORM"
+        ],
+        "metrics": [
+          "Datos PVGIS reales",
+          "RD 244/2019",
+          "0 infracciones WCAG AA"
         ],
         "status": "Producción"
       }
@@ -594,26 +644,68 @@
     "present": "Actualidad",
     "knowledgeTitle": "Conocimientos Técnicos",
     "knowledge": [
-      { "area": "Frontend", "detail": "Next.js 16 · React 19 · TypeScript · Tailwind CSS · Framer Motion" },
-      { "area": "Backend y Datos", "detail": "Supabase · PostgreSQL · Node.js · Zod · APIs REST" },
-      { "area": "IA y Automatización", "detail": "Claude · Chatbots · Automatización de flujos · OCR" },
-      { "area": "Sistemas y Servidores", "detail": "Windows Server · Active Directory · Microsoft 365 · VMware · Hyper-V · Linux" },
-      { "area": "Redes", "detail": "CCNA · TCP/IP · DNS/DHCP · VLAN · VPN · Firewall" },
-      { "area": "Cloud y Entrega", "detail": "Vercel · GitHub Actions · PWA · Azure · CI/CD" }
+      {
+        "area": "Frontend",
+        "detail": "Next.js 16 · React 19 · TypeScript · Tailwind CSS · Framer Motion"
+      },
+      {
+        "area": "Backend y Datos",
+        "detail": "Supabase · PostgreSQL · Node.js · Zod · APIs REST"
+      },
+      {
+        "area": "IA y Automatización",
+        "detail": "Claude · Chatbots · Automatización de flujos · OCR"
+      },
+      {
+        "area": "Sistemas y Servidores",
+        "detail": "Windows Server · Active Directory · Microsoft 365 · VMware · Hyper-V · Linux"
+      },
+      {
+        "area": "Redes",
+        "detail": "CCNA · TCP/IP · DNS/DHCP · VLAN · VPN · Firewall"
+      },
+      {
+        "area": "Cloud y Entrega",
+        "detail": "Vercel · GitHub Actions · PWA · Azure · CI/CD"
+      }
     ],
     "certsTitle": "Certificaciones y Formación",
     "certs": [
-      { "title": "Programación de Agentes IA", "detail": "BIG School · MoureDev · 2026" },
-      { "title": "IA: De Cero a Agentes", "detail": "BIG School · 2026" },
-      { "title": "IA: De Cero a Producción", "detail": "BIG School · 2026" },
-      { "title": "CCNA — Routing & Switching", "detail": "Cisco Networking Academy" },
-      { "title": "Desarrollo de Aplicaciones Informáticas (DAI)", "detail": "IES · España · 2012" }
+      {
+        "title": "Programación de Agentes IA",
+        "detail": "BIG School · MoureDev · 2026"
+      },
+      {
+        "title": "IA: De Cero a Agentes",
+        "detail": "BIG School · 2026"
+      },
+      {
+        "title": "IA: De Cero a Producción",
+        "detail": "BIG School · 2026"
+      },
+      {
+        "title": "CCNA — Routing & Switching",
+        "detail": "Cisco Networking Academy"
+      },
+      {
+        "title": "Desarrollo de Aplicaciones Informáticas (DAI)",
+        "detail": "IES · España · 2012"
+      }
     ],
     "languagesTitle": "Idiomas",
     "languages": [
-      { "lang": "Español", "level": "Lengua materna" },
-      { "lang": "Inglés", "level": "C1 — Negociación" },
-      { "lang": "Alemán", "level": "B2" }
+      {
+        "lang": "Español",
+        "level": "Lengua materna"
+      },
+      {
+        "lang": "Inglés",
+        "level": "C1 — Negociación"
+      },
+      {
+        "lang": "Alemán",
+        "level": "B2"
+      }
     ],
     "footerNote": "Referencias disponibles a petición"
   },

@@ -44,11 +44,12 @@ const projectStatic: {
   { color: "amber",   githubUrl: "https://github.com/vidal-renao/ticket-system",           demoUrl: "https://ticket-system-sigma-pink.vercel.app", dsg: true },
   { color: "rose",    githubUrl: "https://github.com/vidal-renao/vidal-helpdesk-mcp",      demoUrl: "https://vidal-helpdesk-mcp.vercel.app/health" },
   { color: "violet",  githubUrl: "https://github.com/vidal-renao/matchpoint-ai",           demoUrl: null },
-  { color: "blue",    githubUrl: "https://github.com/vidal-renao/invoice-auto",            demoUrl: null },
+  { color: "blue",    githubUrl: "https://github.com/vidal-renao/invoice-auto",            demoUrl: "https://invoice-auto-xi.vercel.app/es/demo/payments", image: "/screenshots/invoicepilot-pagos.png" },
   { color: "emerald", githubUrl: "https://github.com/vidal-renao/cv-platform",             demoUrl: "https://cv-platform-theta.vercel.app" },
   { color: "indigo",  githubUrl: "https://github.com/vidal-renao/vidal-pro-portfolio",     demoUrl: null },
   { color: "violet",  githubUrl: "https://github.com/vidal-renao/vidal-pro-portfolio",     demoUrl: null },
   { color: "rose",    githubUrl: "https://github.com/vidal-renao/naturae-cosmetics",       demoUrl: "https://naturae-cosmetics.vercel.app", image: "/screenshots/naturae-cosmetics-hero.png" },
+  { color: "amber",   githubUrl: "https://github.com/vidal-renao/solarpilot",              demoUrl: "https://solarpilot-psi.vercel.app", image: "/screenshots/solarpilot-preestudio.png" },
 ];
 
 const colorMap: Record<ColorKey, { badge: string; tag: string; dot: string; border: string; glow?: string }> = {

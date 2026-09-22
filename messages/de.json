@@ -76,31 +76,56 @@
     "ai_agentprog_year": "2026",
     "ai_agentprog_meaning": "Agenten, die handeln — nicht nur antworten",
     "ai_agentprog_desc": "Entwurf und Auslieferung autonomer KI-Agenten mit Tool-Nutzung, Memory und Orchestrierung — der Kern der Systeme, die ich in Produktion bringe.",
-    "ai_agentprog_tags": ["KI-Agenten", "Tool Use", "Orchestrierung", "LLM"],
+    "ai_agentprog_tags": [
+      "KI-Agenten",
+      "Tool Use",
+      "Orchestrierung",
+      "LLM"
+    ],
     "ai_agents_title": "KI: Von Null zu Agenten",
     "ai_agents_issuer": "BIG School",
     "ai_agents_year": "2026",
     "ai_agents_meaning": "Vom Prompt zum System, das entscheidet",
     "ai_agents_desc": "Der komplette Weg vom Prompting zu Agenten-Architekturen mit RAG und Memory, angewendet auf reale Produkte in Produktion.",
-    "ai_agents_tags": ["RAG", "Embeddings", "Prompt Design", "Automatisierung"],
+    "ai_agents_tags": [
+      "RAG",
+      "Embeddings",
+      "Prompt Design",
+      "Automatisierung"
+    ],
     "ai_production_title": "KI: Von Null zur Produktion",
     "ai_production_issuer": "BIG School",
     "ai_production_year": "2026",
     "ai_production_meaning": "KI, die ausgeliefert wird und bleibt",
     "ai_production_desc": "KI-gestützte Full-Stack-Entwicklung bis zum Deployment: schnellere Zyklen, intelligentere Code-Generierung und Systeme, die Bestand haben.",
-    "ai_production_tags": ["Fullstack", "Next.js", "Deployment", "DevEx"],
+    "ai_production_tags": [
+      "Fullstack",
+      "Next.js",
+      "Deployment",
+      "DevEx"
+    ],
     "ccna_title": "CCNA — Routing & Switching",
     "ccna_issuer": "Cisco Networking Academy",
     "ccna_year": "",
     "ccna_meaning": "Das Netzwerk unter Kontrolle, per Design",
     "ccna_desc": "Formale Zertifizierung in Enterprise-Netzwerken: Switching, Routing, VLAN, VPN und Sicherheit — der solide Boden, auf dem die Software läuft.",
-    "ccna_tags": ["Routing & Switching", "VLAN", "VPN", "TCP/IP"],
+    "ccna_tags": [
+      "Routing & Switching",
+      "VLAN",
+      "VPN",
+      "TCP/IP"
+    ],
     "diploma_title": "Software-Anwendungsentwicklung",
     "diploma_issuer": "IES · Spanien",
     "diploma_year": "2012",
     "diploma_meaning": "Software-Engineering von Grund auf",
     "diploma_desc": "Höheres Diplom in Softwareentwicklung: Programmierung, Datenbanken und Anwendungsarchitektur — das formale Fundament des Full-Stack-Profils.",
-    "diploma_tags": ["Software", "Datenbanken", "Backend", "OOP"],
+    "diploma_tags": [
+      "Software",
+      "Datenbanken",
+      "Backend",
+      "OOP"
+    ],
     "trust_title": "Ich decke das volle Spektrum ab: vom Netzwerk zur Oberfläche",
     "trust_subtitle": "Full-Stack-Entwicklung und KI im Zentrum; Netzwerk und Infrastruktur als Basis.",
     "trust_badges": [
@@ -233,8 +258,18 @@
       {
         "title": "Aura AI — Revenue Intelligence",
         "description": "KI-gestützte SaaS-Infrastruktur für Produktmanagement und Margenoptimierung. PostgreSQL Row Level Security pro Mandant ohne gemeinsam genutztes Schema — validiert unter gleichzeitiger Schreiblast ohne mandantenübergreifende Datenlecks. Automatisiertes Schema-Hardening: Security Policies auf Tabellenebene, service-role-only Write-Paths und gesperrter öffentlicher Schemazugriff eliminieren alle Privilege-Escalation-Vektoren auf Datenbankebene. Pre-algorithmisches FinOps-Filter: 82,4 % Token-Kontextreduktion vor jeder Anthropic-API-Aufrufung — quantifizierte, reproduzierbare Kosteneinsparung pro Analysezyklus. INSERT-only unveränderliches Audit-Log nach Swiss DSG/nDSG — manipulationssichere Nachverfolgbarkeit jeder Preisentscheidung.",
-        "tags": ["Next.js 16", "TypeScript", "Supabase RLS", "Anthropic API", "Vercel Edge"],
-        "metrics": ["RLS Multi-Tenant", "82,4 % API-Kosten", "DSG Audit-Trail"],
+        "tags": [
+          "Next.js 16",
+          "TypeScript",
+          "Supabase RLS",
+          "Anthropic API",
+          "Vercel Edge"
+        ],
+        "metrics": [
+          "RLS Multi-Tenant",
+          "82,4 % API-Kosten",
+          "DSG Audit-Trail"
+        ],
         "status": "Produktion"
       },
       {
@@ -313,17 +348,17 @@
         "status": "Produktion"
       },
       {
-        "title": "Invoice Auto",
-        "description": "Rechnungsautomatisierungs-SaaS für Freelancer. Foto oder PDF eines Belegs hochladen und Claude Vision AI extrahiert alle Felder — Kunde, Betrag, Datum, MwSt — und erstellt eine professionelle Rechnung. Keine manuelle Dateneingabe. Multi-Währung (EUR/CHF), als PWA installierbar, Steuervalidierung für Spanien und die Schweiz.",
+        "title": "Invoice Auto — Rechnungen und Zahlungsentscheidungs-Engine",
+        "description": "Rechnungsverwaltungs-SaaS für Freelancer und KMU zwischen Spanien und der Schweiz. Foto oder PDF eines Belegs hochladen, Claude Vision extrahiert alle Felder, und die Steuer-Engine prüft die MwSt gegen die gesetzlichen Sätze des Landes und erkennt die Umkehr der Steuerschuld. Darauf sitzt das, was in der Kreditorenbuchhaltung wirklich Geld kostet: eine Entscheidungs-Engine, die Rechnung für Rechnung beantwortet, ob die Zahlung sicher ist — bezahlen, prüfen oder anhalten, immer mit dem Nachweis daneben. Angehalten werden exakte Duplikate, unbestätigte Konten und das Muster des IBAN-Betrugs (die Rechnung verlangt eine andere IBAN als die bestätigte); zur Prüfung gehen mögliche Duplikate und Beträge weit über dem Median des Lieferanten. Eine neue oder geänderte IBAN wird über einen unabhängigen Kanal bestätigt und wartet danach eine Frist ab, bevor sie bezahlt werden kann. Ergebnis ist eine Datei nach ISO 20022 pain.001.001.09 — gültig für SEPA und den Schweizer Standard —, die ins E-Banking hochgeladen wird: die Anwendung bewegt kein Geld. Die kritischen Regeln werden in PostgreSQL erneut geprüft, durch SECURITY-DEFINER-Funktionen und ein Prüfprotokoll, dessen Änderung oder Löschung die Datenbank selbst verweigert. Ein Fehler in der Anwendung kann so weder eine Zahlung auf ein unbestätigtes Konto einplanen noch dieselbe Rechnung zweimal bezahlen. Öffentliche Demo ohne Anmeldung.",
         "tags": [
           "Next.js 16",
-          "Claude Vision AI",
-          "Supabase"
+          "ISO 20022",
+          "Supabase RLS"
         ],
         "metrics": [
-          "KI OCR-Extraktion",
-          "Auto-Rechnungserstellung",
-          "EUR · CHF"
+          "pain.001 XSD-geprüft",
+          "IBAN-Betrugsschutz",
+          "132 Tests"
         ],
         "status": "Produktion"
       },
@@ -386,6 +421,21 @@
           "VKos-konform",
           "PWA iOS/Android",
           "DE/EN/ES"
+        ],
+        "status": "Produktion"
+      },
+      {
+        "title": "SolarPilot — Solar-Vorstudie mit Nachvollziehbarkeit",
+        "description": "Akquise-Werkzeug für spanische Photovoltaik-Installateure: aus Adresse und Jahresverbrauch entsteht eine vollständige Vorstudie — Leistung, Module, Produktion Monat für Monat, Eigenverbrauch, Ersparnis, Amortisation und Batterievergleich — statt eines Formulars, das einen Rückruf verspricht. Die Produktion stammt aus PVGIS (Europäische Kommission), nicht aus einer erfundenen Schätzung, und jede Zahl trägt ihre Quelle und ihr Vertrauensniveau: sichtbar wird, was gemessen, was geschätzt und was noch unbekannt ist. Die Überschussvergütung folgt dem spanischen RD 244/2019 (sie senkt nur den Energieanteil der Rechnung und wird nie zu einem Guthaben), und Förderungen, die die Amortisation senken, werden von den bloss möglichen getrennt — etwa kommunale IBI- und ICIO-Ermässigungen. Der Vertriebstrichter ist enthalten: Lead-Erfassung mit versionierter Einwilligung, druckbares Angebot und interne Pipeline. Die gesamte Domäne ist rein funktional und mit 137 Tests abgedeckt; die Screenshots im Repository entstehen gegen eine flüchtige Datenbank, damit keine echten Daten in die README gelangen.",
+        "tags": [
+          "Next.js 15",
+          "PVGIS",
+          "Drizzle ORM"
+        ],
+        "metrics": [
+          "Echte PVGIS-Daten",
+          "RD 244/2019",
+          "0 WCAG-AA-Verstösse"
         ],
         "status": "Produktion"
       }
@@ -594,26 +644,68 @@
     "present": "Heute",
     "knowledgeTitle": "Technische Kenntnisse",
     "knowledge": [
-      { "area": "Frontend", "detail": "Next.js 16 · React 19 · TypeScript · Tailwind CSS · Framer Motion" },
-      { "area": "Backend & Daten", "detail": "Supabase · PostgreSQL · Node.js · Zod · REST-APIs" },
-      { "area": "KI & Automatisierung", "detail": "Claude · Chatbots · Workflow-Automatisierung · OCR" },
-      { "area": "Systeme & Server", "detail": "Windows Server · Active Directory · Microsoft 365 · VMware · Hyper-V · Linux" },
-      { "area": "Netzwerk", "detail": "CCNA · TCP/IP · DNS/DHCP · VLAN · VPN · Firewall" },
-      { "area": "Cloud & Delivery", "detail": "Vercel · GitHub Actions · PWA · Azure · CI/CD" }
+      {
+        "area": "Frontend",
+        "detail": "Next.js 16 · React 19 · TypeScript · Tailwind CSS · Framer Motion"
+      },
+      {
+        "area": "Backend & Daten",
+        "detail": "Supabase · PostgreSQL · Node.js · Zod · REST-APIs"
+      },
+      {
+        "area": "KI & Automatisierung",
+        "detail": "Claude · Chatbots · Workflow-Automatisierung · OCR"
+      },
+      {
+        "area": "Systeme & Server",
+        "detail": "Windows Server · Active Directory · Microsoft 365 · VMware · Hyper-V · Linux"
+      },
+      {
+        "area": "Netzwerk",
+        "detail": "CCNA · TCP/IP · DNS/DHCP · VLAN · VPN · Firewall"
+      },
+      {
+        "area": "Cloud & Delivery",
+        "detail": "Vercel · GitHub Actions · PWA · Azure · CI/CD"
+      }
     ],
     "certsTitle": "Zertifizierungen & Weiterbildung",
     "certs": [
-      { "title": "KI-Agenten-Programmierung", "detail": "BIG School · MoureDev · 2026" },
-      { "title": "KI: Von Null zu Agenten", "detail": "BIG School · 2026" },
-      { "title": "KI: Von Null zur Produktion", "detail": "BIG School · 2026" },
-      { "title": "CCNA — Routing & Switching", "detail": "Cisco Networking Academy" },
-      { "title": "Software-Anwendungsentwicklung (DAI)", "detail": "IES · Spanien · 2012" }
+      {
+        "title": "KI-Agenten-Programmierung",
+        "detail": "BIG School · MoureDev · 2026"
+      },
+      {
+        "title": "KI: Von Null zu Agenten",
+        "detail": "BIG School · 2026"
+      },
+      {
+        "title": "KI: Von Null zur Produktion",
+        "detail": "BIG School · 2026"
+      },
+      {
+        "title": "CCNA — Routing & Switching",
+        "detail": "Cisco Networking Academy"
+      },
+      {
+        "title": "Software-Anwendungsentwicklung (DAI)",
+        "detail": "IES · Spanien · 2012"
+      }
     ],
     "languagesTitle": "Sprachen",
     "languages": [
-      { "lang": "Spanisch", "level": "Muttersprache" },
-      { "lang": "Englisch", "level": "C1 — Verhandlung" },
-      { "lang": "Deutsch", "level": "B2" }
+      {
+        "lang": "Spanisch",
+        "level": "Muttersprache"
+      },
+      {
+        "lang": "Englisch",
+        "level": "C1 — Verhandlung"
+      },
+      {
+        "lang": "Deutsch",
+        "level": "B2"
+      }
     ],
     "footerNote": "Referenzen auf Anfrage verfügbar"
   },
