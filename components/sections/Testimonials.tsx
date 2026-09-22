@@ -101,7 +101,7 @@ export default function Testimonials() {
                       href={item.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-xs text-cyan-400/60 hover:text-cyan-400 transition-colors"
+                      className="inline-block py-1.5 text-xs text-cyan-400/60 hover:text-cyan-400 transition-colors"
                     >
                       {item.urlLabel}
                     </a>

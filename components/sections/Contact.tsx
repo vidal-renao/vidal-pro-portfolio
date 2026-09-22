@@ -283,6 +283,7 @@ export default function Contact({ locale = "en" }: ContactProps) {
                 </div>
                 <QRCodeSVG
                   value="https://vidal-pro-portfolio.vercel.app"
+                  title="Código QR con la dirección del portfolio"
                   size={52}
                   bgColor="transparent"
                   fgColor="rgba(255,255,255,0.32)"
