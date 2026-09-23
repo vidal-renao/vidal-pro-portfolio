@@ -237,38 +237,36 @@
     "code": "GitHub",
     "architecture": {
       "label": "Proyecto Estrella — En Producción",
-      "title": "Aura AI — Infraestructura SaaS con IA para Revenue Intelligence",
-      "intro": "SaaS multi-tenant diseñado para gestión de producto y optimización de márgenes comerciales. Aplica Row Level Security (RLS) con aislamiento de esquema PostgreSQL por tenant — validado bajo carga concurrente de escritura sin filtraciones entre tenants. Un motor FinOps pre-algorítmico filtra el 82,4% del contexto de tokens antes de cualquier invocación a la API de Anthropic, ofreciendo una reducción de coste cuantificada y reproducible por ciclo de análisis. Un esquema de auditoría inmutable INSERT-only proporciona trazabilidad completa DSG/nDSG para cada decisión de precios. Un laboratorio Chaos Engineering de 3 modos (partición de red · cold start · sobrecarga concurrente) valida el 100% de tolerancia a fallos en nodos edge de Vercel.",
+      "title": "HelpDesk AI — Helpdesk multi-tenant para pymes suizas",
+      "intro": "El repositorio más trabajado del ecosistema: 204 commits, pruebas en integración continua y su propia base de datos en Supabase. Un helpdesk con bandeja compartida, responsable por ticket, control de SLA y triaje asistido por IA en alemán, inglés y español. Lo interesante es el límite que se le pone a la IA: no toca la base de datos, sino siete herramientas MCP acotadas y validadas con Zod, con los esquemas de Supabase aislados para que ninguna consulta se salga de su dominio. Alrededor va lo que hace eso defendible ante un cliente suizo: CORS de confianza cero, permisos por rol, detección de incumplimiento de SLA y registro conforme al DSG.",
       "achievements": [
-        "RLS + aislamiento multi-tenant: Row Level Security de PostgreSQL aplicado por tenant sin esquema compartido — validado bajo carga de escritura concurrente.",
-        "Schema hardening automatizado: políticas de seguridad a nivel de tabla, write-paths exclusivos de service-role y acceso público revocado eliminan todos los vectores de escalada de privilegios en la capa de base de datos.",
-        "Motor FinOps pre-algorítmico: 82,4% de reducción de contexto de tokens antes de la invocación LLM — ahorro de coste cuantificado y reproducible por ciclo de análisis, no estimado.",
-        "Registro de auditoría inmutable INSERT-only alineado con Swiss DSG/nDSG — trazabilidad a prueba de manipulaciones para cada decisión estratégica de precios, compliant by design."
+        "Siete herramientas MCP con validación Zod: el modelo pide datos acotados y nunca consulta la base de datos directamente.",
+        "Aislamiento por esquemas en Supabase: una consulta del helpdesk no puede alcanzar datos de otro dominio.",
+        "CORS de confianza cero: el middleware valida el origen contra una lista explícita, sin comodines.",
+        "204 commits y suite de pruebas en CI — aquí se puede auditar el repositorio, no solo mirar la demo."
       ],
       "stack": [
-        "Next.js 16",
+        "Next.js 15",
         "TypeScript",
-        "Supabase Realtime",
-        "PostgreSQL",
+        "MCP Server",
+        "Supabase RLS",
         "Anthropic API",
         "Vercel Edge"
       ]
     },
     "items": [
       {
-        "title": "Aura AI — Revenue Intelligence",
-        "description": "Infraestructura SaaS con IA para gestión de producto y optimización de márgenes comerciales. Row Level Security por tenant en PostgreSQL sin esquema compartido — validado bajo carga de escritura concurrente sin filtraciones entre tenants. Pipeline de hardening automático: políticas de seguridad a nivel de tabla, write-paths exclusivos de service-role y revocación de acceso público eliminan todos los vectores de escalada de privilegios en la capa de base de datos. Motor FinOps pre-algorítmico: filtra el 82,4% del contexto de tokens antes de cualquier invocación a la API de Anthropic — reducción de coste cuantificada y reproducible por ciclo de análisis. Registro de auditoría inmutable INSERT-only alineado con Swiss DSG/nDSG — trazabilidad a prueba de manipulaciones para cada decisión de precios.",
+        "title": "HelpDesk AI + OmniCommand",
+        "description": "Helpdesk multi-tenant para pymes suizas: bandeja compartida, responsable por ticket, seguimiento de SLA y triaje asistido por IA en alemán, inglés y español. La IA nunca toca la base de datos: un servidor MCP en Vercel expone siete herramientas acotadas con validación Zod, y el aislamiento por esquemas de Supabase impide que una consulta se salga de su dominio. CORS de confianza cero (sin comodines), RBAC por rol y detección de incumplimiento de SLA. Es el repositorio más trabajado del ecosistema —204 commits, pruebas en CI y base de datos propia— y cumple el DSG suizo.",
         "tags": [
-          "Next.js 16",
-          "TypeScript",
-          "Supabase RLS",
-          "Anthropic API",
-          "Vercel Edge"
+          "Next.js 15",
+          "MCP Server",
+          "Claude AI"
         ],
         "metrics": [
-          "RLS multi-tenant",
-          "82,4% costo API",
-          "Audit trail DSG"
+          "7 herramientas MCP",
+          "204 commits · CI",
+          "DE/EN/ES"
         ],
         "status": "Producción"
       },
@@ -288,6 +286,51 @@
         "status": "Producción"
       },
       {
+        "title": "Invoice Auto — Facturas y motor de decisión de pagos",
+        "description": "Gestión de facturas para autónomos y pymes entre España y Suiza: subes la foto o el PDF, Claude Vision extrae los campos y el motor fiscal valida el IVA y detecta la inversión del sujeto pasivo. Encima va el motor de decisión de pagos, que responde factura a factura si pagar es seguro: pagar, revisar o detener, siempre con la evidencia delante. Detiene duplicados, cuentas sin verificar y el fraude del cambio de IBAN, y exige confirmar cada IBAN nuevo por un canal independiente. Genera el fichero ISO 20022 pain.001 que se sube a la banca online; las reglas críticas se revalidan dentro de PostgreSQL, con auditoría que la base no deja borrar. Demo pública sin registro.",
+        "tags": [
+          "Next.js 16",
+          "ISO 20022",
+          "Supabase RLS"
+        ],
+        "metrics": [
+          "pain.001 validado con XSD",
+          "Antifraude IBAN",
+          "132 pruebas"
+        ],
+        "status": "Producción"
+      },
+      {
+        "title": "SolarPilot — Preestudio solar con trazabilidad",
+        "description": "Preestudio solar para instaladoras españolas: con una dirección y el consumo anual devuelve potencia, paneles, producción mes a mes, ahorro, amortización y comparativa con batería, en lugar de un «ya te llamamos». La producción sale de PVGIS (Comisión Europea) y cada número lleva su origen y su nivel de confianza: se ve qué está medido, qué estimado y qué no se sabe todavía. Aplica la compensación de excedentes del RD 244/2019 y separa las ayudas que reducen el retorno de las que solo son potenciales. Incluye captura de lead con consentimiento versionado, propuesta imprimible y pipeline interno. 137 pruebas.",
+        "tags": [
+          "Next.js 15",
+          "PVGIS",
+          "Drizzle ORM"
+        ],
+        "metrics": [
+          "Datos PVGIS reales",
+          "RD 244/2019",
+          "0 infracciones WCAG AA"
+        ],
+        "status": "Producción"
+      },
+      {
+        "title": "NATURÆ Cosmetics — Cosmética artesanal suiza",
+        "description": "E-commerce y PWA para una marca de cosmética artesanal de Basilea, desarrollada bajo la normativa suiza VKos: sin pasarela de pago mientras el expediente de cada producto no esté certificado, así que el carrito termina en un pedido por WhatsApp respaldado por un historial inmutable protegido con RLS. Instalable en Android e iOS con manifest propio y un service worker que solo cachea same-origin —ese filtro evita que respuestas de sesión o de carrito se compartan entre usuarios de un mismo dispositivo—. Catálogo trilingüe con carrito sincronizado por usuario. El repositorio es privado por acuerdo con la marca.",
+        "tags": [
+          "Next.js 15",
+          "Supabase RLS",
+          "PWA"
+        ],
+        "metrics": [
+          "VKos conforme",
+          "PWA iOS/Android",
+          "Repo privado"
+        ],
+        "status": "Producción"
+      },
+      {
         "title": "WAAI SaaS — WhatsApp AI Agent Platform",
         "description": "Plataforma SaaS multi-tenant que permite a negocios desplegar agentes WhatsApp con Claude sin escribir código. Implementación en 9 fases: auth SSR, aislamiento de tenant, ciclo de vida de agentes, base de conocimiento RAG, webhooks WhatsApp, captura de leads, handoff IA↔humano, analytics y preparación de billing. Pipeline RAG: chunking de documentos, embeddings OpenAI (text-embedding-3-small, 1536-dim), búsqueda semántica con pgvector. Sistema de handoff IA↔humano con control de estado asíncrono y RBAC (owner/admin/agent_manager/human_agent). Cobertura RLS 100% en todas las tablas con políticas por workspace. Validado con 52 smoke tests automáticos (0% fallos), 4 health checks y runbook E2E completo.",
         "tags": [
@@ -299,66 +342,6 @@
           "52 tests · 0 fallos",
           "Pipeline RAG",
           "Multi-tenant RLS"
-        ],
-        "status": "Producción"
-      },
-      {
-        "title": "HelpDesk AI + OmniCommand",
-        "description": "Plataforma de helpdesk empresarial con CI/CD hardening vía MCP. Zero-Trust CORS: middleware dinámico que reemplaza políticas comodín (*) validando el Origin contra ALLOWED_ORIGINS. Scripts Bash defensivos en CI/CD eliminan fallos silenciosos aislando http_code, headers y payloads. Aislamiento multi-schema Supabase (.schema('helpdesk') vs public) previene filtraciones entre esquemas. Integración Vitest con mocks de alta fidelidad — 8/8 tests en verde. Validación estructural Zod (z.infer<>) elimina inputs any-tipados en herramientas MCP. Servidor MCP en Vercel SSE expone 7 herramientas AI autónomas con separación estricta LLM/DB. RBAC multi-tenant, detección de incumplimiento SLA, trilingüe (DE/EN/ES), conforme Swiss DSG/nDSG.",
-        "tags": [
-          "Next.js 15",
-          "MCP Server",
-          "Claude AI"
-        ],
-        "metrics": [
-          "7 herramientas MCP",
-          "Zero-Trust CI/CD",
-          "Cumplimiento DSG"
-        ],
-        "status": "Producción"
-      },
-      {
-        "title": "Ticket Auditor — CI/CD Autónomo",
-        "description": "Pipeline de auditoría completamente autónomo. GitHub Actions dispara cada hora → Vercel Edge Function → análisis IA vía MCP → Resend entrega informes ejecutivos HTML. Claude lee contexto de negocio en vivo a través de 7 herramientas MCP sin acceso directo a la DB. Ciclo de auditoría completo en menos de 11 segundos, sin intervención humana. Protegido con service-role. Alineado con Swiss DSG.",
-        "tags": [
-          "Vercel Edge",
-          "GitHub Actions",
-          "MCP Protocol"
-        ],
-        "metrics": [
-          "<11s ciclo auditoría",
-          "Sin intervención",
-          "Swiss DSG"
-        ],
-        "status": "Producción"
-      },
-      {
-        "title": "MatchPoint AI",
-        "description": "Plataforma de matching de empleo con IA. Los candidatos suben su CV y Claude AI extrae automáticamente su perfil completo, luego los empareja con ofertas usando scoring 4D: Habilidades, Experiencia, Cultura y Logística. Los recruiters solo ven candidatos por encima del 90% — alertas via WhatsApp y email.",
-        "tags": [
-          "Next.js 16",
-          "Claude AI",
-          "Supabase"
-        ],
-        "metrics": [
-          "Parsing CV con IA",
-          "Scoring 4D",
-          "Alertas WhatsApp"
-        ],
-        "status": "Producción"
-      },
-      {
-        "title": "Invoice Auto — Facturas y motor de decisión de pagos",
-        "description": "SaaS de gestión de facturas para autónomos y pymes que operan entre España y Suiza. Subes la foto o el PDF de una factura, Claude Vision extrae todos los campos y el motor fiscal valida el IVA contra los tipos legales del país y detecta la inversión del sujeto pasivo. Encima va lo que de verdad cuesta dinero en cuentas a pagar: un motor de decisión que responde, factura a factura, si el pago es seguro —pagar, revisar o detener, siempre con la evidencia delante—. Detiene los duplicados exactos, las cuentas sin verificar y el patrón del fraude del cambio de IBAN (la factura pide otro IBAN distinto al verificado); manda a revisión los posibles duplicados y los importes anómalos frente a la mediana del proveedor. Un IBAN nuevo o cambiado se confirma por un canal independiente y espera un periodo de enfriamiento antes de poder pagarse. El resultado es un fichero ISO 20022 pain.001.001.09 —válido para SEPA y para el estándar suizo— que se sube a la banca online: la aplicación no mueve dinero. Las reglas críticas se revalidan dentro de PostgreSQL con funciones SECURITY DEFINER y un registro de auditoría que la propia base rechaza modificar o borrar, así que un fallo de la aplicación no puede programar un pago a una cuenta sin verificar ni pagar dos veces la misma factura. Demo pública sin registro.",
-        "tags": [
-          "Next.js 16",
-          "ISO 20022",
-          "Supabase RLS"
-        ],
-        "metrics": [
-          "pain.001 validado con XSD",
-          "Antifraude IBAN",
-          "132 pruebas"
         ],
         "status": "Producción"
       },
@@ -376,6 +359,53 @@
           "6 idiomas"
         ],
         "status": "Producción"
+      },
+      {
+        "title": "Ticket Auditor — CI/CD Autónomo",
+        "description": "Pipeline de auditoría autónomo. GitHub Actions dispara cada hora → función Edge en Vercel → análisis por IA vía MCP → Resend entrega el informe ejecutivo en HTML. Claude lee el contexto de negocio a través de siete herramientas MCP, sin acceso directo a la base de datos. El ciclo completo baja de 11 segundos y no necesita a nadie delante. No tiene interfaz: es un servicio, así que lo que se puede mirar es el código.",
+        "tags": [
+          "Vercel Edge",
+          "GitHub Actions",
+          "MCP Protocol"
+        ],
+        "metrics": [
+          "<11 s por ciclo",
+          "Sin intervención",
+          "20 ficheros de test"
+        ],
+        "status": "Producción"
+      },
+      {
+        "title": "Aura AI — Revenue Intelligence",
+        "description": "Panel de decisiones de precio e inventario para comercio: en vez de otro cuadro de mandos, propone la acción y la deja lista para aprobar. Multi-tenant con Row Level Security por inquilino en PostgreSQL, escrituras restringidas a service-role y registro de auditoría INSERT-only alineado con el DSG suizo. Filtra el contexto antes de llamar a la API de Anthropic para bajar el coste por análisis. La demo es pública y funciona con datos de ejemplo; el repositorio todavía es pequeño y sin suite de pruebas.",
+        "tags": [
+          "Next.js 16",
+          "TypeScript",
+          "Supabase RLS",
+          "Anthropic API",
+          "Vercel Edge"
+        ],
+        "metrics": [
+          "RLS multi-tenant",
+          "Auditoría DSG",
+          "Demo pública"
+        ],
+        "status": "Demo pública"
+      },
+      {
+        "title": "MatchPoint AI",
+        "description": "Plataforma de matching de empleo con IA. Los candidatos suben su CV, Claude extrae el perfil completo y los empareja con ofertas mediante un scoring de cuatro ejes: habilidades, experiencia, cultura y logística. Los recruiters solo ven candidatos por encima del 90 %, con alertas por WhatsApp y email. MVP funcional y con demo pública; sin pruebas automatizadas y sin cambios desde abril de 2026.",
+        "tags": [
+          "Next.js 16",
+          "Claude AI",
+          "Supabase"
+        ],
+        "metrics": [
+          "Parsing CV con IA",
+          "Scoring 4D",
+          "Alertas WhatsApp"
+        ],
+        "status": "MVP"
       },
       {
         "title": "CivicFund Web3 Lab",
@@ -408,36 +438,6 @@
           "Webhook idempotente"
         ],
         "status": "Lab"
-      },
-      {
-        "title": "NATURÆ Cosmetics — Cosmética artesanal suiza",
-        "description": "E-commerce y PWA para una marca de cosmética natural artesanal de Basilea, desarrollada compliance-first bajo la normativa suiza de cosmética VKos: sin pasarela de pago hasta que el Product Information File (PIF) de cada producto esté certificado — el carrito deriva en un traspaso de pedido por WhatsApp respaldado por un historial de pedidos inmutable y protegido con RLS, en vez de un flujo de checkout. Instalable en Android e iOS mediante un manifest escrito a mano y un service worker que solo cachea same-origin (sin next-pwa, iconos generados on-demand con next/og) — el filtro de origen evita específicamente que las respuestas de autenticación/carrito de Supabase se cacheen y repliquen entre usuarios en un dispositivo compartido. Catálogo trilingüe DE/EN/ES con carrito sincronizado por usuario vía Supabase (fusión local+remoto al iniciar sesión), galerías de producto con zoom y tiras de recomendados/vistos recientemente desde el historial local. Navegación verificada como sticky y sin overflow con pruebas reales en Chromium headless sobre seis anchos de viewport Android (320–430px).",
-        "tags": [
-          "Next.js 15",
-          "Supabase RLS",
-          "PWA"
-        ],
-        "metrics": [
-          "VKos conforme",
-          "PWA iOS/Android",
-          "DE/EN/ES"
-        ],
-        "status": "Producción"
-      },
-      {
-        "title": "SolarPilot — Preestudio solar con trazabilidad",
-        "description": "Herramienta de captación para instaladoras fotovoltaicas españolas: con una dirección y el consumo anual devuelve un preestudio completo —potencia, paneles, producción mes a mes, autoconsumo, ahorro, amortización y comparativa con batería— en lugar de un formulario que promete que «te llamamos». La producción sale de PVGIS (Comisión Europea), no de una estimación inventada, y cada número lleva su origen y su nivel de confianza: el usuario ve qué está medido, qué está estimado y qué no se sabe todavía. Aplica la compensación de excedentes según el RD 244/2019 (solo descuenta hasta el término de energía de la factura, nunca genera saldo a favor) y separa las ayudas que se descuentan del retorno de las que solo son potenciales, como las bonificaciones municipales de IBI e ICIO. Incluye el embudo comercial: captura del lead con consentimiento versionado, propuesta imprimible y pipeline interno. Todo el dominio es funcional y puro, probado con 137 pruebas, y las capturas del repositorio se generan contra una base efímera para que ningún dato real acabe en el README.",
-        "tags": [
-          "Next.js 15",
-          "PVGIS",
-          "Drizzle ORM"
-        ],
-        "metrics": [
-          "Datos PVGIS reales",
-          "RD 244/2019",
-          "0 infracciones WCAG AA"
-        ],
-        "status": "Producción"
       }
     ]
   },
@@ -718,8 +718,14 @@
     "license": "Carné de conducir categoría B",
     "educationTitle": "Formación",
     "education": [
-      { "title": "Ciclo Formativo de Grado Superior", "detail": "Administración de Sistemas y Redes" },
-      { "title": "Ciclo Formativo de Grado Superior", "detail": "Desarrollo de Aplicaciones" }
+      {
+        "title": "Ciclo Formativo de Grado Superior",
+        "detail": "Administración de Sistemas y Redes"
+      },
+      {
+        "title": "Ciclo Formativo de Grado Superior",
+        "detail": "Desarrollo de Aplicaciones"
+      }
     ]
   }
 }

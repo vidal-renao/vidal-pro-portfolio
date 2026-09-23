@@ -24,33 +24,49 @@ type ArchitectureTranslation = {
 type ColorKey = "violet" | "blue" | "emerald" | "cyan" | "amber" | "rose" | "indigo" | "lime";
 
 const projectStatic: {
+  /** Must match the order of `projects.items` in messages/{locale}.json. */
+  slug: string;
   color: ColorKey;
-  githubUrl: string;
+  /** null when the repository is private, so no dead link is rendered. */
+  githubUrl: string | null;
+  /** null when there is nothing a visitor can usefully open. */
   demoUrl: string | null;
   dsg?: boolean;
   featured?: boolean;
   image?: string;
 }[] = [
-  // ★ Star project
+  // ★ Star project — most worked-on repo, own database, live demo.
   {
+    slug: "helpdesk-ai",
     color: "lime",
     featured: true,
-    githubUrl: "https://github.com/vidal-renao/aura-ai",
-    demoUrl: "https://aura-ai-smoky.vercel.app",
+    dsg: true,
+    githubUrl: "https://github.com/vidal-renao/ticket-system",
+    demoUrl: "https://ticket-system-sigma-pink.vercel.app",
+    image: "/screenshots/helpdesk-ai.png",
   },
-  // Grid projects
-  { color: "cyan",    githubUrl: "https://github.com/vidal-renao/limpiezas-najip-maritza", demoUrl: "https://www.dnamar.ch" },
-  { color: "emerald", githubUrl: "https://github.com/vidal-renao/waai-saas",               demoUrl: "https://waai-saas.vercel.app" },
-  { color: "amber",   githubUrl: "https://github.com/vidal-renao/ticket-system",           demoUrl: "https://ticket-system-sigma-pink.vercel.app", dsg: true },
-  { color: "rose",    githubUrl: "https://github.com/vidal-renao/vidal-helpdesk-mcp",      demoUrl: "https://vidal-helpdesk-mcp.vercel.app/health" },
-  { color: "violet",  githubUrl: "https://github.com/vidal-renao/matchpoint-ai",           demoUrl: null },
-  { color: "blue",    githubUrl: "https://github.com/vidal-renao/invoice-auto",            demoUrl: "https://invoice-auto-xi.vercel.app/es/demo/payments", image: "/screenshots/invoicepilot-pagos.png" },
-  { color: "emerald", githubUrl: "https://github.com/vidal-renao/cv-platform",             demoUrl: "https://cv-platform-theta.vercel.app" },
-  { color: "indigo",  githubUrl: "https://github.com/vidal-renao/vidal-pro-portfolio",     demoUrl: null },
-  { color: "violet",  githubUrl: "https://github.com/vidal-renao/vidal-pro-portfolio",     demoUrl: null },
-  { color: "rose",    githubUrl: "https://github.com/vidal-renao/naturae-cosmetics",       demoUrl: "https://naturae-cosmetics.vercel.app", image: "/screenshots/naturae-cosmetics-hero.png" },
-  { color: "amber",   githubUrl: "https://github.com/vidal-renao/solarpilot",              demoUrl: "https://solarpilot-psi.vercel.app", image: "/screenshots/solarpilot-preestudio.png" },
+  // Grid projects, ordered by what a visitor can verify: live for a real
+  // client first, then depth of engineering, then the thinner ones.
+  { slug: "dnamar",         color: "cyan",    githubUrl: "https://github.com/vidal-renao/limpiezas-najip-maritza", demoUrl: "https://www.dnamar.ch",                                image: "/screenshots/dnamar.png" },
+  { slug: "invoice-auto",   color: "blue",    githubUrl: "https://github.com/vidal-renao/invoice-auto",            demoUrl: "https://invoice-auto-xi.vercel.app/es/demo/payments",  image: "/screenshots/invoicepilot-pagos.png" },
+  { slug: "solarpilot",     color: "amber",   githubUrl: "https://github.com/vidal-renao/solarpilot",              demoUrl: "https://solarpilot-psi.vercel.app",                    image: "/screenshots/solarpilot-preestudio.png" },
+  // Repository kept private by agreement with the brand: no code link.
+  { slug: "naturae",        color: "rose",    githubUrl: null,                                                     demoUrl: "https://naturae-cosmetics.vercel.app",                 image: "/screenshots/naturae-cosmetics-hero.png" },
+  { slug: "waai",           color: "emerald", githubUrl: "https://github.com/vidal-renao/waai-saas",               demoUrl: "https://waai-saas.vercel.app",                         image: "/screenshots/waai-saas.png" },
+  { slug: "parcel-tracker", color: "emerald", githubUrl: "https://github.com/vidal-renao/cv-platform",             demoUrl: "https://cv-platform-theta.vercel.app",                 image: "/screenshots/parcel-tracker.png" },
+  // A scheduled service with no UI: its /health endpoint is not a demo.
+  { slug: "ticket-auditor", color: "violet",  githubUrl: "https://github.com/vidal-renao/vidal-helpdesk-mcp",      demoUrl: null },
+  { slug: "aura-ai",        color: "indigo",  githubUrl: "https://github.com/vidal-renao/aura-ai",                 demoUrl: "https://aura-ai-smoky.vercel.app",                     image: "/screenshots/aura-ai.png" },
+  { slug: "matchpoint",     color: "violet",  githubUrl: "https://github.com/vidal-renao/matchpoint-ai",           demoUrl: "https://matchpoint-ai.vercel.app",                     image: "/screenshots/matchpoint-ai.png" },
+  { slug: "civicfund",      color: "indigo",  githubUrl: "https://github.com/vidal-renao/vidal-pro-portfolio",     demoUrl: null },
+  { slug: "tempotutor",     color: "violet",  githubUrl: "https://github.com/vidal-renao/vidal-pro-portfolio",     demoUrl: null },
 ];
+
+/** Labs live inside this repo, so their demo is a local route. */
+const LAB_ROUTES: Record<string, string> = {
+  civicfund: "labs/community-fund",
+  tempotutor: "labs/tempo-tutor",
+};
 
 const colorMap: Record<ColorKey, { badge: string; tag: string; dot: string; border: string; glow?: string }> = {
   lime:    { badge: "bg-lime-500/10 text-lime-400 border-lime-500/20",   tag: "bg-lime-500/08 text-lime-300/80 border-lime-500/15",   dot: "bg-lime-400",   border: "hover:border-lime-500/30",   glow: "shadow-[0_0_80px_rgba(163,230,53,0.07)]" },
@@ -82,16 +98,17 @@ export default function Projects() {
   const items = t.raw("items") as ProjectTranslation[];
   const architecture = t.raw("architecture") as ArchitectureTranslation;
 
-  const projects = items.map((item, i) => ({
-    ...item,
-    ...projectStatic[i],
-    demoUrl:
-      i === 8
-        ? `/${locale}/labs/community-fund`
-        : i === 9
-          ? `/${locale}/labs/tempo-tutor`
-          : projectStatic[i].demoUrl,
-  }));
+  // Index-aligned with `projects.items`; the lab routes are resolved by slug
+  // so that reordering the cards cannot silently point them elsewhere.
+  const projects = items.map((item, i) => {
+    const meta = projectStatic[i];
+    const labRoute = LAB_ROUTES[meta.slug];
+    return {
+      ...item,
+      ...meta,
+      demoUrl: labRoute ? `/${locale}/${labRoute}` : meta.demoUrl,
+    };
+  });
 
   const [starProject, ...allGridProjects] = projects;
   const gridProjects = allGridProjects.filter((p) => p.status !== "Lab");
@@ -158,7 +175,7 @@ export default function Projects() {
           </div>
         </motion.div>
 
-        {/* ★ Star project — Aura AI featured card */}
+        {/* ★ Star project — featured card (ordered by the project audit) */}
         <motion.div
           initial={{ opacity: 0, y: 28 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -167,6 +184,19 @@ export default function Projects() {
           className={`group relative mb-5 overflow-hidden rounded-2xl border border-lime-500/20 bg-[linear-gradient(135deg,rgba(10,20,5,0.88),rgba(17,24,10,0.92))] p-6 md:p-8 transition-colors duration-300 ${starColors.glow} hover:border-lime-500/35`}
         >
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(163,230,53,0.06),transparent_45%)]" />
+          {starProject.image && (
+            <div className="relative -mx-6 -mt-6 mb-6 aspect-[21/9] overflow-hidden rounded-t-2xl md:-mx-8 md:-mt-8">
+              <Image
+                src={starProject.image}
+                alt={starProject.title}
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 1000px"
+                className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0a1405] via-transparent to-transparent" />
+            </div>
+          )}
           <div className="relative flex flex-col gap-5 md:flex-row md:items-start md:gap-8">
             {/* Left: title + description */}
             <div className="flex-1 min-w-0">
@@ -217,6 +247,7 @@ export default function Projects() {
                     {t("view")}
                   </motion.a>
                 )}
+                {starProject.githubUrl && (
                 <motion.a
                   href={starProject.githubUrl}
                   target="_blank"
@@ -228,7 +259,7 @@ export default function Projects() {
                     <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
                   </svg>
                   {t("code")}
-                </motion.a>
+                </motion.a>)}
               </div>
             </div>
           </div>
@@ -311,6 +342,7 @@ export default function Projects() {
                         {t("view")}
                       </motion.a>
                     )}
+                    {project.githubUrl && (
                     <motion.a
                       href={project.githubUrl}
                       target="_blank"
@@ -322,7 +354,7 @@ export default function Projects() {
                         <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
                       </svg>
                       {t("code")}
-                    </motion.a>
+                    </motion.a>)}
                   </div>
                 </div>
               </motion.div>

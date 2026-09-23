@@ -122,7 +122,7 @@ export default function NavBar() {
           {/* CTA — desktop */}
           <Link
             href={isHome ? "#contact" : "/#contact"}
-            className="hidden md:flex items-center gap-2 text-xs font-semibold bg-blue-500 hover:bg-blue-400 text-white rounded-full px-4 py-2 transition-all duration-200"
+            className="hidden md:flex items-center gap-2 text-xs font-semibold bg-blue-600 hover:bg-blue-700 text-white rounded-full px-4 py-2 transition-all duration-200"
           >
             {t("hire")}
           </Link>
@@ -186,7 +186,7 @@ export default function NavBar() {
           <Link
             href={isHome ? "#contact" : "/#contact"}
             onClick={closeMobile}
-            className="flex items-center justify-center gap-2 mt-2 text-sm font-semibold bg-blue-500 hover:bg-blue-400 text-white rounded-xl px-4 py-3 transition-all duration-200"
+            className="flex items-center justify-center gap-2 mt-2 text-sm font-semibold bg-blue-600 hover:bg-blue-700 text-white rounded-xl px-4 py-3 transition-all duration-200"
           >
             {t("hire")}
           </Link>

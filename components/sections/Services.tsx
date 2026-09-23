@@ -170,7 +170,7 @@ export default function Services() {
           <div className="flex items-center gap-3 flex-none">
             <a
               href="#contact"
-              className="group flex items-center gap-2 bg-blue-500 hover:bg-blue-400 text-white font-semibold rounded-full px-7 py-3 text-sm transition-all duration-200 shadow-lg shadow-blue-500/20"
+              className="group flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full px-7 py-3 text-sm transition-all duration-200 shadow-lg shadow-blue-500/20"
             >
               {t("cta")}
               <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

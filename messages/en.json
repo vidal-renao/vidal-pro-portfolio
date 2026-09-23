@@ -236,39 +236,37 @@
     "view": "Live Demo",
     "code": "GitHub",
     "architecture": {
-      "label": "Star Project — Live in Production",
-      "title": "Aura AI — AI-Powered SaaS Infrastructure for Revenue Intelligence",
-      "intro": "Multi-tenant SaaS engineered for product management and commercial margin optimization. Enforces Row Level Security (RLS) with per-tenant PostgreSQL schema isolation — validated under concurrent write load with zero cross-tenant data leakage at any isolation level. A pre-algorithmic FinOps engine filters 82.4% of token context before any Anthropic API invocation, delivering a quantified, repeatable cost reduction per analysis cycle. An INSERT-only immutable audit schema provides complete DSG/nDSG traceability for every pricing decision. A 3-mode Chaos Engineering Lab (network partition · cold start · concurrent overload) validates 100% fault tolerance at Vercel edge nodes under simulated production failure conditions.",
+      "label": "Star Project — In Production",
+      "title": "HelpDesk AI — Multi-tenant helpdesk for Swiss SMEs",
+      "intro": "The most worked-on repository of the ecosystem: 204 commits, tests in continuous integration and its own Supabase database. A helpdesk with a shared inbox, an owner per ticket, SLA tracking and AI-assisted triage in German, English and Spanish. The interesting part is the boundary drawn around the AI: it never touches the database, only seven narrow MCP tools validated with Zod, with Supabase schemas isolated so no query can leave its domain. Around that sits what makes it defensible to a Swiss client: zero-trust CORS, role-based permissions, SLA breach detection and DSG-compliant logging.",
       "achievements": [
-        "RLS + multi-tenant isolation: PostgreSQL Row Level Security enforced per tenant with zero shared-schema exposure — validated under concurrent write load.",
-        "Automated schema hardening: table-level security policies, service-role-only write paths, and revoked public schema access eliminate all privilege escalation vectors at the database layer.",
-        "Pre-algorithmic FinOps engine: 82.4% token context reduction before LLM invocation — quantified, repeatable cost saving per analysis cycle, not an estimate.",
-        "INSERT-only immutable audit log aligned with Swiss DSG/nDSG — tamper-proof traceability for every strategic pricing decision, compliant by architecture."
+        "Seven MCP tools with Zod validation: the model asks for scoped data and never queries the database directly.",
+        "Schema isolation in Supabase: a helpdesk query cannot reach data from another domain.",
+        "Zero-trust CORS: the middleware validates the origin against an explicit list, no wildcards.",
+        "204 commits and a test suite in CI — here the repository can be audited, not just the demo watched."
       ],
       "stack": [
-        "Next.js 16",
+        "Next.js 15",
         "TypeScript",
-        "Supabase Realtime",
-        "PostgreSQL",
+        "MCP Server",
+        "Supabase RLS",
         "Anthropic API",
         "Vercel Edge"
       ]
     },
     "items": [
       {
-        "title": "Aura AI — Revenue Intelligence",
-        "description": "AI-Powered SaaS Infrastructure for product management and commercial margin optimization. Enforces per-tenant PostgreSQL Row Level Security with zero shared-schema exposure — validated under concurrent write loads with no cross-tenant data leakage. Automated schema hardening: table-level security policies, service-role-only write paths, and revoked public schema access eliminate all privilege escalation vectors at the database layer. Pre-algorithmic FinOps engine filters 82.4% of token context before any Anthropic API invocation — quantified, repeatable cost reduction per analysis cycle. INSERT-only immutable audit log aligned with Swiss DSG/nDSG provides tamper-proof traceability for every pricing decision. Chaos Engineering Lab (3 failure modes) validates 100% fault tolerance at Vercel edge nodes.",
+        "title": "HelpDesk AI + OmniCommand",
+        "description": "Multi-tenant helpdesk for Swiss SMEs: shared inbox, an owner per ticket, SLA tracking and AI-assisted triage in German, English and Spanish. The AI never touches the database: an MCP server on Vercel exposes seven narrow tools with Zod validation, and Supabase schema isolation stops a query from leaving its domain. Zero-trust CORS (no wildcards), role-based access control and SLA breach detection. It is the most worked-on repository of the ecosystem — 204 commits, tests in CI and its own database — and it complies with the Swiss DSG.",
         "tags": [
-          "Next.js 16",
-          "TypeScript",
-          "Supabase RLS",
-          "Anthropic API",
-          "Vercel Edge"
+          "Next.js 15",
+          "MCP Server",
+          "Claude AI"
         ],
         "metrics": [
-          "RLS multi-tenant",
-          "82.4% API cost cut",
-          "DSG audit trail"
+          "7 MCP tools",
+          "204 commits · CI",
+          "DE/EN/ES"
         ],
         "status": "Production"
       },
@@ -288,6 +286,51 @@
         "status": "Production"
       },
       {
+        "title": "Invoice Auto — Invoices and payment decision engine",
+        "description": "Invoice management for freelancers and SMEs operating between Spain and Switzerland: upload a photo or PDF, Claude Vision extracts the fields, and the tax engine validates VAT and detects reverse charge. On top sits the payment decision engine, answering invoice by invoice whether paying is safe: pay, review or hold, always with the evidence in view. It holds duplicates, unverified accounts and the bank-detail-change fraud, and requires every new IBAN to be confirmed through an independent channel. It generates the ISO 20022 pain.001 file you upload to your e-banking; the critical rules are re-checked inside PostgreSQL, with an audit log the database refuses to erase. Public demo, no sign-up.",
+        "tags": [
+          "Next.js 16",
+          "ISO 20022",
+          "Supabase RLS"
+        ],
+        "metrics": [
+          "XSD-validated pain.001",
+          "IBAN fraud controls",
+          "132 tests"
+        ],
+        "status": "Production"
+      },
+      {
+        "title": "SolarPilot — Solar pre-study with traceability",
+        "description": "Solar pre-study for Spanish installers: from an address and a yearly consumption it returns system size, panels, month-by-month production, savings, payback and a battery comparison, instead of a \"we'll call you back\". Production comes from PVGIS (European Commission) and every number carries its source and confidence: you see what is measured, what is estimated and what is not known yet. It applies the RD 244/2019 surplus compensation and separates the incentives that reduce the payback from the merely potential ones. Includes lead capture with versioned consent, a printable proposal and an internal pipeline. 137 tests.",
+        "tags": [
+          "Next.js 15",
+          "PVGIS",
+          "Drizzle ORM"
+        ],
+        "metrics": [
+          "Real PVGIS data",
+          "RD 244/2019",
+          "0 WCAG AA violations"
+        ],
+        "status": "Production"
+      },
+      {
+        "title": "NATURÆ Cosmetics — Swiss Handmade Skincare",
+        "description": "E-commerce and PWA for a handmade cosmetics brand from Basel, built under the Swiss VKos regulation: no payment gateway while each product's file is not certified, so the cart ends in a WhatsApp order backed by an immutable, RLS-protected history. Installable on Android and iOS with a hand-written manifest and a service worker that only caches same-origin — that filter prevents session or cart responses from being shared between users of one device. Trilingual catalogue with a per-user synced cart. The repository is private by agreement with the brand.",
+        "tags": [
+          "Next.js 15",
+          "Supabase RLS",
+          "PWA"
+        ],
+        "metrics": [
+          "VKos compliant",
+          "PWA iOS/Android",
+          "Private repo"
+        ],
+        "status": "Production"
+      },
+      {
         "title": "WAAI SaaS — WhatsApp AI Agent Platform",
         "description": "Multi-tenant SaaS platform allowing businesses to deploy Claude-powered WhatsApp agents without code. Full 9-phase implementation: SSR auth, tenant isolation, agent lifecycle, RAG knowledge base, WhatsApp webhooks, lead capture, AI↔human handoff, analytics, and billing readiness. RAG pipeline: document chunking, OpenAI embeddings (text-embedding-3-small, 1536-dim), pgvector semantic search. AI↔human handoff system with async state control and RBAC (owner/admin/agent_manager/human_agent). 100% RLS coverage across all tables with workspace-scoped policies — zero secrets exposed client-side. Validated with 52 automated smoke tests (0% failure rate), 4 health checks, and a full E2E runbook. Factory/Strategy pattern for hot-swap embedding provider with zero code changes.",
         "tags": [
@@ -299,66 +342,6 @@
           "52 tests · 0 fail",
           "RAG pipeline",
           "Multi-tenant RLS"
-        ],
-        "status": "Production"
-      },
-      {
-        "title": "HelpDesk AI + OmniCommand",
-        "description": "Enterprise helpdesk platform with MCP-powered CI/CD hardening. Deployed Zero-Trust CORS: dynamic middleware replacing wildcard (*) policies, validating Origin against ALLOWED_ORIGINS env var. Defensive Bash CI/CD scripts eliminate silent-failure pipelines by isolating http_code, headers, and payloads. Supabase multi-schema isolation (.schema('helpdesk') vs public) prevents cross-schema data leakage. Vitest integration with high-fidelity Supabase/Resend mocks — 8/8 tests green, --passWithNoTests permanently removed. Zod structural validation (z.infer<>) eliminates any-typed MCP tool inputs. MCP Server on Vercel SSE exposes 7 autonomous AI tools with strict LLM/DB separation. Multi-tenant RBAC, automated SLA breach detection, trilingual (DE/EN/ES), Swiss DSG/nDSG compliant.",
-        "tags": [
-          "Next.js 15",
-          "MCP Server",
-          "Claude AI"
-        ],
-        "metrics": [
-          "7 MCP tools",
-          "Zero-Trust CI/CD",
-          "DSG compliant"
-        ],
-        "status": "Production"
-      },
-      {
-        "title": "Ticket Auditor — Autonomous CI/CD",
-        "description": "Fully autonomous audit pipeline. GitHub Actions fires hourly → Vercel Edge Function queries Supabase → AI analysis via MCP → Resend delivers branded executive HTML reports. Claude reads live business context through 7 MCP tools without direct DB access. Full audit cycle in under 11 seconds with zero human intervention. Service-role secured. Swiss DSG aligned.",
-        "tags": [
-          "Vercel Edge",
-          "GitHub Actions",
-          "MCP Protocol"
-        ],
-        "metrics": [
-          "<11s audit cycle",
-          "Zero intervention",
-          "Swiss DSG aligned"
-        ],
-        "status": "Production"
-      },
-      {
-        "title": "MatchPoint AI",
-        "description": "AI-powered job matching platform. Candidates upload their CV and Claude AI extracts their full profile automatically, then matches them against live job offers using 4-dimensional scoring: Hard Skills, Experience, Culture Fit, and Logistics. Recruiters only see candidates above 90% match — alerts via WhatsApp and email.",
-        "tags": [
-          "Next.js 16",
-          "Claude AI",
-          "Supabase"
-        ],
-        "metrics": [
-          "AI CV parsing",
-          "4D match scoring",
-          "WhatsApp alerts"
-        ],
-        "status": "Production"
-      },
-      {
-        "title": "Invoice Auto — Invoices and payment decision engine",
-        "description": "Invoice management SaaS for freelancers and SMEs operating across Spain and Switzerland. Upload a receipt photo or PDF, Claude Vision extracts every field, and the tax engine validates the VAT against that country's legal rates and detects reverse charge. On top of that sits what actually costs money in accounts payable: a decision engine that answers, invoice by invoice, whether the payment is safe — pay, review or hold, always with the evidence in view. It holds exact duplicates, unverified accounts and the bank-detail-change fraud pattern (the invoice asks for an IBAN other than the verified one); it sends to review the probable duplicates and amounts far above the supplier's median. A new or changed IBAN is confirmed through an independent channel and waits a cooling-off period before it can be paid. The output is an ISO 20022 pain.001.001.09 file — valid for SEPA and for the Swiss standard — that the user uploads to their e-banking: the app moves no money. The critical rules are re-checked inside PostgreSQL by SECURITY DEFINER functions, with an audit log the database itself refuses to modify or delete, so an application bug cannot schedule a payment to an unverified account or pay the same invoice twice. Public demo, no sign-up.",
-        "tags": [
-          "Next.js 16",
-          "ISO 20022",
-          "Supabase RLS"
-        ],
-        "metrics": [
-          "XSD-validated pain.001",
-          "IBAN fraud controls",
-          "132 tests"
         ],
         "status": "Production"
       },
@@ -376,6 +359,53 @@
           "AI-audited security"
         ],
         "status": "Production"
+      },
+      {
+        "title": "Ticket Auditor — Autonomous CI/CD",
+        "description": "Autonomous audit pipeline. GitHub Actions fires hourly → Vercel Edge Function → AI analysis over MCP → Resend delivers the HTML executive report. Claude reads live business context through seven MCP tools, with no direct database access. The full cycle runs in under 11 seconds with nobody watching. It has no interface: it is a service, so what there is to look at is the code.",
+        "tags": [
+          "Vercel Edge",
+          "GitHub Actions",
+          "MCP Protocol"
+        ],
+        "metrics": [
+          "<11 s per cycle",
+          "No human in the loop",
+          "20 test files"
+        ],
+        "status": "Production"
+      },
+      {
+        "title": "Aura AI — Revenue Intelligence",
+        "description": "Pricing and inventory decision panel for retail: instead of yet another dashboard, it proposes the action and leaves it ready to approve. Multi-tenant with per-tenant Row Level Security in PostgreSQL, writes restricted to the service role and an INSERT-only audit log aligned with the Swiss DSG. It filters context before calling the Anthropic API to cut the cost per analysis. The demo is public and runs on sample data; the repository is still small and has no test suite.",
+        "tags": [
+          "Next.js 16",
+          "TypeScript",
+          "Supabase RLS",
+          "Anthropic API",
+          "Vercel Edge"
+        ],
+        "metrics": [
+          "Multi-tenant RLS",
+          "DSG audit log",
+          "Public demo"
+        ],
+        "status": "Public demo"
+      },
+      {
+        "title": "MatchPoint AI",
+        "description": "AI job-matching platform. Candidates upload their CV, Claude extracts the full profile and matches them against openings with four-axis scoring: skills, experience, culture and logistics. Recruiters only see candidates above 90 %, with WhatsApp and email alerts. A working MVP with a public demo; no automated tests and no changes since April 2026.",
+        "tags": [
+          "Next.js 16",
+          "Claude AI",
+          "Supabase"
+        ],
+        "metrics": [
+          "AI CV parsing",
+          "4D match scoring",
+          "WhatsApp alerts"
+        ],
+        "status": "MVP"
       },
       {
         "title": "CivicFund Web3 Lab",
@@ -408,36 +438,6 @@
           "Idempotent webhook"
         ],
         "status": "Lab"
-      },
-      {
-        "title": "NATURÆ Cosmetics — Swiss Handmade Skincare",
-        "description": "E-commerce and PWA for a Basel-based handmade natural cosmetics brand, built compliance-first under Swiss VKos cosmetics regulation: no payment gateway wired until each product's Product Information File (PIF) is certified, so the cart resolves to a WhatsApp order handoff backed by an immutable, RLS-protected order history instead of a checkout flow. Installable on Android and iOS via a hand-written manifest and same-origin-only service worker (no next-pwa, icons generated on-demand with next/og) — the origin filter specifically prevents Supabase auth/cart responses from being cached and replayed across users on a shared device. Trilingual DE/EN/ES catalog with a per-user Supabase-synced cart (local+remote merge on login), product galleries with zoom, and recommended/recently-viewed strips from local history. Nav verified sticky and overflow-free with real headless-Chromium testing across six Android viewport widths (320–430px).",
-        "tags": [
-          "Next.js 15",
-          "Supabase RLS",
-          "PWA"
-        ],
-        "metrics": [
-          "VKos compliant",
-          "PWA iOS/Android",
-          "DE/EN/ES"
-        ],
-        "status": "Production"
-      },
-      {
-        "title": "SolarPilot — Solar pre-study with traceability",
-        "description": "Lead-generation tool for Spanish solar installers: from an address and a yearly consumption it returns a full pre-study — system size, panels, month-by-month production, self-consumption, savings, payback and a battery comparison — instead of a form promising a call back. Production comes from PVGIS (European Commission), not from an invented estimate, and every number carries its source and confidence level: the visitor sees what is measured, what is estimated and what is not known yet. It applies the Spanish RD 244/2019 surplus compensation (it only discounts up to the energy term of the bill and never turns into credit) and separates the incentives that reduce the payback from the merely potential ones, such as municipal IBI and ICIO rebates. It includes the commercial funnel: lead capture with versioned consent, a printable proposal and an internal pipeline. The whole domain is pure and functional, covered by 137 tests, and the repository screenshots are generated against an ephemeral database so no real data ever reaches the README.",
-        "tags": [
-          "Next.js 15",
-          "PVGIS",
-          "Drizzle ORM"
-        ],
-        "metrics": [
-          "Real PVGIS data",
-          "RD 244/2019",
-          "0 WCAG AA violations"
-        ],
-        "status": "Production"
       }
     ]
   },
@@ -718,8 +718,14 @@
     "license": "Category B driving licence",
     "educationTitle": "Education",
     "education": [
-      { "title": "Higher Vocational Diploma", "detail": "Systems Administration & Networking" },
-      { "title": "Higher Vocational Diploma", "detail": "Software Application Development" }
+      {
+        "title": "Higher Vocational Diploma",
+        "detail": "Systems Administration & Networking"
+      },
+      {
+        "title": "Higher Vocational Diploma",
+        "detail": "Software Application Development"
+      }
     ]
   }
 }
