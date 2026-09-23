@@ -121,7 +121,7 @@ function CredentialCard({
             {t("verified")}
           </span>
           {year && (
-            <span className="font-mono text-[10px] tracking-wider text-white/30">{year}</span>
+            <span className="font-mono text-[10px] tracking-wider text-white/60">{year}</span>
           )}
         </div>
       </div>
@@ -130,7 +130,7 @@ function CredentialCard({
       <div className="flex flex-col gap-1.5">
         <p className={`text-[11px] font-semibold ${s.text}`}>{t(`${k}_meaning`)}</p>
         <h3 className="text-base font-bold leading-snug text-white">{t(`${k}_title`)}</h3>
-        <p className="font-mono text-[11px] tracking-tight text-white/35">{t(`${k}_issuer`)}</p>
+        <p className="font-mono text-[11px] tracking-tight text-white/60">{t(`${k}_issuer`)}</p>
       </div>
 
       {/* Description */}
@@ -157,7 +157,7 @@ function CredentialCard({
           {t("open")}
         </span>
         <svg
-          className="ml-auto h-3.5 w-3.5 flex-none text-white/25 transition-all group-hover:translate-x-0.5 group-hover:text-white/55"
+          className="ml-auto h-3.5 w-3.5 flex-none text-white/60 transition-all group-hover:translate-x-0.5 group-hover:text-white/55"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -228,7 +228,7 @@ export default function Certifications() {
             </div>
             <div>
               <p className="text-sm font-semibold text-white">{t("trust_title")}</p>
-              <p className="mt-0.5 text-xs text-white/40">{t("trust_subtitle")}</p>
+              <p className="mt-0.5 text-xs text-white/60">{t("trust_subtitle")}</p>
             </div>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-2 sm:justify-end">

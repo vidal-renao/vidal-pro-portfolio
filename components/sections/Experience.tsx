@@ -95,7 +95,7 @@ export default function Experience() {
                       <span className="text-xs text-white/50 font-medium">
                         {role.period}
                       </span>
-                      <p className="text-xs text-white/30 mt-0.5">
+                      <p className="text-xs text-white/60 mt-0.5">
                         {role.location}
                       </p>
                     </div>

@@ -255,7 +255,7 @@ export default function TechStack() {
                           <span className="text-xs text-white/70">
                             {item.name}
                           </span>
-                          <span className="text-xs text-white/30">
+                          <span className="text-xs text-white/60">
                             {item.level}%
                           </span>
                         </div>
@@ -286,7 +286,7 @@ export default function TechStack() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="glass-card rounded-2xl p-5 sm:p-8 flex flex-col items-center gap-4 lg:sticky lg:top-24"
           >
-            <p className="text-xs text-white/40 uppercase tracking-widest font-semibold">
+            <p className="text-xs text-white/60 uppercase tracking-widest font-semibold">
               Competency Radar
             </p>
             <RadarChart />

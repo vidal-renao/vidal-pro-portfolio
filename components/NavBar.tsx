@@ -91,7 +91,7 @@ export default function NavBar() {
                 className={`text-sm transition-colors duration-200 ${
                   link.isBrand && pathname.startsWith("/brand")
                     ? "text-blue-400 font-medium"
-                    : "text-white/45 hover:text-white"
+                    : "text-white/60 hover:text-white"
                 }`}
               >
                 {link.label}
@@ -111,7 +111,7 @@ export default function NavBar() {
                 className={`px-2 sm:px-2.5 py-1.5 transition-colors duration-150 ${
                   locale === l
                     ? "bg-white/10 text-white"
-                    : "text-white/40 hover:text-white/70"
+                    : "text-white/60 hover:text-white/70"
                 } ${i < LOCALES.length - 1 ? "border-r border-white/[0.08]" : ""}`}
               >
                 {l.toUpperCase()}

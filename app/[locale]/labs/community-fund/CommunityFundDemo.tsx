@@ -114,7 +114,7 @@ export default function CommunityFundDemo({ locale }: { locale: Locale }) {
             <p className="text-xs font-semibold uppercase tracking-[0.21em] text-blue-400">{t("verified")}</p>
             <p className="mt-3 text-sm leading-6 text-white/56">{t("demoData")}</p>
             <div className="mt-6 rounded-2xl border border-white/8 bg-black/25 p-4">
-              <div className="text-[11px] uppercase tracking-[0.18em] text-white/38">{t("block")}</div>
+              <div className="text-[11px] uppercase tracking-[0.18em] text-white/60">{t("block")}</div>
               <div className="mt-2 font-mono text-xl text-white">
                 {block.data ? `#${block.data.toLocaleString()}` : "--"}
               </div>
@@ -126,7 +126,7 @@ export default function CommunityFundDemo({ locale }: { locale: Locale }) {
           <section className="glass-card rounded-3xl p-5 md:p-7">
             <div className="mb-6 flex items-center justify-between">
               <h2 className="text-lg font-semibold">{t("proposals")}</h2>
-              <span className="text-xs text-white/38">{t("demoBadge")}</span>
+              <span className="text-xs text-white/60">{t("demoBadge")}</span>
             </div>
             <div className="space-y-4">
               {proposals.map((proposal) => {
@@ -156,7 +156,7 @@ export default function CommunityFundDemo({ locale }: { locale: Locale }) {
                     <div className="h-1.5 overflow-hidden rounded-full bg-white/8">
                       <div className="h-full rounded-full bg-blue-400" style={{ width: `${completion}%` }} />
                     </div>
-                    <div className="mt-3 flex justify-between text-xs text-white/48">
+                    <div className="mt-3 flex justify-between text-xs text-white/60">
                       <span>{proposal.raised.toFixed(2)} / {proposal.goal} ETH - {completion}% {t("funded")}</span>
                       <span>{proposal.contributors} {t("contributors")}</span>
                     </div>
@@ -174,7 +174,7 @@ export default function CommunityFundDemo({ locale }: { locale: Locale }) {
                   <button
                     type="button"
                     onClick={() => disconnect.mutate()}
-                    className="text-xs text-white/45 transition hover:text-white"
+                    className="text-xs text-white/60 transition hover:text-white"
                   >
                     {t("disconnect")}
                   </button>
@@ -227,7 +227,7 @@ export default function CommunityFundDemo({ locale }: { locale: Locale }) {
                 type="button"
                 disabled={!connection.isConnected || !onSepolia || signMessage.isPending}
                 onClick={() => signMessage.mutate({ message })}
-                className="w-full rounded-xl border border-blue-400/35 bg-blue-400/[0.08] px-5 py-3 text-sm font-semibold text-blue-100 transition hover:bg-blue-400/[0.14] disabled:cursor-not-allowed disabled:border-white/10 disabled:text-white/30"
+                className="w-full rounded-xl border border-blue-400/35 bg-blue-400/[0.08] px-5 py-3 text-sm font-semibold text-blue-100 transition hover:bg-blue-400/[0.14] disabled:cursor-not-allowed disabled:border-white/10 disabled:text-white/60"
               >
                 {signMessage.isPending ? "..." : t("sign")}
               </button>
@@ -235,7 +235,7 @@ export default function CommunityFundDemo({ locale }: { locale: Locale }) {
                 <div className="mt-4 rounded-xl border border-blue-400/18 bg-blue-400/[0.06] p-4">
                   <p className="mb-2 text-xs font-semibold text-blue-200">{t("signed")}</p>
                   <p className="mb-2 break-all font-mono text-[10px] leading-5 text-white/52">{signMessage.data}</p>
-                  <p className="text-xs leading-5 text-white/46">{t("signatureNote")}</p>
+                  <p className="text-xs leading-5 text-white/60">{t("signatureNote")}</p>
                 </div>
               )}
               {signMessage.error && <p className="mt-3 text-xs text-rose-300">{signMessage.error.message}</p>}
@@ -262,7 +262,7 @@ export default function CommunityFundDemo({ locale }: { locale: Locale }) {
 function Signal({ label, value, mono = false }: { label: string; value: string; mono?: boolean }) {
   return (
     <div className="rounded-xl border border-white/8 bg-black/20 p-4">
-      <p className="mb-2 text-[11px] uppercase tracking-[0.16em] text-white/38">{label}</p>
+      <p className="mb-2 text-[11px] uppercase tracking-[0.16em] text-white/60">{label}</p>
       <p className={`text-sm text-white/78 ${mono ? "font-mono" : ""}`}>{value}</p>
     </div>
   );

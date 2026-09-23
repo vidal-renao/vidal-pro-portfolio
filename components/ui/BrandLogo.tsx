@@ -99,7 +99,7 @@ export default function BrandLogo({ href = "/" }: BrandLogoProps) {
         <span className="font-bold text-sm text-white tracking-tight leading-none">
           Vidal Reñao Lopelo
         </span>
-        <span className="font-mono text-[10px] text-white/40 tracking-wide leading-none">
+        <span className="font-mono text-[10px] text-white/60 tracking-wide leading-none">
           AI-Powered Infrastructure Architect
         </span>
       </div>

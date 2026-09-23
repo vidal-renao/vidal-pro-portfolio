@@ -127,7 +127,7 @@ function ContactForm() {
             </svg>
           </div>
           <p className="text-sm font-semibold text-white">{t("form_success_title")}</p>
-          <p className="text-xs text-white/40">{t("form_success_msg")}</p>
+          <p className="text-xs text-white/60">{t("form_success_msg")}</p>
           <button
             onClick={() => setStatus("idle")}
             className="mt-1 text-xs text-blue-400 transition-colors hover:text-blue-300"
@@ -149,13 +149,13 @@ function ContactForm() {
 
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             <div className="flex flex-col gap-1.5">
-              <label className="text-xs font-medium text-white/40" htmlFor="cf-name">
+              <label className="text-xs font-medium text-white/60" htmlFor="cf-name">
                 {t("form_name")}
               </label>
               <input id="cf-name" name="name" type="text" required autoComplete="name" placeholder={t("form_name_ph")} className={inputCls} />
             </div>
             <div className="flex flex-col gap-1.5">
-              <label className="text-xs font-medium text-white/40" htmlFor="cf-email">
+              <label className="text-xs font-medium text-white/60" htmlFor="cf-email">
                 {t("form_email")}
               </label>
               <input id="cf-email" name="email" type="email" required autoComplete="email" placeholder={t("form_email_ph")} className={inputCls} />
@@ -163,14 +163,14 @@ function ContactForm() {
           </div>
 
           <div className="flex flex-col gap-1.5">
-            <label className="text-xs font-medium text-white/40" htmlFor="cf-subject">
+            <label className="text-xs font-medium text-white/60" htmlFor="cf-subject">
               {t("form_subject")}
             </label>
             <input id="cf-subject" name="subject" type="text" placeholder={t("form_subject_ph")} className={inputCls} />
           </div>
 
           <div className="flex flex-col gap-1.5">
-            <label className="text-xs font-medium text-white/40" htmlFor="cf-message">
+            <label className="text-xs font-medium text-white/60" htmlFor="cf-message">
               {t("form_message")}
             </label>
             <textarea id="cf-message" name="message" required rows={5} placeholder={t("form_message_ph")} className={`${inputCls} resize-none`} />
@@ -209,7 +209,7 @@ function ContactForm() {
           <button
             type="button"
             onClick={handleCopy}
-            className="flex items-center justify-center gap-1.5 py-1 text-xs text-white/30 transition-colors hover:text-white/55"
+            className="flex items-center justify-center gap-1.5 py-1 text-xs text-white/60 transition-colors hover:text-white/55"
           >
             {copied ? (
               <>
@@ -277,7 +277,7 @@ export default function Contact({ locale = "en" }: ContactProps) {
                   </div>
                   <div className="min-w-0">
                     <p className="text-base font-bold leading-tight tracking-tight text-white">Vidal Reñao Lopelo</p>
-                    <p className="mt-0.5 text-xs leading-snug text-white/45">{ROLE}</p>
+                    <p className="mt-0.5 text-xs leading-snug text-white/60">{ROLE}</p>
                     <p className="mt-0.5 text-[11px] leading-snug text-blue-300/70">{ROLE_SPEC}</p>
                   </div>
                 </div>
@@ -295,15 +295,15 @@ export default function Contact({ locale = "en" }: ContactProps) {
               {/* Direct contact details */}
               <div className="mt-4 space-y-2.5 border-t border-white/6 pt-4">
                 <a href="tel:+41779726299" className="group flex items-center gap-3 py-0.5">
-                  <Phone className="h-4 w-4 flex-none text-white/30 transition-colors group-hover:text-blue-400" aria-hidden="true" />
+                  <Phone className="h-4 w-4 flex-none text-white/60 transition-colors group-hover:text-blue-400" aria-hidden="true" />
                   <span className="font-mono text-sm tracking-tight text-white/65 transition-colors group-hover:text-white">+41 77 972 62 99</span>
                 </a>
                 <a href={`mailto:${EMAIL}`} className="group flex items-center gap-3 py-0.5">
-                  <Mail className="h-4 w-4 flex-none text-white/30 transition-colors group-hover:text-blue-400" aria-hidden="true" />
+                  <Mail className="h-4 w-4 flex-none text-white/60 transition-colors group-hover:text-blue-400" aria-hidden="true" />
                   <span className="break-all text-sm text-white/65 transition-colors group-hover:text-white">{EMAIL}</span>
                 </a>
                 <div className="flex items-center gap-3 py-0.5">
-                  <MapPin className="h-4 w-4 flex-none text-white/30" aria-hidden="true" />
+                  <MapPin className="h-4 w-4 flex-none text-white/60" aria-hidden="true" />
                   <span className="text-sm text-white/65">Basel, Switzerland</span>
                 </div>
               </div>
@@ -313,8 +313,8 @@ export default function Contact({ locale = "en" }: ContactProps) {
                 <span className="rounded-full border border-blue-500/20 bg-blue-500/6 px-2.5 py-0.5 text-[10px] font-medium text-blue-300/75">
                   🇨🇭 Switzerland
                 </span>
-                <span className="rounded-full border border-white/[0.07] px-2.5 py-0.5 text-[10px] text-white/40">DACH Region</span>
-                <span className="rounded-full border border-white/[0.07] px-2.5 py-0.5 text-[10px] text-white/40">Hybrid · Remote</span>
+                <span className="rounded-full border border-white/[0.07] px-2.5 py-0.5 text-[10px] text-white/60">DACH Region</span>
+                <span className="rounded-full border border-white/[0.07] px-2.5 py-0.5 text-[10px] text-white/60">Hybrid · Remote</span>
               </div>
             </div>
 
@@ -332,12 +332,12 @@ export default function Contact({ locale = "en" }: ContactProps) {
                   whileHover={{ x: 4, y: -1 }}
                   className="group flex items-center gap-4 rounded-xl glass-card px-4 py-3 transition-all duration-200 hover:border-white/15"
                 >
-                  <span className="flex-none text-white/35 transition-colors group-hover:text-white/70">{link.icon}</span>
+                  <span className="flex-none text-white/60 transition-colors group-hover:text-white/70">{link.icon}</span>
                   <div className="min-w-0 flex-1">
-                    <p className="mb-0.5 text-xs font-medium leading-none text-white/30">{link.label}</p>
+                    <p className="mb-0.5 text-xs font-medium leading-none text-white/60">{link.label}</p>
                     <p className="truncate text-sm text-white/65 transition-colors group-hover:text-white">{link.value}</p>
                   </div>
-                  <svg className="ml-auto h-4 w-4 flex-none text-white/20 transition-all group-hover:translate-x-0.5 group-hover:text-white/45" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                  <svg className="ml-auto h-4 w-4 flex-none text-white/60 transition-all group-hover:translate-x-0.5 group-hover:text-white/60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </motion.a>
@@ -366,7 +366,7 @@ export default function Contact({ locale = "en" }: ContactProps) {
           className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-white/4 pt-6 sm:mt-16 sm:flex-row sm:pt-8"
         >
           <BrandLogo />
-          <p className="text-xs text-white/20">© 2026 Vidal Reñao · Basel, Switzerland</p>
+          <p className="text-xs text-white/60">© 2026 Vidal Reñao · Basel, Switzerland</p>
         </motion.div>
       </div>
     </section>

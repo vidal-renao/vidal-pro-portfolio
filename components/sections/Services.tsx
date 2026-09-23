@@ -22,7 +22,7 @@ const services: Array<{
     key: "cloud",
     accentColor: "text-blue-400",
     borderHover: "hover:border-blue-500/25",
-    tagColor: "bg-blue-500/8 text-blue-400/80 border-blue-500/20",
+    tagColor: "bg-blue-500/8 text-blue-300/85 border-blue-500/20",
     benefitColor: "text-blue-300",
     bgGlow: "group-hover:shadow-blue-500/08",
     icon: (
@@ -35,7 +35,7 @@ const services: Array<{
     key: "apps",
     accentColor: "text-violet-400",
     borderHover: "hover:border-violet-500/25",
-    tagColor: "bg-violet-500/8 text-violet-400/80 border-violet-500/20",
+    tagColor: "bg-violet-500/8 text-violet-300/85 border-violet-500/20",
     benefitColor: "text-violet-300",
     bgGlow: "group-hover:shadow-violet-500/08",
     icon: (
@@ -48,7 +48,7 @@ const services: Array<{
     key: "network",
     accentColor: "text-emerald-400",
     borderHover: "hover:border-emerald-500/25",
-    tagColor: "bg-emerald-500/8 text-emerald-400/80 border-emerald-500/20",
+    tagColor: "bg-emerald-500/8 text-emerald-300/85 border-emerald-500/20",
     benefitColor: "text-emerald-300",
     bgGlow: "group-hover:shadow-emerald-500/08",
     icon: (
@@ -130,7 +130,7 @@ export default function Services() {
 
                 {/* Case study (apps only) */}
                 {svc.key === "apps" && (
-                  <p className="text-xs text-violet-400/70 italic border-l-2 border-violet-500/30 pl-3">
+                  <p className="text-xs text-violet-300/80 italic border-l-2 border-violet-500/30 pl-3">
                     {t("apps_case")}
                   </p>
                 )}
@@ -162,7 +162,7 @@ export default function Services() {
             <p className="font-semibold text-white text-lg">
               {t("cta")}
             </p>
-            <p className="text-sm text-white/40 mt-1">
+            <p className="text-sm text-white/60 mt-1">
               Basel, Switzerland · Liechtenstein · Remote
             </p>
           </div>

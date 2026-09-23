@@ -71,12 +71,12 @@ const LAB_ROUTES: Record<string, string> = {
 const colorMap: Record<ColorKey, { badge: string; tag: string; dot: string; border: string; glow?: string }> = {
   lime:    { badge: "bg-lime-500/10 text-lime-400 border-lime-500/20",   tag: "bg-lime-500/08 text-lime-300/80 border-lime-500/15",   dot: "bg-lime-400",   border: "hover:border-lime-500/30",   glow: "shadow-[0_0_80px_rgba(163,230,53,0.07)]" },
   amber:   { badge: "bg-amber-500/10 text-amber-400 border-amber-500/20", tag: "bg-amber-500/08 text-amber-400/80 border-amber-500/15", dot: "bg-amber-400",  border: "hover:border-amber-500/20" },
-  blue:    { badge: "bg-blue-500/10 text-blue-400 border-blue-500/20",   tag: "bg-blue-500/08 text-blue-400/80 border-blue-500/15",   dot: "bg-blue-400",   border: "hover:border-blue-500/20" },
-  violet:  { badge: "bg-violet-500/10 text-violet-400 border-violet-500/20", tag: "bg-violet-500/08 text-violet-400/80 border-violet-500/15", dot: "bg-violet-400", border: "hover:border-violet-500/20" },
+  blue:    { badge: "bg-blue-500/10 text-blue-400 border-blue-500/20",   tag: "bg-blue-500/08 text-blue-300/80 border-blue-500/15",   dot: "bg-blue-400",   border: "hover:border-blue-500/20" },
+  violet:  { badge: "bg-violet-500/10 text-violet-400 border-violet-500/20", tag: "bg-violet-500/08 text-violet-300/80 border-violet-500/15", dot: "bg-violet-400", border: "hover:border-violet-500/20" },
   emerald: { badge: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20", tag: "bg-emerald-500/08 text-emerald-400/80 border-emerald-500/15", dot: "bg-emerald-400", border: "hover:border-emerald-500/20" },
   cyan:    { badge: "bg-cyan-500/10 text-cyan-400 border-cyan-500/20",   tag: "bg-cyan-500/08 text-cyan-400/80 border-cyan-500/15",   dot: "bg-cyan-400",   border: "hover:border-cyan-500/20" },
-  rose:    { badge: "bg-rose-500/10 text-rose-400 border-rose-500/20",   tag: "bg-rose-500/08 text-rose-400/80 border-rose-500/15",   dot: "bg-rose-400",   border: "hover:border-rose-500/20" },
-  indigo:  { badge: "bg-indigo-500/10 text-indigo-400 border-indigo-500/20", tag: "bg-indigo-500/08 text-indigo-400/80 border-indigo-500/15", dot: "bg-indigo-400", border: "hover:border-indigo-500/20" },
+  rose:    { badge: "bg-rose-500/10 text-rose-400 border-rose-500/20",   tag: "bg-rose-500/08 text-rose-300/80 border-rose-500/15",   dot: "bg-rose-400",   border: "hover:border-rose-500/20" },
+  indigo:  { badge: "bg-indigo-500/10 text-indigo-400 border-indigo-500/20", tag: "bg-indigo-500/08 text-indigo-300/80 border-indigo-500/15", dot: "bg-indigo-400", border: "hover:border-indigo-500/20" },
 };
 
 const gridVariants = {
@@ -220,7 +220,7 @@ export default function Projects() {
             <div className="flex flex-col gap-4 md:w-64 shrink-0">
               <div className="flex flex-wrap gap-2">
                 {starProject.metrics.map((m) => (
-                  <span key={m} className="text-xs text-white/40 bg-white/[0.04] border border-white/[0.06] rounded-full px-2.5 py-1">
+                  <span key={m} className="text-xs text-white/60 bg-white/[0.04] border border-white/[0.06] rounded-full px-2.5 py-1">
                     {m}
                   </span>
                 ))}
@@ -252,7 +252,7 @@ export default function Projects() {
                   href={starProject.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 py-1.5 text-xs font-medium text-white/40 transition-colors hover:text-white"
+                  className="flex items-center gap-1.5 py-1.5 text-xs font-medium text-white/60 transition-colors hover:text-white"
                   whileHover={{ x: 2 }}
                 >
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -317,7 +317,7 @@ export default function Projects() {
 
                 <div className="flex flex-wrap gap-2">
                   {project.metrics.map((m) => (
-                    <span key={m} className="text-xs text-white/40 bg-white/[0.04] border border-white/[0.06] rounded-full px-2.5 py-1">{m}</span>
+                    <span key={m} className="text-xs text-white/60 bg-white/[0.04] border border-white/[0.06] rounded-full px-2.5 py-1">{m}</span>
                   ))}
                 </div>
 
@@ -333,7 +333,7 @@ export default function Projects() {
                         href={project.demoUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1 py-1.5 text-xs text-white/40 transition-colors hover:text-white"
+                        className="flex items-center gap-1 py-1.5 text-xs text-white/60 transition-colors hover:text-white"
                         whileHover={{ x: 2 }}
                       >
                         <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -347,7 +347,7 @@ export default function Projects() {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1 py-1.5 text-xs text-white/40 transition-colors hover:text-white"
+                      className="flex items-center gap-1 py-1.5 text-xs text-white/60 transition-colors hover:text-white"
                       whileHover={{ x: 2 }}
                     >
                       <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">

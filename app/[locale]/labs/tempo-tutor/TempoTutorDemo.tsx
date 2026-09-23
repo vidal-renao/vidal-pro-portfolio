@@ -181,7 +181,7 @@ export default function TempoTutorDemo({
               </div>
             </div>
             <div className="rounded-3xl border border-white/10 bg-black/25 p-5">
-              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-white/48">{t("integrationTitle")}</p>
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-white/60">{t("integrationTitle")}</p>
               <Status label={t("supabaseAuth")} active={integrationStatus.supabase} activeLabel={t("configured")} inactiveLabel={t("demoMode")} />
               <Status label={t("stripeCheckout")} active={integrationStatus.stripe} activeLabel={t("configured")} inactiveLabel={t("demoMode")} />
               <Status label={t("webhookIdempotency")} active={integrationStatus.webhook} activeLabel={t("configured")} inactiveLabel={t("setupRequired")} />
@@ -215,7 +215,7 @@ export default function TempoTutorDemo({
                 <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-fuchsia-300">{t("marketplaceLabel")}</p>
                 <h2 className="text-2xl font-semibold">{t("chooseTeacher")}</h2>
               </div>
-              <span className="text-xs text-white/40">{t("seededProfiles")}</span>
+              <span className="text-xs text-white/60">{t("seededProfiles")}</span>
             </div>
             <div className="space-y-4">
               {lessonSlots.map((slot) => {
@@ -275,7 +275,7 @@ export default function TempoTutorDemo({
               >
                 {busy ? t("processing") : session && integrationStatus.stripe ? t("payWithStripe") : t("previewReservation")}
               </button>
-              <p className="mt-4 text-xs leading-6 text-white/45">{t("paymentDisclosure")}</p>
+              <p className="mt-4 text-xs leading-6 text-white/60">{t("paymentDisclosure")}</p>
             </section>
 
             <section className="rounded-3xl border border-white/[0.08] bg-white/[0.025] p-6">
@@ -300,7 +300,7 @@ export default function TempoTutorDemo({
                     value={email}
                     onChange={(event) => setEmail(event.target.value)}
                     placeholder={t("emailPlaceholder")}
-                    className="mb-3 w-full rounded-xl border border-white/10 bg-black/25 px-4 py-3 text-sm outline-none placeholder:text-white/30 focus:border-cyan-300/50"
+                    className="mb-3 w-full rounded-xl border border-white/10 bg-black/25 px-4 py-3 text-sm outline-none placeholder:text-white/60 focus:border-cyan-300/50"
                   />
                   <button type="button" onClick={() => void signIn()} disabled={busy} className="w-full rounded-xl border border-cyan-300/25 bg-cyan-300/10 px-4 py-3 text-sm font-semibold text-cyan-100 disabled:opacity-50">
                     {t("sendMagicLink")}

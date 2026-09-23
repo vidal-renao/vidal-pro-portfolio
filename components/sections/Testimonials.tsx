@@ -83,7 +83,7 @@ export default function Testimonials() {
                       <p className="text-white font-semibold text-sm leading-snug">
                         {item.author}
                       </p>
-                      <p className="text-white/40 text-xs mt-0.5 leading-snug break-words">
+                      <p className="text-white/60 text-xs mt-0.5 leading-snug break-words">
                         {item.role}
                       </p>
                     </div>
@@ -101,7 +101,7 @@ export default function Testimonials() {
                       href={item.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-block py-1.5 text-xs text-cyan-400/60 hover:text-cyan-400 transition-colors"
+                      className="inline-block py-1.5 text-xs text-cyan-300/80 hover:text-cyan-400 transition-colors"
                     >
                       {item.urlLabel}
                     </a>

@@ -83,11 +83,11 @@ export default function DownloadCenter({ locale = "en" }: DownloadCenterProps) {
           {t.heading}
         </p>
       </div>
-      <p className="mb-3.5 text-xs text-white/35">{t.hint}</p>
+      <p className="mb-3.5 text-xs text-white/60">{t.hint}</p>
 
       {/* CV focus selector */}
       <div className="mb-3.5">
-        <p className="mb-1.5 text-[10px] font-semibold uppercase tracking-widest text-white/30">
+        <p className="mb-1.5 text-[10px] font-semibold uppercase tracking-widest text-white/60">
           {t.variantLabel}
         </p>
         <div className="grid grid-cols-2 gap-2">
@@ -104,7 +104,7 @@ export default function DownloadCenter({ locale = "en" }: DownloadCenterProps) {
               className={`rounded-lg border px-2 py-1.5 text-[11px] font-medium transition-all duration-200 ${
                 cvVariant === opt.code
                   ? "border-blue-500/40 bg-blue-500/[0.08] text-blue-200"
-                  : "border-white/[0.07] bg-white/[0.02] text-white/45 hover:border-white/15 hover:text-white/70"
+                  : "border-white/[0.07] bg-white/[0.02] text-white/60 hover:border-white/15 hover:text-white/70"
               }`}
             >
               {opt.label}
@@ -115,7 +115,7 @@ export default function DownloadCenter({ locale = "en" }: DownloadCenterProps) {
 
       {/* Email selector */}
       <div className="mb-3.5">
-        <p className="mb-1.5 text-[10px] font-semibold uppercase tracking-widest text-white/30">
+        <p className="mb-1.5 text-[10px] font-semibold uppercase tracking-widest text-white/60">
           {t.emailLabel}
         </p>
         <div className="grid grid-cols-2 gap-2">
@@ -127,7 +127,7 @@ export default function DownloadCenter({ locale = "en" }: DownloadCenterProps) {
               className={`rounded-lg border px-2 py-1.5 text-[11px] font-medium transition-all duration-200 ${
                 email === opt.code
                   ? "border-blue-500/40 bg-blue-500/[0.08] text-blue-200"
-                  : "border-white/[0.07] bg-white/[0.02] text-white/45 hover:border-white/15 hover:text-white/70"
+                  : "border-white/[0.07] bg-white/[0.02] text-white/60 hover:border-white/15 hover:text-white/70"
               }`}
             >
               {opt.label}
@@ -153,14 +153,14 @@ export default function DownloadCenter({ locale = "en" }: DownloadCenterProps) {
                 href={`/${lang.code}/print?print=1&email=${email}&variant=${cvVariant}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group/btn flex items-center justify-center gap-1 rounded-md border border-white/[0.06] bg-white/[0.02] px-2 py-1 text-[10px] font-medium text-white/40 transition-colors hover:border-blue-500/30 hover:text-blue-300/90"
+                className="group/btn flex items-center justify-center gap-1 rounded-md border border-white/[0.06] bg-white/[0.02] px-2 py-1 text-[10px] font-medium text-white/60 transition-colors hover:border-blue-500/30 hover:text-blue-300/90"
               >
                 <Download className="h-3 w-3" aria-hidden="true" />
                 {t.pdf}
               </a>
               <a
                 href={`/api/download?format=word&locale=${lang.code}&email=${email}&variant=${cvVariant}`}
-                className="group/btn flex items-center justify-center gap-1 rounded-md border border-white/[0.06] bg-white/[0.02] px-2 py-1 text-[10px] font-medium text-white/40 transition-colors hover:border-blue-500/30 hover:text-blue-300/90"
+                className="group/btn flex items-center justify-center gap-1 rounded-md border border-white/[0.06] bg-white/[0.02] px-2 py-1 text-[10px] font-medium text-white/60 transition-colors hover:border-blue-500/30 hover:text-blue-300/90"
               >
                 <FileType className="h-3 w-3" aria-hidden="true" />
                 {t.word}

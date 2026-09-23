@@ -68,7 +68,7 @@ export default function DownloadCVButton({
 
       {/* Arrow indicator */}
       <svg
-        className="w-3.5 h-3.5 text-white/30 group-hover:text-blue-400/70 transition-colors duration-300 flex-none"
+        className="w-3.5 h-3.5 text-white/60 group-hover:text-blue-300/80 transition-colors duration-300 flex-none"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
