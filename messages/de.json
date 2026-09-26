@@ -2,7 +2,7 @@
   "nav": {
     "stack": "Stack",
     "services": "Leistungen",
-    "certifications": "Zertifizierungen",
+    "certifications": "Ausbildung",
     "experience": "Erfahrung",
     "projects": "Projekte",
     "consultation": "Kostenlose IT-Analyse",
@@ -61,14 +61,14 @@
     "stat1_value": "10+",
     "stat1_label": "Projekte in Produktion",
     "stat2_value": "CCNA",
-    "stat2_label": "Cisco Zertifiziert",
+    "stat2_label": "CCNA-Kurse",
     "stat3_value": "DE·EN·ES",
     "stat3_label": "Dreisprachig"
   },
   "certifications": {
-    "label": "Verifizierte Nachweise",
-    "title": "Akkreditierte Ausbildung, nicht selbst deklariert",
-    "subtitle": "Fünf Nachweise hinter der Arbeit: KI-Entwicklung, Full-Stack-Engineering und das Netzwerkfundament. Jede Karte öffnet das Originalzertifikat als PDF.",
+    "label": "Ausbildung und Weiterbildung",
+    "title": "Zwei höhere Berufsabschlüsse in Informatik",
+    "subtitle": "Anwendungsentwicklung (2011) und Administration vernetzter Computersysteme (2014), ergänzt durch Weiterbildung.",
     "open": "Zertifikat öffnen",
     "verified": "Verifiziert",
     "ai_agentprog_title": "KI-Agenten-Programmierung",
@@ -104,22 +104,22 @@
       "Deployment",
       "DevEx"
     ],
-    "ccna_title": "CCNA — Routing & Switching",
+    "ccna_title": "CCNA-Kurse",
     "ccna_issuer": "Cisco Networking Academy",
-    "ccna_year": "",
+    "ccna_year": "2013",
     "ccna_meaning": "Das Netzwerk unter Kontrolle, per Design",
-    "ccna_desc": "Formale Zertifizierung in Enterprise-Netzwerken: Switching, Routing, VLAN, VPN und Sicherheit — der solide Boden, auf dem die Software läuft.",
+    "ccna_desc": "Cisco Networking Academy: CCNA Discovery — Working at a Small-to-Medium Business or ISP. Kursabschlussbescheinigung, Juni 2013.",
     "ccna_tags": [
       "Routing & Switching",
       "VLAN",
       "VPN",
       "TCP/IP"
     ],
-    "diploma_title": "Software-Anwendungsentwicklung",
-    "diploma_issuer": "IES · Spanien",
-    "diploma_year": "2012",
+    "diploma_title": "Höherer Berufsabschluss in Anwendungsentwicklung (DAI)",
+    "diploma_issuer": "IES Pablo Serrano · Zaragoza",
+    "diploma_year": "2011",
     "diploma_meaning": "Software-Engineering von Grund auf",
-    "diploma_desc": "Höheres Diplom in Softwareentwicklung: Programmierung, Datenbanken und Anwendungsarchitektur — das formale Fundament des Full-Stack-Profils.",
+    "diploma_desc": "Höherer Berufsabschluss, abgeschlossen im Dezember 2011. Diplom ausgestellt am 7. Februar 2012. Ausbildung in Programmierung, Datenbanken und Anwendungsentwicklung.",
     "diploma_tags": [
       "Software",
       "Datenbanken",
@@ -131,9 +131,10 @@
     "trust_badges": [
       "KI-Entwicklung",
       "Full-Stack in Produktion",
-      "Cisco CCNA",
+      "CCNA-Kurse",
       "100/100 Lighthouse"
-    ]
+    ],
+    "coursesTitle": "Diplom und Kurszertifikate"
   },
   "stack": {
     "title": "Technologie-Stack",
@@ -180,7 +181,7 @@
         "location": "Zaragoza, Spanien",
         "period": "2021 – Juli 2023",
         "highlights": [
-          "Enterprise-IT für 500+ Benutzer auf 2nd/3rd-Level-Support-Ebene",
+          "Technischer Support und Nachverfolgung von Störungen mit Jira",
           "Administration von Microsoft 365 und Active Directory",
           "Netzwerk-Troubleshooting: TCP/IP, DNS, DHCP, VLAN, VPN",
           "Unterstützung der VMware vSphere Virtualisierungsinfrastruktur"
@@ -193,7 +194,7 @@
         "period": "2019 – 2021",
         "highlights": [
           "1st-Level IT-Support in einer ITIL-basierten Unternehmensumgebung",
-          "Incident Management, SLA-Tracking und Benutzerkontenverwaltung",
+          "Incident Management und SLA-Nachverfolgung mit ServiceNow",
           "Microsoft 365 Anwendungssupport und Remote-Fehlerbehebung"
         ]
       },
@@ -205,7 +206,8 @@
         "highlights": [
           "Betrieb und Wartung von Netzwerk- und Systeminfrastrukturen",
           "Verwaltung von Virtualisierungsumgebungen und Systemüberwachung",
-          "Infrastrukturunterstützung für mehrere Kundenstandorte"
+          "Infrastrukturunterstützung für mehrere Kundenstandorte",
+          "Erfassung und Nachverfolgung von System- und Netzwerkstörungen mit ServiceNow"
         ]
       },
       {
@@ -628,7 +630,7 @@
     "specialties": "Webentwicklung · KI · Systemadministration",
     "available": "Sofort verfügbar",
     "profileTitle": "Berufsprofil",
-    "profile": "Fullstack-Entwickler und IT-Spezialist mit Sitz in Basel und über einem Jahrzehnt Erfahrung. Ich baue Websites, Apps und KI-Automatisierung für Unternehmen aller Branchen —Fitnessstudios, Restaurants, Friseure, Praxen, Läden und Agenturen— und kümmere mich auch um die Systemseite: Windows Server, Active Directory, Linux, Netzwerke und Microsoft 365 (CCNA-zertifiziert). Vom Briefing bis zum Ergebnis, ein einziger Ansprechpartner. Dreisprachig (DE/EN/ES).",
+    "profile": "Fullstack-Entwickler und IT-Spezialist mit Sitz in Basel und über einem Jahrzehnt Erfahrung. Ich baue Websites, Apps und KI-Automatisierung für Unternehmen aller Branchen —Fitnessstudios, Restaurants, Friseure, Praxen, Läden und Agenturen— und kümmere mich auch um die Systemseite: Windows Server, Active Directory, Linux, Netzwerke und Microsoft 365 (CCNA-Kursausbildung). Vom Briefing bis zum Ergebnis, ein einziger Ansprechpartner. Dreisprachig (DE/EN/ES).",
     "competenciesTitle": "Kernkompetenzen",
     "competencies": [
       "Websites & Apps — Next.js, React, TypeScript, PWA",
@@ -667,6 +669,10 @@
       {
         "area": "Cloud & Delivery",
         "detail": "Vercel · GitHub Actions · PWA · Azure · CI/CD"
+      },
+      {
+        "area": "IT-Service-Management",
+        "detail": "ServiceNow · Jira · ITSM · SLA"
       }
     ],
     "certsTitle": "Zertifizierungen & Weiterbildung",
@@ -684,12 +690,8 @@
         "detail": "BIG School · 2026"
       },
       {
-        "title": "CCNA — Routing & Switching",
-        "detail": "Cisco Networking Academy"
-      },
-      {
-        "title": "Software-Anwendungsentwicklung (DAI)",
-        "detail": "IES · Spanien · 2012"
+        "title": "CCNA-Kurse",
+        "detail": "Cisco Networking Academy · 2013"
       }
     ],
     "languagesTitle": "Sprachen",
@@ -712,19 +714,19 @@
   "cvSystems": {
     "role": "IT-System Engineer",
     "specialties": "Windows Server · VMware vSphere · IT-Infrastruktur",
-    "profile": "IT-Ingenieur mit über 7 Jahren Erfahrung in der Implementierung und dem Betrieb heterogener IT-Infrastrukturen. Spezialist in Windows Server, VMware vSphere, Hyper-V (Server- und Client-Virtualisierung) und Microsoft-Technologien — mit nachgewiesenem Betrieb für 500+ Benutzer in Unternehmensumgebungen. Projektumsetzung end-to-end: von der Netzwerkarchitektur bis zur Cloud-Migration. CCNA-zertifiziert. Deutsch B2, Englisch C1. EU-Staatsbürger mit Ausweis B — keine Arbeitserlaubnis erforderlich. Führerschein Kat. B.",
+    "profile": "IT-Ingenieur mit über 7 Jahren Erfahrung in der Implementierung und dem Betrieb heterogener IT-Infrastrukturen. Spezialist in Windows Server, VMware vSphere, Hyper-V (Server- und Client-Virtualisierung) und Microsoft-Technologien. Projektumsetzung end-to-end: von der Netzwerkarchitektur bis zur Cloud-Migration. CCNA-Kursausbildung. Deutsch B2, Englisch C1. EU-Staatsbürger mit Ausweis B — keine Arbeitserlaubnis erforderlich. Führerschein Kat. B.",
     "residency": "EU-Bürger | Ausweis B (5 J.)",
     "nationality": "Nationalität: Spanisch (EU-Staatsbürger)",
     "license": "Führerschein Kategorie B",
     "educationTitle": "Ausbildung",
     "education": [
       {
-        "title": "Höhere Berufsausbildung",
-        "detail": "Systemadministration & Netzwerke"
+        "title": "Höherer Berufsabschluss in Administration vernetzter Computersysteme (ASIR)",
+        "detail": "Abgeschlossen 2014"
       },
       {
-        "title": "Höhere Berufsausbildung",
-        "detail": "Anwendungsentwicklung"
+        "title": "Höherer Berufsabschluss in Anwendungsentwicklung (DAI)",
+        "detail": "IES Pablo Serrano · Zaragoza, Spanien · Abgeschlossen im Dezember 2011 · Diplom ausgestellt im Februar 2012"
       }
     ]
   }

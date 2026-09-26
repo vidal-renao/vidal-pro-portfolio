@@ -230,3 +230,7 @@ npm run test:e2e     # Playwright E2E tests
 ```
 
 Production CI/CD via Vercel from the `main` branch. Locale routing handled by `middleware.ts` (next-intl). All locale routes pre-rendered at build time via `generateStaticParams`.
+
+### Profile content consistency
+
+Academic qualifications are shared by the portfolio education section, printable CV and DOCX export through `cvSystems.education` in all three locales. DAI was completed in 2011 (diploma issued in 2012); ASIR was completed in 2014. Experience assigns Jira to Lutelco and ServiceNow to Nationale Nederlanden and NSC. Cisco course completion is described as training, not a professional CCNA certification.

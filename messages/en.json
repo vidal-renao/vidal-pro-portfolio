@@ -2,7 +2,7 @@
   "nav": {
     "stack": "Stack",
     "services": "Services",
-    "certifications": "Certifications",
+    "certifications": "Education",
     "experience": "Experience",
     "projects": "Projects",
     "consultation": "Free IT Analysis",
@@ -61,14 +61,14 @@
     "stat1_value": "10+",
     "stat1_label": "Projects in Production",
     "stat2_value": "CCNA",
-    "stat2_label": "Cisco Certified",
+    "stat2_label": "CCNA training",
     "stat3_value": "DE·EN·ES",
     "stat3_label": "Trilingual"
   },
   "certifications": {
-    "label": "Verified credentials",
-    "title": "Accredited training, not self-declared",
-    "subtitle": "Five credentials behind the work: AI development, full-stack engineering, and the networking foundation. Each card opens the original certificate as a PDF.",
+    "label": "Education and continuing training",
+    "title": "Two higher vocational diplomas in IT",
+    "subtitle": "Software Application Development (2011) and Networked Computer Systems Administration (2014), complemented by continuing training.",
     "open": "Open certificate",
     "verified": "Verified",
     "ai_agentprog_title": "AI Agent Programming",
@@ -104,22 +104,22 @@
       "Deployment",
       "DevEx"
     ],
-    "ccna_title": "CCNA — Routing & Switching",
+    "ccna_title": "CCNA training",
     "ccna_issuer": "Cisco Networking Academy",
-    "ccna_year": "",
+    "ccna_year": "2013",
     "ccna_meaning": "The network under control, by design",
-    "ccna_desc": "Formal certification in enterprise networking: switching, routing, VLAN, VPN and security — the solid ground the software runs on.",
+    "ccna_desc": "Cisco Networking Academy training: CCNA Discovery — Working at a Small-to-Medium Business or ISP. Course completion certificate, June 2013.",
     "ccna_tags": [
       "Routing & Switching",
       "VLAN",
       "VPN",
       "TCP/IP"
     ],
-    "diploma_title": "Software Application Development",
-    "diploma_issuer": "IES · Spain",
-    "diploma_year": "2012",
+    "diploma_title": "Higher Vocational Diploma in Software Application Development (DAI)",
+    "diploma_issuer": "IES Pablo Serrano · Zaragoza",
+    "diploma_year": "2011",
     "diploma_meaning": "Software engineering from the ground up",
-    "diploma_desc": "Higher diploma in software development: programming, databases, and application architecture — the formal foundation of the full-stack profile.",
+    "diploma_desc": "Higher vocational qualification completed in December 2011. Diploma issued on 7 February 2012. Training in programming, databases and application development.",
     "diploma_tags": [
       "Software",
       "Databases",
@@ -131,9 +131,10 @@
     "trust_badges": [
       "AI Development",
       "Full-stack in production",
-      "Cisco CCNA",
+      "CCNA training",
       "100/100 Lighthouse"
-    ]
+    ],
+    "coursesTitle": "Diploma and training certificates"
   },
   "stack": {
     "title": "Technology Stack",
@@ -180,7 +181,7 @@
         "location": "Zaragoza, Spain",
         "period": "2021 – July 2023",
         "highlights": [
-          "Managed enterprise IT for 500+ users across 2nd/3rd-level support",
+          "Technical support and incident tracking using Jira",
           "Administered Microsoft 365 and Active Directory environments",
           "Network troubleshooting: TCP/IP, DNS, DHCP, VLAN, VPN",
           "Supported VMware vSphere virtualization infrastructure"
@@ -193,7 +194,7 @@
         "period": "2019 – 2021",
         "highlights": [
           "1st-level IT support in ITIL-based enterprise environment",
-          "Incident management, SLA tracking, and user account administration",
+          "Incident management and SLA tracking using ServiceNow",
           "Microsoft 365 application support and remote troubleshooting"
         ]
       },
@@ -205,7 +206,8 @@
         "highlights": [
           "Operated and maintained network and systems infrastructure",
           "Managed virtualization environments and system monitoring",
-          "Provided infrastructure support across multiple client sites"
+          "Provided infrastructure support across multiple client sites",
+          "Logged and tracked systems and network incidents using ServiceNow"
         ]
       },
       {
@@ -628,7 +630,7 @@
     "specialties": "Web Development · AI · Systems Administration",
     "available": "Available now",
     "profileTitle": "Professional Profile",
-    "profile": "Fullstack developer and IT specialist based in Basel, with over a decade in the field. I build websites, apps and AI automation for businesses in every sector —gyms, restaurants, salons, clinics, shops and agencies— and I also handle the systems side: Windows Server, Active Directory, Linux, networks and Microsoft 365 (CCNA certified). From briefing to result, one single contact. Trilingual (DE/EN/ES).",
+    "profile": "Fullstack developer and IT specialist based in Basel, with over a decade in the field. I build websites, apps and AI automation for businesses in every sector —gyms, restaurants, salons, clinics, shops and agencies— and I also handle the systems side: Windows Server, Active Directory, Linux, networks and Microsoft 365 (CCNA course training). From briefing to result, one single contact. Trilingual (DE/EN/ES).",
     "competenciesTitle": "Key Competencies",
     "competencies": [
       "Websites & apps — Next.js, React, TypeScript, PWA",
@@ -667,6 +669,10 @@
       {
         "area": "Cloud & Delivery",
         "detail": "Vercel · GitHub Actions · PWA · Azure · CI/CD"
+      },
+      {
+        "area": "IT Service Management",
+        "detail": "ServiceNow · Jira · ITSM · SLA"
       }
     ],
     "certsTitle": "Certifications & Training",
@@ -684,12 +690,8 @@
         "detail": "BIG School · 2026"
       },
       {
-        "title": "CCNA — Routing & Switching",
-        "detail": "Cisco Networking Academy"
-      },
-      {
-        "title": "Software Application Development (DAI)",
-        "detail": "IES · Spain · 2012"
+        "title": "CCNA training",
+        "detail": "Cisco Networking Academy · 2013"
       }
     ],
     "languagesTitle": "Languages",
@@ -712,19 +714,19 @@
   "cvSystems": {
     "role": "IT Systems Engineer",
     "specialties": "Windows Server · VMware vSphere · IT Infrastructure",
-    "profile": "IT engineer with 7+ years of experience deploying and operating heterogeneous IT infrastructures. Specialist in Windows Server, VMware vSphere, Hyper-V (server and client virtualization) and Microsoft technologies — with proven operations for 500+ users in enterprise environments. End-to-end project delivery: from network architecture to cloud migration. CCNA certified. German B2, English C1. EU citizen with Permit B — no work permit required. Category B driving licence.",
+    "profile": "IT engineer with 7+ years of experience deploying and operating heterogeneous IT infrastructures. Specialist in Windows Server, VMware vSphere, Hyper-V (server and client virtualization) and Microsoft technologies. End-to-end project delivery: from network architecture to cloud migration. CCNA course training. German B2, English C1. EU citizen with Permit B — no work permit required. Category B driving licence.",
     "residency": "EU citizen | Permit B (5 yrs)",
     "nationality": "Nationality: Spanish (EU citizen)",
     "license": "Category B driving licence",
     "educationTitle": "Education",
     "education": [
       {
-        "title": "Higher Vocational Diploma",
-        "detail": "Systems Administration & Networking"
+        "title": "Higher Vocational Diploma in Networked Computer Systems Administration (ASIR)",
+        "detail": "Completed in 2014"
       },
       {
-        "title": "Higher Vocational Diploma",
-        "detail": "Software Application Development"
+        "title": "Higher Vocational Diploma in Software Application Development (DAI)",
+        "detail": "IES Pablo Serrano · Zaragoza, Spain · Completed in December 2011 · Diploma issued in February 2012"
       }
     ]
   }

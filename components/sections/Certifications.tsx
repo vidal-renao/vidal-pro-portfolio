@@ -172,6 +172,8 @@ function CredentialCard({
 
 export default function Certifications() {
   const t = useTranslations("certifications");
+  const educationT = useTranslations("cvSystems");
+  const education = educationT.raw("education") as { title: string; detail: string }[];
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
@@ -206,6 +208,19 @@ export default function Certifications() {
           </p>
         </motion.div>
 
+        <div className="mb-10">
+          <h3 className="mb-5 text-xl font-semibold text-white">{educationT("educationTitle")}</h3>
+          <div className="grid gap-5 md:grid-cols-2">
+            {education.map((qualification) => (
+              <article key={qualification.title} className="rounded-2xl glass-card border-l-4 border-l-amber-400/70 p-6">
+                <h4 className="text-lg font-semibold leading-snug text-amber-200">{qualification.title}</h4>
+                <p className="mt-3 text-sm leading-relaxed text-white/70">{qualification.detail}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        <h3 className="mb-5 text-xl font-semibold text-white">{t("coursesTitle")}</h3>
         {/* Credential grid */}
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {credentials.map((c, i) => (

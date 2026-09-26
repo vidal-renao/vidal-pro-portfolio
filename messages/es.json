@@ -2,7 +2,7 @@
   "nav": {
     "stack": "Stack",
     "services": "Servicios",
-    "certifications": "Certificaciones",
+    "certifications": "Formación",
     "experience": "Experiencia",
     "projects": "Proyectos",
     "consultation": "Análisis IT Gratuito",
@@ -61,14 +61,14 @@
     "stat1_value": "10+",
     "stat1_label": "Proyectos en producción",
     "stat2_value": "CCNA",
-    "stat2_label": "Cisco Certificado",
+    "stat2_label": "Formación CCNA",
     "stat3_value": "DE·EN·ES",
     "stat3_label": "Trilingüe"
   },
   "certifications": {
-    "label": "Credenciales verificadas",
-    "title": "Formación acreditada, no autodeclarada",
-    "subtitle": "Cinco credenciales que respaldan el trabajo: desarrollo con IA, ingeniería fullstack y la base de redes. Cada tarjeta abre el certificado original en PDF.",
+    "label": "Formación académica y continua",
+    "title": "Dos titulaciones superiores en informática",
+    "subtitle": "Desarrollo de aplicaciones informáticas (2011) y Administración de sistemas informáticos en red (2014), complementadas con formación continua.",
     "open": "Abrir certificado",
     "verified": "Verificado",
     "ai_agentprog_title": "Programación de Agentes IA",
@@ -104,22 +104,22 @@
       "Despliegue",
       "DevEx"
     ],
-    "ccna_title": "CCNA — Routing & Switching",
+    "ccna_title": "Formación CCNA",
     "ccna_issuer": "Cisco Networking Academy",
-    "ccna_year": "",
+    "ccna_year": "2013",
     "ccna_meaning": "La red bajo control, por diseño",
-    "ccna_desc": "Certificación formal en redes empresariales: switching, routing, VLAN, VPN y seguridad — la base sólida sobre la que corre el software.",
+    "ccna_desc": "Formación de Cisco Networking Academy: CCNA Discovery — Working at a Small-to-Medium Business or ISP. Certificado de finalización del curso, junio de 2013.",
     "ccna_tags": [
       "Routing & Switching",
       "VLAN",
       "VPN",
       "TCP/IP"
     ],
-    "diploma_title": "Desarrollo de Aplicaciones Informáticas",
-    "diploma_issuer": "IES · España",
-    "diploma_year": "2012",
+    "diploma_title": "Técnico Superior en Desarrollo de Aplicaciones Informáticas (DAI)",
+    "diploma_issuer": "IES Pablo Serrano · Zaragoza",
+    "diploma_year": "2011",
     "diploma_meaning": "Ingeniería de software desde la base",
-    "diploma_desc": "Título superior en desarrollo de software: programación, bases de datos y arquitectura de aplicaciones — el cimiento formal del perfil fullstack.",
+    "diploma_desc": "Titulación superior finalizada en diciembre de 2011. Diploma expedido el 7 de febrero de 2012. Formación en programación, bases de datos y desarrollo de aplicaciones.",
     "diploma_tags": [
       "Software",
       "Bases de datos",
@@ -131,9 +131,10 @@
     "trust_badges": [
       "Desarrollo con IA",
       "Fullstack en producción",
-      "Cisco CCNA",
+      "Formación CCNA",
       "100/100 Lighthouse"
-    ]
+    ],
+    "coursesTitle": "Diploma y certificados de formación"
   },
   "stack": {
     "title": "Stack Tecnológico",
@@ -180,7 +181,7 @@
         "location": "Zaragoza, España",
         "period": "2021 – julio de 2023",
         "highlights": [
-          "TI empresarial para más de 500 usuarios en soporte de 2º/3er nivel",
+          "Soporte técnico y seguimiento de incidencias con Jira",
           "Administración de Microsoft 365 y Active Directory",
           "Resolución de red: TCP/IP, DNS, DHCP, VLAN, VPN",
           "Soporte a infraestructura de virtualización VMware vSphere"
@@ -193,7 +194,7 @@
         "period": "2019 – 2021",
         "highlights": [
           "Soporte TI de 1er nivel en entorno ITIL corporativo",
-          "Gestión de incidencias, seguimiento de SLAs y administración de cuentas",
+          "Gestión de incidencias y seguimiento de SLA con ServiceNow",
           "Soporte de aplicaciones Microsoft 365 y resolución remota"
         ]
       },
@@ -205,7 +206,8 @@
         "highlights": [
           "Operación y mantenimiento de infraestructuras de red y sistemas",
           "Gestión de entornos de virtualización y monitorización",
-          "Soporte de infraestructura para múltiples sedes de clientes"
+          "Soporte de infraestructura para múltiples sedes de clientes",
+          "Registro y seguimiento de incidencias de sistemas y redes con ServiceNow"
         ]
       },
       {
@@ -628,7 +630,7 @@
     "specialties": "Desarrollo Web · IA · Administración de Sistemas",
     "available": "Disponible ahora",
     "profileTitle": "Perfil Profesional",
-    "profile": "Desarrollador fullstack y especialista IT afincado en Basilea, con más de una década en el sector. Creo webs, apps y automatizaciones con IA para negocios de todos los sectores —gimnasios, restaurantes, peluquerías, clínicas, tiendas y agencias— y me encargo también de la parte de sistemas: Windows Server, Active Directory, Linux, redes y Microsoft 365 (certificado CCNA). Del briefing al resultado, un solo interlocutor. Trilingüe (DE/EN/ES).",
+    "profile": "Desarrollador fullstack y especialista IT afincado en Basilea, con más de una década en el sector. Creo webs, apps y automatizaciones con IA para negocios de todos los sectores —gimnasios, restaurantes, peluquerías, clínicas, tiendas y agencias— y me encargo también de la parte de sistemas: Windows Server, Active Directory, Linux, redes y Microsoft 365 (formación CCNA). Del briefing al resultado, un solo interlocutor. Trilingüe (DE/EN/ES).",
     "competenciesTitle": "Competencias Clave",
     "competencies": [
       "Webs y apps — Next.js, React, TypeScript, PWA",
@@ -667,6 +669,10 @@
       {
         "area": "Cloud y Entrega",
         "detail": "Vercel · GitHub Actions · PWA · Azure · CI/CD"
+      },
+      {
+        "area": "Gestión de servicios TI",
+        "detail": "ServiceNow · Jira · ITSM · SLA"
       }
     ],
     "certsTitle": "Certificaciones y Formación",
@@ -684,12 +690,8 @@
         "detail": "BIG School · 2026"
       },
       {
-        "title": "CCNA — Routing & Switching",
-        "detail": "Cisco Networking Academy"
-      },
-      {
-        "title": "Desarrollo de Aplicaciones Informáticas (DAI)",
-        "detail": "IES · España · 2012"
+        "title": "Formación CCNA",
+        "detail": "Cisco Networking Academy · 2013"
       }
     ],
     "languagesTitle": "Idiomas",
@@ -712,19 +714,19 @@
   "cvSystems": {
     "role": "Ingeniero de Sistemas TI",
     "specialties": "Windows Server · VMware vSphere · Infraestructura TI",
-    "profile": "Ingeniero TI con más de 7 años de experiencia implementando y operando infraestructuras TI heterogéneas. Especialista en Windows Server, VMware vSphere, Hyper-V (virtualización de servidor y cliente) y tecnologías Microsoft — con operación demostrada para 500+ usuarios en entornos empresariales. Ejecución de proyectos end-to-end: desde la arquitectura de red hasta la migración a la nube. Certificado CCNA. Alemán B2, inglés C1. Ciudadano de la UE con permiso B — sin necesidad de autorización de trabajo. Carné de conducir categoría B.",
+    "profile": "Ingeniero TI con más de 7 años de experiencia implementando y operando infraestructuras TI heterogéneas. Especialista en Windows Server, VMware vSphere, Hyper-V (virtualización de servidor y cliente) y tecnologías Microsoft. Ejecución de proyectos end-to-end: desde la arquitectura de red hasta la migración a la nube. Formación CCNA. Alemán B2, inglés C1. Ciudadano de la UE con permiso B — sin necesidad de autorización de trabajo. Carné de conducir categoría B.",
     "residency": "Ciudadano UE | Permiso B (5 años)",
     "nationality": "Nacionalidad: Española (ciudadano UE)",
     "license": "Carné de conducir categoría B",
     "educationTitle": "Formación",
     "education": [
       {
-        "title": "Ciclo Formativo de Grado Superior",
-        "detail": "Administración de Sistemas y Redes"
+        "title": "Técnico Superior en Administración de Sistemas Informáticos en Red (ASIR)",
+        "detail": "Finalizado en 2014"
       },
       {
-        "title": "Ciclo Formativo de Grado Superior",
-        "detail": "Desarrollo de Aplicaciones"
+        "title": "Técnico Superior en Desarrollo de Aplicaciones Informáticas (DAI)",
+        "detail": "IES Pablo Serrano · Zaragoza, España · Finalizado en diciembre de 2011 · Diploma expedido en febrero de 2012"
       }
     ]
   }
