@@ -125,8 +125,7 @@ export default async function PrintPage({
           </div>
         </section>
 
-        {/* ── EDUCATION (systems variant only) ── */}
-        {isSystemsVariant && (
+        {/* ── EDUCATION ── */}
           <section>
             <div className="cv-bar">{ts("educationTitle")}</div>
             <div className="cv-certs">
@@ -138,7 +137,6 @@ export default async function PrintPage({
               ))}
             </div>
           </section>
-        )}
 
         {/* ── LANGUAGES ── */}
         <section>

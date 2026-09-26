@@ -229,9 +229,8 @@ export async function buildCvDocx(
               })
           ),
 
-          // Education (systems variant only)
-          ...(isSystemsVariant
-            ? [
+          // Education
+          ...[
                 sectionBar(ts("educationTitle")),
                 ...education.map(
                   (e) =>
@@ -243,8 +242,7 @@ export async function buildCvDocx(
                       ],
                     })
                 ),
-              ]
-            : []),
+              ],
 
           // Languages
           sectionBar(t("languagesTitle")),
