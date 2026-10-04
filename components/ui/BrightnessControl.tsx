@@ -34,7 +34,7 @@ export function BrightnessControl() {
   if (!mounted) return null;
 
   return (
-    <div className="fixed bottom-20 right-4 sm:bottom-5 sm:right-5 z-9999">
+    <div className="fixed bottom-20 right-4 sm:bottom-5 sm:right-5 z-9999 print:hidden">
       {visible ? (
         <div className="flex flex-col gap-3 rounded-2xl border border-white/[0.1] bg-[#0d0d0d]/95 p-4 shadow-2xl backdrop-blur-md w-48">
           <div className="flex items-center justify-between">

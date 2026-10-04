@@ -2,6 +2,7 @@ import {
   AlignmentType,
   BorderStyle,
   Document,
+  ImageRun,
   Packer,
   Paragraph,
   ShadingType,
@@ -24,11 +25,14 @@ type Role = {
 
 export type CvVariant = "fullstack" | "systems";
 
-const NAVY = "1e3a5f";
-const NAVY_DARK = "16304f";
-const ACCENT = "2563eb";
-const TEXT = "374151";
-const MUTED = "64748b";
+// Swiss corporate palette shared with the application CVs (petroleum blue)
+const NAVY = "0F4D67";
+const NAVY_DARK = "155A76";
+const ACCENT = "155A76";
+const PALE = "DCEEF8";
+const TEXT = "1B2430";
+const MUTED = "55606E";
+const FONT = "Arial";
 
 const noBorder = { style: BorderStyle.NONE, size: 0, color: "FFFFFF" } as const;
 const cellBorders = { top: noBorder, bottom: noBorder, left: noBorder, right: noBorder };
@@ -43,7 +47,7 @@ function sectionBar(label: string): Paragraph {
         bold: true,
         color: "FFFFFF",
         size: 18,
-        font: "Arial",
+        font: FONT,
       }),
     ],
   });
@@ -53,14 +57,15 @@ function bullet(text: string): Paragraph {
   return new Paragraph({
     bullet: { level: 0 },
     spacing: { after: 40 },
-    children: [new TextRun({ text, size: 18, color: TEXT, font: "Arial" })],
+    children: [new TextRun({ text, size: 18, color: TEXT, font: FONT })],
   });
 }
 
 export async function buildCvDocx(
   locale: string,
   emailVariant: EmailVariant,
-  cvVariant: CvVariant = "fullstack"
+  cvVariant: CvVariant = "fullstack",
+  photo?: Buffer
 ): Promise<Buffer> {
   const email = EMAIL_ADDRESSES[emailVariant];
   const isSystemsVariant = cvVariant === "systems";
@@ -69,8 +74,9 @@ export async function buildCvDocx(
   const ts = await getTranslations({ locale, namespace: "cvSystems" });
 
   const roles = te.raw("roles") as Role[];
-  const competencies = t.raw("competencies") as string[];
-  const knowledge = t.raw("knowledge") as { area: string; detail: string }[];
+  const source = isSystemsVariant ? ts : t;
+  const competencies = source.raw("competencies") as string[];
+  const knowledge = source.raw("knowledge") as { area: string; detail: string }[];
   const certs = t.raw("certs") as { title: string; detail: string }[];
   const languages = t.raw("languages") as { lang: string; level: string }[];
   const education = ts.raw("education") as { title: string; detail: string }[];
@@ -99,52 +105,70 @@ export async function buildCvDocx(
           },
         },
         children: [
-          // Header band
-          new Paragraph({
-            shading: { type: ShadingType.CLEAR, color: "auto", fill: NAVY_DARK },
-            spacing: { after: 40 },
-            children: [
-              new TextRun({
-                text: "Vidal Reñao Lopelo",
-                bold: true,
-                size: 40,
-                color: "FFFFFF",
-                font: "Arial",
+          // Header band: identity + contact left, photo right
+          new Table({
+            width: { size: 100, type: WidthType.PERCENTAGE },
+            rows: [
+              new TableRow({
+                children: [
+                  new TableCell({
+                    borders: cellBorders,
+                    width: { size: 80, type: WidthType.PERCENTAGE },
+                    shading: { type: ShadingType.CLEAR, color: "auto", fill: NAVY_DARK },
+                    margins: { top: 160, bottom: 160, left: 220, right: 120 },
+                    children: [
+                      new Paragraph({
+                        spacing: { after: 40 },
+                        children: [
+                          new TextRun({ text: "Vidal Reñao Lopelo", bold: true, size: 40, color: "FFFFFF", font: FONT }),
+                        ],
+                      }),
+                      new Paragraph({
+                        spacing: { after: 40 },
+                        children: [
+                          new TextRun({ text: role.toUpperCase(), bold: true, size: 20, color: "E3F1F8", font: FONT }),
+                        ],
+                      }),
+                      new Paragraph({
+                        spacing: { after: 80 },
+                        children: [new TextRun({ text: specialties, size: 17, color: "CFE6F1", font: FONT })],
+                      }),
+                      new Paragraph({
+                        spacing: { after: 40 },
+                        children: [new TextRun({ text: contactLine, size: 15, color: "F2F8FB", font: FONT })],
+                      }),
+                      new Paragraph({
+                        children: [
+                          new TextRun({ text: t("available"), bold: true, size: 15, color: "FFFFFF", font: FONT }),
+                        ],
+                      }),
+                    ],
+                  }),
+                  new TableCell({
+                    borders: cellBorders,
+                    width: { size: 20, type: WidthType.PERCENTAGE },
+                    shading: { type: ShadingType.CLEAR, color: "auto", fill: NAVY_DARK },
+                    margins: { top: 120, bottom: 120, left: 60, right: 160 },
+                    children: [
+                      new Paragraph({
+                        alignment: AlignmentType.RIGHT,
+                        children: photo
+                          ? [new ImageRun({ type: "jpg", data: photo, transformation: { width: 96, height: 102 } })]
+                          : [],
+                      }),
+                    ],
+                  }),
+                ],
               }),
             ],
           }),
-          new Paragraph({
-            shading: { type: ShadingType.CLEAR, color: "auto", fill: NAVY_DARK },
-            spacing: { after: 40 },
-            children: [
-              new TextRun({ text: role, bold: true, size: 22, color: "8fc0ff", font: "Arial" }),
-            ],
-          }),
-          new Paragraph({
-            shading: { type: ShadingType.CLEAR, color: "auto", fill: NAVY_DARK },
-            spacing: { after: 40 },
-            children: [
-              new TextRun({ text: specialties, size: 17, color: "c7d6ea", font: "Arial" }),
-            ],
-          }),
-          new Paragraph({
-            shading: { type: ShadingType.CLEAR, color: "auto", fill: NAVY_DARK },
-            spacing: { after: 120 },
-            children: [new TextRun({ text: contactLine, size: 15, color: "dbe6f4", font: "Arial" })],
-          }),
-          new Paragraph({
-            shading: { type: ShadingType.CLEAR, color: "auto", fill: NAVY_DARK },
-            spacing: { after: 200 },
-            children: [
-              new TextRun({ text: t("available"), bold: true, size: 15, color: "7fe0b0", font: "Arial" }),
-            ],
-          }),
+          new Paragraph({ spacing: { after: 80 }, children: [] }),
 
           // Profile
           sectionBar(t("profileTitle")),
           new Paragraph({
             spacing: { after: 160 },
-            children: [new TextRun({ text: profile, size: 18, color: TEXT, font: "Arial" })],
+            children: [new TextRun({ text: profile, size: 18, color: TEXT, font: FONT })],
           }),
 
           // Competencies
@@ -158,8 +182,8 @@ export async function buildCvDocx(
             new Paragraph({
               spacing: { before: 100, after: 20 },
               children: [
-                new TextRun({ text: r.title, bold: true, size: 20, color: "0f172a", font: "Arial" }),
-                new TextRun({ text: `    ${r.period}`, size: 16, color: MUTED, font: "Arial" }),
+                new TextRun({ text: r.title, bold: true, size: 20, color: "0f172a", font: FONT }),
+                new TextRun({ text: `    ${r.period}`, size: 16, color: MUTED, font: FONT }),
               ],
             }),
             new Paragraph({
@@ -170,7 +194,7 @@ export async function buildCvDocx(
                   bold: true,
                   size: 17,
                   color: ACCENT,
-                  font: "Arial",
+                  font: FONT,
                 }),
               ],
             }),
@@ -188,12 +212,12 @@ export async function buildCvDocx(
                     new TableCell({
                       borders: cellBorders,
                       width: { size: 28, type: WidthType.PERCENTAGE },
-                      shading: { type: ShadingType.CLEAR, color: "auto", fill: "eef4fb" },
+                      shading: { type: ShadingType.CLEAR, color: "auto", fill: PALE },
                       margins: { top: 60, bottom: 60, left: 100, right: 100 },
                       children: [
                         new Paragraph({
                           children: [
-                            new TextRun({ text: k.area, bold: true, size: 16, color: NAVY, font: "Arial" }),
+                            new TextRun({ text: k.area, bold: true, size: 16, color: NAVY, font: FONT }),
                           ],
                         }),
                       ],
@@ -205,7 +229,7 @@ export async function buildCvDocx(
                       children: [
                         new Paragraph({
                           children: [
-                            new TextRun({ text: k.detail, size: 17, color: TEXT, font: "Arial" }),
+                            new TextRun({ text: k.detail, size: 17, color: TEXT, font: FONT }),
                           ],
                         }),
                       ],
@@ -223,8 +247,8 @@ export async function buildCvDocx(
               new Paragraph({
                 spacing: { after: 60 },
                 children: [
-                  new TextRun({ text: `${c.title}  —  `, bold: true, size: 18, color: "0f172a", font: "Arial" }),
-                  new TextRun({ text: c.detail, size: 16, color: MUTED, font: "Arial" }),
+                  new TextRun({ text: `${c.title}  —  `, bold: true, size: 18, color: "0f172a", font: FONT }),
+                  new TextRun({ text: c.detail, size: 16, color: MUTED, font: FONT }),
                 ],
               })
           ),
@@ -237,8 +261,8 @@ export async function buildCvDocx(
                     new Paragraph({
                       spacing: { after: 60 },
                       children: [
-                        new TextRun({ text: `${e.title}  —  `, bold: true, size: 18, color: "0f172a", font: "Arial" }),
-                        new TextRun({ text: e.detail, size: 16, color: MUTED, font: "Arial" }),
+                        new TextRun({ text: `${e.title}  —  `, bold: true, size: 18, color: "0f172a", font: FONT }),
+                        new TextRun({ text: e.detail, size: 16, color: MUTED, font: FONT }),
                       ],
                     })
                 ),
@@ -262,7 +286,7 @@ export async function buildCvDocx(
                           shading: { type: ShadingType.CLEAR, color: "auto", fill: NAVY },
                           spacing: { after: 0 },
                           children: [
-                            new TextRun({ text: l.lang, bold: true, size: 17, color: "FFFFFF", font: "Arial" }),
+                            new TextRun({ text: l.lang, bold: true, size: 17, color: "FFFFFF", font: FONT }),
                           ],
                         }),
                         new Paragraph({
@@ -270,7 +294,7 @@ export async function buildCvDocx(
                           border: { bottom: { style: BorderStyle.SINGLE, size: 4, color: "d6e4f5" } },
                           spacing: { after: 0 },
                           children: [
-                            new TextRun({ text: l.level, size: 16, color: TEXT, font: "Arial" }),
+                            new TextRun({ text: l.level, size: 16, color: TEXT, font: FONT }),
                           ],
                         }),
                       ],
@@ -290,7 +314,7 @@ export async function buildCvDocx(
                 text: `${email} · +41 77 972 62 99 · linkedin.com/in/vidalrenao`,
                 size: 15,
                 color: MUTED,
-                font: "Arial",
+                font: FONT,
               }),
             ],
           }),
@@ -304,7 +328,7 @@ export async function buildCvDocx(
                       text: `${ts("nationality")} · ${ts("license")}`,
                       size: 15,
                       color: MUTED,
-                      font: "Arial",
+                      font: FONT,
                     }),
                   ],
                 }),
@@ -314,7 +338,7 @@ export async function buildCvDocx(
             alignment: AlignmentType.CENTER,
             spacing: { before: 40 },
             children: [
-              new TextRun({ text: t("footerNote"), italics: true, size: 15, color: MUTED, font: "Arial" }),
+              new TextRun({ text: t("footerNote"), italics: true, size: 15, color: MUTED, font: FONT }),
             ],
           }),
         ],

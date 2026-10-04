@@ -174,46 +174,43 @@
         ]
       },
       {
-        "title": "Operations & Logistics Technician",
+        "title": "Temporary assignments outside IT",
         "company": "Servo Personal & Treuhand GmbH · CareJob",
         "location": "Basel, Switzerland",
-        "period": "2023 – 2025",
+        "period": "Since July 2023",
         "badge": "Swiss Integration Phase",
         "highlights": [
-          "Swiss integration phase — temporary roles in logistics, production, and construction to establish professional roots in Switzerland and deepen German language skills",
-          "Operated in structured Swiss environments with high standards for reliability, precision, and clean operational execution",
-          "Developed service orientation, professional discipline, and communication across diverse client-facing contexts",
-          "Throughout this period: continued building technical projects independently — HelpDesk AI platform, freelance IT work, and SaaS development"
+          "Assignments in logistics, production and construction via Servo Personal and CareJob, alongside IT projects; references confirm reliability and teamwork"
         ]
       },
       {
         "title": "Technical Support Specialist & Systems Administrator",
-        "company": "Lutelco Facilities",
+        "company": "Lutelco Instalaciones SL",
         "location": "Zaragoza, Spain",
         "period": "2021 – July 2023",
         "highlights": [
-          "Technical support and incident tracking using Jira",
-          "Administered Microsoft 365 and Active Directory environments",
-          "Network troubleshooting: TCP/IP, DNS, DHCP, VLAN, VPN",
-          "Supported VMware vSphere virtualization infrastructure"
+          "Supported 500+ users across multiple sites at 2nd/3rd level – on-site and remote for Windows, Microsoft 365, hardware and network access; tickets tracked in Jira",
+          "Reduced ticket volume by around 30% by documenting recurring incidents in a structured knowledge base",
+          "Administered users, groups and permissions in Active Directory and Microsoft 365",
+          "Network troubleshooting (TCP/IP, DNS, DHCP, VLAN, VPN) and support of the VMware vSphere environment"
         ]
       },
       {
         "title": "Help Desk Support Specialist",
         "company": "Nationale Nederlanden Bank",
         "location": "Zaragoza, Spain",
-        "period": "2019 – 2021",
+        "period": "Jun 2019 – Jan 2021",
         "highlights": [
-          "1st-level IT support in ITIL-based enterprise environment",
-          "Incident management and SLA tracking using ServiceNow",
-          "Microsoft 365 application support and remote troubleshooting"
+          "Kept SLA compliance consistently above 95% on the 1st-level service desk – incidents, service requests and changes in ServiceNow following ITIL",
+          "Supported Microsoft 365 accounts, licences, MFA and remote access by phone and in writing",
+          "Escalated complex infrastructure incidents with complete handover to the responsible teams"
         ]
       },
       {
         "title": "Systems & Network Engineer",
         "company": "NSC — Networks, Systems & Communications",
         "location": "Spain",
-        "period": "2017 – 2019",
+        "period": "Nov 2017 – May 2019",
         "highlights": [
           "Operated and maintained network and systems infrastructure",
           "Managed virtualization environments and system monitoring",
@@ -229,6 +226,24 @@
         "highlights": [
           "Built and maintained web applications with MySQL database backends",
           "Provided technical support and troubleshooting for deployed systems"
+        ]
+      },
+      {
+        "title": "On-Site Systems & Hardware Technician",
+        "company": "SPRINET",
+        "location": "Zaragoza, Spain",
+        "period": "Feb – Aug 2016",
+        "highlights": [
+          "On-site systems and hardware support at customer locations"
+        ]
+      },
+      {
+        "title": "Technical Customer Support",
+        "company": "Deinta Seguridad",
+        "location": "Spain",
+        "period": "2013 – 2014",
+        "highlights": [
+          "Diagnosed faults in communications and security systems remotely and coordinated field technicians for on-site interventions"
         ]
       },
       {
@@ -702,7 +717,7 @@
       },
       {
         "title": "CCNA training",
-        "detail": "Cisco Networking Academy · 2013"
+        "detail": "Cisco Networking Academy · CCNA Discovery · 2013 and 2017"
       }
     ],
     "languagesTitle": "Languages",
@@ -718,14 +733,18 @@
       {
         "lang": "German",
         "level": "B2"
+      },
+      {
+        "lang": "French",
+        "level": "A2"
       }
     ],
     "footerNote": "References available on request"
   },
   "cvSystems": {
-    "role": "IT Systems Engineer",
-    "specialties": "Windows Server · VMware vSphere · IT Infrastructure",
-    "profile": "IT engineer with 7+ years of experience deploying and operating heterogeneous IT infrastructures. Specialist in Windows Server, VMware vSphere, Hyper-V (server and client virtualization) and Microsoft technologies. End-to-end project delivery: from network architecture to cloud migration. CCNA course training. German B2, English C1. EU citizen with Permit B — no work permit required. Category B driving licence.",
+    "role": "IT Support & Systems Engineer",
+    "specialties": "Windows · Microsoft 365 · Active Directory · ITIL / ServiceNow",
+    "profile": "IT support professional with 3+ years of IT service desk and IT support experience, including about 1.5 years on a bank's service desk, plus systems and network operations. Focus: Windows, Microsoft 365, Active Directory, ITIL incident and request management in ServiceNow and Jira, SLA compliance and clear documentation. Supported 500+ users across multiple sites. German B2, English C1, Spanish native. EU citizen with Swiss Permit B.",
     "residency": "EU citizen | Permit B (5 yrs)",
     "nationality": "Nationality: Spanish (EU citizen)",
     "license": "Category B driving licence",
@@ -738,6 +757,38 @@
       {
         "title": "Higher Vocational Diploma in Software Application Development (DAI)",
         "detail": "IES Pablo Serrano · Zaragoza, Spain · Completed in December 2011 · Diploma issued in February 2012"
+      }
+    ],
+    "competencies": [
+      "IT service desk – 1st/2nd level, phone and written",
+      "ITIL – incident, request, change, problem",
+      "ServiceNow & Jira – SLA tracking, escalation",
+      "Windows 10/11 – clients, laptops, printers, peripherals",
+      "Microsoft 365 – accounts, licences, MFA, Exchange, Teams",
+      "Active Directory – users, groups, permissions, GPO",
+      "Networking – TCP/IP, DNS, DHCP, VLAN, VPN",
+      "Trilingual support – DE / EN / ES"
+    ],
+    "knowledge": [
+      {
+        "area": "Client & workplace",
+        "detail": "Windows 10/11 · Hardware · Printers & peripherals · Remote support"
+      },
+      {
+        "area": "Microsoft 365 & email",
+        "detail": "M365 admin center · Exchange/Outlook · Teams · SharePoint · MFA"
+      },
+      {
+        "area": "Identity & access",
+        "detail": "Active Directory · Group Policy · Entra ID and Intune (personal lab)"
+      },
+      {
+        "area": "IT service management",
+        "detail": "ServiceNow · Jira · ITIL · SLA · Knowledge base"
+      },
+      {
+        "area": "Network & systems",
+        "detail": "TCP/IP · DNS/DHCP · VLAN · VPN · Windows Server · VMware vSphere · PowerShell"
       }
     ]
   }

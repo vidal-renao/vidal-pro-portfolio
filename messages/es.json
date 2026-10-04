@@ -174,46 +174,43 @@
         ]
       },
       {
-        "title": "Técnico de Operaciones y Logística",
+        "title": "Trabajos temporales fuera del sector IT",
         "company": "Servo Personal & Treuhand GmbH · CareJob",
         "location": "Basel, Suiza",
-        "period": "2023 – 2025",
+        "period": "Desde julio de 2023",
         "badge": "Fase de Integración Suiza",
         "highlights": [
-          "Fase de integración en Suiza — trabajos temporales en logística, producción y obra para establecer raíces profesionales en Suiza y mejorar el alemán activamente",
-          "Trabajé en entornos suizos estructurados con altos estándares de fiabilidad, precisión y ejecución operativa",
-          "Desarrollé orientación al servicio, disciplina profesional y comunicación con interlocutores diversos",
-          "Durante este período: continué desarrollando proyectos técnicos de forma independiente — plataforma HelpDesk AI, trabajo IT freelance y desarrollo SaaS"
+          "Trabajos en logística, producción y construcción a través de Servo Personal y CareJob, en paralelo a proyectos IT; las referencias destacan fiabilidad y trabajo en equipo"
         ]
       },
       {
         "title": "Especialista en Soporte Técnico y Administrador de Sistemas",
-        "company": "Lutelco Facilities",
+        "company": "Lutelco Instalaciones SL",
         "location": "Zaragoza, España",
         "period": "2021 – julio de 2023",
         "highlights": [
-          "Soporte técnico y seguimiento de incidencias con Jira",
-          "Administración de Microsoft 365 y Active Directory",
-          "Resolución de red: TCP/IP, DNS, DHCP, VLAN, VPN",
-          "Soporte a infraestructura de virtualización VMware vSphere"
+          "Soporte de 2.º/3.er nivel a más de 500 usuarios en varias sedes – presencial y remoto para Windows, Microsoft 365, hardware y acceso a red; tickets en Jira",
+          "Reduje el volumen de tickets en torno a un 30 % documentando incidencias recurrentes en una base de conocimiento estructurada",
+          "Administración de usuarios, grupos y permisos en Active Directory y Microsoft 365",
+          "Resolución de incidencias de red (TCP/IP, DNS, DHCP, VLAN, VPN) y soporte del entorno VMware vSphere"
         ]
       },
       {
         "title": "Especialista de Help Desk",
         "company": "Nationale Nederlanden Bank",
         "location": "Zaragoza, España",
-        "period": "2019 – 2021",
+        "period": "jun. 2019 – ene. 2021",
         "highlights": [
-          "Soporte TI de 1er nivel en entorno ITIL corporativo",
-          "Gestión de incidencias y seguimiento de SLA con ServiceNow",
-          "Soporte de aplicaciones Microsoft 365 y resolución remota"
+          "Cumplimiento de SLA constante por encima del 95 % en el service desk de 1.er nivel – incidencias, peticiones y cambios en ServiceNow según ITIL",
+          "Soporte de cuentas, licencias, MFA y acceso remoto de Microsoft 365 por teléfono y por escrito",
+          "Escalado de incidencias complejas de infraestructura con traspaso completo a los equipos responsables"
         ]
       },
       {
         "title": "Ingeniero de Sistemas y Redes",
         "company": "NSC — Redes, Sistemas y Comunicaciones",
         "location": "España",
-        "period": "2017 – 2019",
+        "period": "nov. 2017 – may. 2019",
         "highlights": [
           "Operación y mantenimiento de infraestructuras de red y sistemas",
           "Gestión de entornos de virtualización y monitorización",
@@ -229,6 +226,24 @@
         "highlights": [
           "Desarrollo y mantenimiento de aplicaciones web con backend MySQL",
           "Soporte técnico y resolución de incidencias en producción"
+        ]
+      },
+      {
+        "title": "Técnico de Sistemas y Hardware in situ",
+        "company": "SPRINET",
+        "location": "Zaragoza, España",
+        "period": "feb. – ago. 2016",
+        "highlights": [
+          "Soporte presencial de sistemas y hardware en las instalaciones de clientes"
+        ]
+      },
+      {
+        "title": "Soporte Técnico al Cliente",
+        "company": "Deinta Seguridad",
+        "location": "España",
+        "period": "2013 – 2014",
+        "highlights": [
+          "Diagnóstico remoto de averías en sistemas de comunicación y seguridad y coordinación de técnicos de campo para intervenciones in situ"
         ]
       },
       {
@@ -702,7 +717,7 @@
       },
       {
         "title": "Formación CCNA",
-        "detail": "Cisco Networking Academy · 2013"
+        "detail": "Cisco Networking Academy · CCNA Discovery · 2013 y 2017"
       }
     ],
     "languagesTitle": "Idiomas",
@@ -718,14 +733,18 @@
       {
         "lang": "Alemán",
         "level": "B2"
+      },
+      {
+        "lang": "Francés",
+        "level": "A2"
       }
     ],
     "footerNote": "Referencias disponibles a petición"
   },
   "cvSystems": {
-    "role": "Ingeniero de Sistemas TI",
-    "specialties": "Windows Server · VMware vSphere · Infraestructura TI",
-    "profile": "Ingeniero TI con más de 7 años de experiencia implementando y operando infraestructuras TI heterogéneas. Especialista en Windows Server, VMware vSphere, Hyper-V (virtualización de servidor y cliente) y tecnologías Microsoft. Ejecución de proyectos end-to-end: desde la arquitectura de red hasta la migración a la nube. Formación CCNA. Alemán B2, inglés C1. Ciudadano de la UE con permiso B — sin necesidad de autorización de trabajo. Carné de conducir categoría B.",
+    "role": "Soporte IT y Sistemas",
+    "specialties": "Windows · Microsoft 365 · Active Directory · ITIL / ServiceNow",
+    "profile": "Profesional de soporte IT con más de 3 años de experiencia en service desk y soporte IT, de ellos unos 1,5 años en el service desk de un banco, además de experiencia en operación de sistemas y redes. Foco: Windows, Microsoft 365, Active Directory, gestión de incidencias y peticiones según ITIL en ServiceNow y Jira, cumplimiento de SLA y documentación clara. Soporte a más de 500 usuarios en varias sedes. Alemán B2, inglés C1, español nativo. Ciudadano de la UE con permiso B suizo.",
     "residency": "Ciudadano UE | Permiso B (5 años)",
     "nationality": "Nacionalidad: Española (ciudadano UE)",
     "license": "Carné de conducir categoría B",
@@ -738,6 +757,38 @@
       {
         "title": "Técnico Superior en Desarrollo de Aplicaciones Informáticas (DAI)",
         "detail": "IES Pablo Serrano · Zaragoza, España · Finalizado en diciembre de 2011 · Diploma expedido en febrero de 2012"
+      }
+    ],
+    "competencies": [
+      "Service desk IT – 1.er/2.º nivel, teléfono y por escrito",
+      "ITIL – incidencias, peticiones, cambios, problemas",
+      "ServiceNow y Jira – seguimiento de SLA, escalado",
+      "Windows 10/11 – equipos, portátiles, impresoras, periféricos",
+      "Microsoft 365 – cuentas, licencias, MFA, Exchange, Teams",
+      "Active Directory – usuarios, grupos, permisos, GPO",
+      "Redes – TCP/IP, DNS, DHCP, VLAN, VPN",
+      "Soporte trilingüe – DE / EN / ES"
+    ],
+    "knowledge": [
+      {
+        "area": "Puesto de trabajo",
+        "detail": "Windows 10/11 · Hardware · Impresoras y periféricos · Soporte remoto"
+      },
+      {
+        "area": "Microsoft 365 y correo",
+        "detail": "Centro de administración M365 · Exchange/Outlook · Teams · SharePoint · MFA"
+      },
+      {
+        "area": "Identidad y accesos",
+        "detail": "Active Directory · Group Policy · Entra ID e Intune (laboratorio propio)"
+      },
+      {
+        "area": "Gestión de servicios IT",
+        "detail": "ServiceNow · Jira · ITIL · SLA · Base de conocimiento"
+      },
+      {
+        "area": "Redes y sistemas",
+        "detail": "TCP/IP · DNS/DHCP · VLAN · VPN · Windows Server · VMware vSphere · PowerShell"
       }
     ]
   }

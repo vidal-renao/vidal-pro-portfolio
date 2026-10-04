@@ -26,8 +26,9 @@ export default async function PrintPage({
   const ts = await getTranslations({ locale, namespace: "cvSystems" });
 
   const roles = te.raw("roles") as Role[];
-  const competencies = t.raw("competencies") as string[];
-  const knowledge = t.raw("knowledge") as { area: string; detail: string }[];
+  const source = isSystemsVariant ? ts : t;
+  const competencies = source.raw("competencies") as string[];
+  const knowledge = source.raw("knowledge") as { area: string; detail: string }[];
   const certs = t.raw("certs") as { title: string; detail: string }[];
   const languages = t.raw("languages") as { lang: string; level: string }[];
   const education = ts.raw("education") as { title: string; detail: string }[];
@@ -164,30 +165,30 @@ export default async function PrintPage({
 
       <style>{`
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: Arial, Helvetica, sans-serif; color: #1f2937; background: #eef1f5; }
+        body { font-family: "Segoe UI", Aptos, "Helvetica Neue", Arial, sans-serif; color: #1f2937; background: #eef1f5; }
         .cv { max-width: 820px; margin: 24px auto; background: #fff; }
 
         /* Header band */
         .cv-head {
           display: flex; justify-content: space-between; gap: 24px;
-          background: linear-gradient(135deg, #16304f 0%, #1e3a5f 60%, #24476f 100%);
+          background: #155A76; border-radius: 3px;
           color: #fff; padding: 26px 32px;
         }
         .cv-head-main { display: flex; flex-direction: column; justify-content: center; }
         .cv-head h1 { font-size: 27pt; font-weight: 800; letter-spacing: -0.01em; line-height: 1.05; }
-        .cv-role { font-size: 12.5pt; font-weight: 700; color: #8fc0ff; margin-top: 8px; }
-        .cv-spec { font-size: 9.5pt; color: #c7d6ea; margin-top: 3px; letter-spacing: 0.02em; }
+        .cv-role { font-size: 11pt; font-weight: 600; color: #E3F1F8; margin-top: 8px; text-transform: uppercase; letter-spacing: 0.12em; }
+        .cv-spec { font-size: 9.5pt; color: #CFE6F1; margin-top: 3px; letter-spacing: 0.02em; }
         .cv-head-side { display: flex; align-items: center; gap: 16px; }
-        .cv-photo { width: 78px; height: 78px; border-radius: 10px; object-fit: cover; object-position: top; border: 2px solid rgba(255,255,255,0.35); flex: none; }
-        .cv-contact { list-style: none; font-size: 8.5pt; line-height: 1.7; color: #dbe6f4; }
-        .cv-contact .cv-avail { color: #7fe0b0; font-weight: 700; margin-top: 3px; }
+        .cv-photo { width: 104px; height: 112px; border-radius: 2px; object-fit: cover; object-position: 50% 30%; border: 2px solid #fff; flex: none; order: 2; }
+        .cv-contact { list-style: none; font-size: 8.5pt; line-height: 1.6; color: #F2F8FB; text-align: right; border-left: 1px solid rgba(255,255,255,0.28); padding-left: 14px; }
+        .cv-contact .cv-avail { color: #fff; font-weight: 700; margin-top: 3px; }
 
         /* Body */
         section { padding: 0 32px; margin-top: 16px; }
         .cv-bar {
-          background: #1e3a5f; color: #fff; font-size: 9.5pt; font-weight: 700;
+          background: #0F4D67; color: #fff; font-size: 9pt; font-weight: 700;
           text-transform: uppercase; letter-spacing: 0.1em;
-          padding: 5px 12px; border-radius: 3px; margin-bottom: 10px;
+          padding: 4px 10px; border-radius: 2px; margin-bottom: 8px;
         }
         .cv-profile { font-size: 9.5pt; line-height: 1.6; color: #374151; }
 
@@ -201,24 +202,25 @@ export default async function PrintPage({
         }
         .cv-comp li::before {
           content: ""; position: absolute; left: 0; top: 5px;
-          width: 7px; height: 7px; border-radius: 2px; background: #2563eb;
+          width: 6px; height: 6px; border-radius: 50%; background: #155A76;
         }
 
         /* Experience */
         .cv-entry { margin-bottom: 12px; }
         .cv-entry-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
-        .cv-entry-head strong { font-size: 10.5pt; color: #0f172a; }
+        .cv-entry-head strong { font-size: 10.5pt; color: #0E3B50; }
         .cv-period { font-size: 8.5pt; color: #64748b; white-space: nowrap; }
-        .cv-company { font-size: 9pt; color: #2563eb; font-weight: 600; margin: 1px 0 4px; }
-        .cv-entry ul { padding-left: 16px; }
+        .cv-company { font-size: 9pt; color: #155A76; font-weight: 600; margin: 1px 0 4px; }
+        .cv-entry ul { padding-left: 16px; list-style: disc; }
+        .cv-entry li::marker { color: #155A76; }
         .cv-entry li { font-size: 9pt; color: #475569; line-height: 1.5; }
 
         /* Knowledge */
         .cv-know { display: flex; flex-direction: column; gap: 6px; }
         .cv-know-row { display: grid; grid-template-columns: 150px 1fr; gap: 12px; align-items: center; }
         .cv-know-label {
-          font-size: 8.5pt; font-weight: 700; color: #1e3a5f;
-          background: #eef4fb; border: 1px solid #d6e4f5; border-radius: 4px;
+          font-size: 8.5pt; font-weight: 700; color: #0E3B50;
+          background: #DCEEF8; border: 1px solid #C9DCE7; border-radius: 2px;
           padding: 4px 10px; text-align: left;
         }
         .cv-know-detail { font-size: 9pt; color: #475569; }
@@ -230,11 +232,11 @@ export default async function PrintPage({
         .cv-cert span { font-size: 8.5pt; color: #64748b; margin-top: 1px; }
 
         /* Languages */
-        .cv-langs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+        .cv-langs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
         .cv-lang {
-          border: 1px solid #d6e4f5; border-radius: 6px; overflow: hidden; text-align: center;
+          border: 1px solid #C9DCE7; border-radius: 2px; overflow: hidden; text-align: center;
         }
-        .cv-lang-name { display: block; background: #1e3a5f; color: #fff; font-size: 9pt; font-weight: 700; padding: 5px; }
+        .cv-lang-name { display: block; background: #0F4D67; color: #fff; font-size: 9pt; font-weight: 700; padding: 5px; }
         .cv-lang-level { display: block; font-size: 8.5pt; color: #475569; padding: 6px; }
 
         /* Footer */
@@ -246,9 +248,9 @@ export default async function PrintPage({
         .cv-foot-note { font-style: italic; }
 
         @media print {
-          body { background: #fff; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+          html, body { background: #fff !important; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+          .cv-bar { break-after: avoid; }
           .cv { margin: 0; max-width: none; }
-          section { break-inside: avoid; }
           .cv-entry { break-inside: avoid; }
           @page { margin: 12mm 0; size: A4; }
         }

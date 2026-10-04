@@ -11,6 +11,16 @@ function isSupportedLocale(value: string): value is (typeof routing.locales)[num
   return (routing.locales as readonly string[]).includes(value);
 }
 
+// public/ is not on the serverless filesystem, so read the photo from our own origin
+async function loadPhoto(origin: string): Promise<Buffer | undefined> {
+  try {
+    const res = await fetch(`${origin}/Photo.jpg`, { cache: "force-cache" });
+    return res.ok ? Buffer.from(await res.arrayBuffer()) : undefined;
+  } catch {
+    return undefined;
+  }
+}
+
 export async function GET(request: NextRequest) {
   const format = request.nextUrl.searchParams.get("format") ?? "word";
   const localeParam = request.nextUrl.searchParams.get("locale") ?? routing.defaultLocale;
@@ -25,7 +35,8 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: "Invalid locale" }, { status: 400 });
   }
 
-  const buffer = await buildCvDocx(localeParam, emailVariant, cvVariant);
+  const photo = await loadPhoto(request.nextUrl.origin);
+  const buffer = await buildCvDocx(localeParam, emailVariant, cvVariant, photo);
   const variantSuffix = cvVariant === "systems" ? "_Systems" : "";
 
   return new NextResponse(new Uint8Array(buffer), {
