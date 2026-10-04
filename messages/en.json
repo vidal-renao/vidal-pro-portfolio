@@ -134,7 +134,18 @@
       "CCNA training",
       "100/100 Lighthouse"
     ],
-    "coursesTitle": "Diploma and training certificates"
+    "coursesTitle": "Diploma and training certificates",
+    "ai_marketing_title": "Introduction to Digital Marketing with AI",
+    "ai_marketing_issuer": "BIG School · BIGSEO",
+    "ai_marketing_year": "01.10.2026 · 6 h",
+    "ai_marketing_meaning": "AI-supported strategy and communication",
+    "ai_marketing_desc": "A 6-hour practical introductory course covering marketing strategy, audience and message definition, channel selection and the application of AI to marketing. Attendance certificate from BIG School and BIGSEO, issued on 1 October 2026. This training complements my technical background with a business and digital communication perspective.",
+    "ai_marketing_tags": [
+      "Strategy",
+      "Audiences and messaging",
+      "Digital channels",
+      "Applied AI"
+    ]
   },
   "stack": {
     "title": "Technology Stack",

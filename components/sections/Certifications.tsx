@@ -16,6 +16,7 @@ interface Credential {
 }
 
 const credentials: Credential[] = [
+  { key: "ai_marketing", family: "amber", monogram: "AI", pdf: "/assets/certs/ai-digital-marketing.pdf" },
   { key: "ai_agentprog", family: "violet", monogram: "AI", pdf: "/assets/certs/ai-agent-programming.pdf" },
   { key: "ai_agents", family: "fuchsia", monogram: "AI", pdf: "/assets/certs/ai-zero-to-agents.pdf" },
   { key: "ai_production", family: "sky", monogram: "AI", pdf: "/assets/certs/ai-zero-to-production.pdf" },

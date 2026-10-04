@@ -134,7 +134,18 @@
       "Formación CCNA",
       "100/100 Lighthouse"
     ],
-    "coursesTitle": "Diploma y certificados de formación"
+    "coursesTitle": "Diploma y certificados de formación",
+    "ai_marketing_title": "Iniciación al Marketing Digital con IA",
+    "ai_marketing_issuer": "BIG School · BIGSEO",
+    "ai_marketing_year": "01.10.2026 · 6 h",
+    "ai_marketing_meaning": "Estrategia y comunicación con apoyo de IA",
+    "ai_marketing_desc": "Curso práctico de 6 horas sobre estrategia de marketing, definición de públicos y mensajes, selección de canales y aplicación de la inteligencia artificial al marketing. Certificado de asistencia de BIG School y BIGSEO, emitido el 1 de octubre de 2026. Una formación que complementa mi perfil técnico con una perspectiva de negocio y comunicación digital.",
+    "ai_marketing_tags": [
+      "Estrategia",
+      "Públicos y mensajes",
+      "Canales digitales",
+      "IA aplicada"
+    ]
   },
   "stack": {
     "title": "Stack Tecnológico",

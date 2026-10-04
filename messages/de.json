@@ -134,7 +134,18 @@
       "CCNA-Kurse",
       "100/100 Lighthouse"
     ],
-    "coursesTitle": "Diplom und Kurszertifikate"
+    "coursesTitle": "Diplom und Kurszertifikate",
+    "ai_marketing_title": "Einführung in digitales Marketing mit KI",
+    "ai_marketing_issuer": "BIG School · BIGSEO",
+    "ai_marketing_year": "01.10.2026 · 6 h",
+    "ai_marketing_meaning": "Strategie und Kommunikation mit KI-Unterstützung",
+    "ai_marketing_desc": "Praktischer Einführungskurs mit 6 Stunden zu Marketingstrategie, Zielgruppen und Botschaften, Kanalauswahl sowie dem Einsatz von KI im Marketing. Teilnahmezertifikat von BIG School und BIGSEO, ausgestellt am 1. Oktober 2026. Die Weiterbildung ergänzt mein technisches Profil um eine Perspektive auf Geschäft und digitale Kommunikation.",
+    "ai_marketing_tags": [
+      "Strategie",
+      "Zielgruppen und Botschaften",
+      "Digitale Kanäle",
+      "Angewandte KI"
+    ]
   },
   "stack": {
     "title": "Technologie-Stack",
