@@ -145,7 +145,18 @@
       "Zielgruppen und Botschaften",
       "Digitale Kanäle",
       "Angewandte KI"
-    ]
+    ],
+    "ai_development_title": "Einführung in die Entwicklung mit KI",
+    "ai_development_meaning": "Agenten und Codeprüfung",
+    "ai_development_desc": "Vierstündiger Einführungskurs „El Nuevo Programador“ von BIG School und MoureDev. Behandelt werden Kontext und Anweisungen für KI, die Delegation von Aufgaben an Agenten, die Koordination ihrer Arbeit und die Prüfung von Änderungen vor der Übernahme in ein Projekt. Teilnahmezertifikat vom 3. Oktober 2026. Ergänzt meine technische Ausbildung um KI-gestützte Entwicklungspraktiken und Qualitätskontrolle.",
+    "ai_development_tags": [
+      "Entwicklung mit KI",
+      "Agenten",
+      "Codeprüfung",
+      "Kontext und Anweisungen"
+    ],
+    "ai_development_issuer": "BIG School · MoureDev",
+    "ai_development_year": "03.10.2026 · 4 h"
   },
   "stack": {
     "title": "Technologie-Stack",

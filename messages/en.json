@@ -145,7 +145,18 @@
       "Audiences and messaging",
       "Digital channels",
       "Applied AI"
-    ]
+    ],
+    "ai_development_title": "Introduction to AI-Assisted Development",
+    "ai_development_meaning": "Agents and code review",
+    "ai_development_desc": "Four-hour introductory course, “El Nuevo Programador”, by BIG School and MoureDev. The course covers providing context and instructions to AI, delegating tasks to agents, coordinating their work and reviewing changes before incorporating them into a project. Attendance certificate issued on 3 October 2026. Complements my technical education with AI-assisted development practices and quality control.",
+    "ai_development_tags": [
+      "AI-assisted development",
+      "Agents",
+      "Code review",
+      "Context and instructions"
+    ],
+    "ai_development_issuer": "BIG School · MoureDev",
+    "ai_development_year": "03.10.2026 · 4 h"
   },
   "stack": {
     "title": "Technology Stack",

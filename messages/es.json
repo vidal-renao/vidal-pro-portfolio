@@ -145,7 +145,18 @@
       "Públicos y mensajes",
       "Canales digitales",
       "IA aplicada"
-    ]
+    ],
+    "ai_development_title": "Iniciación al Desarrollo con IA",
+    "ai_development_meaning": "Agentes y revisión del código",
+    "ai_development_desc": "Formación introductoria de 4 horas: «El Nuevo Programador», impartida por BIG School y MoureDev. El curso aborda cómo dar contexto e instrucciones a la IA, delegar tareas en agentes, coordinar su trabajo y revisar los cambios antes de incorporarlos a un proyecto. Certificado de asistencia emitido el 3 de octubre de 2026. Complementa mi formación técnica con prácticas de desarrollo asistido por IA y control de calidad.",
+    "ai_development_tags": [
+      "Desarrollo con IA",
+      "Agentes",
+      "Revisión de código",
+      "Contexto e instrucciones"
+    ],
+    "ai_development_issuer": "BIG School · MoureDev",
+    "ai_development_year": "03.10.2026 · 4 h"
   },
   "stack": {
     "title": "Stack Tecnológico",
