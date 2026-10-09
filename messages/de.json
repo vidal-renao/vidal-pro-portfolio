@@ -203,7 +203,8 @@
           "Betreute 500+ Benutzer an mehreren Standorten im 2nd/3rd-Level-Support – vor Ort und remote für Windows, Microsoft 365, Hardware und Netzwerkzugang; Tickets in Jira nachverfolgt",
           "Senkte das Ticketvolumen um rund 30 %, indem wiederkehrende Störungen in einer strukturierten Wissensdatenbank dokumentiert wurden",
           "Verwaltete Benutzer, Gruppen und Berechtigungen in Active Directory und Microsoft 365",
-          "Netzwerk-Troubleshooting (TCP/IP, DNS, DHCP, VLAN, VPN) und Unterstützung der VMware-vSphere-Umgebung"
+          "Netzwerk-Troubleshooting (TCP/IP, DNS, DHCP, VLAN, VPN) und Unterstützung der Virtualisierungsumgebung mit VMware vSphere und Hyper-V",
+          "Hielt Arbeitsplätze und Server mit Updates und Patches aktuell; führte Backups durch, überwachte sie und prüfte die Wiederherstellung"
         ]
       },
       {
@@ -224,6 +225,7 @@
         "period": "Nov. 2017 – Mai 2019",
         "highlights": [
           "Betrieb und Wartung von Netzwerk- und Systeminfrastrukturen",
+          "Einspielen von Sicherheitspatches und Updates auf Servern und Systemen; Durchführung und Kontrolle von Backups inklusive Wiederherstellung",
           "Verwaltung von Virtualisierungsumgebungen und Systemüberwachung",
           "Infrastrukturunterstützung für mehrere Kundenstandorte",
           "Erfassung und Nachverfolgung von System- und Netzwerkstörungen mit ServiceNow"
@@ -799,7 +801,7 @@
       },
       {
         "area": "Netzwerk & Systeme",
-        "detail": "TCP/IP · DNS/DHCP · VLAN · VPN · Windows Server · VMware vSphere · PowerShell"
+        "detail": "TCP/IP · DNS/DHCP · VLAN · VPN · Windows Server · VMware vSphere · Hyper-V · PowerShell"
       }
     ]
   }
