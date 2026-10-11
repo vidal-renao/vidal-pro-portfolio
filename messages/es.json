@@ -173,6 +173,7 @@
     "present": "Presente",
     "roles": [
       {
+        "id": "freelance-2025",
         "title": "Ingeniero de Soluciones IT & IA",
         "company": "Autónomo · Freelance",
         "location": "Suiza",
@@ -185,6 +186,7 @@
         ]
       },
       {
+        "id": "servo-carejob-2023",
         "title": "Trabajos temporales fuera del sector IT",
         "company": "Servo Personal & Treuhand GmbH · CareJob",
         "location": "Basel, Suiza",
@@ -195,6 +197,7 @@
         ]
       },
       {
+        "id": "lutelco-2021",
         "title": "Especialista en Soporte Técnico y Administrador de Sistemas",
         "company": "Lutelco Instalaciones SL",
         "location": "Zaragoza, España",
@@ -208,6 +211,7 @@
         ]
       },
       {
+        "id": "nn-bank-2019",
         "title": "Especialista de Help Desk",
         "company": "Nationale Nederlanden Bank",
         "location": "Zaragoza, España",
@@ -219,6 +223,7 @@
         ]
       },
       {
+        "id": "nsc-2017",
         "title": "Ingeniero de Sistemas y Redes",
         "company": "NSC — Redes, Sistemas y Comunicaciones",
         "location": "España",
@@ -232,6 +237,7 @@
         ]
       },
       {
+        "id": "web-freelance-2016",
         "title": "Desarrollador Web y Soporte de Aplicaciones",
         "company": "Freelance / Agencia",
         "location": "España",
@@ -242,6 +248,7 @@
         ]
       },
       {
+        "id": "sprinet-2016",
         "title": "Técnico de Sistemas y Hardware in situ",
         "company": "SPRINET",
         "location": "Zaragoza, España",
@@ -251,6 +258,7 @@
         ]
       },
       {
+        "id": "deinta-2013",
         "title": "Soporte Técnico al Cliente",
         "company": "Deinta Seguridad",
         "location": "España",
@@ -260,6 +268,7 @@
         ]
       },
       {
+        "id": "vodafone-2010",
         "title": "Técnico de Fibra Óptica y Centros de Datos",
         "company": "Vodafone (Subcontratista)",
         "location": "España",
@@ -717,18 +726,22 @@
     "certsTitle": "Certificaciones y Formación",
     "certs": [
       {
+        "id": "big-school-agent-programming",
         "title": "Programación de Agentes IA",
         "detail": "BIG School · MoureDev · 2026"
       },
       {
+        "id": "big-school-zero-to-agents",
         "title": "IA: De Cero a Agentes",
         "detail": "BIG School · 2026"
       },
       {
+        "id": "big-school-zero-to-production",
         "title": "IA: De Cero a Producción",
         "detail": "BIG School · 2026"
       },
       {
+        "id": "ccna-training",
         "title": "Formación CCNA",
         "detail": "Cisco Networking Academy · CCNA Discovery · 2013 y 2017"
       }
@@ -736,18 +749,22 @@
     "languagesTitle": "Idiomas",
     "languages": [
       {
+        "id": "es",
         "lang": "Español",
         "level": "Lengua materna"
       },
       {
+        "id": "en",
         "lang": "Inglés",
         "level": "C1 — Negociación"
       },
       {
+        "id": "de",
         "lang": "Alemán",
         "level": "B2"
       },
       {
+        "id": "fr",
         "lang": "Francés",
         "level": "A2"
       }
@@ -764,10 +781,12 @@
     "educationTitle": "Formación",
     "education": [
       {
+        "id": "asir-2014",
         "title": "Técnico Superior en Administración de Sistemas Informáticos en Red (ASIR)",
         "detail": "Finalizado en 2014"
       },
       {
+        "id": "dai-2011",
         "title": "Técnico Superior en Desarrollo de Aplicaciones Informáticas (DAI)",
         "detail": "IES Pablo Serrano · Zaragoza, España · Finalizado en diciembre de 2011 · Diploma expedido en febrero de 2012"
       }
