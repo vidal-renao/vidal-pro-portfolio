@@ -767,6 +767,16 @@
         "id": "fr",
         "lang": "Französisch",
         "level": "A2"
+      },
+      {
+        "id": "it",
+        "lang": "Italienisch",
+        "level": "Passives Verständnis (über Spanisch)"
+      },
+      {
+        "id": "pt",
+        "lang": "Portugiesisch",
+        "level": "Passives Verständnis (über Spanisch)"
       }
     ],
     "footerNote": "Referenzen auf Anfrage verfügbar"

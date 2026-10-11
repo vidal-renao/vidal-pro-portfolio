@@ -272,13 +272,15 @@ export async function buildCvDocx(
           sectionBar(t("languagesTitle")),
           new Table({
             width: { size: 100, type: WidthType.PERCENTAGE },
-            rows: [
+            // Three tiles per row keep long levels readable.
+            rows: Array.from({ length: Math.ceil(languages.length / 3) }, (_, row) => languages.slice(row * 3, row * 3 + 3)).map(
+              (chunk) =>
               new TableRow({
-                children: languages.map(
+                children: chunk.map(
                   (l) =>
                     new TableCell({
                       borders: cellBorders,
-                      width: { size: 100 / languages.length, type: WidthType.PERCENTAGE },
+                      width: { size: 100 / 3, type: WidthType.PERCENTAGE },
                       margins: { top: 0, bottom: 0, left: 60, right: 60 },
                       children: [
                         new Paragraph({
@@ -300,8 +302,8 @@ export async function buildCvDocx(
                       ],
                     })
                 ),
-              }),
-            ],
+              })
+            ),
           }),
 
           // Footer

@@ -767,6 +767,16 @@
         "id": "fr",
         "lang": "French",
         "level": "A2"
+      },
+      {
+        "id": "it",
+        "lang": "Italian",
+        "level": "Passive understanding (via Spanish)"
+      },
+      {
+        "id": "pt",
+        "lang": "Portuguese",
+        "level": "Passive understanding (via Spanish)"
       }
     ],
     "footerNote": "References available on request"

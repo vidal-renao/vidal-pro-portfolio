@@ -232,7 +232,7 @@ export default async function PrintPage({
         .cv-cert span { font-size: 8.5pt; color: #64748b; margin-top: 1px; }
 
         /* Languages */
-        .cv-langs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+        .cv-langs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
         .cv-lang {
           border: 1px solid #C9DCE7; border-radius: 2px; overflow: hidden; text-align: center;
         }
