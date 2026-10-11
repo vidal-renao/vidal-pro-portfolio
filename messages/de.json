@@ -173,6 +173,7 @@
     "present": "Heute",
     "roles": [
       {
+        "id": "freelance-2025",
         "title": "IT & KI Solutions Engineer",
         "company": "Selbstständig · Freelance",
         "location": "Schweiz",
@@ -185,6 +186,7 @@
         ]
       },
       {
+        "id": "servo-carejob-2023",
         "title": "Temporäreinsätze ausserhalb der IT",
         "company": "Servo Personal & Treuhand GmbH · CareJob",
         "location": "Basel, Schweiz",
@@ -195,6 +197,7 @@
         ]
       },
       {
+        "id": "lutelco-2021",
         "title": "IT-Support Spezialist & Systemadministrator",
         "company": "Lutelco Instalaciones SL",
         "location": "Zaragoza, Spanien",
@@ -208,6 +211,7 @@
         ]
       },
       {
+        "id": "nn-bank-2019",
         "title": "Help Desk Support Spezialist",
         "company": "Nationale Nederlanden Bank",
         "location": "Zaragoza, Spanien",
@@ -219,6 +223,7 @@
         ]
       },
       {
+        "id": "nsc-2017",
         "title": "Netzwerk- & Systemingenieur",
         "company": "NSC — Netzwerke, Systeme & Kommunikation",
         "location": "Spanien",
@@ -232,6 +237,7 @@
         ]
       },
       {
+        "id": "web-freelance-2016",
         "title": "Web-Entwickler & Anwendungssupport",
         "company": "Freelance / Agentur",
         "location": "Spanien",
@@ -242,6 +248,7 @@
         ]
       },
       {
+        "id": "sprinet-2016",
         "title": "Vor-Ort-System- & Hardwaretechniker",
         "company": "SPRINET",
         "location": "Zaragoza, Spanien",
@@ -251,6 +258,7 @@
         ]
       },
       {
+        "id": "deinta-2013",
         "title": "Technischer Kundensupport",
         "company": "Deinta Seguridad",
         "location": "Spanien",
@@ -260,6 +268,7 @@
         ]
       },
       {
+        "id": "vodafone-2010",
         "title": "Glasfaser- & Rechenzentrumstechniker",
         "company": "Vodafone (Subunternehmer)",
         "location": "Spanien",
@@ -717,18 +726,22 @@
     "certsTitle": "Zertifizierungen & Weiterbildung",
     "certs": [
       {
+        "id": "big-school-agent-programming",
         "title": "KI-Agenten-Programmierung",
         "detail": "BIG School · MoureDev · 2026"
       },
       {
+        "id": "big-school-zero-to-agents",
         "title": "KI: Von Null zu Agenten",
         "detail": "BIG School · 2026"
       },
       {
+        "id": "big-school-zero-to-production",
         "title": "KI: Von Null zur Produktion",
         "detail": "BIG School · 2026"
       },
       {
+        "id": "ccna-training",
         "title": "CCNA-Kurse",
         "detail": "Cisco Networking Academy · CCNA Discovery · 2013 und 2017"
       }
@@ -736,18 +749,22 @@
     "languagesTitle": "Sprachen",
     "languages": [
       {
+        "id": "es",
         "lang": "Spanisch",
         "level": "Muttersprache"
       },
       {
+        "id": "en",
         "lang": "Englisch",
         "level": "C1 — Verhandlung"
       },
       {
+        "id": "de",
         "lang": "Deutsch",
         "level": "B2"
       },
       {
+        "id": "fr",
         "lang": "Französisch",
         "level": "A2"
       }
@@ -764,10 +781,12 @@
     "educationTitle": "Ausbildung",
     "education": [
       {
+        "id": "asir-2014",
         "title": "Höherer Berufsabschluss in Administration vernetzter Computersysteme (ASIR)",
         "detail": "Abgeschlossen 2014"
       },
       {
+        "id": "dai-2011",
         "title": "Höherer Berufsabschluss in Anwendungsentwicklung (DAI)",
         "detail": "IES Pablo Serrano · Zaragoza, Spanien · Abgeschlossen im Dezember 2011 · Diplom ausgestellt im Februar 2012"
       }

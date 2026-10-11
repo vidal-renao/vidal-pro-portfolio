@@ -107,6 +107,7 @@ i18n/
 | --- | --- | --- | --- |
 | `/[locale]/print?print=1&email=outlook\|gmx` | `GET` | — | Print-ready CV (PDF via browser print) · locale + contact-email variant |
 | `/api/download?format=word&locale=en\|de\|es&email=outlook\|gmx` | `GET` | — | Generates CV `.docx` on the fly (`docx` package, mirrors the print CV) · `Content-Disposition: attachment` |
+| `/api/career-profile` | `GET` | — (CDN cache 5 min, `ETag`) | Career profile JSON (schema v1) in ES/DE/EN for JobPilot AI's automatic profile sync · built only from `messages/*.json` · no phone/e-mail · items keyed by stable `id` (must match across locales, enforced at build) |
 | `/api/contact` | `POST` | 3 req/hr per IP | Zod-validated · honeypot field (inline style) · in-memory IP rate limiting · Nodemailer SMTP |
 
 ---
