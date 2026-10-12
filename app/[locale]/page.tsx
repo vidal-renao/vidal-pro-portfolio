@@ -1,43 +1,45 @@
-import NavBar from "@/components/NavBar";
-import Hero from "@/components/sections/Hero";
-import Services from "@/components/sections/Services";
-import Certifications from "@/components/sections/Certifications";
-import TechStack from "@/components/sections/TechStack";
-import Experience from "@/components/sections/Experience";
-import Projects from "@/components/sections/Projects";
-import Testimonials from "@/components/sections/Testimonials";
-import Contact from "@/components/sections/Contact";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
+import { hasLocale } from "next-intl";
+import { routing } from "@/i18n/routing";
+import { SECTIONS, SITE } from "@/content/site";
+import { SiteHeader } from "@/components/layout/SiteHeader";
+import { SiteFooter } from "@/components/layout/SiteFooter";
+import { Hero } from "@/components/sections/Hero";
+import { Projects } from "@/components/sections/Projects";
+import { Experience } from "@/components/sections/Experience";
+import { Skills } from "@/components/sections/Skills";
+import { Credentials } from "@/components/sections/Credentials";
+import { Services } from "@/components/sections/Services";
+import { Testimonials } from "@/components/sections/Testimonials";
+import { Contact } from "@/components/sections/Contact";
 
-type Locale = "en" | "de" | "es";
-
-export default async function Page({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
+/** One page, one section per concern; order follows what a recruiter or client looks for first. */
+export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  const safeLocale = (["en", "de", "es"].includes(locale) ? locale : "en") as Locale;
+  if (!hasLocale(routing.locales, locale)) notFound();
+  setRequestLocale(locale);
+  const nav = await getTranslations({ locale, namespace: "ui.nav" });
 
   return (
     <>
-      <NavBar />
-      <main className="relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute inset-x-0 top-0 h-[520px] bg-[radial-gradient(circle_at_top,rgba(37,99,235,0.14),transparent_58%)]" />
-          <div className="absolute right-0 top-[26rem] h-[28rem] w-[28rem] rounded-full bg-amber-500/6 blur-[120px]" />
-          <div className="absolute left-0 top-[70rem] h-[32rem] w-[32rem] rounded-full bg-sky-500/8 blur-[140px]" />
-        </div>
-        <Hero locale={safeLocale} />
-        <div className="relative z-10 flex flex-col">
-          <Services />
-          <Certifications />
-          <TechStack />
-          <Experience />
-          <Projects />
-          <Testimonials />
-          <Contact locale={safeLocale} />
-        </div>
+      <SiteHeader
+        locale={locale}
+        brand={SITE.shortName}
+        sections={SECTIONS.map((s) => ({ id: s.id, label: nav(s.key) }))}
+        labels={{ cv: nav("cv"), menu: nav("menu"), close: nav("close"), language: nav("language"), skip: nav("skip") }}
+      />
+      <main id="main">
+        <Hero locale={locale} />
+        <Projects locale={locale} />
+        <Experience locale={locale} />
+        <Skills locale={locale} />
+        <Credentials locale={locale} />
+        <Services locale={locale} />
+        <Testimonials locale={locale} />
+        <Contact locale={locale} />
       </main>
+      <SiteFooter locale={locale} />
     </>
   );
 }

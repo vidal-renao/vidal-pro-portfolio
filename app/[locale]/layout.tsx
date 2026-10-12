@@ -1,21 +1,10 @@
 import type { Metadata } from "next";
-import { NextIntlClientProvider, hasLocale } from "next-intl";
-import { getMessages } from "next-intl/server";
+import { hasLocale } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
+import { GeistSans } from "geist/font/sans";
 import { routing } from "@/i18n/routing";
-import { ServiceWorkerRegistration } from "@/app/components/sw-register";
-import { Geist, Geist_Mono } from "next/font/google";
-import { BrightnessControl } from "@/components/ui/BrightnessControl";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import "@/app/globals.css";
 
 const BASE_URL = "https://vidal-pro-portfolio.vercel.app";
 const BASE = BASE_URL;
@@ -152,31 +141,14 @@ export default async function LocaleLayout({ children, params }: Props) {
     notFound();
   }
 
-  const messages = await getMessages();
+  // Static rendering per locale: copy is resolved on the server; client components get plain props.
+  setRequestLocale(locale);
 
   return (
-    <html
-      lang={locale}
-      suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable}`}
-    >
-      <head>
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-      </head>
-      <body className="bg-[#060606] text-white antialiased">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-        <ServiceWorkerRegistration />
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          {children}
-        </NextIntlClientProvider>
-        <BrightnessControl />
+    <html lang={locale} className={GeistSans.variable}>
+      <body>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        {children}
       </body>
     </html>
   );
