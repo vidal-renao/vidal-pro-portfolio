@@ -1,171 +1,89 @@
 {
-  "nav": {
-    "stack": "Stack",
-    "services": "Services",
-    "certifications": "Education",
-    "experience": "Experience",
-    "projects": "Projects",
-    "consultation": "Free IT Analysis",
-    "lab": "Web3 Lab",
-    "productLab": "Product Lab",
-    "contact": "Contact",
-    "brand": "Brand Kit",
-    "hire": "Let's Talk"
-  },
   "services": {
     "label": "Services",
-    "title": "What I Build for Business",
-    "subtitle": "Solutions that translate technical complexity into measurable business value — deployed and maintained with enterprise-grade reliability.",
-    "cta": "Let's Optimize Your Business",
-    "cloud_title": "Cloud Transformation",
-    "cloud_benefit": "Reduce costs. Strengthen security.",
-    "cloud_desc": "Migrate your organization to Microsoft 365 and Azure. Modern identity management with Entra ID, automated device lifecycle with Intune & Autopilot, and enterprise-grade security — without the overhead.",
-    "cloud_tags": [
-      "M365",
-      "Azure",
-      "Entra ID",
-      "Intune",
-      "Autopilot"
+    "title": "How I can help",
+    "subtitle": "Three services, each backed by projects or experience you can check on this page.",
+    "items": [
+      {
+        "title": "Custom websites and apps",
+        "desc": "Multilingual corporate sites, shops and web apps, installable on phones and deployed on Vercel.",
+        "evidence": "D'NAMAR, NATURÆ, JobPilot AI",
+        "tags": [
+          "Next.js",
+          "TypeScript",
+          "Supabase",
+          "PWA"
+        ]
+      },
+      {
+        "title": "AI automation",
+        "desc": "Assistants and workflows with Claude that read documents, classify requests and propose decisions a person reviews.",
+        "evidence": "HelpDesk AI, Invoice Auto, WAAI",
+        "tags": [
+          "Claude",
+          "RAG",
+          "MCP",
+          "OCR"
+        ]
+      },
+      {
+        "title": "IT support and systems",
+        "desc": "User support and administration of Windows, Microsoft 365, Active Directory and networks, with incidents handled through tickets.",
+        "evidence": "Lutelco, Nationale Nederlanden Bank, NSC",
+        "tags": [
+          "Windows",
+          "Microsoft 365",
+          "Active Directory",
+          "Networking"
+        ]
+      }
     ],
-    "apps_title": "Custom Business Apps",
-    "apps_benefit": "Digitize your workflows. Eliminate friction.",
-    "apps_desc": "Purpose-built web applications and AI-integrated systems that replace manual processes with fast, installable, multilingual products. From operations platforms to autonomous audit pipelines — built to score 100/100 and ship on schedule.",
-    "apps_case": "→ Case: Dnamar Facility Services — real-time operations platform across 3 languages.",
-    "apps_tags": [
-      "Next.js",
-      "PWA",
-      "Multilingual",
-      "100/100"
-    ],
-    "network_title": "Hybrid Networking",
-    "network_benefit": "Reliable connectivity across every site.",
-    "network_desc": "Enterprise network design for multi-site businesses: VLAN segmentation, VPN configuration, DNS/DHCP, and hybrid identity — ensuring every team stays connected and every device stays inside your security perimeter.",
-    "network_tags": [
-      "CCNA",
-      "VLAN",
-      "VPN",
-      "Windows Server",
-      "AD"
-    ]
+    "evidenceLabel": "Examples"
   },
   "hero": {
-    "badge": "Fullstack Developer & IT Specialist · Basel, CH",
-    "availability_swiss": "Immediate availability across Switzerland and Liechtenstein",
-    "title": "Fullstack Developer & IT Specialist",
     "title2": "Websites, apps and AI automation for your business.",
-    "subtitle": "Whether you run a gym, a restaurant, a hair salon, a clinic or a shop: I build your website and app, automate your day-to-day with AI, and handle the technical side —systems, Windows, Linux and networks— so everything just works. One contact, from briefing to result.",
-    "sectors": "Gyms · Restaurants · Salons · Clinics · Shops & more",
-    "collaboration": "Available for businesses in any sector and agency collaboration across CH/LI.",
-    "cta_primary": "Book a Free Consultation",
-    "cta_secondary": "Download CV",
-    "stat1_value": "10+",
-    "stat1_label": "Projects in Production",
-    "stat2_value": "CCNA",
-    "stat2_label": "CCNA training",
-    "stat3_value": "DE·EN·ES",
-    "stat3_label": "Trilingual"
+    "subtitle": "Whether you run a gym, a restaurant, a hair salon, a clinic or a shop: I build your website and app, automate your day-to-day with AI, and handle the technical side —systems, Windows, Linux and networks— so everything just works. One contact, from briefing to result."
   },
   "certifications": {
-    "label": "Education and continuing training",
     "title": "Two higher vocational diplomas in IT",
     "subtitle": "Software Application Development (2011) and Networked Computer Systems Administration (2014), complemented by continuing training.",
     "open": "Open certificate",
-    "verified": "Verified",
     "ai_agentprog_title": "AI Agent Programming",
     "ai_agentprog_issuer": "BIG School · MoureDev",
     "ai_agentprog_year": "2026",
     "ai_agentprog_meaning": "Agents that act, not just answer",
-    "ai_agentprog_desc": "Designing and shipping autonomous AI agents with tool use, memory, and orchestration — the core of the systems I put into production.",
-    "ai_agentprog_tags": [
-      "AI Agents",
-      "Tool Use",
-      "Orchestration",
-      "LLM"
-    ],
     "ai_agents_title": "AI: From Zero to Agents",
     "ai_agents_issuer": "BIG School",
     "ai_agents_year": "2026",
     "ai_agents_meaning": "From prompt to a system that decides",
-    "ai_agents_desc": "The full path from prompting to agent architectures with RAG and memory, applied to real products in production.",
-    "ai_agents_tags": [
-      "RAG",
-      "Embeddings",
-      "Prompt Design",
-      "Automation"
-    ],
     "ai_production_title": "AI: From Zero to Production",
     "ai_production_issuer": "BIG School",
     "ai_production_year": "2026",
     "ai_production_meaning": "AI that ships and stays shipped",
-    "ai_production_desc": "AI-assisted full-stack development through to deployment: faster cycles, smarter code generation, and systems that hold up over time.",
-    "ai_production_tags": [
-      "Fullstack",
-      "Next.js",
-      "Deployment",
-      "DevEx"
-    ],
     "ccna_title": "CCNA training",
     "ccna_issuer": "Cisco Networking Academy",
     "ccna_year": "2013",
     "ccna_meaning": "The network under control, by design",
-    "ccna_desc": "Cisco Networking Academy training: CCNA Discovery — Working at a Small-to-Medium Business or ISP. Course completion certificate, June 2013.",
-    "ccna_tags": [
-      "Routing & Switching",
-      "VLAN",
-      "VPN",
-      "TCP/IP"
-    ],
     "diploma_title": "Higher Vocational Diploma in Software Application Development (DAI)",
     "diploma_issuer": "IES Pablo Serrano · Zaragoza",
     "diploma_year": "2011",
     "diploma_meaning": "Software engineering from the ground up",
-    "diploma_desc": "Higher vocational qualification completed in December 2011. Diploma issued on 7 February 2012. Training in programming, databases and application development.",
-    "diploma_tags": [
-      "Software",
-      "Databases",
-      "Backend",
-      "OOP"
-    ],
-    "trust_title": "I cover the full spectrum: from network to interface",
-    "trust_subtitle": "Full-stack development and AI at the centre; networking and infrastructure as the base.",
-    "trust_badges": [
-      "AI Development",
-      "Full-stack in production",
-      "CCNA training",
-      "100/100 Lighthouse"
-    ],
-    "coursesTitle": "Diploma and training certificates",
     "ai_marketing_title": "Introduction to Digital Marketing with AI",
     "ai_marketing_issuer": "BIG School · BIGSEO",
     "ai_marketing_year": "01.10.2026 · 6 h",
     "ai_marketing_meaning": "AI-supported strategy and communication",
-    "ai_marketing_desc": "A 6-hour practical introductory course covering marketing strategy, audience and message definition, channel selection and the application of AI to marketing. Attendance certificate from BIG School and BIGSEO, issued on 1 October 2026. This training complements my technical background with a business and digital communication perspective.",
-    "ai_marketing_tags": [
-      "Strategy",
-      "Audiences and messaging",
-      "Digital channels",
-      "Applied AI"
-    ],
     "ai_development_title": "Introduction to AI-Assisted Development",
     "ai_development_meaning": "Agents and code review",
-    "ai_development_desc": "Four-hour introductory course, “El Nuevo Programador”, by BIG School and MoureDev. The course covers providing context and instructions to AI, delegating tasks to agents, coordinating their work and reviewing changes before incorporating them into a project. Attendance certificate issued on 3 October 2026. Complements my technical education with AI-assisted development practices and quality control.",
-    "ai_development_tags": [
-      "AI-assisted development",
-      "Agents",
-      "Code review",
-      "Context and instructions"
-    ],
     "ai_development_issuer": "BIG School · MoureDev",
-    "ai_development_year": "03.10.2026 · 4 h"
-  },
-  "stack": {
-    "title": "Technology Stack",
-    "subtitle": "Enterprise-grade expertise — from hybrid identity to cloud-native automation.",
-    "cloud": "Cloud & Identity",
-    "infra": "Infrastructure",
-    "automation": "Automation",
-    "network": "Networking",
-    "dev": "Development"
+    "ai_development_year": "03.10.2026 · 4 h",
+    "ai_chatgpt_title": "Introduction to AI: The New ChatGPT",
+    "ai_chatgpt_issuer": "BIG School · Jon Hernández",
+    "ai_chatgpt_year": "04.09.2026 · 6 h",
+    "ai_chatgpt_meaning": "Practical use of AI assistants",
+    "asir_title": "Higher Vocational Diploma in Networked Computer Systems Administration (ASIR)",
+    "asir_issuer": "Higher vocational training",
+    "asir_year": "2014",
+    "asir_meaning": "Systems and networks from the ground up"
   },
   "experience": {
     "title": "Experience",
@@ -281,350 +199,78 @@
     ]
   },
   "projects": {
-    "title": "Projects",
-    "subtitle": "Production systems. Real clients. No mock data.",
-    "view": "Live Demo",
-    "code": "GitHub",
-    "architecture": {
-      "label": "Star Project — In Production",
-      "title": "HelpDesk AI — Multi-tenant helpdesk for Swiss SMEs",
-      "intro": "The most worked-on repository of the ecosystem: 204 commits, tests in continuous integration and its own Supabase database. A helpdesk with a shared inbox, an owner per ticket, SLA tracking and AI-assisted triage in German, English and Spanish. The interesting part is the boundary drawn around the AI: it never touches the database, only seven narrow MCP tools validated with Zod, with Supabase schemas isolated so no query can leave its domain. Around that sits what makes it defensible to a Swiss client: zero-trust CORS, role-based permissions, SLA breach detection and DSG-compliant logging.",
-      "achievements": [
-        "Seven MCP tools with Zod validation: the model asks for scoped data and never queries the database directly.",
-        "Schema isolation in Supabase: a helpdesk query cannot reach data from another domain.",
-        "Zero-trust CORS: the middleware validates the origin against an explicit list, no wildcards.",
-        "204 commits and a test suite in CI — here the repository can be audited, not just the demo watched."
-      ],
-      "stack": [
-        "Next.js 15",
-        "TypeScript",
-        "MCP Server",
-        "Supabase RLS",
-        "Anthropic API",
-        "Vercel Edge"
-      ]
-    },
-    "items": [
-      {
-        "title": "HelpDesk AI + OmniCommand",
-        "description": "Multi-tenant helpdesk for Swiss SMEs: shared inbox, an owner per ticket, SLA tracking and AI-assisted triage in German, English and Spanish. The AI never touches the database: an MCP server on Vercel exposes seven narrow tools with Zod validation, and Supabase schema isolation stops a query from leaving its domain. Zero-trust CORS (no wildcards), role-based access control and SLA breach detection. It is the most worked-on repository of the ecosystem — 204 commits, tests in CI and its own database — and it complies with the Swiss DSG.",
-        "tags": [
-          "Next.js 15",
-          "MCP Server",
-          "Claude AI"
-        ],
-        "metrics": [
-          "7 MCP tools",
-          "204 commits · CI",
-          "DE/EN/ES"
-        ],
-        "status": "Production"
+    "items": {
+      "helpdesk-ai": {
+        "title": "HelpDesk AI",
+        "summary": "Multi-tenant helpdesk for Swiss SMEs with AI-assisted triage in German, English and Spanish.",
+        "highlights": [
+          "MCP server with seven scoped tools and Zod validation: the AI never touches the database directly",
+          "SLA tracking, an owner per ticket and role-based access control",
+          "Over 200 commits, tests in CI and its own database"
+        ]
       },
-      {
+      "jobpilot-ai": {
+        "title": "JobPilot AI",
+        "summary": "Job-search copilot: reads job alerts, scores the fit and prepares a CV and cover letter in each job's language.",
+        "highlights": [
+          "Explainable matching: every score is backed by specific skills from the job ad",
+          "CV and cover letter as PDF and Word in German, English or Spanish; nothing is sent without manual approval",
+          "Multi-user with Supabase Row Level Security, installable as an app (PWA)"
+        ]
+      },
+      "invoice-auto": {
+        "title": "Invoice Auto",
+        "summary": "Invoice management between Spain and Switzerland with AI extraction and an engine that decides what to pay, review or stop.",
+        "highlights": [
+          "Claude Vision extracts the fields and the tax engine validates VAT",
+          "Catches duplicates and IBAN changes and generates the ISO 20022 pain.001 file",
+          "Public demo without sign-up, using fictitious data"
+        ]
+      },
+      "waai": {
+        "title": "WAAI SaaS",
+        "summary": "Multi-tenant platform to deploy WhatsApp agents with Claude, a RAG knowledge base and human handoff.",
+        "highlights": [
+          "RAG with embeddings and semantic search in pgvector",
+          "AI ↔ human handoff with roles and asynchronous state",
+          "Row Level Security per workspace on every table"
+        ]
+      },
+      "aura-ai": {
+        "title": "Aura AI",
+        "summary": "A dashboard that proposes pricing and inventory decisions and leaves them ready for a person to approve.",
+        "highlights": [
+          "Multi-tenant with Row Level Security per tenant",
+          "Insert-only audit log",
+          "Public demo with sample data"
+        ]
+      },
+      "solarpilot": {
+        "title": "SolarPilot",
+        "summary": "Solar pre-study that calculates panels, output, savings and payback, showing the source and confidence of every figure.",
+        "highlights": [
+          "Output calculated with PVGIS irradiation data (European Commission)",
+          "Surplus compensation according to Spain's RD 244/2019",
+          "137 automated tests"
+        ]
+      },
+      "dnamar": {
         "title": "D'NAMAR GmbH",
-        "description": "Production platform for a Basel-based facility services company — live at dnamar.ch since April 2026. Full SMTP infrastructure migration from Resend to self-hosted Nodemailer (NOVATREND, port 465 SSL/TLS) — eliminating all third-party transactional email dependencies and ensuring Swiss DSG-compliant data residency for contact submissions. JSON-LD LocalBusiness structured data with explicit addressLocality Basel and areaServed: [CH, LI] drives targeted organic indexing for facility services searches across NW Switzerland. Trilingual SSG (DE/EN/ES), 100/100 Lighthouse across all four metrics, verified and indexed in Google Search Console.",
-        "tags": [
-          "Next.js 16",
-          "Nodemailer SMTP",
-          "JSON-LD SEO"
-        ],
-        "metrics": [
-          "100/100 Lighthouse",
-          "Independent SMTP",
-          "Local SEO Basel"
-        ],
-        "status": "Production"
+        "summary": "Trilingual corporate website in production for a cleaning company in Basel.",
+        "highlights": [
+          "Live on dnamar.ch since April 2026",
+          "Trilingual (DE/EN/ES) and verified in Google Search Console",
+          "Contact form over its own SMTP, no third-party email provider"
+        ]
       },
-      {
-        "title": "Invoice Auto — Invoices and payment decision engine",
-        "description": "Invoice management for freelancers and SMEs operating between Spain and Switzerland: upload a photo or PDF, Claude Vision extracts the fields, and the tax engine validates VAT and detects reverse charge. On top sits the payment decision engine, answering invoice by invoice whether paying is safe: pay, review or hold, always with the evidence in view. It holds duplicates, unverified accounts and the bank-detail-change fraud, and requires every new IBAN to be confirmed through an independent channel. It generates the ISO 20022 pain.001 file you upload to your e-banking; the critical rules are re-checked inside PostgreSQL, with an audit log the database refuses to erase. Public demo, no sign-up.",
-        "tags": [
-          "Next.js 16",
-          "ISO 20022",
-          "Supabase RLS"
-        ],
-        "metrics": [
-          "XSD-validated pain.001",
-          "IBAN fraud controls",
-          "132 tests"
-        ],
-        "status": "Production"
-      },
-      {
-        "title": "SolarPilot — Solar pre-study with traceability",
-        "description": "Solar pre-study for Spanish installers: from an address and a yearly consumption it returns system size, panels, month-by-month production, savings, payback and a battery comparison, instead of a \"we'll call you back\". Production comes from PVGIS (European Commission) and every number carries its source and confidence: you see what is measured, what is estimated and what is not known yet. It applies the RD 244/2019 surplus compensation and separates the incentives that reduce the payback from the merely potential ones. Includes lead capture with versioned consent, a printable proposal and an internal pipeline. 137 tests.",
-        "tags": [
-          "Next.js 15",
-          "PVGIS",
-          "Drizzle ORM"
-        ],
-        "metrics": [
-          "Real PVGIS data",
-          "RD 244/2019",
-          "0 WCAG AA violations"
-        ],
-        "status": "Production"
-      },
-      {
-        "title": "NATURÆ Cosmetics — Swiss Handmade Skincare",
-        "description": "E-commerce and PWA for a handmade cosmetics brand from Basel, built under the Swiss VKos regulation: no payment gateway while each product's file is not certified, so the cart ends in a WhatsApp order backed by an immutable, RLS-protected history. Installable on Android and iOS with a hand-written manifest and a service worker that only caches same-origin — that filter prevents session or cart responses from being shared between users of one device. Trilingual catalogue with a per-user synced cart. The repository is private by agreement with the brand.",
-        "tags": [
-          "Next.js 15",
-          "Supabase RLS",
-          "PWA"
-        ],
-        "metrics": [
-          "VKos compliant",
-          "PWA iOS/Android",
-          "Private repo"
-        ],
-        "status": "Production"
-      },
-      {
-        "title": "WAAI SaaS — WhatsApp AI Agent Platform",
-        "description": "Multi-tenant SaaS platform allowing businesses to deploy Claude-powered WhatsApp agents without code. Full 9-phase implementation: SSR auth, tenant isolation, agent lifecycle, RAG knowledge base, WhatsApp webhooks, lead capture, AI↔human handoff, analytics, and billing readiness. RAG pipeline: document chunking, OpenAI embeddings (text-embedding-3-small, 1536-dim), pgvector semantic search. AI↔human handoff system with async state control and RBAC (owner/admin/agent_manager/human_agent). 100% RLS coverage across all tables with workspace-scoped policies — zero secrets exposed client-side. Validated with 52 automated smoke tests (0% failure rate), 4 health checks, and a full E2E runbook. Factory/Strategy pattern for hot-swap embedding provider with zero code changes.",
-        "tags": [
-          "Next.js 16",
-          "Claude API",
-          "pgvector RAG"
-        ],
-        "metrics": [
-          "52 tests · 0 fail",
-          "RAG pipeline",
-          "Multi-tenant RLS"
-        ],
-        "status": "Production"
-      },
-      {
-        "title": "Parcel Tracker SaaS",
-        "description": "End-to-end logistics SaaS for international courier operations. Three-tier RBAC (Admin / Staff / Client) with automatic role assignment on registration. Full package lifecycle (Arrived → Ready → Picked Up) with Canvas API digital delivery proof — in-browser signature capture and photo upload. Multi-channel notifications on every status change via Twilio WhatsApp Business API and Resend branded email. Analytics dashboard: revenue by period, package volume, top clients. AI-audited security: JWT + bcrypt + Helmet, Zod validation on all API inputs, zero exposed credentials in git history. Public zero-login tracking at /track/[number] — SEO-friendly, fully translated. Native 6-language i18n (DE/EN/ES/FR/IT/PT) with zero page reload on switch. PWA installable.",
-        "tags": [
-          "Next.js 14",
-          "Node.js/Express",
-          "Twilio · Resend"
-        ],
-        "metrics": [
-          "3-tier RBAC",
-          "6-language PWA",
-          "AI-audited security"
-        ],
-        "status": "Production"
-      },
-      {
-        "title": "Ticket Auditor — Autonomous CI/CD",
-        "description": "Autonomous audit pipeline. GitHub Actions fires hourly → Vercel Edge Function → AI analysis over MCP → Resend delivers the HTML executive report. Claude reads live business context through seven MCP tools, with no direct database access. The full cycle runs in under 11 seconds with nobody watching. It has no interface: it is a service, so what there is to look at is the code.",
-        "tags": [
-          "Vercel Edge",
-          "GitHub Actions",
-          "MCP Protocol"
-        ],
-        "metrics": [
-          "<11 s per cycle",
-          "No human in the loop",
-          "20 test files"
-        ],
-        "status": "Production"
-      },
-      {
-        "title": "Aura AI — Revenue Intelligence",
-        "description": "Pricing and inventory decision panel for retail: instead of yet another dashboard, it proposes the action and leaves it ready to approve. Multi-tenant with per-tenant Row Level Security in PostgreSQL, writes restricted to the service role and an INSERT-only audit log aligned with the Swiss DSG. It filters context before calling the Anthropic API to cut the cost per analysis. The demo is public and runs on sample data; the repository is still small and has no test suite.",
-        "tags": [
-          "Next.js 16",
-          "TypeScript",
-          "Supabase RLS",
-          "Anthropic API",
-          "Vercel Edge"
-        ],
-        "metrics": [
-          "Multi-tenant RLS",
-          "DSG audit log",
-          "Public demo"
-        ],
-        "status": "Public demo"
-      },
-      {
-        "title": "MatchPoint AI",
-        "description": "AI job-matching platform. Candidates upload their CV, Claude extracts the full profile and matches them against openings with four-axis scoring: skills, experience, culture and logistics. Recruiters only see candidates above 90 %, with WhatsApp and email alerts. A working MVP with a public demo; no automated tests and no changes since April 2026.",
-        "tags": [
-          "Next.js 16",
-          "Claude AI",
-          "Supabase"
-        ],
-        "metrics": [
-          "AI CV parsing",
-          "4D match scoring",
-          "WhatsApp alerts"
-        ],
-        "status": "MVP"
-      },
-      {
-        "title": "CivicFund Web3 Lab",
-        "description": "Privacy-aware public goods funding interface inspired by community governance platforms. Connect an injected wallet, switch to Sepolia, read live balance and block data, then sign a non-financial support intention with transparent consent messaging.",
-        "tags": [
-          "Next.js 16",
-          "wagmi",
-          "viem",
-          "TypeScript"
-        ],
-        "metrics": [
-          "Wallet connect",
-          "Sepolia reads",
-          "EVM message signing"
-        ],
-        "status": "Lab"
-      },
-      {
-        "title": "TempoTutor Marketplace Lab",
-        "description": "Music lesson marketplace product lab: browse teacher profiles, reserve a session through Stripe Test Checkout, protect bookings with Supabase Auth and RLS, onboard teacher payouts through Stripe Connect, and process payment webhooks idempotently.",
-        "tags": [
-          "Next.js 16",
-          "Supabase RLS",
-          "Stripe",
-          "Playwright"
-        ],
-        "metrics": [
-          "Test checkout",
-          "Seller payouts",
-          "Idempotent webhook"
-        ],
-        "status": "Lab"
-      }
-    ]
-  },
-  "web3Lab": {
-    "metaTitle": "CivicFund Web3 Lab | Vidal Renao",
-    "metaDescription": "A public-goods Web3 frontend demo built with Next.js, TypeScript, wagmi and viem on Sepolia.",
-    "back": "Back to projects",
-    "badge": "Web3 frontend demo",
-    "titlePrefix": "Civic",
-    "titleAccent": "Fund",
-    "subtitle": "A functional prototype for discovering community initiatives, connecting a wallet and signing a support intention on the Sepolia test network.",
-    "stack": "Next.js 16 / TypeScript / wagmi / viem / Sepolia",
-    "verified": "Real blockchain integration",
-    "demoData": "Proposals and amounts are demonstration data. Wallet connection, Sepolia block reads, testnet balance and signing are real functionality.",
-    "wallet": "Wallet",
-    "connect": "Connect wallet",
-    "disconnect": "Disconnect",
-    "noWallet": "Connect a browser wallet, such as MetaMask, to test the Web3 flow.",
-    "account": "Connected account",
-    "network": "Network",
-    "balance": "Sepolia balance",
-    "block": "Latest Sepolia block",
-    "wrongNetwork": "Switch to Sepolia to read your test balance and sign safely.",
-    "switch": "Switch to Sepolia",
-    "proposals": "Community proposals",
-    "demoBadge": "MVP / demonstration",
-    "selected": "Selected",
-    "contributors": "contributors",
-    "funded": "funded",
-    "intention": "Support intention",
-    "signText": "Sign a non-financial support intention. No transaction is sent and no funds leave your wallet.",
-    "sign": "Sign support intention",
-    "signed": "Signature captured locally",
-    "signatureNote": "This EVM signature demonstrates wallet interaction without initiating a donation.",
-    "architecture": "What this project demonstrates",
-    "messageTitle": "CivicFund support intention",
-    "messageProposal": "proposal",
-    "messageWallet": "wallet",
-    "notConnected": "not connected",
-    "messageNetwork": "network",
-    "messageValue": "value",
-    "messagePurpose": "purpose",
-    "messageNoTransaction": "public-goods demonstration; no transaction requested",
-    "proposalItems": {
-      "privacy": {
-        "category": "Identity",
-        "title": "Privacy-first community identity",
-        "summary": "Portable attestations that prove membership without exposing personal records."
-      },
-      "learning": {
-        "category": "Education",
-        "title": "Open learning commons",
-        "summary": "Shared bounties for community-led research and workshops."
-      },
-      "coordination": {
-        "category": "Coordination",
-        "title": "Local coordination toolkit",
-        "summary": "Open-source tools for proposals, events and transparent contribution tracking."
-      }
-    },
-    "bullets": [
-      "Wallet connection and network switching through wagmi connectors.",
-      "Sepolia balance and live block reads powered by viem-compatible hooks.",
-      "Message signing with clear consent and no financial operation.",
-      "Responsive interface for a community funding concept."
-    ]
-  },
-  "tempoTutorLab": {
-    "metaTitle": "TempoTutor Marketplace Lab | Vidal Renao",
-    "metaDescription": "A music lesson marketplace product lab using Next.js, TypeScript, Supabase Auth and RLS, Stripe Checkout and Connect, and Playwright.",
-    "back": "Back to projects",
-    "badge": "Marketplace product lab",
-    "subtitle": "A booking marketplace for music teachers: discover verified profiles, reserve a lesson, pay safely, and route teacher payouts through an accountable full-stack architecture.",
-    "integrationTitle": "Integration status",
-    "supabaseAuth": "Supabase Auth + RLS",
-    "stripeCheckout": "Stripe test payments",
-    "webhookIdempotency": "Webhook idempotency",
-    "configured": "Configured",
-    "demoMode": "Demo mode",
-    "setupRequired": "Setup ready",
-    "demoNotice": "The marketplace UI is live with seeded profiles. Real test payments activate only after Supabase and Stripe test keys are configured.",
-    "marketplaceLabel": "Discover",
-    "chooseTeacher": "Choose a music teacher",
-    "seededProfiles": "Seeded marketplace profiles",
-    "bookingLabel": "Book",
-    "bookingSummary": "Your lesson",
-    "total": "Total",
-    "previewReservation": "Preview reservation",
-    "payWithStripe": "Pay with Stripe test checkout",
-    "processing": "Processing...",
-    "paymentDisclosure": "No real charge is initiated in demo mode. Configured test mode redirects to Stripe Checkout and records the booking securely.",
-    "accountLabel": "Identity",
-    "authTitle": "Student account",
-    "emailPlaceholder": "Email for passwordless sign-in",
-    "sendMagicLink": "Send magic link",
-    "signedInAs": "Signed in as",
-    "signOut": "Sign out",
-    "teacherPayouts": "Teacher payouts setup",
-    "architectureLabel": "Architecture",
-    "architectureTitle": "What this build proves",
-    "emailRequired": "Enter a valid email address first.",
-    "setupAuth": "Supabase Auth is designed and ready; configure test environment keys to send a magic link.",
-    "magicLinkSent": "Check your email for the secure sign-in link.",
-    "signedOut": "You have been signed out.",
-    "previewReady": "Reservation preview created. With test keys and a signed-in student this step opens Stripe Checkout.",
-    "checkoutSuccess": "Payment confirmed. The idempotent webhook updates the booking exactly once.",
-    "checkoutCancelled": "Checkout cancelled. The slot remains available for a new reservation.",
-    "checkoutError": "Checkout could not be started.",
-    "teacherSetupInfo": "Stripe Connect onboarding activates for an authenticated teacher after configuration.",
-    "connectComplete": "Teacher payout onboarding returned successfully.",
-    "connectError": "Teacher payout onboarding could not be started.",
-    "instruments": {
-      "piano": "Piano",
-      "guitar": "Guitar",
-      "voice": "Voice coaching"
-    },
-    "levels": {
-      "beginner": "Beginner",
-      "intermediate": "Intermediate",
-      "advanced": "Advanced"
-    },
-    "architecture": {
-      "auth": {
-        "title": "Auth + tenant isolation",
-        "text": "Magic-link authentication and PostgreSQL RLS restrict bookings to each student and assigned teacher."
-      },
-      "payments": {
-        "title": "Checkout + payouts",
-        "text": "Stripe Test Checkout accepts lesson payment; Connect Express supports teacher onboarding and payouts."
-      },
-      "webhooks": {
-        "title": "Idempotent webhook",
-        "text": "Verified Stripe events call an atomic database function with an immutable unique event record."
-      },
-      "testing": {
-        "title": "Quality workflow",
-        "text": "Playwright covers lesson selection and the booking path; API boundaries validate input before external calls."
+      "naturae": {
+        "title": "NATURÆ Cosmetics",
+        "summary": "Shop and PWA for a handmade cosmetics brand from Basel, with orders via WhatsApp.",
+        "highlights": [
+          "WhatsApp orders backed by an RLS-protected order history",
+          "Installable on Android and iOS",
+          "Trilingual catalogue; private repository by agreement with the brand"
+        ]
       }
     }
   },
@@ -833,5 +479,80 @@
         "detail": "TCP/IP · DNS/DHCP · VLAN · VPN · Windows Server · VMware vSphere · Hyper-V · PowerShell"
       }
     ]
+  },
+  "ui": {
+    "nav": {
+      "projects": "Projects",
+      "experience": "Experience",
+      "skills": "Skills",
+      "credentials": "Education",
+      "services": "Services",
+      "contact": "Contact",
+      "cv": "Download CV",
+      "menu": "Menu",
+      "close": "Close menu",
+      "language": "Language",
+      "skip": "Skip to content"
+    },
+    "hero": {
+      "eyebrow": "Basel, Switzerland · Available in CH and LI",
+      "primary": "View projects",
+      "secondary": "Get in touch",
+      "statProjects": "live projects",
+      "statCerts": "AI certificates",
+      "statLanguages": "working languages"
+    },
+    "projects": {
+      "label": "Projects",
+      "title": "Projects you can open and try",
+      "subtitle": "Only live, verified projects are listed. Filter by type or search by technology.",
+      "search": "Search by name or technology…",
+      "all": "All",
+      "count_one": "{count} project",
+      "count_other": "{count} projects",
+      "empty": "No project matches your search.",
+      "clear": "Clear filters",
+      "open": "Open",
+      "code": "Code",
+      "private": "Private code",
+      "featured": "Featured",
+      "status": {
+        "production": "In production",
+        "demo": "Public demo",
+        "staging": "Staging"
+      },
+      "category": {
+        "ai": "Applied AI",
+        "saas": "SaaS",
+        "client": "Client project"
+      }
+    },
+    "experience": {
+      "label": "Experience",
+      "show": "Show details",
+      "hide": "Hide"
+    },
+    "skills": {
+      "label": "Skills",
+      "title": "What I work with",
+      "subtitle": "The same areas listed on my CV."
+    },
+    "credentials": {
+      "label": "Education",
+      "ai": "Artificial intelligence",
+      "network": "Networking",
+      "degree": "Degrees",
+      "noPdf": "PDF available on request"
+    },
+    "testimonials": {
+      "label": "Clients"
+    },
+    "contact": {
+      "cv": "Download CV"
+    },
+    "footer": {
+      "rights": "All rights reserved.",
+      "top": "Back to top"
+    }
   }
 }

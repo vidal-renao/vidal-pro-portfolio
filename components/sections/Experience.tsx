@@ -1,120 +1,47 @@
-"use client";
+import { getTranslations } from "next-intl/server";
+import { Section } from "@/components/ui/Section";
+import { ChevronDown } from "@/components/ui/icons";
 
-import { useTranslations } from "next-intl";
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
+interface Role { id: string; title: string; company: string; location: string; period: string; highlights: string[]; badge?: string }
 
-export default function Experience() {
-  const t = useTranslations("experience");
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-100px" });
-  const roles = t.raw("roles") as Array<{
-    title: string;
-    company: string;
-    location: string;
-    period: string;
-    highlights: string[];
-    badge?: string;
-  }>;
-
+/** Timeline from `experience.roles` (the same data the CV and the JobPilot sync use). Details open natively, no JS. */
+export async function Experience({ locale }: { locale: string }) {
+  const [t, ui] = await Promise.all([
+    getTranslations({ locale, namespace: "experience" }),
+    getTranslations({ locale, namespace: "ui.experience" }),
+  ]);
+  const roles = t.raw("roles") as Role[];
   return (
-    <section
-      id="experience"
-      className="py-12 sm:py-20 lg:py-28 px-4 sm:px-6 border-t border-white/4"
-      ref={ref}
-    >
-      <div className="max-w-4xl mx-auto">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="mb-8 sm:mb-12 lg:mb-16"
-        >
-          <p className="text-xs font-semibold text-violet-400 uppercase tracking-widest mb-3">
-            Career
-          </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            {t("title")}
-          </h2>
-          <p className="text-white/50 text-sm leading-relaxed">{t("subtitle")}</p>
-        </motion.div>
-
-        {/* Timeline */}
-        <div className="relative">
-          {/* Vertical line */}
-          <div className="absolute left-2.75 top-3 bottom-3 w-px bg-white/6" />
-
-          <div className="space-y-10">
-            {roles.map((role, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, x: -24 }}
-                animate={inView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="relative flex gap-3 sm:gap-6"
-              >
-                {/* Dot */}
-                <div className="relative flex-none">
-                  <div
-                    className={`w-5.75 h-5.75 rounded-full border-2 flex items-center justify-center z-10 relative ${
-                      i === 0
-                        ? "border-blue-500 bg-blue-500/20"
-                        : "border-white/20 bg-[#060606]"
-                    }`}
-                  >
-                    <div
-                      className={`w-2 h-2 rounded-full ${
-                        i === 0 ? "bg-blue-400" : "bg-white/30"
-                      }`}
-                    />
-                  </div>
+    <Section id="experience" label={ui("label")} title={t("title")} subtitle={t("subtitle")} narrow>
+      <ol className="relative border-l border-line pl-6 sm:pl-8">
+        {roles.map((role, i) => (
+          <li key={role.id} className="reveal relative pb-8 last:pb-0">
+            <span aria-hidden className={`absolute -left-[31px] top-1.5 h-3 w-3 rounded-full border-2 sm:-left-[39px] ${i === 0 ? "border-accent bg-accent" : "border-line-strong bg-bg"}`} />
+            <details open={i < 2} className="group rounded-2xl border border-transparent transition-colors open:border-line open:bg-raised">
+              <summary className="flex items-start justify-between gap-4 rounded-2xl p-4 hover:bg-white/[0.02] sm:p-5">
+                <div className="min-w-0">
+                  <p className="font-mono text-xs text-dim">{role.period}</p>
+                  <h3 className="mt-1 text-lg font-semibold tracking-tight text-ink">{role.title}</h3>
+                  <p className="mt-0.5 text-sm text-muted">{role.company} · {role.location}</p>
+                  {role.badge && <p className="mt-2 inline-block rounded-full border border-line px-2.5 py-0.5 text-xs text-dim">{role.badge}</p>}
                 </div>
-
-                {/* Content */}
-                <div className="glass-card rounded-2xl p-4 sm:p-6 flex-1 hover:border-white/12 transition-colors">
-                  {role.badge && (
-                    <div className="flex items-center gap-1.5 mb-3">
-                      <span className="text-xs">🇨🇭</span>
-                      <span className="text-[11px] font-semibold text-amber-400/90 uppercase tracking-wider">
-                        {role.badge}
-                      </span>
-                    </div>
-                  )}
-                  <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
-                    <div>
-                      <h3 className="font-semibold text-white text-base leading-snug">
-                        {role.title}
-                      </h3>
-                      <p className="text-sm text-blue-400 mt-0.5">
-                        {role.company}
-                      </p>
-                    </div>
-                    <div className="text-right">
-                      <span className="text-xs text-white/50 font-medium">
-                        {role.period}
-                      </span>
-                      <p className="text-xs text-white/60 mt-0.5">
-                        {role.location}
-                      </p>
-                    </div>
-                  </div>
-
-                  <ul className="space-y-1.5">
-                    {role.highlights.map((h, j) => (
-                      <li key={j} className="flex items-start gap-2 text-sm text-white/50">
-                        <span className="text-blue-500 mt-1 flex-none">›</span>
-                        {h}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
+                <span className="mt-1 flex flex-none items-center gap-1 text-xs text-dim">
+                  <span className="hidden sm:inline group-open:hidden">{ui("show")}</span>
+                  <span className="hidden sm:group-open:inline">{ui("hide")}</span>
+                  <ChevronDown size={16} className="transition-transform group-open:rotate-180" />
+                </span>
+              </summary>
+              <ul className="flex flex-col gap-2 px-4 pb-5 sm:px-5">
+                {role.highlights.map((h) => (
+                  <li key={h} className="flex gap-2.5 text-sm leading-6 text-muted">
+                    <span aria-hidden className="mt-2.5 h-1 w-1 flex-none rounded-full bg-accent" />{h}
+                  </li>
+                ))}
+              </ul>
+            </details>
+          </li>
+        ))}
+      </ol>
+    </Section>
   );
 }

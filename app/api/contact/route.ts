@@ -130,8 +130,9 @@ export async function POST(request: NextRequest) {
   }
 
   if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASS) {
-    console.warn("[contact] SMTP env vars not configured — skipping send");
-    return NextResponse.json({ ok: true });
+    // Never report success for a message that was not sent: the form then shows the e-mail fallback.
+    console.error("[contact] SMTP env vars not configured — message not sent");
+    return NextResponse.json({ error: "Contact service unavailable" }, { status: 503 });
   }
 
   try {
