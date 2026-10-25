@@ -93,12 +93,13 @@
       {
         "id": "freelance-2025",
         "title": "IT & AI Solutions Engineer",
-        "company": "Self-Employed · Freelance",
+        "company": "Own IT projects & freelance",
         "location": "Switzerland",
         "period": "2025 – Present",
         "highlights": [
           "Running cloud-based platforms focused on availability, clean technical architecture, and reliable operations",
           "Building helpdesk and workflow systems with SLA-aligned processes, role-based access control, and structured service logic",
+          "Hands-on Microsoft 365 / Azure lab for a simulated 12-person company: bulk user import into Entra ID, security groups, admin roles and MFA",
           "Translating infrastructure and operational thinking into modern SaaS environments — automation and continuous optimization",
           "Active production portfolio: Ticket System, MatchPoint AI, Invoice Auto, HelpDesk AI"
         ]
@@ -302,7 +303,7 @@
   "contact": {
     "label": "Contact",
     "title": "Let's Connect",
-    "subtitle": "Available for full-stack projects, AI integration, and agency collaboration across Switzerland and Liechtenstein.",
+    "subtitle": "Open to a permanent position (80–100 %) in IT support & systems or full-stack development. Alongside, I take on selected freelance projects across Switzerland and Liechtenstein.",
     "availability": "Immediately Available · Switzerland & Liechtenstein",
     "copy": "Copy Email",
     "copied": "Copied!",
@@ -326,6 +327,8 @@
     "role": "Fullstack Developer & IT Specialist",
     "specialties": "Web Development · AI · Systems Administration",
     "available": "Available now",
+    "seeking": "Seeking a permanent position (80–100 %)",
+    "commitment": "Open to on-call duty, travel, flexible hours and relocation",
     "profileTitle": "Professional Profile",
     "profile": "Fullstack developer and IT specialist based in Basel, with over a decade in the field. I build websites, apps and AI automation for businesses in every sector —gyms, restaurants, salons, clinics, shops and agencies— and I also handle the systems side: Windows Server, Active Directory, Linux, networks and Microsoft 365 (CCNA course training). From briefing to result, one single contact. Trilingual (DE/EN/ES).",
     "competenciesTitle": "Key Competencies",
@@ -410,7 +413,7 @@
       {
         "id": "de",
         "lang": "German",
-        "level": "B2"
+        "level": "B2 — used daily at work and in everyday life"
       },
       {
         "id": "fr",

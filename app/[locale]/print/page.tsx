@@ -58,7 +58,8 @@ export default async function PrintPage({
               <li>linkedin.com/in/vidalrenao</li>
               <li>github.com/vidal-renao</li>
               {isSystemsVariant && <li>{ts("residency")}</li>}
-              <li className="cv-avail">{t("available")}</li>
+              <li className="cv-avail">{t("available")} · {t("seeking")}</li>
+              <li>{t("commitment")}</li>
             </ul>
           </div>
         </header>

@@ -82,6 +82,10 @@ test.describe("content", () => {
     expect(body.schemaVersion).toBe(1);
     expect(Object.keys(body.locales).sort()).toEqual(["de", "en", "es"]);
     expect(body.contentHash).toMatch(/^[a-f0-9]{64}$/);
+    // CV, letter and portfolio share one source: what the printed CV states is what JobPilot receives.
+    expect(body.workPreferences.seeksPermanent).toBe(true);
+    expect(body.locales.de.availability).toBe("Sofort verfügbar · Gesucht: Festanstellung 80–100 %");
+    expect(body.locales.de.commitment).toBe("Bereit für Pikett, Reisen, flexible Arbeitszeiten und Umzug");
   });
 
   test("removed pages redirect to contact", async ({ request }) => {
