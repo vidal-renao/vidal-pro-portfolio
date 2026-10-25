@@ -122,6 +122,7 @@
         "period": "2021 – July 2023",
         "highlights": [
           "Supported 500+ users across multiple sites at 2nd/3rd level – on-site and remote for Windows, Microsoft 365, hardware and network access; tickets tracked in Jira",
+          "Support for internal staff and end customers on Windows, macOS, iOS and Linux",
           "Reduced ticket volume by around 30% by documenting recurring incidents in a structured knowledge base",
           "Administered users, groups and permissions in Active Directory and Microsoft 365",
           "Network troubleshooting (TCP/IP, DNS, DHCP, VLAN, VPN) and support of the virtualization environment on VMware vSphere and Hyper-V",
@@ -148,6 +149,7 @@
         "period": "Nov 2017 – May 2019",
         "highlights": [
           "Operated and maintained network and systems infrastructure",
+          "Maintenance and administration of client endpoints (Windows, macOS, iOS)",
           "Applied security patches and updates to servers and systems; ran and checked backups, including restores",
           "Managed virtualization environments and system monitoring",
           "Provided infrastructure support across multiple client sites",
@@ -172,7 +174,8 @@
         "location": "Zaragoza, Spain",
         "period": "Feb – Aug 2016",
         "highlights": [
-          "On-site systems and hardware support at customer locations"
+          "On-site systems and hardware support at customer locations",
+          "Setup and configuration of Windows, Linux, macOS and iOS devices"
         ]
       },
       {
@@ -429,7 +432,7 @@
   },
   "cvSystems": {
     "role": "IT Support & Systems Engineer",
-    "specialties": "Windows · Microsoft 365 · Active Directory · ITIL / ServiceNow",
+    "specialties": "Windows · macOS / iOS · Microsoft 365 · Active Directory · ITIL / ServiceNow",
     "profile": "IT support professional with 3+ years of IT service desk and IT support experience, including about 1.5 years on a bank's service desk, plus systems and network operations. Focus: Windows, Microsoft 365, Active Directory, ITIL incident and request management in ServiceNow and Jira, SLA compliance and clear documentation. Supported 500+ users across multiple sites. German B2, English C1, Spanish native. EU citizen with Swiss Permit B.",
     "residency": "EU citizen | Permit B (5 yrs)",
     "nationality": "Nationality: Spanish (EU citizen)",
@@ -444,14 +447,14 @@
       {
         "id": "dai-2011",
         "title": "Higher Vocational Diploma in Software Application Development (DAI)",
-        "detail": "IES Pablo Serrano · Zaragoza, Spain · Completed in December 2011 · Diploma issued in February 2012"
+        "detail": "IES Pablo Serrano · Zaragoza, Spain · Completed in December 2011 · Diploma issued in February 2012 · comparable to the Swiss Informatiker/in EFZ"
       }
     ],
     "competencies": [
       "IT service desk – 1st/2nd level, phone and written",
       "ITIL – incident, request, change, problem",
       "ServiceNow & Jira – SLA tracking, escalation",
-      "Windows 10/11 – clients, laptops, printers, peripherals",
+      "Windows 10/11, macOS & iOS – clients, laptops, mobile devices, printers, peripherals",
       "Microsoft 365 – accounts, licences, MFA, Exchange, Teams",
       "Active Directory – users, groups, permissions, GPO",
       "Networking – TCP/IP, DNS, DHCP, VLAN, VPN",
@@ -460,7 +463,7 @@
     "knowledge": [
       {
         "area": "Client & workplace",
-        "detail": "Windows 10/11 · Hardware · Printers & peripherals · Remote support"
+        "detail": "Windows 10/11 · Hardware · Printers & peripherals · Remote support · macOS · iOS · Apple device management (Jamf, Relution)"
       },
       {
         "area": "Microsoft 365 & email",
