@@ -122,6 +122,7 @@
         "period": "2021 – julio de 2023",
         "highlights": [
           "Soporte de 2.º/3.er nivel a más de 500 usuarios en varias sedes – presencial y remoto para Windows, Microsoft 365, hardware y acceso a red; tickets en Jira",
+          "Soporte a la plantilla interna y a clientes finales con Windows, macOS, iOS y Linux",
           "Reduje el volumen de tickets en torno a un 30 % documentando incidencias recurrentes en una base de conocimiento estructurada",
           "Administración de usuarios, grupos y permisos en Active Directory y Microsoft 365",
           "Resolución de incidencias de red (TCP/IP, DNS, DHCP, VLAN, VPN) y soporte del entorno de virtualización con VMware vSphere e Hyper-V",
@@ -148,6 +149,7 @@
         "period": "nov. 2017 – may. 2019",
         "highlights": [
           "Operación y mantenimiento de infraestructuras de red y sistemas",
+          "Mantenimiento y administración de los equipos de los clientes (Windows, macOS, iOS)",
           "Aplicación de parches de seguridad y actualizaciones en servidores y sistemas; ejecución y control de copias de seguridad, incluidas restauraciones",
           "Gestión de entornos de virtualización y monitorización",
           "Soporte de infraestructura para múltiples sedes de clientes",
@@ -172,7 +174,8 @@
         "location": "Zaragoza, España",
         "period": "feb. – ago. 2016",
         "highlights": [
-          "Soporte presencial de sistemas y hardware en las instalaciones de clientes"
+          "Soporte presencial de sistemas y hardware en las instalaciones de clientes",
+          "Configuración y puesta en marcha de equipos Windows, Linux, macOS e iOS"
         ]
       },
       {
@@ -429,7 +432,7 @@
   },
   "cvSystems": {
     "role": "Soporte IT y Sistemas",
-    "specialties": "Windows · Microsoft 365 · Active Directory · ITIL / ServiceNow",
+    "specialties": "Windows · macOS / iOS · Microsoft 365 · Active Directory · ITIL / ServiceNow",
     "profile": "Profesional de soporte IT con más de 3 años de experiencia en service desk y soporte IT, de ellos unos 1,5 años en el service desk de un banco, además de experiencia en operación de sistemas y redes. Foco: Windows, Microsoft 365, Active Directory, gestión de incidencias y peticiones según ITIL en ServiceNow y Jira, cumplimiento de SLA y documentación clara. Soporte a más de 500 usuarios en varias sedes. Alemán B2, inglés C1, español nativo. Ciudadano de la UE con permiso B suizo.",
     "residency": "Ciudadano UE | Permiso B (5 años)",
     "nationality": "Nacionalidad: Española (ciudadano UE)",
@@ -444,14 +447,14 @@
       {
         "id": "dai-2011",
         "title": "Técnico Superior en Desarrollo de Aplicaciones Informáticas (DAI)",
-        "detail": "IES Pablo Serrano · Zaragoza, España · Finalizado en diciembre de 2011 · Diploma expedido en febrero de 2012"
+        "detail": "IES Pablo Serrano · Zaragoza, España · Finalizado en diciembre de 2011 · Diploma expedido en febrero de 2012 · comparable al título suizo Informatiker/in EFZ"
       }
     ],
     "competencies": [
       "Service desk IT – 1.er/2.º nivel, teléfono y por escrito",
       "ITIL – incidencias, peticiones, cambios, problemas",
       "ServiceNow y Jira – seguimiento de SLA, escalado",
-      "Windows 10/11 – equipos, portátiles, impresoras, periféricos",
+      "Windows 10/11, macOS e iOS – equipos, portátiles, móviles, impresoras y periféricos",
       "Microsoft 365 – cuentas, licencias, MFA, Exchange, Teams",
       "Active Directory – usuarios, grupos, permisos, GPO",
       "Redes – TCP/IP, DNS, DHCP, VLAN, VPN",
@@ -460,7 +463,7 @@
     "knowledge": [
       {
         "area": "Puesto de trabajo",
-        "detail": "Windows 10/11 · Hardware · Impresoras y periféricos · Soporte remoto"
+        "detail": "Windows 10/11 · Hardware · Impresoras y periféricos · Soporte remoto · macOS · iOS · Gestión de dispositivos Apple (Jamf, Relution)"
       },
       {
         "area": "Microsoft 365 y correo",
