@@ -90,7 +90,7 @@ export default async function PrintPage({
                 <span className="cv-period">{r.period}</span>
               </div>
               <p className="cv-company">
-                {r.company} · {r.location}
+                {[r.company, r.location].filter(Boolean).join(" · ")}
               </p>
               <ul>
                 {r.highlights.map((h) => (

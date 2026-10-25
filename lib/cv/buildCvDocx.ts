@@ -190,7 +190,7 @@ export async function buildCvDocx(
               spacing: { after: 60 },
               children: [
                 new TextRun({
-                  text: `${r.company} · ${r.location}`,
+                  text: [r.company, r.location].filter(Boolean).join(" · "),
                   bold: true,
                   size: 17,
                   color: ACCENT,
