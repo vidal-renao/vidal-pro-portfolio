@@ -92,8 +92,8 @@
     "roles": [
       {
         "id": "freelance-2025",
-        "title": "IT & AI Solutions Engineer",
-        "company": "Own IT projects & freelance",
+        "title": "Own IT projects",
+        "company": "",
         "location": "Switzerland",
         "period": "2025 – Present",
         "highlights": [
@@ -466,7 +466,7 @@
     "knowledge": [
       {
         "area": "Client & workplace",
-        "detail": "Windows 10/11 · Hardware · Printers & peripherals · Remote support · macOS · iOS · Apple device management (Jamf, Relution)"
+        "detail": "Windows 10/11 · Hardware · Printers & peripherals · Remote support · macOS · iOS"
       },
       {
         "area": "Microsoft 365 & email",

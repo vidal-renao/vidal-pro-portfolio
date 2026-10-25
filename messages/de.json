@@ -92,8 +92,8 @@
     "roles": [
       {
         "id": "freelance-2025",
-        "title": "IT & KI Solutions Engineer",
-        "company": "Eigene IT-Projekte & Freelance",
+        "title": "Eigene IT-Projekte",
+        "company": "",
         "location": "Schweiz",
         "period": "2025 – Heute",
         "highlights": [
@@ -466,7 +466,7 @@
     "knowledge": [
       {
         "area": "Client & Arbeitsplatz",
-        "detail": "Windows 10/11 · Hardware · Drucker & Peripherie · Remote-Support · macOS · iOS · Apple-Geräteverwaltung (Jamf, Relution)"
+        "detail": "Windows 10/11 · Hardware · Drucker & Peripherie · Remote-Support · macOS · iOS"
       },
       {
         "area": "Microsoft 365 & E-Mail",

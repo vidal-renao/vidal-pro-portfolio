@@ -92,8 +92,8 @@
     "roles": [
       {
         "id": "freelance-2025",
-        "title": "Ingeniero de Soluciones IT & IA",
-        "company": "Proyectos IT propios y freelance",
+        "title": "Proyectos IT propios",
+        "company": "",
         "location": "Suiza",
         "period": "2025 – Actualidad",
         "highlights": [
@@ -466,7 +466,7 @@
     "knowledge": [
       {
         "area": "Puesto de trabajo",
-        "detail": "Windows 10/11 · Hardware · Impresoras y periféricos · Soporte remoto · macOS · iOS · Gestión de dispositivos Apple (Jamf, Relution)"
+        "detail": "Windows 10/11 · Hardware · Impresoras y periféricos · Soporte remoto · macOS · iOS"
       },
       {
         "area": "Microsoft 365 y correo",

@@ -22,7 +22,7 @@ export async function Experience({ locale }: { locale: string }) {
                 <div className="min-w-0">
                   <p className="font-mono text-xs text-dim">{role.period}</p>
                   <h3 className="mt-1 text-lg font-semibold tracking-tight text-ink">{role.title}</h3>
-                  <p className="mt-0.5 text-sm text-muted">{role.company} · {role.location}</p>
+                  <p className="mt-0.5 text-sm text-muted">{[role.company, role.location].filter(Boolean).join(" · ")}</p>
                   {role.badge && <p className="mt-2 inline-block rounded-full border border-line px-2.5 py-0.5 text-xs text-dim">{role.badge}</p>}
                 </div>
                 <span className="mt-1 flex flex-none items-center gap-1 text-xs text-dim">
