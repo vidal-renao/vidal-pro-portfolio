@@ -26,7 +26,10 @@ export interface CareerVariant {
   knowledge: Knowledge[];
 }
 export interface CareerLocaleData {
+  /** Availability and what is sought, exactly as on the printed CV ("Sofort verfügbar · Gesucht: …"). */
   availability: string;
+  /** Work commitment sentence, exactly as on the printed CV. */
+  commitment: string;
   residency: string | null;
   license: string | null;
   variants: { fullstack: CareerVariant; systems: CareerVariant };
@@ -42,17 +45,35 @@ export interface CareerLocaleData {
   certifications: { id: string; title: string; detail: string }[];
   languages: { id: string; name: string; level: string }[];
 }
+/** The same commitment as flags, so JobPilot never states more or less than the portfolio. */
+export interface WorkPreferences {
+  seeksPermanent: boolean;
+  openToOnCall: boolean;
+  openToTravel: boolean;
+  flexibleHours: boolean;
+  openToRelocation: boolean;
+}
+export const WORK_PREFERENCES: WorkPreferences = {
+  seeksPermanent: true,
+  openToOnCall: true,
+  openToTravel: true,
+  flexibleHours: true,
+  openToRelocation: true,
+};
+
 export interface CareerProfile {
   schemaVersion: 1;
   name: string;
   photoPath: string;
+  workPreferences: WorkPreferences;
   locales: Record<CareerLocale, CareerLocaleData>;
   contentHash: string;
 }
 
 function localeData(m: Messages): CareerLocaleData {
   return {
-    availability: m.cv.available,
+    availability: `${m.cv.available} · ${m.cv.seeking}`,
+    commitment: m.cv.commitment,
     residency: m.cvSystems.residency ?? null,
     license: m.cvSystems.license ?? null,
     variants: {
@@ -110,6 +131,6 @@ export function buildCareerProfile(): CareerProfile {
     en: localeData(SOURCES.en),
   };
   assertAligned(locales);
-  const contentHash = createHash("sha256").update(JSON.stringify(locales)).digest("hex");
-  return { schemaVersion: 1, name: "Vidal Reñao Lopelo", photoPath: "/Photo.jpg", locales, contentHash };
+  const contentHash = createHash("sha256").update(JSON.stringify({ WORK_PREFERENCES, locales })).digest("hex");
+  return { schemaVersion: 1, name: "Vidal Reñao Lopelo", photoPath: "/Photo.jpg", workPreferences: WORK_PREFERENCES, locales, contentHash };
 }

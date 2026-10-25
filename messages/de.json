@@ -93,12 +93,13 @@
       {
         "id": "freelance-2025",
         "title": "IT & KI Solutions Engineer",
-        "company": "Selbstständig · Freelance",
+        "company": "Eigene IT-Projekte & Freelance",
         "location": "Schweiz",
         "period": "2025 – Heute",
         "highlights": [
           "Betreibe cloudbasierte Plattformen mit Fokus auf Verfügbarkeit, sauberer technischer Struktur und zuverlässigem Betrieb",
           "Setze produktive Helpdesk- und Workflow-Systeme mit SLA-nahen Prozessen, Rollenmodellen und strukturierter Service-Logik um",
+          "Praxislabor Microsoft 365 / Azure für eine simulierte Firma mit 12 Mitarbeitenden: Benutzer per Massenimport in Entra ID, Sicherheitsgruppen, Admin-Rollen und MFA",
           "Übertrage Infrastruktur- und Betriebsdenken in moderne SaaS-Umgebungen und unterstütze Automatisierung und kontinuierliche Optimierung",
           "Aktives Produktionsportfolio: Ticket System, MatchPoint AI, Invoice Auto, HelpDesk AI"
         ]
@@ -302,7 +303,7 @@
   "contact": {
     "label": "Kontakt",
     "title": "Kontakt aufnehmen",
-    "subtitle": "Für Full-Stack-Projekte, KI-Integration und Agenturzusammenarbeit in der Schweiz und Liechtenstein verfügbar.",
+    "subtitle": "Offen für eine Festanstellung (80–100 %) in IT-Support & Systemtechnik oder Full-Stack-Entwicklung. Daneben realisiere ich ausgewählte Freelance-Projekte in der Schweiz und in Liechtenstein.",
     "availability": "Sofort Verfügbar · Schweiz & Liechtenstein",
     "copy": "E-Mail kopieren",
     "copied": "Kopiert!",
@@ -326,6 +327,8 @@
     "role": "Fullstack-Entwickler & IT-Spezialist",
     "specialties": "Webentwicklung · KI · Systemadministration",
     "available": "Sofort verfügbar",
+    "seeking": "Gesucht: Festanstellung 80–100 %",
+    "commitment": "Bereit für Pikett, Reisen, flexible Arbeitszeiten und Umzug",
     "profileTitle": "Berufsprofil",
     "profile": "Fullstack-Entwickler und IT-Spezialist mit Sitz in Basel und über einem Jahrzehnt Erfahrung. Ich baue Websites, Apps und KI-Automatisierung für Unternehmen aller Branchen —Fitnessstudios, Restaurants, Friseure, Praxen, Läden und Agenturen— und kümmere mich auch um die Systemseite: Windows Server, Active Directory, Linux, Netzwerke und Microsoft 365 (CCNA-Kursausbildung). Vom Briefing bis zum Ergebnis, ein einziger Ansprechpartner. Dreisprachig (DE/EN/ES).",
     "competenciesTitle": "Kernkompetenzen",
@@ -410,7 +413,7 @@
       {
         "id": "de",
         "lang": "Deutsch",
-        "level": "B2"
+        "level": "B2 — täglich im Beruf und Alltag"
       },
       {
         "id": "fr",

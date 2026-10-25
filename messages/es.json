@@ -93,12 +93,13 @@
       {
         "id": "freelance-2025",
         "title": "Ingeniero de Soluciones IT & IA",
-        "company": "Autónomo · Freelance",
+        "company": "Proyectos IT propios y freelance",
         "location": "Suiza",
         "period": "2025 – Actualidad",
         "highlights": [
           "Gestión de plataformas en la nube con foco en disponibilidad, arquitectura técnica limpia y operaciones fiables",
           "Implementación de sistemas helpdesk y flujos de trabajo con procesos alineados a SLA, control de acceso por roles y lógica de servicio estructurada",
+          "Laboratorio práctico Microsoft 365 / Azure para una empresa simulada de 12 empleados: alta masiva de usuarios en Entra ID, grupos de seguridad, roles de administración y MFA",
           "Traslado del pensamiento de infraestructura y operaciones a entornos SaaS modernos — automatización y optimización continua",
           "Portfolio de producción activo: Ticket System, MatchPoint AI, Invoice Auto, HelpDesk AI"
         ]
@@ -302,7 +303,7 @@
   "contact": {
     "label": "Contacto",
     "title": "Hablemos",
-    "subtitle": "Disponible para proyectos fullstack, integración de IA y colaboración con agencias en Suiza y Liechtenstein.",
+    "subtitle": "Abierto a un puesto fijo (80–100 %) en soporte IT y sistemas o en desarrollo full-stack. Además realizo proyectos freelance seleccionados en Suiza y Liechtenstein.",
     "availability": "Disponible Inmediatamente · Suiza & Liechtenstein",
     "copy": "Copiar Email",
     "copied": "¡Copiado!",
@@ -326,6 +327,8 @@
     "role": "Desarrollador Fullstack & Especialista IT",
     "specialties": "Desarrollo Web · IA · Administración de Sistemas",
     "available": "Disponible ahora",
+    "seeking": "Busco puesto fijo (80–100 %)",
+    "commitment": "Disponible para guardias, viajes, horario flexible y traslado",
     "profileTitle": "Perfil Profesional",
     "profile": "Desarrollador fullstack y especialista IT afincado en Basilea, con más de una década en el sector. Creo webs, apps y automatizaciones con IA para negocios de todos los sectores —gimnasios, restaurantes, peluquerías, clínicas, tiendas y agencias— y me encargo también de la parte de sistemas: Windows Server, Active Directory, Linux, redes y Microsoft 365 (formación CCNA). Del briefing al resultado, un solo interlocutor. Trilingüe (DE/EN/ES).",
     "competenciesTitle": "Competencias Clave",
@@ -410,7 +413,7 @@
       {
         "id": "de",
         "lang": "Alemán",
-        "level": "B2"
+        "level": "B2 — uso diario en el trabajo y en la vida cotidiana"
       },
       {
         "id": "fr",
