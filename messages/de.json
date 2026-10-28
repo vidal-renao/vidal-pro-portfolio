@@ -99,7 +99,7 @@
         "highlights": [
           "Betreibe cloudbasierte Plattformen mit Fokus auf Verfügbarkeit, sauberer technischer Struktur und zuverlässigem Betrieb",
           "Setze produktive Helpdesk- und Workflow-Systeme mit SLA-nahen Prozessen, Rollenmodellen und strukturierter Service-Logik um",
-          "Praxislabor Microsoft 365 / Azure für eine simulierte Firma mit 12 Mitarbeitenden: Benutzer per Massenimport in Entra ID, Sicherheitsgruppen, Admin-Rollen und MFA",
+          "Praxislabor Microsoft 365 / Azure für eine simulierte Firma mit 12 Mitarbeitenden: Benutzer per Massenimport in Entra ID, Sicherheitsgruppen, Admin-Rollen, MFA und Microsoft Defender",
           "Übertrage Infrastruktur- und Betriebsdenken in moderne SaaS-Umgebungen und unterstütze Automatisierung und kontinuierliche Optimierung",
           "Aktives Produktionsportfolio: Ticket System, MatchPoint AI, Invoice Auto, HelpDesk AI"
         ]
@@ -127,7 +127,7 @@
           "Senkte das Ticketvolumen um rund 30 %, indem wiederkehrende Störungen in einer strukturierten Wissensdatenbank dokumentiert wurden",
           "Verwaltete Benutzer, Gruppen und Berechtigungen in Active Directory und Microsoft 365",
           "Netzwerk-Troubleshooting (TCP/IP, DNS, DHCP, VLAN, VPN) und Unterstützung der Virtualisierungsumgebung mit VMware vSphere und Hyper-V",
-          "Hielt Arbeitsplätze und Server mit Updates und Patches aktuell; führte Backups durch, überwachte sie und prüfte die Wiederherstellung"
+          "Hielt Arbeitsplätze und Server mit Updates und Patches aktuell; führte Backups durch, überwachte sie und prüfte die Wiederherstellung; Virenschutz mit Microsoft Defender"
         ]
       },
       {
@@ -151,7 +151,7 @@
         "highlights": [
           "Betrieb und Wartung von Netzwerk- und Systeminfrastrukturen",
           "Wartung und Administration der Kunden-Endgeräte (Windows, macOS, iOS)",
-          "Einspielen von Sicherheitspatches und Updates auf Servern und Systemen; Durchführung und Kontrolle von Backups inklusive Wiederherstellung",
+          "Einspielen von Sicherheitspatches und Updates auf Servern und Systemen; Durchführung und Kontrolle von Backups inklusive Wiederherstellung; Virenschutz mit Sophos, ESET und Microsoft Defender",
           "Verwaltung von Virtualisierungsumgebungen und Systemüberwachung",
           "Infrastrukturunterstützung für mehrere Kundenstandorte",
           "Erfassung und Nachverfolgung von System- und Netzwerkstörungen mit ServiceNow"
@@ -176,7 +176,8 @@
         "period": "Feb. – Aug. 2016",
         "highlights": [
           "Vor-Ort-Support für Systeme und Hardware bei Kunden",
-          "Einrichtung und Konfiguration von Windows-, Linux-, macOS- und iOS-Geräten"
+          "Einrichtung und Konfiguration von Windows-, Linux-, macOS- und iOS-Geräten",
+          "Virenschutz auf Kundengeräten mit ESET und Microsoft Defender"
         ]
       },
       {
@@ -483,6 +484,10 @@
       {
         "area": "Netzwerk & Systeme",
         "detail": "TCP/IP · DNS/DHCP · VLAN · VPN · Windows Server · VMware vSphere · Hyper-V · PowerShell"
+      },
+      {
+        "area": "Sicherheit",
+        "detail": "Microsoft Defender · Sophos · ESET · MFA"
       }
     ]
   },

@@ -99,7 +99,7 @@
         "highlights": [
           "Gestión de plataformas en la nube con foco en disponibilidad, arquitectura técnica limpia y operaciones fiables",
           "Implementación de sistemas helpdesk y flujos de trabajo con procesos alineados a SLA, control de acceso por roles y lógica de servicio estructurada",
-          "Laboratorio práctico Microsoft 365 / Azure para una empresa simulada de 12 empleados: alta masiva de usuarios en Entra ID, grupos de seguridad, roles de administración y MFA",
+          "Laboratorio práctico Microsoft 365 / Azure para una empresa simulada de 12 empleados: alta masiva de usuarios en Entra ID, grupos de seguridad, roles de administración, MFA y Microsoft Defender",
           "Traslado del pensamiento de infraestructura y operaciones a entornos SaaS modernos — automatización y optimización continua",
           "Portfolio de producción activo: Ticket System, MatchPoint AI, Invoice Auto, HelpDesk AI"
         ]
@@ -127,7 +127,7 @@
           "Reduje el volumen de tickets en torno a un 30 % documentando incidencias recurrentes en una base de conocimiento estructurada",
           "Administración de usuarios, grupos y permisos en Active Directory y Microsoft 365",
           "Resolución de incidencias de red (TCP/IP, DNS, DHCP, VLAN, VPN) y soporte del entorno de virtualización con VMware vSphere e Hyper-V",
-          "Mantenimiento de equipos y servidores actualizados con parches; ejecución y supervisión de copias de seguridad, incluidas pruebas de restauración"
+          "Mantenimiento de equipos y servidores actualizados con parches; ejecución y supervisión de copias de seguridad, incluidas pruebas de restauración; antivirus con Microsoft Defender"
         ]
       },
       {
@@ -151,7 +151,7 @@
         "highlights": [
           "Operación y mantenimiento de infraestructuras de red y sistemas",
           "Mantenimiento y administración de los equipos de los clientes (Windows, macOS, iOS)",
-          "Aplicación de parches de seguridad y actualizaciones en servidores y sistemas; ejecución y control de copias de seguridad, incluidas restauraciones",
+          "Aplicación de parches de seguridad y actualizaciones en servidores y sistemas; ejecución y control de copias de seguridad, incluidas restauraciones; antivirus con Sophos, ESET y Microsoft Defender",
           "Gestión de entornos de virtualización y monitorización",
           "Soporte de infraestructura para múltiples sedes de clientes",
           "Registro y seguimiento de incidencias de sistemas y redes con ServiceNow"
@@ -176,7 +176,8 @@
         "period": "feb. – ago. 2016",
         "highlights": [
           "Soporte presencial de sistemas y hardware en las instalaciones de clientes",
-          "Configuración y puesta en marcha de equipos Windows, Linux, macOS e iOS"
+          "Configuración y puesta en marcha de equipos Windows, Linux, macOS e iOS",
+          "Antivirus en los equipos de clientes con ESET y Microsoft Defender"
         ]
       },
       {
@@ -483,6 +484,10 @@
       {
         "area": "Redes y sistemas",
         "detail": "TCP/IP · DNS/DHCP · VLAN · VPN · Windows Server · VMware vSphere · Hyper-V · PowerShell"
+      },
+      {
+        "area": "Seguridad",
+        "detail": "Microsoft Defender · Sophos · ESET · MFA"
       }
     ]
   },
