@@ -44,7 +44,11 @@ test.describe("projects explorer", () => {
       expect(l.target).toBe("_blank");
       expect(l.rel).toContain("noopener");
     }
-    await expect(page.locator("#projects article", { hasText: "JobPilot AI" }).getByText("Private code")).toBeVisible();
+    const jobpilot = page.locator("#projects article", { hasText: "JobPilot AI" });
+    await expect(jobpilot.getByText("Private code")).toBeVisible();
+    await expect(jobpilot.getByRole("link", { name: /Open/ })).toHaveAttribute("href", "https://jobpilot-ai-lake.vercel.app/install?lang=en");
+    await expect(jobpilot).toContainText("Rule-based matching");
+    await expect(jobpilot).toContainText("English, German or Spanish");
   });
 });
 
