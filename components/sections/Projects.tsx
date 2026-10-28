@@ -12,6 +12,7 @@ export async function Projects({ locale }: { locale: string }) {
   ]);
   const projects: LocalizedProject[] = PROJECTS.map((p) => ({
     ...p,
+    url: p.slug === "jobpilot-ai" ? `${p.url}?lang=${locale}` : p.url,
     featured: Boolean(p.featured),
     title: t(`${p.slug}.title`),
     summary: t(`${p.slug}.summary`),

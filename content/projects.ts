@@ -38,7 +38,7 @@ export const PROJECTS: Project[] = [
     stack: ["Next.js", "TypeScript", "Supabase", "PWA"],
     url: "https://jobpilot-ai-lake.vercel.app/install",
     repo: null,
-    image: "/screenshots/jobpilot-ai.png",
+    image: "/screenshots/jobpilot-ai-en.png",
     featured: true,
   },
   {

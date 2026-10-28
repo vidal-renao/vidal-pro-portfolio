@@ -216,11 +216,11 @@
       },
       "jobpilot-ai": {
         "title": "JobPilot AI",
-        "summary": "Job-search copilot: reads job alerts, scores the fit and prepares a CV and cover letter in each job's language.",
+        "summary": "A multi-user job-search workspace that brings alerts, explainable matching and application preparation together.",
         "highlights": [
-          "Explainable matching: every score is backed by specific skills from the job ad",
-          "CV and cover letter as PDF and Word in German, English or Spanish; nothing is sent without manual approval",
-          "Multi-user with Supabase Row Level Security, installable as an app (PWA)"
+          "Rule-based matching across professional profiles, with visible skill evidence and \"to verify\" when details are insufficient",
+          "Editable CV and cover-letter drafts in English, German or Spanish, using shared portfolio facts; sending requires explicit confirmation",
+          "Private profiles, documents and application tracking with Supabase row-level security; installable on phone and desktop"
         ]
       },
       "invoice-auto": {

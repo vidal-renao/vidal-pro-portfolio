@@ -120,3 +120,10 @@ Academic qualifications are shared by the education section, printable CV and DO
 `cvSystems.education` in all three locales. DAI was completed in 2011 (diploma issued in 2012);
 ASIR was completed in 2014. Cisco course completion is described as training, not a professional
 CCNA certification.
+
+## JobPilot showcase (2026-10-28)
+
+The English project card uses verified rule-based matching and EN/DE/ES document
+claims. JobPilot links carry the portfolio locale (`/install?lang=en` from `/en`),
+including its screenshot link. The public install screenshot replaces the Spanish
+account screenshot so the showcase contains no personal application data.
