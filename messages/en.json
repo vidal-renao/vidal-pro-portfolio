@@ -99,7 +99,7 @@
         "highlights": [
           "Running cloud-based platforms focused on availability, clean technical architecture, and reliable operations",
           "Building helpdesk and workflow systems with SLA-aligned processes, role-based access control, and structured service logic",
-          "Hands-on Microsoft 365 / Azure lab for a simulated 12-person company: bulk user import into Entra ID, security groups, admin roles and MFA",
+          "Hands-on Microsoft 365 / Azure lab for a simulated 12-person company: bulk user import into Entra ID, security groups, admin roles, MFA and Microsoft Defender",
           "Translating infrastructure and operational thinking into modern SaaS environments — automation and continuous optimization",
           "Active production portfolio: Ticket System, MatchPoint AI, Invoice Auto, HelpDesk AI"
         ]
@@ -127,7 +127,7 @@
           "Reduced ticket volume by around 30% by documenting recurring incidents in a structured knowledge base",
           "Administered users, groups and permissions in Active Directory and Microsoft 365",
           "Network troubleshooting (TCP/IP, DNS, DHCP, VLAN, VPN) and support of the virtualization environment on VMware vSphere and Hyper-V",
-          "Kept workstations and servers patched and up to date; ran and monitored backups, including restore checks"
+          "Kept workstations and servers patched and up to date; ran and monitored backups, including restore checks; antivirus with Microsoft Defender"
         ]
       },
       {
@@ -151,7 +151,7 @@
         "highlights": [
           "Operated and maintained network and systems infrastructure",
           "Maintenance and administration of client endpoints (Windows, macOS, iOS)",
-          "Applied security patches and updates to servers and systems; ran and checked backups, including restores",
+          "Applied security patches and updates to servers and systems; ran and checked backups, including restores; antivirus with Sophos, ESET and Microsoft Defender",
           "Managed virtualization environments and system monitoring",
           "Provided infrastructure support across multiple client sites",
           "Logged and tracked systems and network incidents using ServiceNow"
@@ -176,7 +176,8 @@
         "period": "Feb – Aug 2016",
         "highlights": [
           "On-site systems and hardware support at customer locations",
-          "Setup and configuration of Windows, Linux, macOS and iOS devices"
+          "Setup and configuration of Windows, Linux, macOS and iOS devices",
+          "Antivirus on customer devices with ESET and Microsoft Defender"
         ]
       },
       {
@@ -483,6 +484,10 @@
       {
         "area": "Network & systems",
         "detail": "TCP/IP · DNS/DHCP · VLAN · VPN · Windows Server · VMware vSphere · Hyper-V · PowerShell"
+      },
+      {
+        "area": "Security",
+        "detail": "Microsoft Defender · Sophos · ESET · MFA"
       }
     ]
   },
