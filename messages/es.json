@@ -125,7 +125,8 @@
           "Soporte de 2.º/3.er nivel a más de 500 usuarios en varias sedes – presencial y remoto para Windows, Microsoft 365, hardware y acceso a red; tickets en Jira",
           "Soporte a la plantilla interna y a clientes finales con Windows, macOS, iOS y Linux",
           "Reduje el volumen de tickets en torno a un 30 % documentando incidencias recurrentes en una base de conocimiento estructurada",
-          "Administración de usuarios, grupos y permisos en Active Directory y Microsoft 365",
+          "Administración de usuarios, grupos y permisos en Active Directory y Group Policy, y Microsoft 365 (Exchange, Teams, licencias, MFA)",
+          "Trabajo con Azure AD (hoy Entra ID) y Microsoft Intune",
           "Resolución de incidencias de red (TCP/IP, DNS, DHCP, VLAN, VPN) y soporte del entorno de virtualización con VMware vSphere e Hyper-V",
           "Mantenimiento de equipos y servidores actualizados con parches; ejecución y supervisión de copias de seguridad, incluidas pruebas de restauración; antivirus con Microsoft Defender"
         ]
@@ -151,6 +152,8 @@
         "highlights": [
           "Operación y mantenimiento de infraestructuras de red y sistemas",
           "Mantenimiento y administración de los equipos de los clientes (Windows, macOS, iOS)",
+          "Usuarios y permisos en Active Directory y Group Policy, y Microsoft 365 (Exchange, Teams, licencias, MFA) para empresas cliente",
+          "Trabajo con Azure AD (hoy Entra ID) y Microsoft Intune",
           "Aplicación de parches de seguridad y actualizaciones en servidores y sistemas; ejecución y control de copias de seguridad, incluidas restauraciones; antivirus con Sophos, ESET y Microsoft Defender",
           "Gestión de entornos de virtualización y monitorización",
           "Soporte de infraestructura para múltiples sedes de clientes",
@@ -475,7 +478,7 @@
       },
       {
         "area": "Identidad y accesos",
-        "detail": "Active Directory · Group Policy · Entra ID e Intune (laboratorio propio)"
+        "detail": "Active Directory · Group Policy · Azure AD / Entra ID e Intune"
       },
       {
         "area": "Gestión de servicios IT",
