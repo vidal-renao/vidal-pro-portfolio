@@ -101,7 +101,8 @@
           "Building helpdesk and workflow systems with SLA-aligned processes, role-based access control, and structured service logic",
           "Hands-on Microsoft 365 / Azure lab for a simulated 12-person company: bulk user import into Entra ID, security groups, admin roles, MFA and Microsoft Defender",
           "Translating infrastructure and operational thinking into modern SaaS environments — automation and continuous optimization",
-          "Active production portfolio: Ticket System, MatchPoint AI, Invoice Auto, HelpDesk AI"
+          "Active production portfolio: Ticket System, MatchPoint AI, Invoice Auto, HelpDesk AI",
+          "Hands-on hybrid identity synchronisation between on-premises Active Directory and Microsoft Entra ID using Microsoft Entra Connect in my own lab."
         ]
       },
       {
@@ -124,7 +125,7 @@
         "highlights": [
           "Supported 500+ users across multiple sites at 2nd/3rd level – on-site and remote for Windows, Microsoft 365, hardware and network access; tickets tracked in Jira",
           "Support for internal staff and end customers on Windows, macOS, iOS and Linux",
-          "Reduced ticket volume by around 30% by documenting recurring incidents in a structured knowledge base",
+          "Documented recurring incidents and solutions in a structured knowledge base.",
           "Administered users, groups and permissions in Active Directory and Group Policy, and Microsoft 365 (Exchange, Teams, licences, MFA)",
           "Worked with Azure AD (now Entra ID) and Microsoft Intune",
           "Network troubleshooting (TCP/IP, DNS, DHCP, VLAN, VPN) and support of the virtualization environment on VMware vSphere and Hyper-V",
@@ -138,7 +139,7 @@
         "location": "Zaragoza, Spain",
         "period": "Jun 2019 – Jan 2021",
         "highlights": [
-          "Kept SLA compliance consistently above 95% on the 1st-level service desk – incidents, service requests and changes in ServiceNow following ITIL",
+          "Handled incidents, service requests and changes on the 1st-level service desk using ServiceNow and ITIL processes.",
           "Supported Microsoft 365 accounts, licences, MFA and remote access by phone and in writing",
           "Escalated complex infrastructure incidents with complete handover to the responsible teams"
         ]
@@ -158,7 +159,8 @@
           "Managed virtualization environments and system monitoring",
           "Provided infrastructure support across multiple client sites",
           "Logged and tracked systems and network incidents using ServiceNow",
-          "Prepared and configured client IT equipment before delivery and carried out on-site installation, commissioning and connectivity checks."
+          "Prepared and configured client IT equipment before delivery and carried out on-site installation, commissioning and connectivity checks.",
+          "Synchronised on-premises Active Directory users with Azure AD (now Microsoft Entra ID) for Microsoft 365."
         ]
       },
       {
@@ -204,7 +206,8 @@
         "period": "2010 – 2012",
         "highlights": [
           "Deployed fiber and copper cabling infrastructure in datacenters",
-          "Rack installation and network infrastructure maintenance"
+          "Rack installation and network infrastructure maintenance",
+          "Prepared and configured PCs and mobile devices for network connectivity."
         ]
       }
     ]
@@ -420,7 +423,7 @@
       {
         "id": "de",
         "lang": "German",
-        "level": "B2 — used daily at work and in everyday life"
+        "level": "B2 course in progress"
       },
       {
         "id": "fr",
@@ -443,7 +446,7 @@
   "cvSystems": {
     "role": "IT Support & Systems Engineer",
     "specialties": "Windows · macOS / iOS · Microsoft 365 · Active Directory · ITIL / ServiceNow",
-    "profile": "IT support and systems engineer with over 5 years of experience in IT operations and support, including systems administration (Active Directory, Microsoft 365, VMware vSphere and Hyper-V) and around 1.5 years on a bank's service desk. Focus: Windows environments, Active Directory and Group Policy, Microsoft 365, patching, backup and restore, ITIL incident and request management in ServiceNow and Jira, and clear documentation. Supported 500+ users across multiple sites. German B2, English C1, Spanish native. EU citizen with Swiss Permit B.",
+    "profile": "IT support and systems engineer with over 5 years of experience in IT operations and support, including systems administration (Active Directory, Microsoft 365, VMware vSphere and Hyper-V) and around 1.5 years on a bank's service desk. Focus: Windows environments, Active Directory and Group Policy, Microsoft 365, patching, backup and restore, ITIL incident and request management in ServiceNow and Jira, and clear documentation. Supported 500+ users across multiple sites. German: B2 course in progress, English C1, Spanish native. EU citizen with Swiss Permit B.",
     "residency": "EU citizen | Permit B (5 yrs)",
     "nationality": "Nationality: Spanish (EU citizen)",
     "license": "Category B driving licence",

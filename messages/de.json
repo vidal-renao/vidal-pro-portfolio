@@ -101,7 +101,8 @@
           "Setze produktive Helpdesk- und Workflow-Systeme mit SLA-nahen Prozessen, Rollenmodellen und strukturierter Service-Logik um",
           "Praxislabor Microsoft 365 / Azure für eine simulierte Firma mit 12 Mitarbeitenden: Benutzer per Massenimport in Entra ID, Sicherheitsgruppen, Admin-Rollen, MFA und Microsoft Defender",
           "Übertrage Infrastruktur- und Betriebsdenken in moderne SaaS-Umgebungen und unterstütze Automatisierung und kontinuierliche Optimierung",
-          "Aktives Produktionsportfolio: Ticket System, MatchPoint AI, Invoice Auto, HelpDesk AI"
+          "Aktives Produktionsportfolio: Ticket System, MatchPoint AI, Invoice Auto, HelpDesk AI",
+          "Praxis mit hybrider Identitätssynchronisierung zwischen lokalem Active Directory und Microsoft Entra ID über Microsoft Entra Connect im eigenen Labor."
         ]
       },
       {
@@ -124,7 +125,7 @@
         "highlights": [
           "Betreute 500+ Benutzer an mehreren Standorten im 2nd/3rd-Level-Support – vor Ort und remote für Windows, Microsoft 365, Hardware und Netzwerkzugang; Tickets in Jira nachverfolgt",
           "Support für interne Mitarbeitende und Endkunden mit Windows, macOS, iOS und Linux",
-          "Senkte das Ticketvolumen um rund 30 %, indem wiederkehrende Störungen in einer strukturierten Wissensdatenbank dokumentiert wurden",
+          "Dokumentation wiederkehrender Störungen und Lösungen in einer strukturierten Wissensdatenbank.",
           "Verwaltete Benutzer, Gruppen und Berechtigungen in Active Directory und Group Policy sowie Microsoft 365 (Exchange, Teams, Lizenzen, MFA)",
           "Arbeit mit Azure AD (heute Entra ID) und Microsoft Intune",
           "Netzwerk-Troubleshooting (TCP/IP, DNS, DHCP, VLAN, VPN) und Unterstützung der Virtualisierungsumgebung mit VMware vSphere und Hyper-V",
@@ -138,7 +139,7 @@
         "location": "Zaragoza, Spanien",
         "period": "Juni 2019 – Jan. 2021",
         "highlights": [
-          "Hielt die SLA-Erfüllung konstant über 95 % im 1st-Level Service Desk – Incidents, Service Requests und Changes in ServiceNow nach ITIL",
+          "Bearbeitung von Incidents, Service Requests und Changes im 1st-Level Service Desk mit ServiceNow nach ITIL.",
           "Support für Microsoft-365-Konten, Lizenzen, MFA und Remote-Zugriff per Telefon und schriftlich",
           "Eskalation komplexer Infrastruktur-Incidents mit vollständiger Übergabe an die zuständigen Teams"
         ]
@@ -158,7 +159,8 @@
           "Verwaltung von Virtualisierungsumgebungen und Systemüberwachung",
           "Infrastrukturunterstützung für mehrere Kundenstandorte",
           "Erfassung und Nachverfolgung von System- und Netzwerkstörungen mit ServiceNow",
-          "Vorbereitung und Konfiguration von IT-Geräten für Kunden sowie Installation, Inbetriebnahme und Konnektivitätsprüfung direkt vor Ort."
+          "Vorbereitung und Konfiguration von IT-Geräten für Kunden sowie Installation, Inbetriebnahme und Konnektivitätsprüfung direkt vor Ort.",
+          "Synchronisierung lokaler Active-Directory-Benutzer mit Azure AD (heute Microsoft Entra ID) für Microsoft 365."
         ]
       },
       {
@@ -204,7 +206,8 @@
         "period": "2010 – 2012",
         "highlights": [
           "Glasfaser- und Kupferkabelinfrastruktur in Rechenzentren",
-          "Rack-Installation und Netzwerkinfrastrukturwartung"
+          "Rack-Installation und Netzwerkinfrastrukturwartung",
+          "Vorbereitung und Konfiguration von PCs und Mobilgeräten für die Netzwerkanbindung."
         ]
       }
     ]
@@ -420,7 +423,7 @@
       {
         "id": "de",
         "lang": "Deutsch",
-        "level": "B2 — täglich im Beruf und Alltag"
+        "level": "B2-Kurs laufend"
       },
       {
         "id": "fr",
@@ -443,7 +446,7 @@
   "cvSystems": {
     "role": "IT-Support & Systemtechnik",
     "specialties": "Windows · macOS / iOS · Microsoft 365 · Active Directory · ITIL / ServiceNow",
-    "profile": "IT-Support- und Systemtechniker mit über 5 Jahren Erfahrung in IT-Betrieb und Support, darunter Systemadministration (Active Directory, Microsoft 365, VMware vSphere und Hyper-V) und rund 1,5 Jahre im Service Desk einer Bank. Schwerpunkte: Windows-Umgebungen, Active Directory und Group Policy, Microsoft 365, Patch-Management, Backup und Wiederherstellung, Incident- und Request-Management nach ITIL in ServiceNow und Jira sowie saubere Dokumentation. Support für 500+ Benutzer an mehreren Standorten. Deutsch B2, Englisch C1, Spanisch Muttersprache. EU-Bürger mit Ausweis B.",
+    "profile": "IT-Support- und Systemtechniker mit über 5 Jahren Erfahrung in IT-Betrieb und Support, darunter Systemadministration (Active Directory, Microsoft 365, VMware vSphere und Hyper-V) und rund 1,5 Jahre im Service Desk einer Bank. Schwerpunkte: Windows-Umgebungen, Active Directory und Group Policy, Microsoft 365, Patch-Management, Backup und Wiederherstellung, Incident- und Request-Management nach ITIL in ServiceNow und Jira sowie saubere Dokumentation. Support für 500+ Benutzer an mehreren Standorten. Deutsch: B2-Kurs laufend, Englisch C1, Spanisch Muttersprache. EU-Bürger mit Ausweis B.",
     "residency": "EU-Bürger | Ausweis B (5 J.)",
     "nationality": "Nationalität: Spanisch (EU-Staatsbürger)",
     "license": "Führerschein Kategorie B",
