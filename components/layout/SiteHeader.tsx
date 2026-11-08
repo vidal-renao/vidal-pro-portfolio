@@ -117,12 +117,12 @@ export function SiteHeader({ locale, brand, sections, labels }: Props) {
   }, []);
 
   const languageSwitch = (mobile = false) => (
-    <div role="group" aria-label={labels.language} className="inline-flex items-center gap-0.5 rounded-full border border-line-strong bg-white/[0.025] p-1">
+    <div data-language-switch role="group" aria-label={labels.language} className="inline-flex items-center gap-0.5 rounded-xl border border-line-strong bg-white/[0.025] p-1">
       {LOCALES.map((l) => (
         <a key={l.code} href={`/${l.code}`} hrefLang={l.code} lang={l.code}
           aria-label={l.name} aria-current={l.code === locale ? "page" : undefined}
           onClick={mobile ? () => setOpen(false) : undefined}
-          className={`inline-flex min-h-9 min-w-10 items-center justify-center rounded-full px-2 text-xs font-semibold transition-colors ${l.code === locale ? "bg-accent/15 text-accent" : "text-muted hover:bg-white/[0.06] hover:text-ink"}`}>
+          className={`inline-flex min-h-9 min-w-10 items-center justify-center rounded-lg px-2 text-xs font-semibold transition-colors ${l.code === locale ? "bg-accent/15 text-accent shadow-[inset_0_0_0_1px_rgba(116,222,244,0.20)]" : "text-muted hover:bg-white/[0.06] hover:text-ink"}`}>
           {l.label}
         </a>
       ))}
@@ -134,9 +134,9 @@ export function SiteHeader({ locale, brand, sections, labels }: Props) {
       <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[70] focus:rounded-lg focus:bg-accent focus:px-4 focus:py-2 focus:text-accent-ink">
         {labels.skip}
       </a>
-      <header className={`fixed inset-x-0 top-0 z-50 border-b transition-[background-color,border-color] duration-200 ${scrolled || open ? "border-line-strong bg-bg/95 shadow-lg shadow-black/10" : "border-line bg-bg/95"}`}>
-        <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between gap-3 px-4 sm:px-6">
-          <a href="#top" aria-label={`${brand} — VIDAL ECOSYSTEM`} className="flex shrink-0 items-center gap-2.5 rounded-lg text-ink">
+      <header data-enterprise-header className={`fixed inset-x-0 top-0 z-50 border-b transition-[background-color,border-color] duration-200 ${scrolled || open ? "border-line-strong bg-bg/95 shadow-lg shadow-black/10" : "border-line bg-bg/95"}`}>
+        <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 xl:px-8">
+          <a data-site-brand href="#top" aria-label={`${brand} — VIDAL ECOSYSTEM`} className="group flex shrink-0 items-center gap-2.5 rounded-xl px-1 py-1.5 text-ink transition-colors hover:bg-white/[0.035]">
             <BrandMark className="h-10 w-11 shrink-0" />
             <span className="flex flex-col leading-tight">
               <strong className="text-sm tracking-[0.14em] sm:text-base">VIDAL</strong>
@@ -144,23 +144,23 @@ export function SiteHeader({ locale, brand, sections, labels }: Props) {
             </span>
           </a>
 
-          <nav aria-label="Main" className="hidden items-center gap-0.5 xl:flex">
+          <nav data-header-primary aria-label="Main" className="hidden items-center gap-0.5 rounded-2xl border border-line bg-white/[0.025] p-1 xl:flex">
             {primary.map((s) => (
               <a key={s.id} href={`#${s.id}`} aria-current={active === s.id ? "location" : undefined}
-                className={`rounded-full px-3 py-2 text-[13px] font-medium transition-colors ${active === s.id ? "bg-white/[0.09] text-ink" : "text-muted hover:bg-white/[0.05] hover:text-ink"}`}>
+                className={`relative inline-flex min-h-10 items-center rounded-xl px-3 py-2 text-[13px] font-medium transition-[background-color,color,box-shadow] duration-200 ${active === s.id ? "bg-accent/10 text-accent shadow-[inset_0_0_0_1px_rgba(116,222,244,0.18)]" : "text-muted hover:bg-white/[0.06] hover:text-ink"}`}>
                 {s.label}
               </a>
             ))}
             <details ref={moreRef} className="group relative">
-              <summary className="flex min-h-10 cursor-pointer items-center gap-2 rounded-full px-3 text-[13px] font-medium text-muted hover:bg-white/[0.05] hover:text-ink">
+              <summary className="flex min-h-10 cursor-pointer items-center gap-2 rounded-xl px-3 text-[13px] font-medium text-muted transition-colors hover:bg-white/[0.06] hover:text-ink">
                 {labels.more}
                 <span aria-hidden="true" className="text-xs transition-transform group-open:rotate-180">⌄</span>
               </summary>
-              <div className="absolute right-0 top-full mt-3 min-w-48 rounded-2xl border border-line-strong bg-raised p-2 shadow-2xl shadow-black/35">
+              <div className="absolute right-0 top-full mt-3 min-w-56 rounded-2xl border border-line-strong bg-raised/95 p-2 shadow-2xl shadow-black/35 backdrop-blur-xl">
                 {secondary.map((s) => (
                   <a key={s.id} href={`#${s.id}`}
                     onClick={() => { if (moreRef.current) moreRef.current.open = false; }}
-                    className="block rounded-xl px-4 py-2.5 text-sm text-muted hover:bg-white/[0.06] hover:text-ink">
+                    className="block min-h-11 rounded-xl px-4 py-3 text-sm text-muted transition-colors hover:bg-white/[0.06] hover:text-ink">
                     {s.label}
                   </a>
                 ))}
@@ -170,15 +170,15 @@ export function SiteHeader({ locale, brand, sections, labels }: Props) {
 
           <div className="flex items-center gap-2">
             <div className="hidden sm:block">{languageSwitch()}</div>
-            <a href="#cv" className="hidden min-h-10 items-center gap-1.5 rounded-full border border-line-strong px-3 text-xs font-semibold text-ink transition-colors hover:bg-white/[0.06] xl:inline-flex">
+            <a href="#cv" className="hidden min-h-10 items-center gap-1.5 rounded-xl border border-line-strong px-3 text-xs font-semibold text-ink transition-colors hover:bg-white/[0.06] xl:inline-flex">
               <Download size={15} />{labels.cv}
             </a>
-            <a href="#contact" className="hidden min-h-10 items-center rounded-full bg-accent px-4 text-xs font-semibold text-accent-ink transition-colors hover:bg-accent-strong xl:inline-flex">
+            <a href="#contact" className="hidden min-h-10 items-center rounded-xl bg-accent px-4 text-xs font-semibold text-accent-ink transition-[background-color,box-shadow] hover:bg-accent-strong hover:shadow-[0_0_24px_rgba(116,222,244,0.12)] xl:inline-flex">
               {labels.contact}
             </a>
-            <button ref={menuTriggerRef} type="button" onClick={() => setOpen((value) => !value)}
+            <button data-mobile-menu-trigger ref={menuTriggerRef} type="button" onClick={() => setOpen((value) => !value)}
               aria-expanded={open} aria-controls="mobile-nav" aria-label={open ? labels.close : labels.menu}
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-line-strong bg-white/[0.025] text-ink hover:bg-white/[0.06] xl:hidden">
+              className="flex h-11 w-11 items-center justify-center rounded-xl border border-line-strong bg-white/[0.04] text-ink transition-colors hover:border-accent/50 hover:bg-accent/10 xl:hidden">
               {open ? <Close size={20} /> : <Menu size={20} />}
             </button>
           </div>
@@ -188,7 +188,7 @@ export function SiteHeader({ locale, brand, sections, labels }: Props) {
           onClick={() => { setOpen(false); menuTriggerRef.current?.focus(); }}
           className="fixed inset-x-0 bottom-0 top-[72px] z-0 bg-black/55 backdrop-blur-[2px] xl:hidden" />}
         <div ref={mobilePanelRef} id="mobile-nav" hidden={!open}
-          className="fixed bottom-0 right-0 top-[72px] z-10 w-[min(21rem,calc(100vw-3rem))] overflow-y-auto overscroll-contain border-l border-line-strong bg-bg px-4 pb-6 pt-3 shadow-2xl sm:px-6 xl:hidden">
+          className="fixed bottom-0 right-0 top-[72px] z-10 w-[min(23rem,calc(100vw-2rem))] overflow-y-auto overscroll-contain border-l border-line-strong bg-bg px-4 pb-6 pt-5 shadow-2xl sm:px-6 xl:hidden">
           <nav aria-label="Mobile" className="grid gap-0.5">
             {sections.map((s) => (
               <a key={s.id} href={`#${s.id}`} aria-current={active === s.id ? "location" : undefined}
