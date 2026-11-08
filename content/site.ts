@@ -17,10 +17,10 @@ export const SITE = {
 export const SECTIONS = [
   { id: "specializations", key: "specializations" },
   { id: "projects", key: "projects" },
+  { id: "services", key: "services" },
   { id: "experience", key: "experience" },
   { id: "skills", key: "skills" },
   { id: "credentials", key: "credentials" },
-  { id: "services", key: "services" },
   { id: "testimonials", key: "testimonials" },
   { id: "contact", key: "contact" },
 ] as const;
