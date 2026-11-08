@@ -16,7 +16,7 @@ export async function Testimonials({ locale }: { locale: string }) {
         <h2 id="testimonials-title" className="mb-10 text-2xl font-semibold tracking-tight text-ink sm:text-3xl">{t("title")}</h2>
         <div className="grid gap-4 md:grid-cols-2">
           {items.map((item) => (
-            <figure key={item.author} className="reveal flex flex-col rounded-2xl border border-line bg-raised p-6">
+            <figure key={item.author} className="premium-panel reveal flex flex-col rounded-3xl border border-line bg-raised p-7">
               <blockquote className="text-base leading-7 text-ink/90">“{item.quote}”</blockquote>
               <figcaption className="mt-6 flex items-center gap-3 border-t border-line pt-5">
                 <span aria-hidden className="flex h-10 w-10 flex-none items-center justify-center rounded-full bg-accent/10 text-sm font-semibold text-accent">{item.initials}</span>
