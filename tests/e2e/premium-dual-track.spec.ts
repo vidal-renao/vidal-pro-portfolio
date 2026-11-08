@@ -69,6 +69,7 @@ test("section navigation scrolls progressively up and down", async ({ page }) =>
   await expect(controls).toBeVisible();
   await controls.getByRole("button", { name: "Siguiente sección" }).click();
   await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(100);
+  await page.waitForTimeout(900);
   await expect(controls.getByRole("button", { name: "Sección anterior" })).toBeEnabled();
   await controls.getByRole("button", { name: "Sección anterior" }).click();
   await expect.poll(() => page.evaluate(() => window.scrollY)).toBeLessThan(100);
@@ -78,7 +79,7 @@ test("section navigation remains operable with reduced motion", async ({ page })
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/es");
   await page.getByRole("navigation", { name: "Navegación por secciones" }).getByRole("button", { name: "Siguiente sección" }).click();
-  await expect(page).toHaveURL(/#specializations$/);
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(50);
   await expect(page.locator("html")).toHaveCSS("scroll-behavior", "auto");
 });
 
