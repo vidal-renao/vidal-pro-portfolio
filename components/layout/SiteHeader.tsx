@@ -151,12 +151,21 @@ export function SiteHeader({ locale, brand, sections, labels }: Props) {
                 {s.label}
               </a>
             ))}
-            <details ref={moreRef} className="group relative">
+            <details ref={moreRef} className="group relative"
+  onPointerEnter={(event) => { if (event.pointerType === "mouse" && moreRef.current) moreRef.current.open = true; }}
+  onPointerLeave={(event) => {
+    if (event.pointerType !== "mouse" || !moreRef.current) return;
+    if (!moreRef.current.contains(document.activeElement)) moreRef.current.open = false;
+  }}
+  onBlur={(event) => {
+    if (!event.currentTarget.contains(event.relatedTarget as Node | null) && moreRef.current) moreRef.current.open = false;
+  }}>
               <summary className="flex min-h-10 cursor-pointer items-center gap-2 rounded-xl px-3 text-[13px] font-medium text-muted transition-colors hover:bg-white/[0.06] hover:text-ink">
                 {labels.more}
                 <span aria-hidden="true" className="text-xs transition-transform group-open:rotate-180">⌄</span>
               </summary>
-              <div className="absolute right-0 top-full mt-3 min-w-56 rounded-2xl border border-line-strong bg-raised/95 p-2 shadow-2xl shadow-black/35 backdrop-blur-xl">
+              <div className="absolute right-0 top-full min-w-56 pt-2">
+                <div className="rounded-2xl border border-line-strong bg-raised/95 p-2 shadow-2xl shadow-black/35 backdrop-blur-xl">
                 {secondary.map((s) => (
                   <a key={s.id} href={`#${s.id}`}
                     onClick={() => { if (moreRef.current) moreRef.current.open = false; }}
@@ -164,6 +173,7 @@ export function SiteHeader({ locale, brand, sections, labels }: Props) {
                     {s.label}
                   </a>
                 ))}
+                </div>
               </div>
             </details>
           </nav>
