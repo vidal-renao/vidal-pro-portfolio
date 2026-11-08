@@ -22,6 +22,7 @@ export function SectionScroll({ sections, labels }: Props) {
   const dragRef = useRef<{ id: number; offsetX: number; offsetY: number } | null>(null);
   const pendingTargetRef = useRef<number | null>(null);
   const lastStepAtRef = useRef(0);
+  const lastDirectionRef = useRef<-1 | 0 | 1>(0);
 
   const clampToViewport = useCallback((x: number, y: number) => {
     const rect = railRef.current?.getBoundingClientRect();
@@ -133,7 +134,8 @@ export function SectionScroll({ sections, labels }: Props) {
 
   function navigate(direction: -1 | 1) {
     // Ignore repeated taps while one section is still being animated.
-    if (Date.now() - lastStepAtRef.current < 750) return;
+    if (direction === lastDirectionRef.current && Date.now() - lastStepAtRef.current < 750) return;
+    lastDirectionRef.current = direction;
     if (direction === 1 && current === stops.length - 1) {
       if (!atBottom) {
         lastStepAtRef.current = Date.now();
