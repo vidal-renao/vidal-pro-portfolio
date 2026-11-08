@@ -58,15 +58,15 @@ export function SiteHeader({ locale, brand, sections, labels }: Props) {
     <>
       <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-accent focus:px-4 focus:py-2 focus:text-accent-ink">{labels.skip}</a>
       <header className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${scrolled || open ? "border-b border-line bg-bg/85 backdrop-blur-xl" : "border-b border-transparent"}`}>
-        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
+        <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between gap-3 px-4 sm:px-6">
           <a href="#top" aria-label={`${brand} — VIDAL ECOSYSTEM`} className="group flex shrink-0 items-center gap-2.5 font-semibold tracking-tight text-ink">
-            <BrandMark className="h-9 w-11 shrink-0" />
+            <BrandMark className="h-10 w-12 shrink-0" />
             <span className="flex flex-col leading-tight">
               <span className="text-sm font-bold tracking-[0.12em] sm:text-base">VIDAL</span>
               <span className="text-[9px] font-semibold tracking-[0.23em] text-accent sm:text-[10px]">ECOSYSTEM</span>
             </span>
           </a>
-          <nav aria-label="Main" className="hidden items-center gap-1 lg:flex">
+          <nav aria-label="Main" className="hidden items-center gap-0.5 xl:flex">
             {sections.map((s) => (
               <a key={s.id} href={`#${s.id}`} aria-current={active === s.id ? "location" : undefined}
                 className={`rounded-full px-3 py-1.5 text-sm transition-colors ${active === s.id ? "bg-white/[0.07] text-ink" : "text-muted hover:text-ink"}`}>
@@ -76,16 +76,16 @@ export function SiteHeader({ locale, brand, sections, labels }: Props) {
           </nav>
           <div className="flex items-center gap-2">
             <div className="hidden sm:block">{languageSwitch}</div>
-            <a href="#cv" className="hidden items-center gap-1.5 rounded-full bg-accent px-3.5 py-1.5 text-sm font-semibold text-accent-ink transition-colors hover:bg-accent-strong md:inline-flex">
+            <a href="#cv" className="hidden items-center gap-1.5 rounded-full bg-accent px-3.5 py-2 text-sm font-semibold text-accent-ink transition-colors hover:bg-accent-strong xl:inline-flex">
               <Download size={15} />{labels.cv}
             </a>
             <button type="button" onClick={() => setOpen((v) => !v)} aria-expanded={open} aria-controls="mobile-nav" aria-label={open ? labels.close : labels.menu}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-line text-ink lg:hidden">
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-line text-ink xl:hidden">
               {open ? <Close /> : <Menu />}
             </button>
           </div>
         </div>
-        <div id="mobile-nav" hidden={!open} className="border-t border-line px-4 pb-6 pt-3 lg:hidden">
+        <div id="mobile-nav" hidden={!open} className="max-h-[calc(100dvh-72px)] overflow-y-auto border-t border-line bg-bg/95 px-4 pb-6 pt-3 shadow-2xl backdrop-blur-xl xl:hidden">
           <nav aria-label="Mobile" className="flex flex-col">
             {sections.map((s) => (
               <a key={s.id} href={`#${s.id}`} onClick={() => setOpen(false)}
