@@ -521,7 +521,8 @@
       "secondary": "Kontakt aufnehmen",
       "statProjects": "Projekte online",
       "statCerts": "KI-Zertifikate",
-      "statLanguages": "Arbeitssprachen"
+      "statLanguages": "Arbeitssprachen",
+      "role": "Fullstack AI Engineer · Systemadministrator"
     },
     "projects": {
       "label": "Projekte",
