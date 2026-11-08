@@ -38,7 +38,8 @@
         ]
       }
     ],
-    "evidenceLabel": "Examples"
+    "evidenceLabel": "Examples",
+    "technicalLabel": "Technologies used"
   },
   "hero": {
     "title2": "Software engineering, AI and enterprise IT infrastructure.",
