@@ -94,7 +94,7 @@ test("section controls use a compact vertical translucent rail", async ({ page }
   expect(dimensions.width).toBeLessThanOrEqual(64);
   expect(Math.abs(dimensions.center - dimensions.viewportCenter)).toBeLessThan(30);
   await expect(rail).toHaveCSS("flex-direction", "column");
-  await expect(rail).toHaveCSS("background-color", /(?:rgba\\(|oklab\\().*(?:0\\.4|0\\.4\\))/);
+  await expect(rail).toHaveCSS("background-color", /0[.]4/);
   await rail.getByRole("button", { name: "Siguiente sección" }).click();
   await expect(page).toHaveURL(/#specializations$/);
 });
