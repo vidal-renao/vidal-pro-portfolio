@@ -10,9 +10,9 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://vidal-pro-portfolio.vercel.app"),
-  title: "Vidal Reñao — Fullstack Developer & IT Specialist | Switzerland & Liechtenstein",
+  title: "Vidal Reñao — Fullstack AI Engineer & Systems Administrator | Switzerland & Liechtenstein",
   description:
-    "Websites, apps and AI automation for your business — gyms, restaurants, salons, clinics, shops and agencies. Fullstack developer & IT specialist in Basel: Next.js, AI, Windows, Linux, networks, Microsoft 365, CCNA. Immediately available across Switzerland and Liechtenstein.",
+    "Websites, apps and AI automation for your business — gyms, restaurants, salons, clinics, shops and agencies. Fullstack AI Engineer and Systems Administrator in Basel: Next.js, AI, Windows, Linux, networks, Microsoft 365, CCNA. Immediately available across Switzerland and Liechtenstein.",
   keywords: [
     "Website for small business Switzerland",
     "Web developer Basel",
@@ -28,28 +28,28 @@ export const metadata: Metadata = {
     "Fullstack Developer Switzerland",
   ],
   icons: {
-    icon: [{ url: "/icons/favicon-32.png", sizes: "32x32", type: "image/png" }, { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" }],
+    icon: [{ url: "/icons/ve-mark.svg", type: "image/svg+xml" }, { url: "/icons/favicon-32.png", sizes: "32x32", type: "image/png" }],
     apple: [{ url: "/icons/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
   openGraph: {
-    title: "Vidal Reñao — Fullstack Developer & IT Specialist | Switzerland & Liechtenstein",
+    title: "Vidal Reñao — Fullstack AI Engineer & Systems Administrator | Switzerland & Liechtenstein",
     description:
-      "Websites, apps and AI automation for your business — gyms, restaurants, salons, clinics, shops. Fullstack developer & IT specialist in Basel. Immediately available across Switzerland and Liechtenstein.",
+      "Websites, apps and AI automation for your business — gyms, restaurants, salons, clinics, shops. Fullstack AI Engineer and Systems Administrator in Basel. Immediately available across Switzerland and Liechtenstein.",
     images: [
       {
         url: "/Photo.jpg",
         width: 872,
         height: 927,
-        alt: "Vidal Reñao — Fullstack Developer & IT Specialist",
+        alt: "Vidal Reñao — Fullstack AI Engineer & Systems Administrator",
       },
     ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Vidal Reñao — Fullstack Developer & IT Specialist",
+    title: "Vidal Reñao — Fullstack AI Engineer & Systems Administrator",
     description:
-      "Websites, apps and AI automation for your business — every sector. Fullstack developer & IT specialist in Basel.",
+      "Websites, apps and AI automation for your business — every sector. Fullstack AI Engineer and Systems Administrator in Basel.",
     images: ["/Photo.jpg"],
   },
 };
