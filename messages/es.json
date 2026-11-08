@@ -589,7 +589,8 @@
       "navigation": "Navegación por secciones",
       "previous": "Sección anterior",
       "next": "Siguiente sección",
-      "top": "Inicio"
+      "top": "Inicio",
+      "move": "Mover control de navegación"
     }
   },
   "specializations": {
