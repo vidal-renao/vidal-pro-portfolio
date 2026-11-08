@@ -13,7 +13,7 @@ for (const locale of locales) {
     }
     const header = page.locator("header");
     await expect(header.locator('a[href="#specializations"]')).toHaveCount(2);
-    await expect(header.locator('a[href="#contact"]')).toHaveCount(3);
+    await expect(header.locator('a[href="#contact"]')).toHaveCount(2);
   });
 }
 
