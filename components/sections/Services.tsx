@@ -11,7 +11,7 @@ export async function Services({ locale }: { locale: string }) {
     <Section id="services" label={t("label")} title={t("title")} subtitle={t("subtitle")}>
       <div className="grid gap-4 md:grid-cols-3">
         {items.map((s, i) => (
-          <article key={s.title} className="reveal flex flex-col rounded-2xl border border-line bg-raised p-6">
+          <article key={s.title} className="premium-panel reveal flex flex-col rounded-3xl border border-line bg-raised p-7">
             <span className="font-mono text-xs text-accent">0{i + 1}</span>
             <h3 className="mt-3 text-lg font-semibold tracking-tight text-ink">{s.title}</h3>
             <p className="mt-2 text-sm leading-6 text-muted">{s.desc}</p>
