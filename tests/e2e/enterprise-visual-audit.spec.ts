@@ -12,8 +12,8 @@ const viewports = [
 
 async function capture(page: import("@playwright/test").Page, name: string) {
   await page.evaluate(() => document.fonts.ready);
-  const bytes = await page.screenshot({ fullPage: name.endsWith("-full"), animations: "disabled" });
-  await test.info().attach(name, { body: bytes, contentType: "image/png" });
+  const bytes = await page.screenshot({ type: "jpeg", quality: 82, fullPage: name.endsWith("-full"), animations: "disabled" });
+  await test.info().attach(name, { body: bytes, contentType: "image/jpeg" });
 }
 
 for (const locale of locales) {
