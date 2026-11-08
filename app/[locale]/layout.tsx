@@ -18,7 +18,7 @@ const META: Record<string, { title: string; description: string }> = {
   de: {
     title: "Vidal Reñao — Fullstack AI Engineer & Systemadministrator",
     description:
-      "Websites, Apps und KI-Automatisierung für dein Unternehmen — Fitnessstudios, Restaurants, Friseure, Praxen, Läden und Agenturen. Fullstack AI Engineer & Systemadministrator in Basel: Next.js, KI, Windows, Linux, Netzwerke, Microsoft 365, CCNA.",
+      "Fullstack-KI-Entwicklung und Systemadministration in Basel: SaaS, KI-Automatisierung, Microsoft 365, Windows Server, Entra ID und Unternehmensnetzwerke.",
   },
   es: {
     title: "Vidal Reñao — Fullstack AI Engineer & Administrador de Sistemas",
