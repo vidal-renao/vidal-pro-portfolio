@@ -127,3 +127,13 @@ The English project card uses verified rule-based matching and EN/DE/ES document
 claims. JobPilot links carry the portfolio locale (`/install?lang=en` from `/en`),
 including its screenshot link. The public install screenshot replaces the Spanish
 account screenshot so the showcase contains no personal application data.
+
+## Premium dual-career identity (2026-11-08)
+
+The site deliberately retains **two equal professional tracks**: **Fullstack AI Engineer** (software, SaaS, AI and automation) and **Systems Administrator** (enterprise infrastructure, Microsoft 365, Windows Server, Entra ID, virtualisation and networking).
+
+A dedicated `Specializations` section is shown after the hero in every locale. Navigation, brand, premium visual tokens and footer share a consistent accessible design, built on existing Next.js server components and CSS; no new runtime dependencies. Technical evidence and original chronology are not rewritten.
+
+Specification, EARS requirements, QA gates and release boundaries: [`docs/portfolio-premium-2026-11.md`](docs/portfolio-premium-2026-11.md).
+
+**Release policy:** the redesign stays on `feat/portfolio-premium-dual-career` until CI, visual review and explicit production release approval. The existing `/api/career-profile` contract, targeted Fullstack/AI and Systems CV downloads, and all three languages must remain operational.
