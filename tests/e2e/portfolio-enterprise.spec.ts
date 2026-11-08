@@ -67,3 +67,15 @@ test("enterprise header stays within a 1024px viewport", async ({ page, isMobile
   expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
   await expect(page.getByRole("button", { name: "Menü" })).toBeVisible();
 });
+
+
+test("enterprise More menu closes after selecting a secondary section", async ({ page, isMobile }) => {
+  test.skip(isMobile, "desktop only");
+  await page.goto("/en");
+  const disclosure = page.getByRole("navigation", { name: "Main" }).locator("details");
+  await disclosure.locator("summary").click();
+  await expect(disclosure).toHaveAttribute("open", "");
+  await disclosure.locator('a[href="#credentials"]').click();
+  await expect(disclosure).not.toHaveAttribute("open", "");
+  await expect(page).toHaveURL(/#credentials$/);
+});
