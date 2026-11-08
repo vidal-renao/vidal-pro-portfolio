@@ -17,10 +17,15 @@
       },
       {
         "title": "AI automation",
-        "desc": "Assistants and workflows with Claude that read documents, classify requests and propose decisions a person reviews.",
+        "desc": "I design assistants and automations that help process documents, classify requests and prepare actions for human review, choosing the right technology for each use case.",
         "evidence": "HelpDesk AI, Invoice Auto, WAAI",
         "tags": [
+          "ChatGPT",
+          "Codex",
           "Claude",
+          "Gemini",
+          "OpenCode",
+          "OpenAI API",
           "RAG",
           "MCP",
           "OCR"
@@ -606,12 +611,18 @@
           "Supabase",
           "PostgreSQL",
           "RLS",
-          "AI Agents",
-          "RAG",
-          "MCP",
           "Vercel",
           "CI/CD",
-          "Playwright"
+          "Playwright",
+          "ChatGPT",
+          "OpenAI API",
+          "Codex",
+          "Claude",
+          "Claude Code",
+          "Gemini",
+          "OpenCode",
+          "Workflow automation",
+          "OCR"
         ]
       },
       {
