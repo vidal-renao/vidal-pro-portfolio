@@ -39,7 +39,7 @@ export function SectionScroll({ sections, labels }: Props) {
     const targetIndex = Math.max(0, Math.min(stops.length - 1, current + direction));
     const target = stops[targetIndex];
     document.getElementById(target.id)?.scrollIntoView({
-      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth",
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
       block: "start",
     });
     window.history.replaceState(null, "", `#${target.id}`);
@@ -47,7 +47,7 @@ export function SectionScroll({ sections, labels }: Props) {
   }
 
   return (
-    <nav aria-label={labels.navigation} className="fixed bottom-5 right-4 z-40 hidden items-center gap-1 rounded-full border border-line-strong bg-bg/90 p-1.5 shadow-xl backdrop-blur-xl sm:flex sm:bottom-6 sm:right-6">
+    <nav aria-label={labels.navigation} className="fixed bottom-4 right-3 z-40 flex items-center gap-1 rounded-full border border-line-strong bg-bg/90 p-1.5 shadow-xl backdrop-blur-xl sm:flex sm:bottom-6 sm:right-6">
       <button type="button" aria-label={labels.previous} title={labels.previous}
         disabled={current === 0} onClick={() => navigate(-1)}
         className="flex h-10 w-10 items-center justify-center rounded-full text-muted transition-colors hover:bg-white/[0.08] hover:text-ink disabled:cursor-not-allowed disabled:opacity-30">
