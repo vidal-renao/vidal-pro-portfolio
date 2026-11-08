@@ -58,6 +58,7 @@ export function SiteHeader({ locale, brand, sections, labels }: Props) {
     if (!open) return;
     const previous = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+    document.body.dataset.mobileMenuOpen = "true";
     const panel = mobilePanelRef.current;
     const getFocusables = () => Array.from(panel?.querySelectorAll<HTMLElement>(FOCUSABLE) ?? []);
     getFocusables()[0]?.focus();
@@ -85,6 +86,7 @@ export function SiteHeader({ locale, brand, sections, labels }: Props) {
     document.addEventListener("keydown", onKey);
     return () => {
       document.body.style.overflow = previous;
+      delete document.body.dataset.mobileMenuOpen;
       document.removeEventListener("keydown", onKey);
     };
   }, [open]);
@@ -105,6 +107,13 @@ export function SiteHeader({ locale, brand, sections, labels }: Props) {
       document.removeEventListener("pointerdown", dismiss);
       document.removeEventListener("keydown", onEscape);
     };
+  }, []);
+
+  useEffect(() => {
+    const media = window.matchMedia("(min-width: 1280px)");
+    const onResize = () => { if (media.matches) setOpen(false); };
+    media.addEventListener("change", onResize);
+    return () => media.removeEventListener("change", onResize);
   }, []);
 
   const languageSwitch = (mobile = false) => (
@@ -175,8 +184,11 @@ export function SiteHeader({ locale, brand, sections, labels }: Props) {
           </div>
         </div>
 
+        {open && <div data-mobile-menu-backdrop aria-hidden="true"
+          onClick={() => { setOpen(false); menuTriggerRef.current?.focus(); }}
+          className="fixed inset-x-0 bottom-0 top-[72px] z-0 bg-black/55 backdrop-blur-[2px] xl:hidden" />}
         <div ref={mobilePanelRef} id="mobile-nav" hidden={!open}
-          className="max-h-[calc(100dvh-72px)] overflow-y-auto overscroll-contain border-t border-line-strong bg-bg px-4 pb-6 pt-3 shadow-2xl sm:px-6 xl:hidden">
+          className="fixed bottom-0 right-0 top-[72px] z-10 w-[min(21rem,calc(100vw-3rem))] overflow-y-auto overscroll-contain border-l border-line-strong bg-bg px-4 pb-6 pt-3 shadow-2xl sm:px-6 xl:hidden">
           <nav aria-label="Mobile" className="grid gap-0.5">
             {sections.map((s) => (
               <a key={s.id} href={`#${s.id}`} aria-current={active === s.id ? "location" : undefined}
