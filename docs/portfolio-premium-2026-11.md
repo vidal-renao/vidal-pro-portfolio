@@ -110,3 +110,62 @@ Requirements have direct observables; the full chronology, CV routes and the Job
 
 ### Excluded
 No merging to main, production deployment, domain purchase, new analytics, unverifiable public claims or data migrations.
+
+
+## VE-PORTFOLIO-ENT-003 — Enterprise navigation and information architecture (approved 2026-11-08)
+
+**Scope decision:** implement on existing feature branch only. Do not merge to main, deploy production, modify career-profile schema, alter historic roles or make new unsupported claims. Keep ES/EN/DE parity and CV download behavior.
+
+### EARS requirements (QA-reviewed before implementation)
+- **ENT-NAV-01:** WHEN a visitor opens any locale on desktop, the header SHALL show brand, primary section links (Specializations, Projects, Services, Experience), a secondary navigation disclosure, a language switch and a Contact CTA without horizontal overflow.
+- **ENT-NAV-02:** WHEN a visitor opens the mobile menu, focus SHALL enter the menu; while it is open, Escape and its close control SHALL close it, keyboard focus SHALL stay in the menu, and closing SHALL return focus to its trigger.
+- **ENT-NAV-03:** WHEN a visitor activates a section link, the menu SHALL close and the target SHALL remain visible below the fixed header.
+- **ENT-NAV-04:** WHEN a visitor navigates in any locale, section links in header, footer and floating rail SHALL share a single typed section map and follow the actual DOM order.
+- **ENT-NAV-05:** WHEN a visitor uses a keyboard or requests reduced motion, the navigation and optional draggable rail SHALL remain operable without forced animations or focus loss.
+- **ENT-UX-01:** WHEN a client arrives, Hero and Specializations SHALL communicate solution areas before detailed technical tool lists.
+- **ENT-UX-02:** WHEN a visitor scrolls the home page, content SHALL use the ordered hierarchy Hero → Specializations → Projects → Services → Experience → Skills → Credentials → Testimonials → Contact; existing content and verified evidence SHALL be retained.
+- **ENT-UX-03:** WHEN a reader scans section headings, a consistent spacing, type scale, card treatment and anchor offset SHALL apply without decorative runtime dependencies.
+- **ENT-I18N-01:** WHEN locale is ES, EN or DE, new navigation names and controls SHALL be translated consistently.
+- **ENT-REG-01:** WHEN building and testing the update, CV PDF/Word routes, contact behavior, project links, identity and the JobPilot career-profile schema v1 SHALL remain unchanged.
+- **ENT-REL-01:** UNTIL the user separately authorizes production release, the branch SHALL remain a Preview and main SHALL not be merged.
+
+### Specification QA
+- Every requirement has an observable DOM/keyboard/viewport test; terminology names visible links, states and navigation destinations.
+- Navigation map is the single source for primary/secondary links, section order, rail and footer, not a second hard-coded array.
+- Brand and CV service boundaries are unchanged. The new accessibility behaviors require regression tests; WCAG 2.2 AA is a target, not a compliance claim.
+- Responsive sizes under test: 360, 375, 768, 1024, 1280 and 1440 CSS pixels. Mobile menu remains the sole navigation below the desktop breakpoint.
+- Risk: compact header must not steal focus during anchor navigation; native section anchors remain available without JS.
+- Risk: floating rail can overlay mobile content; do not add a second floating CTA.
+
+### Approved plan (≤10 tasks per phase)
+**Phase 1 — Contracts and tests**
+1. Review source, existing CI and design tokens.
+2. Record requirements, acceptance criteria and architecture decision.
+3. Add E2E tests for desktop hierarchy, mobile focus, section ordering and locale parity.
+
+**Phase 2 — Enterprise header**
+1. Implement four primary links and secondary disclosure from the section map.
+2. Add compact contact CTA, language switch and responsive spacing.
+3. Implement accessible mobile navigation (open/close/Escape/focus return/trap).
+4. Preserve CV download entry points and active-section feedback.
+
+**Phase 3 — Section system**
+1. Align DOM/section map with new hierarchy.
+2. Harmonize heading and section surface spacing and deliberate visual grouping.
+3. Preserve server components, existing technical disclosures and project evidence.
+
+**Phase 4 — Verification**
+1. Run lint and TypeScript check.
+2. Run production build and Playwright E2E (desktop/mobile/keyboard).
+3. Run dependency audit and check Vercel Preview state.
+4. Record unresolved manual visual/performance/security limitations.
+5. Require separate acceptance to merge/publish.
+
+### ADR — NAV-ENT-001
+**Decision:** keep native links and a server-owned typed section map. Header uses four first-level links, native secondary disclosure and a client-side accessible mobile menu. Main page keeps SSR components. No new package, heavy animation or router migration.
+
+**Alternatives rejected:** showing all eight links in the header (visual crowding), separate mobile/desktop section maps (drift), sticky secondary navbar with two full-height rows (space cost).
+
+**Consequences:** reduced top-level density and predictable hierarchy; manual design QA still required on real mobile and at 1280 px; focus management becomes a tested part of the client island.
+
+**Current release state:** scope approved; production not authorized.
