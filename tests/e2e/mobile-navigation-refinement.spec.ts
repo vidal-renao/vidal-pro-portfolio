@@ -60,3 +60,41 @@ test("scroll controls remain in viewport after portrait-to-landscape resize",asy
   expect(rect!.y).toBeGreaterThanOrEqual(0);
   expect(rect!.y+rect!.height).toBeLessThanOrEqual(361);
 });
+
+
+test("last section keeps next available until the actual document bottom", async ({page}) => {
+  await page.goto("/es");
+  const rail=page.getByRole("navigation",{name:"Navegación por secciones"});
+  await rail.getByRole("button",{name:"Elegir sección"}).click();
+  await rail.getByRole("link",{name:"Contacto"}).click();
+  await expect(page).toHaveURL(/#contact$/);
+  await expect(rail).toContainText("09 / 09");
+  const next=rail.getByRole("button",{name:"Siguiente sección"});
+  await expect(next).toBeEnabled();
+  await next.click();
+  await expect.poll(()=>page.evaluate(()=>Math.abs(document.documentElement.scrollHeight-innerHeight-scrollY))).toBeLessThan(5);
+  await expect(next).toBeDisabled();
+});
+
+test("rapid repeated next taps do not skip multiple sections",async({page})=>{
+  await page.goto("/es");
+  const rail=page.getByRole("navigation",{name:"Navegación por secciones"});
+  const next=rail.getByRole("button",{name:"Siguiente sección"});
+  await next.click();
+  await next.click({force:true});
+  await expect(page).toHaveURL(/#specializations$/);
+  await expect(rail).toContainText("02 / 09");
+});
+
+test("manual touch scroll interrupts navigation without another automatic jump",async({page,isMobile})=>{
+  test.skip(!isMobile,"mobile only");
+  await page.goto("/es");
+  const rail=page.getByRole("navigation",{name:"Navegación por secciones"});
+  await rail.getByRole("button",{name:"Siguiente sección"}).click();
+  await page.evaluate(()=>window.dispatchEvent(new Event("touchstart")));
+  await page.evaluate(()=>window.scrollTo({top:950,behavior:"instant"}));
+  const before=await page.evaluate(()=>window.scrollY);
+  await page.waitForTimeout(500);
+  const after=await page.evaluate(()=>window.scrollY);
+  expect(Math.abs(after-before)).toBeLessThan(8);
+});
