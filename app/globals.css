@@ -106,3 +106,6 @@ section[id], #cv { scroll-margin-top: 5.5rem; }
 @media (prefers-reduced-motion: reduce) {
   .premium-panel { transition: none; }
 }
+
+/* Keep optional floating pagination out of the way while the mobile drawer is open. */
+body[data-mobile-menu-open="true"] .section-scroll-rail { visibility: hidden; }
