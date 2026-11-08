@@ -41,8 +41,8 @@
     "evidenceLabel": "Beispiele"
   },
   "hero": {
-    "title2": "Websites, Apps und KI-Automatisierung für dein Unternehmen.",
-    "subtitle": "Ob Fitnessstudio, Restaurant, Friseur, Praxis oder Laden: Ich baue deine Website und App, automatisiere deinen Alltag mit KI und kümmere mich um die Technik —Systeme, Windows, Linux und Netzwerke— damit alles läuft. Ein Ansprechpartner, vom Briefing bis zum Ergebnis."
+    "title2": "Softwareentwicklung, KI und Unternehmens-IT.",
+    "subtitle": "Ich entwickle Fullstack-Anwendungen und KI-Lösungen für Unternehmen. Daneben bringe ich Berufserfahrung in der Systemadministration, Microsoft 365 und Unternehmensnetzwerken mit. Zwei eigenständige Fachgebiete mit einem gemeinsamen Qualitätsanspruch."
   },
   "certifications": {
     "title": "Zwei höhere Berufsabschlüsse in Informatik",
@@ -512,11 +512,12 @@
       "menu": "Menü",
       "close": "Menü schliessen",
       "language": "Sprache",
-      "skip": "Zum Inhalt springen"
+      "skip": "Zum Inhalt springen",
+      "specializations": "Fachgebiete"
     },
     "hero": {
       "eyebrow": "Basel, Schweiz · Verfügbar in CH und LI",
-      "primary": "Projekte ansehen",
+      "primary": "Fachgebiete entdecken",
       "secondary": "Kontakt aufnehmen",
       "statProjects": "Projekte online",
       "statCerts": "KI-Zertifikate",
@@ -524,8 +525,8 @@
     },
     "projects": {
       "label": "Projekte",
-      "title": "Projekte zum Öffnen und Ausprobieren",
-      "subtitle": "Nur erreichbare, geprüfte Projekte. Nach Typ filtern oder nach Technologie suchen.",
+      "title": "Reale Lösungen zum Kennenlernen",
+      "subtitle": "Software-, KI- und Kundenprojekte mit Live-Demos und Quellcode, soweit öffentlich verfügbar.",
       "search": "Nach Name oder Technologie suchen…",
       "all": "Alle",
       "count_one": "{count} Projekt",
@@ -554,8 +555,8 @@
     },
     "skills": {
       "label": "Kenntnisse",
-      "title": "Womit ich arbeite",
-      "subtitle": "Dieselben Bereiche wie in meinem Lebenslauf."
+      "title": "Technische Kompetenzen im Überblick",
+      "subtitle": "Kenntnisse aus Projekten, Weiterbildung und Berufspraxis."
     },
     "credentials": {
       "label": "Ausbildung",
@@ -572,7 +573,44 @@
     },
     "footer": {
       "rights": "Alle Rechte vorbehalten.",
-      "top": "Nach oben"
+      "top": "Nach oben",
+      "tagline": "Fullstack AI Engineering · Systemadministration",
+      "explore": "Entdecken"
     }
+  },
+  "specializations": {
+    "label": "Zwei Fachgebiete",
+    "title": "Zwei technische Schwerpunkte. Ein ganzheitlicher Blick.",
+    "subtitle": "Wählen Sie Ihren Schwerpunkt: Software und KI oder IT-Infrastruktur und Systemadministration.",
+    "tracks": [
+      {
+        "title": "Fullstack AI Engineer",
+        "subtitle": "Software · KI · Automatisierung",
+        "summary": "Ich konzipiere und entwickle Geschäftsanwendungen, SaaS-Plattformen und KI-Automatisierungen – von der Architektur bis zum Deployment.",
+        "capabilities": [
+          "Next.js, TypeScript und Fullstack-Architektur",
+          "Mandantenfähige SaaS-Anwendungen, Supabase und RLS",
+          "KI-Agenten, RAG und Prozessintegrationen",
+          "Tests, CI/CD und Deployments auf Vercel"
+        ],
+        "proof": "Projekte: HelpDesk AI, JobPilot AI, D’NAMAR und NATURÆ.",
+        "action": "Software- und KI-Projekte ansehen",
+        "href": "#projects"
+      },
+      {
+        "title": "Systems Administrator",
+        "subtitle": "Infrastruktur · Cloud · Workplace",
+        "summary": "Ich betreue Unternehmens-IT mit Schwerpunkt auf zuverlässigem Betrieb, Sicherheit, Benutzerverwaltung und Infrastrukturdiensten.",
+        "capabilities": [
+          "Windows Server, Active Directory und GPO",
+          "Microsoft 365, Entra ID und Intune",
+          "TCP/IP, VLAN, DNS, DHCP und VPN",
+          "VMware, Hyper-V und L2/L3-Support"
+        ],
+        "proof": "Berufserfahrung: Lutelco, Nationale Nederlanden Bank und NSC.",
+        "action": "Systemerfahrung ansehen",
+        "href": "#experience"
+      }
+    ]
   }
 }
