@@ -38,7 +38,8 @@
         ]
       }
     ],
-    "evidenceLabel": "Ejemplos"
+    "evidenceLabel": "Ejemplos",
+    "technicalLabel": "Tecnologías utilizadas"
   },
   "hero": {
     "title2": "Ingeniería de software, IA e infraestructura IT.",
