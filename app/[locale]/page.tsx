@@ -43,7 +43,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
         <Testimonials locale={locale} />
         <Contact locale={locale} />
       </main>
-      <SectionScroll sections={SECTIONS.map((s) => ({ id: s.id, label: nav(s.key) }))} labels={{ navigation: scroll("navigation"), previous: scroll("previous"), next: scroll("next"), top: scroll("top") }} />
+      <SectionScroll sections={SECTIONS.map((s) => ({ id: s.id, label: nav(s.key) }))} labels={{ navigation: scroll("navigation"), previous: scroll("previous"), next: scroll("next"), top: scroll("top"), move: scroll("move") }} />
       <SiteFooter locale={locale} />
     </>
   );
