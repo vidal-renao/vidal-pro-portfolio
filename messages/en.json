@@ -594,7 +594,8 @@
       "previous": "Previous section",
       "next": "Next section",
       "top": "Top",
-      "move": "Move navigation control"
+      "move": "Move navigation control",
+      "choose": "Choose section"
     }
   },
   "specializations": {
