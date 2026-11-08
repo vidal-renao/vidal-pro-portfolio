@@ -11,19 +11,19 @@ const BASE = BASE_URL;
 
 const META: Record<string, { title: string; description: string }> = {
   en: {
-    title: "Vidal Reñao — Fullstack Developer & IT Specialist",
+    title: "Vidal Reñao — Fullstack AI Engineer & Systems Administrator",
     description:
-      "Websites, apps and AI automation for your business — gyms, restaurants, salons, clinics, shops and agencies. Fullstack developer & IT specialist in Basel: Next.js, AI, Windows, Linux, networks, Microsoft 365, CCNA.",
+      "Fullstack AI engineering and enterprise systems administration in Basel, Switzerland. SaaS development, AI automation, Microsoft 365, Windows Server, Entra ID and networking.",
   },
   de: {
-    title: "Vidal Reñao — Fullstack-Entwickler & IT-Spezialist",
+    title: "Vidal Reñao — Fullstack AI Engineer & Systemadministrator",
     description:
-      "Websites, Apps und KI-Automatisierung für dein Unternehmen — Fitnessstudios, Restaurants, Friseure, Praxen, Läden und Agenturen. Fullstack-Entwickler & IT-Spezialist in Basel: Next.js, KI, Windows, Linux, Netzwerke, Microsoft 365, CCNA.",
+      "Websites, Apps und KI-Automatisierung für dein Unternehmen — Fitnessstudios, Restaurants, Friseure, Praxen, Läden und Agenturen. Fullstack AI Engineer & Systemadministrator in Basel: Next.js, KI, Windows, Linux, Netzwerke, Microsoft 365, CCNA.",
   },
   es: {
-    title: "Vidal Reñao — Desarrollador Fullstack & Especialista IT",
+    title: "Vidal Reñao — Fullstack AI Engineer & Administrador de Sistemas",
     description:
-      "Webs, apps y automatización con IA para tu negocio — gimnasios, restaurantes, peluquerías, clínicas, tiendas y agencias. Desarrollador fullstack y especialista IT en Basilea: Next.js, IA, Windows, Linux, redes, Microsoft 365, CCNA.",
+      "Ingeniería Fullstack con IA y administración de sistemas en Basilea: desarrollo SaaS, automatización, Microsoft 365, Windows Server, Entra ID y redes empresariales.",
   },
 };
 
@@ -55,7 +55,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           url: "/Photo.jpg",
           width: 800,
           height: 800,
-          alt: "Vidal Reñao — Fullstack Developer & IT Specialist",
+          alt: "Vidal Reñao — Fullstack AI Engineer & Systems Administrator",
         },
       ],
       locale: locale === "de" ? "de_CH" : locale === "es" ? "es_ES" : "en_US",
@@ -79,15 +79,15 @@ const jsonLd = [
     "@context": "https://schema.org",
     "@type": "ProfilePage",
     "@id": `${BASE}/#webpage`,
-    name: "Vidal Reñao — Fullstack Developer & IT Specialist",
+    name: "Vidal Reñao — Fullstack AI Engineer & Systems Administrator",
     url: BASE,
     description:
-      "Fullstack developer & IT specialist based in Basel, Switzerland. Websites, apps and AI automation for businesses of every sector, plus systems administration: Windows, Linux, networks and Microsoft 365.",
+      "Fullstack AI Engineer and Systems Administrator based in Basel, Switzerland. SaaS, AI automation, Microsoft 365, Windows Server, Entra ID and enterprise networks.",
     mainEntity: {
       "@type": "Person",
       "@id": `${BASE}/#person`,
       name: "Vidal Reñao",
-      jobTitle: "Fullstack Developer & IT Specialist",
+      jobTitle: "Fullstack AI Engineer & Systems Administrator",
       url: BASE,
       image: `${BASE}/Photo.jpg`,
       email: "vidalrenao.lab@outlook.com",
@@ -101,7 +101,7 @@ const jsonLd = [
       knowsLanguage: ["en", "de", "es"],
       hasOccupation: {
         "@type": "Occupation",
-        name: "Fullstack Developer & IT Specialist",
+        name: "Fullstack AI Engineer & Systems Administrator",
         occupationLocation: { "@type": "Country", name: "Switzerland" },
         skills:
           "Next.js, TypeScript, Supabase, Claude AI, Web Development, App Development, Windows Server, Active Directory, Linux, VMware, Networking, Microsoft 365, CCNA",
@@ -118,7 +118,7 @@ const jsonLd = [
     "@id": `${BASE}/#business`,
     name: "Vidal Reñao — Web, Apps & IT",
     description:
-      "Websites, apps, AI automation and IT support for small businesses of every sector — gyms, restaurants, salons, clinics and shops. Available across Switzerland and Liechtenstein.",
+      "Fullstack software and AI solutions, systems administration and infrastructure support for companies across Switzerland and Liechtenstein.",
     url: BASE,
     telephone: "+41779726299",
     email: "vidalrenao.lab@outlook.com",
