@@ -30,16 +30,16 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
         locale={locale}
         brand={SITE.shortName}
         sections={SECTIONS.map((s) => ({ id: s.id, label: nav(s.key) }))}
-        labels={{ cv: nav("cv"), menu: nav("menu"), close: nav("close"), language: nav("language"), skip: nav("skip") }}
+        labels={{ cv: nav("cv"), menu: nav("menu"), close: nav("close"), language: nav("language"), skip: nav("skip"), more: nav("more"), contact: nav("contact") }}
       />
       <main id="main">
         <Hero locale={locale} />
         <Specializations locale={locale} />
         <Projects locale={locale} />
+        <Services locale={locale} />
         <Experience locale={locale} />
         <Skills locale={locale} />
         <Credentials locale={locale} />
-        <Services locale={locale} />
         <Testimonials locale={locale} />
         <Contact locale={locale} />
       </main>
