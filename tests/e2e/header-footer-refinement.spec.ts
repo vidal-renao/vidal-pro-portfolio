@@ -46,3 +46,14 @@ test("footer and header do not horizontally overflow common viewport sizes",asyn
     expect(await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth)).toBeLessThanOrEqual(1);
   }
 });
+
+
+test("desktop More dropdown closes when user scrolls away",async({page,isMobile})=>{
+  test.skip(isMobile,"desktop hover only");
+  await page.goto("/es");
+  const details=page.locator("[data-header-primary] details");
+  await details.locator("summary").hover();
+  await expect(details).toHaveAttribute("open","");
+  await page.evaluate(()=>window.scrollTo({top:Math.max(300,innerHeight),behavior:"instant"}));
+  await expect(details).not.toHaveAttribute("open","");
+});
