@@ -7,10 +7,9 @@ import { ArrowDown, Pin } from "@/components/ui/icons";
 
 /** First screen: who, what, where — and the numbers behind it, counted from the content modules. */
 export async function Hero({ locale }: { locale: string }) {
-  const [t, ui, cv] = await Promise.all([
+  const [t, ui] = await Promise.all([
     getTranslations({ locale, namespace: "hero" }),
     getTranslations({ locale, namespace: "ui.hero" }),
-    getTranslations({ locale, namespace: "cv" }),
   ]);
   const stats = [
     { value: String(PROJECTS.length), label: ui("statProjects") },
@@ -31,7 +30,7 @@ export async function Hero({ locale }: { locale: string }) {
             <Image src={SITE.photo} alt="" width={128} height={128} loading="eager" sizes="64px" className="h-16 w-16 flex-none rounded-2xl border border-line object-cover lg:hidden" />
             <h1 className="text-4xl font-semibold leading-[1.05] tracking-tight text-ink sm:text-6xl">{SITE.name}</h1>
           </div>
-          <p className="mt-5 text-xl font-medium text-accent sm:text-2xl">{cv("role")}</p>
+          <p className="mt-5 text-xl font-medium text-accent sm:text-2xl">{ui("role")}</p>
           <p className="mt-5 max-w-2xl text-base leading-7 text-muted sm:text-lg sm:leading-8">{t("title2")} {t("subtitle")}</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a href="#specializations" className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-semibold text-accent-ink transition-colors hover:bg-accent-strong">
