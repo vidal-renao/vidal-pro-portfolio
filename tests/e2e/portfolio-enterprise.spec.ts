@@ -13,7 +13,7 @@ for (const locale of locales) {
     }
     const header = page.locator("header");
     await expect(header.locator('a[href="#specializations"]')).toHaveCount(2);
-    await expect(header.locator('a[href="#contact"]')).toHaveCount(2);
+    await expect(header.locator('a[href="#contact"]')).toHaveCount(3);
   });
 }
 
@@ -23,7 +23,7 @@ test("enterprise desktop menu is compact, navigable, and has secondary disclosur
   const nav = page.getByRole("navigation", { name: "Main" });
   await expect(nav).toBeVisible();
   for (const id of ["specializations", "projects", "services", "experience"]) {
-    await expect(nav.locator(`> a[href="#${id}"]`)).toHaveCount(1);
+    await expect(nav.locator(`:scope > a[href="#${id}"]`)).toHaveCount(1);
   }
   await expect(nav.locator('a[href="#skills"]')).toBeHidden();
   await nav.locator("details summary").click();
