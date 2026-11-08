@@ -169,3 +169,29 @@ No merging to main, production deployment, domain purchase, new analytics, unver
 **Consequences:** reduced top-level density and predictable hierarchy; manual design QA still required on real mobile and at 1280 px; focus management becomes a tested part of the client island.
 
 **Current release state:** scope approved; production not authorized.
+
+
+## VE-PORTFOLIO-ENT-004 — Mobile navigation and pagination refinement (approved follow-up 2026-11-08)
+
+### EARS / QA
+- NAV-MOB-01: WHEN mobile menu opens, it SHALL present a viewport-contained drawer with a dismissible backdrop, keep keyboard focus inside and disable page scrolling until closed.
+- NAV-MOB-02: WHEN the visitor dismisses the backdrop or presses Escape, the drawer SHALL close, release scroll lock and restore keyboard focus to the menu trigger.
+- NAV-MOB-03: WHEN the viewport changes to desktop size, the mobile drawer SHALL close instead of retaining scroll lock.
+- NAV-SCROLL-01: WHEN the visitor scrolls to the end of the document, the pagination SHALL show the final section and disable further forward navigation.
+- NAV-SCROLL-02: WHEN the visitor opens the pagination selector, it SHALL list all nine section anchors in source order and permit direct navigation.
+- NAV-SCROLL-03: WHEN a visitor drags the floating rail or resizes the viewport, the navigation SHALL stay within the screen bounds and not trap normal wheel/touch scroll.
+- NAV-SCROLL-04: WHILE the mobile menu is visible, the floating rail SHALL be hidden to prevent competing overlay controls.
+- NAV-I18N-01: The new selection control SHALL have accessible text in Spanish, English and German.
+- NAV-REG-01: Existing section-link destinations, PDF/Word CV, testimonials, experience data and project content SHALL remain unchanged.
+
+### Decisions / plan
+- Test first: mobile drawer dismiss, focus/scroll unlock, final-section count, direct section picker and viewport resize.
+- Implement: correct active-index calculation using the section positions and document-bottom detection; add a compact section chooser inside the existing movable rail.
+- Implement: convert mobile menu to a narrow side drawer with backdrop and viewport-safe overflow; close on desktop breakpoint and suppress floating rail while modal navigation is open.
+- Verify: lint, typecheck, build, Playwright desktop/mobile and dependency audit; record Preview and production separately.
+- Exclusions: do not replace the browser scroll system with forced snap pagination, add tracking or new packages, or publish to production.
+
+### Limitations
+- Mobile touch/rotation must be confirmed with real-device QA beyond emulated browser tests; no full WCAG certification without separate audit.
+- The scroll rail is movable within a session; persisted coordinates and a reset-location control remain outside this routine remediation.
+
