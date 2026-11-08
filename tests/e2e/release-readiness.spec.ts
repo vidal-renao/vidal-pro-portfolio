@@ -5,6 +5,9 @@ for (const locale of ["es", "en", "de"] as const) {
     await page.goto(`/${locale}`);
     await expect(page.locator('html')).toHaveAttribute("lang",locale);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href",`https://vidal-pro-portfolio.vercel.app/${locale}`);
+    for (const language of ["es", "en", "de"]) {
+      await expect(page.locator(`link[rel="alternate"][hreflang="${language}"]`)).toHaveAttribute("href",`https://vidal-pro-portfolio.vercel.app/${language}`);
+    }
     const broken=await page.locator('header a[href^="#"],footer a[href^="#"]').evaluateAll((links)=>
       links.map((a)=>a.getAttribute("href")?.slice(1)??"").filter((id)=>id && !document.getElementById(id)));
     expect(broken).toEqual([]);
