@@ -584,6 +584,12 @@
       "top": "Back to top",
       "tagline": "Fullstack AI Engineering · Systems Administration",
       "explore": "Explore"
+    },
+    "scroll": {
+      "navigation": "Section navigation",
+      "previous": "Previous section",
+      "next": "Next section",
+      "top": "Top"
     }
   },
   "specializations": {
