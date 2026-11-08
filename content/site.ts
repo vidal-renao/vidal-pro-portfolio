@@ -15,6 +15,7 @@ export const SITE = {
 
 /** In-page sections, in display order; `key` is the label in `ui.nav`. */
 export const SECTIONS = [
+  { id: "specializations", key: "specializations" },
   { id: "projects", key: "projects" },
   { id: "experience", key: "experience" },
   { id: "skills", key: "skills" },
