@@ -6,6 +6,7 @@ import { SECTIONS, SITE } from "@/content/site";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { Hero } from "@/components/sections/Hero";
+import { Specializations } from "@/components/sections/Specializations";
 import { Projects } from "@/components/sections/Projects";
 import { Experience } from "@/components/sections/Experience";
 import { Skills } from "@/components/sections/Skills";
@@ -31,6 +32,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
       />
       <main id="main">
         <Hero locale={locale} />
+        <Specializations locale={locale} />
         <Projects locale={locale} />
         <Experience locale={locale} />
         <Skills locale={locale} />
