@@ -9,7 +9,7 @@ for (const locale of supported) {
     await expect(header.locator('[data-site-brand]')).toBeVisible();
     await expect(header.locator('[data-header-primary]')).toHaveCount(1);
     await expect(header.locator('[data-mobile-menu-trigger]')).toHaveCount(1);
-    await expect(header.locator('[data-language-switch]').first()).toBeVisible();
+    await expect(header.locator('[data-language-switch]')).toHaveCount(2);
     await expect(header.locator('a[href="#contact"]')).toHaveCount(2);
     expect(await page.evaluate(() => Math.max(0,document.documentElement.scrollWidth - innerWidth))).toBeLessThan(2);
   });
@@ -37,7 +37,7 @@ test("mobile drawer presents grouped navigation, language, and contact actions",
   await expect(drawer).toBeVisible();
   await expect(drawer.getByRole("navigation")).toBeVisible();
   await expect(drawer.locator('[data-mobile-primary] a')).toHaveCount(4);
-  await expect(drawer.locator('[data-mobile-secondary] a')).toHaveCount(4);
+  await expect(drawer.locator('[data-mobile-secondary] a')).toHaveCount(3);
   await expect(drawer.locator('[data-language-switch]')).toBeVisible();
   await expect(drawer.locator('[data-mobile-actions] a[href="#contact"]')).toBeVisible();
   await expect(drawer.locator('[data-mobile-actions] a[href="#cv"]')).toBeVisible();
