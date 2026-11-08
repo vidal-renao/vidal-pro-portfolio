@@ -79,3 +79,11 @@ test("enterprise More menu closes after selecting a secondary section", async ({
   await expect(disclosure).not.toHaveAttribute("open", "");
   await expect(page).toHaveURL(/#credentials$/);
 });
+
+test("CV anchor is not hidden under fixed enterprise header", async ({ page, isMobile }) => {
+  test.skip(isMobile, "desktop only");
+  await page.goto("/es");
+  await page.locator("header a[href='#cv']").first().click();
+  await expect(page).toHaveURL(/#cv$/);
+  await expect.poll(async () => page.locator("#cv").evaluate((node) => Math.round(node.getBoundingClientRect().top))).toBeGreaterThanOrEqual(68);
+});
