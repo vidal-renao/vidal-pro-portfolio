@@ -213,3 +213,33 @@ Arrow navigation previously jumped between variable-height sections, sometimes n
 
 ### Implementation and QA
 The arrow motion uses a bounded requestAnimationFrame transition and instantaneous frame positions, avoiding overlapping native smooth animations. No new dependencies or production changes. Browser tests cover desktop/mobile viewport step, wheel update, rapid input, reverse navigation, named selection and end of document. CI/CD #133 completed successfully with 89 passed E2E tests and 13 skipped, plus lint, TypeScript, build and dependency audit. Real phone and visual/manual performance testing remain outstanding. Production merge is explicitly excluded.
+
+
+## VE-PORTFOLIO-ENT-006 — Enterprise menu polish and release readiness (2026-11-08)
+
+### Approved scope and invariant
+Improve header and desktop/tablet/mobile menu presentation on the premium branch; keep working viewport-pagination scroll untouched. Audit application, search/filter, external links and discoverability before considering a production release. No merge/deploy production without user acceptance and release gate.
+
+### EARS and QA
+- MENU-VIS-01: WHEN the portfolio is rendered at desktop width, the header SHALL display a restrained segmented primary navigation, a distinct active state and secondary disclosure with readable contrast.
+- MENU-VIS-02: WHEN the viewport is below the desktop breakpoint, a drawer SHALL group four primary destinations, three secondary destinations and separate Contact/CV actions.
+- MENU-UX-03: WHEN the drawer opens, focus SHALL move inside; WHEN it closes by Escape, backdrop or close button, focus SHALL return to the trigger and native page scrolling SHALL resume.
+- MENU-I18N-04: WHEN language changes among ES/EN/DE, the menu SHALL retain navigation destinations and localized labels.
+- MENU-RSP-05: WHEN the viewport is 360, 375, 768, 1024, 1280 or 1440 pixels wide, navigation SHALL avoid horizontal overflow and remain within viewport bounds.
+- MENU-REG-06: WHILE menu styling changes, existing scroll pagination, CV selection, contact form, external project links and the career-profile schema SHALL remain unchanged.
+- RELEASE-SEO-07: WHEN rendered in ES/EN/DE, the page SHALL provide canonical metadata, valid section anchors, sitemap entries and robots directives.
+- RELEASE-SEARCH-08: WHEN using the projects search, the filtered results SHALL update without changing the page route or URL hash.
+
+### Architecture decision (ADR-MENU-002)
+Retain typed SECTIONS and native anchor links, with a small accessible client-side header island; use CSS Tailwind utility classes and existing design tokens instead of new animation/UI libraries. Mobile drawer groups content by intent and exposes Contact and CV as separate actions. Desktop uses a segmented navigation surface; keep scroll controls unchanged. No new dependencies or changes to production.
+
+### Execution and release checklist
+1. Test-first E2E for responsive hierarchy, accessible menu, locale parity, and focus.
+2. Apply visual and component refinements inside SiteHeader only.
+3. Run CI lint, typecheck, build and existing E2E.
+4. Add read-only release smoke for canonical metadata, internal links, robots/sitemap and client-side search.
+5. Compare Preview deployment and production deployment branches.
+6. Manually review real devices, external URL health, search-engine indexing, SMTP configuration/delivery, and performance before production approval.
+
+### Evidence boundaries and blockers
+GitHub Actions and Vercel provide automated CI and deployment-state evidence. The public-site web audit could not retrieve the live URL; internet resolution is unavailable from the working container, so external URL health and indexing are NOT verified. Search Console/Bing Webmaster Tools, Lighthouse/Core Web Vitals and live SMTP delivery have NOT been checked. The contact endpoint currently uses in-memory per-process rate limiting; evaluate distributed abuse controls before asserting enterprise-grade anti-spam reliability. These are release gates, not claims of failure. Avoid production release until resolved or explicitly risk-accepted.
