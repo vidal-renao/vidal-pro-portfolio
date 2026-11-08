@@ -81,3 +81,20 @@ test("section navigation remains operable with reduced motion", async ({ page })
   await expect(page).toHaveURL(/#specializations$/);
   await expect(page.locator("html")).toHaveCSS("scroll-behavior", "auto");
 });
+
+test("section controls use a compact vertical translucent rail", async ({ page }) => {
+  await page.goto("/es");
+  const rail = page.getByRole("navigation", { name: "Navegación por secciones" });
+  await expect(rail).toBeVisible();
+  const dimensions = await rail.evaluate((el) => {
+    const rect = el.getBoundingClientRect();
+    return { width: rect.width, height: rect.height, center: rect.top + rect.height / 2, viewportCenter: innerHeight / 2 };
+  });
+  expect(dimensions.height).toBeGreaterThan(dimensions.width);
+  expect(dimensions.width).toBeLessThanOrEqual(64);
+  expect(Math.abs(dimensions.center - dimensions.viewportCenter)).toBeLessThan(30);
+  await expect(rail).toHaveCSS("flex-direction", "column");
+  await expect(rail).toHaveCSS("background-color", /rgba\(/);
+  await rail.getByRole("button", { name: "Siguiente sección" }).click();
+  await expect(page).toHaveURL(/#specializations$/);
+});
