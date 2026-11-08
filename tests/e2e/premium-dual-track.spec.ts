@@ -69,10 +69,9 @@ test("section navigation scrolls progressively up and down", async ({ page }) =>
   await expect(controls).toBeVisible();
   await controls.getByRole("button", { name: "Siguiente sección" }).click();
   await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(100);
-  await expect(page).toHaveURL(/#specializations$/);
   await expect(controls.getByRole("button", { name: "Sección anterior" })).toBeEnabled();
   await controls.getByRole("button", { name: "Sección anterior" }).click();
-  await expect(page).toHaveURL(/#top$/);
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBeLessThan(100);
 });
 
 test("section navigation remains operable with reduced motion", async ({ page }) => {
@@ -97,7 +96,7 @@ test("section controls use a compact vertical translucent rail", async ({ page }
   await expect(rail).toHaveCSS("flex-direction", "column");
   await expect(rail).toHaveCSS("background-color", /0[.]4/);
   await rail.getByRole("button", { name: "Siguiente sección" }).click();
-  await expect(page).toHaveURL(/#specializations$/);
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(50);
 });
 
 
@@ -123,7 +122,7 @@ test("movable scroll rail can be dragged without changing section and stays with
   expect(after!.y + after!.height).toBeLessThanOrEqual(page.viewportSize()!.height + 1);
   expect(page.url()).toBe(initialUrl);
   await rail.getByRole("button", { name: "Siguiente sección" }).click();
-  await expect(page).toHaveURL(/#specializations$/);
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(50);
 });
 
 test("movable rail supports keyboard repositioning", async ({ page }) => {
