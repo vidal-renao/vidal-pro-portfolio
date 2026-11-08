@@ -17,10 +17,15 @@
       },
       {
         "title": "Automatisierung mit KI",
-        "desc": "Assistenten und Workflows mit Claude, die Dokumente lesen, Anfragen klassifizieren und Entscheidungen zur Prüfung vorschlagen.",
+        "desc": "Ich entwickle Assistenten und Automatisierungen, die Dokumente verarbeiten, Anfragen klassifizieren und Schritte zur menschlichen Prüfung vorbereiten – mit passenden Werkzeugen für den jeweiligen Einsatz.",
         "evidence": "HelpDesk AI, Invoice Auto, WAAI",
         "tags": [
+          "ChatGPT",
+          "Codex",
           "Claude",
+          "Gemini",
+          "OpenCode",
+          "OpenAI API",
           "RAG",
           "MCP",
           "OCR"
@@ -606,12 +611,18 @@
           "Supabase",
           "PostgreSQL",
           "RLS",
-          "KI-Agenten",
-          "RAG",
-          "MCP",
           "Vercel",
           "CI/CD",
-          "Playwright"
+          "Playwright",
+          "ChatGPT",
+          "OpenAI API",
+          "Codex",
+          "Claude",
+          "Claude Code",
+          "Gemini",
+          "OpenCode",
+          "Workflow-Automatisierung",
+          "OCR"
         ]
       },
       {
