@@ -97,7 +97,7 @@ export function SectionScroll({ sections, labels }: Props) {
 
   useEffect(() => {
     if (!pickerOpen) return;
-    const close = (event: KeyboardEvent) => { if (event.key === "Escape") setPickerOpen(false); };
+    const close = (event: globalThis.KeyboardEvent) => { if (event.key === "Escape") setPickerOpen(false); };
     const outside = (event: globalThis.PointerEvent) => { if (!railRef.current?.contains(event.target as Node)) setPickerOpen(false); };
     document.addEventListener("keydown", close);
     document.addEventListener("pointerdown", outside);
