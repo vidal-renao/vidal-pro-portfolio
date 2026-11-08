@@ -21,6 +21,7 @@ export const SECTIONS = [
   { id: "skills", key: "skills" },
   { id: "credentials", key: "credentials" },
   { id: "services", key: "services" },
+  { id: "testimonials", key: "testimonials" },
   { id: "contact", key: "contact" },
 ] as const;
 
