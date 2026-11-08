@@ -30,6 +30,7 @@ export function SiteHeader({ locale, brand, sections, labels }: Props) {
   const [scrolled, setScrolled] = useState(false);
   const menuTriggerRef = useRef<HTMLButtonElement>(null);
   const mobilePanelRef = useRef<HTMLDivElement>(null);
+  const moreRef = useRef<HTMLDetailsElement>(null);
   const primary = sections.filter((s) => PRIMARY_IDS.has(s.id));
   const secondary = sections.filter((s) => !PRIMARY_IDS.has(s.id) && s.id !== "contact");
 
@@ -88,6 +89,24 @@ export function SiteHeader({ locale, brand, sections, labels }: Props) {
     };
   }, [open]);
 
+  useEffect(() => {
+    const dismiss = (event: PointerEvent) => {
+      if (moreRef.current && !moreRef.current.contains(event.target as Node)) moreRef.current.open = false;
+    };
+    const onEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape" && moreRef.current?.open) {
+        moreRef.current.open = false;
+        moreRef.current.querySelector("summary")?.focus();
+      }
+    };
+    document.addEventListener("pointerdown", dismiss);
+    document.addEventListener("keydown", onEscape);
+    return () => {
+      document.removeEventListener("pointerdown", dismiss);
+      document.removeEventListener("keydown", onEscape);
+    };
+  }, []);
+
   const languageSwitch = (mobile = false) => (
     <div role="group" aria-label={labels.language} className="inline-flex items-center gap-0.5 rounded-full border border-line-strong bg-white/[0.025] p-1">
       {LOCALES.map((l) => (
@@ -123,7 +142,7 @@ export function SiteHeader({ locale, brand, sections, labels }: Props) {
                 {s.label}
               </a>
             ))}
-            <details className="group relative">
+            <details ref={moreRef} className="group relative">
               <summary className="flex min-h-10 cursor-pointer items-center gap-2 rounded-full px-3 text-[13px] font-medium text-muted hover:bg-white/[0.05] hover:text-ink">
                 {labels.more}
                 <span aria-hidden="true" className="text-xs transition-transform group-open:rotate-180">⌄</span>
@@ -131,6 +150,7 @@ export function SiteHeader({ locale, brand, sections, labels }: Props) {
               <div className="absolute right-0 top-full mt-3 min-w-48 rounded-2xl border border-line-strong bg-raised p-2 shadow-2xl shadow-black/35">
                 {secondary.map((s) => (
                   <a key={s.id} href={`#${s.id}`}
+                    onClick={() => { if (moreRef.current) moreRef.current.open = false; }}
                     className="block rounded-xl px-4 py-2.5 text-sm text-muted hover:bg-white/[0.06] hover:text-ink">
                     {s.label}
                   </a>
