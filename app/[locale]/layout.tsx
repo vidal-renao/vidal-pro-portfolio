@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     metadataBase: new URL(BASE_URL),
     alternates: {
       canonical: `${BASE_URL}/${locale}`,
-      languages: { en: "/en", de: "/de", es: "/es" },
+      languages: { en: `${BASE_URL}/en`, de: `${BASE_URL}/de`, es: `${BASE_URL}/es` },
     },
     openGraph: {
       type: "profile",
