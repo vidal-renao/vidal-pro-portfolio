@@ -21,7 +21,7 @@ export async function Credentials({ locale }: { locale: string }) {
               </h3>
               <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {items.map((c) => (
-                  <li key={c.key} className="reveal flex flex-col rounded-2xl border border-line bg-raised p-5">
+                  <li key={c.key} className="premium-panel reveal flex flex-col rounded-3xl border border-line bg-raised p-6">
                     <div className="flex items-start gap-3">
                       <span aria-hidden className="flex h-9 w-9 flex-none items-center justify-center rounded-xl bg-accent/10 text-accent"><FileText size={17} /></span>
                       <div className="min-w-0">
