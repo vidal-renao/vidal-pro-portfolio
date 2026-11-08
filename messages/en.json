@@ -41,8 +41,8 @@
     "evidenceLabel": "Examples"
   },
   "hero": {
-    "title2": "Websites, apps and AI automation for your business.",
-    "subtitle": "Whether you run a gym, a restaurant, a hair salon, a clinic or a shop: I build your website and app, automate your day-to-day with AI, and handle the technical side —systems, Windows, Linux and networks— so everything just works. One contact, from briefing to result."
+    "title2": "Software engineering, AI and enterprise IT infrastructure.",
+    "subtitle": "I build full-stack applications and AI solutions for businesses. I also bring professional experience in systems administration, Microsoft 365 and enterprise networks. Two distinct specializations, one engineering mindset."
   },
   "certifications": {
     "title": "Two higher vocational diplomas in IT",
@@ -512,11 +512,12 @@
       "menu": "Menu",
       "close": "Close menu",
       "language": "Language",
-      "skip": "Skip to content"
+      "skip": "Skip to content",
+      "specializations": "Specializations"
     },
     "hero": {
       "eyebrow": "Basel, Switzerland · Available in CH and LI",
-      "primary": "View projects",
+      "primary": "Explore specializations",
       "secondary": "Get in touch",
       "statProjects": "live projects",
       "statCerts": "AI certificates",
@@ -524,8 +525,8 @@
     },
     "projects": {
       "label": "Projects",
-      "title": "Projects you can open and try",
-      "subtitle": "Only live, verified projects are listed. Filter by type or search by technology.",
+      "title": "Real solutions you can explore",
+      "subtitle": "Software, AI and client projects with live demos and source code when publicly available.",
       "search": "Search by name or technology…",
       "all": "All",
       "count_one": "{count} project",
@@ -554,8 +555,8 @@
     },
     "skills": {
       "label": "Skills",
-      "title": "What I work with",
-      "subtitle": "The same areas listed on my CV."
+      "title": "Technical capabilities, clearly organized",
+      "subtitle": "Technologies supported by practical projects, training and professional experience."
     },
     "credentials": {
       "label": "Education",
@@ -572,7 +573,44 @@
     },
     "footer": {
       "rights": "All rights reserved.",
-      "top": "Back to top"
+      "top": "Back to top",
+      "tagline": "Fullstack AI Engineering · Systems Administration",
+      "explore": "Explore"
     }
+  },
+  "specializations": {
+    "label": "Two specializations",
+    "title": "Two engineering disciplines. One connected perspective.",
+    "subtitle": "Choose what matters to you: software and AI solutions or infrastructure and systems administration.",
+    "tracks": [
+      {
+        "title": "Fullstack AI Engineer",
+        "subtitle": "Software · AI · Automation",
+        "summary": "I design and build business applications, SaaS platforms and AI automation, from architecture to deployment.",
+        "capabilities": [
+          "Next.js, TypeScript and full-stack architecture",
+          "Multi-tenant SaaS, Supabase and RLS security",
+          "AI agents, RAG and process integrations",
+          "Testing, CI/CD and Vercel deployment"
+        ],
+        "proof": "Projects: HelpDesk AI, JobPilot AI, D’NAMAR and NATURÆ.",
+        "action": "Explore software & AI projects",
+        "href": "#projects"
+      },
+      {
+        "title": "Systems Administrator",
+        "subtitle": "Infrastructure · Cloud · Workplace",
+        "summary": "I manage and support enterprise IT environments with a focus on reliable operations, security, user access and infrastructure services.",
+        "capabilities": [
+          "Windows Server, Active Directory and GPO",
+          "Microsoft 365, Entra ID and Intune",
+          "TCP/IP networks, VLAN, DNS, DHCP and VPN",
+          "VMware, Hyper-V and L2/L3 support"
+        ],
+        "proof": "Experience: Lutelco, Nationale Nederlanden Bank and NSC.",
+        "action": "Explore systems experience",
+        "href": "#experience"
+      }
+    ]
   }
 }
