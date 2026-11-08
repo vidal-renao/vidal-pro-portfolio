@@ -19,6 +19,7 @@ export function SectionScroll({ sections, labels }: Props) {
   const [position, setPosition] = useState<{ x: number; y: number } | null>(null);
   const railRef = useRef<HTMLElement>(null);
   const dragRef = useRef<{ id: number; offsetX: number; offsetY: number } | null>(null);
+  const pendingTargetRef = useRef<number | null>(null);
 
   const clampToViewport = useCallback((x: number, y: number) => {
     const rect = railRef.current?.getBoundingClientRect();
@@ -80,6 +81,13 @@ export function SectionScroll({ sections, labels }: Props) {
       cancelAnimationFrame(frame);
       frame = requestAnimationFrame(() => {
         const atEnd = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 3;
+        const pending = pendingTargetRef.current;
+        if (pending !== null) {
+          const node = document.getElementById(stops[pending]?.id ?? "");
+          const expectedTop = pending === 0 ? 0 : 88;
+          if (!node || (Math.abs(node.getBoundingClientRect().top - expectedTop) > 35 && !atEnd)) return;
+          pendingTargetRef.current = null;
+        }
         if (atEnd) { setCurrent(stops.length - 1); return; }
         let index = 0;
         stops.forEach(({ id }, i) => {
@@ -90,9 +98,12 @@ export function SectionScroll({ sections, labels }: Props) {
       });
     };
     sync();
+    const manualInput = () => { pendingTargetRef.current = null; };
+    window.addEventListener("wheel", manualInput, { passive: true });
+    window.addEventListener("touchstart", manualInput, { passive: true });
     window.addEventListener("scroll", sync, { passive: true });
     window.addEventListener("resize", sync);
-    return () => { cancelAnimationFrame(frame); window.removeEventListener("scroll", sync); window.removeEventListener("resize", sync); };
+    return () => { cancelAnimationFrame(frame); window.removeEventListener("wheel", manualInput); window.removeEventListener("touchstart", manualInput); window.removeEventListener("scroll", sync); window.removeEventListener("resize", sync); };
   }, [stops]);
 
   useEffect(() => {
@@ -105,6 +116,7 @@ export function SectionScroll({ sections, labels }: Props) {
   }, [pickerOpen]);
 
   function navigateTo(targetIndex: number) {
+    pendingTargetRef.current = targetIndex;
     setPickerOpen(false);
     const target = stops[targetIndex];
     document.getElementById(target.id)?.scrollIntoView({
