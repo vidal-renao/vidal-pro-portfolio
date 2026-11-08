@@ -557,7 +557,8 @@
     "skills": {
       "label": "Habilidades",
       "title": "Competencias técnicas, por especialidad",
-      "subtitle": "Tecnologías y conocimientos respaldados por proyectos, formación y experiencia profesional."
+      "subtitle": "Tecnologías y conocimientos respaldados por proyectos, formación y experiencia profesional.",
+      "show": "Ver tecnologías"
     },
     "credentials": {
       "label": "Formación",
@@ -589,29 +590,58 @@
         "subtitle": "Software · IA · Automatización",
         "summary": "Diseño y desarrollo aplicaciones empresariales, plataformas SaaS y automatizaciones con IA, desde la arquitectura hasta el despliegue.",
         "capabilities": [
-          "Next.js, TypeScript y arquitectura full-stack",
-          "SaaS multiusuario, Supabase y seguridad RLS",
-          "Agentes IA, RAG e integraciones de procesos",
-          "Testing, CI/CD y despliegues en Vercel"
+          "Desarrollo aplicaciones web y herramientas empresariales adaptadas a cada negocio.",
+          "Automatizo tareas repetitivas y conecto procesos mediante IA.",
+          "Creo soluciones que pueden crecer y mantenerse con seguridad.",
+          "Preparo aplicaciones para su uso en móvil y escritorio."
         ],
         "proof": "Proyectos: HelpDesk AI, JobPilot AI, D’NAMAR y NATURÆ.",
         "action": "Ver proyectos de software e IA",
-        "href": "#projects"
+        "href": "#projects",
+        "technical": [
+          "Next.js",
+          "TypeScript",
+          "React",
+          "Supabase",
+          "PostgreSQL",
+          "RLS",
+          "Agentes IA",
+          "RAG",
+          "MCP",
+          "Vercel",
+          "CI/CD",
+          "Playwright"
+        ]
       },
       {
         "title": "Systems Administrator",
         "subtitle": "Infraestructura · Cloud · Workplace",
         "summary": "Administro y doy soporte a entornos IT empresariales, con foco en continuidad operativa, seguridad, usuarios y servicios de infraestructura.",
         "capabilities": [
-          "Windows Server, Active Directory y GPO",
-          "Microsoft 365, Entra ID e Intune",
-          "Redes TCP/IP, VLAN, DNS, DHCP y VPN",
-          "VMware, Hyper-V y soporte L2/L3"
+          "Mantengo equipos, usuarios y servicios de empresa en funcionamiento.",
+          "Gestiono accesos, herramientas de colaboración y dispositivos.",
+          "Resuelvo incidencias y ayudo a reducir interrupciones operativas.",
+          "Administro redes, servidores y entornos virtualizados."
         ],
         "proof": "Experiencia: Lutelco, Nationale Nederlanden Bank y NSC.",
         "action": "Ver experiencia en sistemas",
-        "href": "#experience"
+        "href": "#experience",
+        "technical": [
+          "Windows Server",
+          "Windows 10/11",
+          "Linux",
+          "macOS",
+          "Active Directory",
+          "GPO",
+          "Microsoft 365",
+          "Entra ID",
+          "Intune",
+          "DNS / DHCP",
+          "VLAN / VPN",
+          "VMware / Hyper-V"
+        ]
       }
-    ]
+    ],
+    "technicalLabel": "Ver tecnologías y herramientas"
   }
 }
