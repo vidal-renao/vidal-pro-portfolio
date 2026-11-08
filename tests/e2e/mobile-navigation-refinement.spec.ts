@@ -68,6 +68,7 @@ test("last section keeps next available until the actual document bottom", async
   await rail.getByRole("button",{name:"Elegir sección"}).click();
   await rail.getByRole("link",{name:"Contacto"}).click();
   await expect(page).toHaveURL(/#contact$/);
+  await page.waitForTimeout(950);
   await expect(rail.getByRole("button",{name:"Elegir sección"})).toContainText(/\d+ \/ \d+/);
   const next=rail.getByRole("button",{name:"Siguiente sección"});
   await expect(next).toBeEnabled();
