@@ -2,7 +2,7 @@ import { chromium } from "@playwright/test";
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 
 const baseURL = process.env.AUDIT_BASE_URL ?? "http://localhost:3102";
-const axeSource = readFileSync("node_modules/axe-core/axe.min.js", "utf8");
+const axeSource = readFileSync("audit-tools/package/axe.min.js", "utf8");
 const browser = await chromium.launch({ headless: true });
 const report = [];
 try {
