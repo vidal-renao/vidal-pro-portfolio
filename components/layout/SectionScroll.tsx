@@ -47,13 +47,13 @@ export function SectionScroll({ sections, labels }: Props) {
   }
 
   return (
-    <nav aria-label={labels.navigation} className="fixed bottom-4 right-3 z-40 flex items-center gap-1 rounded-full border border-line-strong bg-bg/90 p-1.5 shadow-xl backdrop-blur-xl sm:flex sm:bottom-6 sm:right-6">
+    <nav aria-label={labels.navigation} className="fixed right-2 top-1/2 z-40 flex -translate-y-1/2 flex-col items-center gap-0.5 rounded-full border border-line bg-bg/40 p-1 shadow-lg opacity-60 backdrop-blur-md transition-[background-color,opacity] duration-200 hover:bg-bg/90 hover:opacity-100 focus-within:bg-bg/90 focus-within:opacity-100 sm:right-4">
       <button type="button" aria-label={labels.previous} title={labels.previous}
         disabled={current === 0} onClick={() => navigate(-1)}
         className="flex h-10 w-10 items-center justify-center rounded-full text-muted transition-colors hover:bg-white/[0.08] hover:text-ink disabled:cursor-not-allowed disabled:opacity-30">
         <ArrowUp size={17} />
       </button>
-      <span className="min-w-12 text-center font-mono text-[11px] tabular-nums text-dim" aria-hidden="true">
+      <span className="py-1 text-center font-mono text-[10px] leading-4 tabular-nums text-dim [writing-mode:vertical-rl]" aria-hidden="true">
         {String(current + 1).padStart(2, "0")} / {String(stops.length).padStart(2, "0")}
       </span>
       <button type="button" aria-label={labels.next} title={labels.next}
