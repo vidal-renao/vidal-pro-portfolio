@@ -2,16 +2,16 @@
 
 /* Design tokens: one dark theme, one accent family. */
 :root {
-  --bg: #07080a;
-  --bg-raised: #0d0f13;
-  --line: rgba(255, 255, 255, 0.08);
-  --line-strong: rgba(255, 255, 255, 0.14);
-  --text: #eef0f3;
-  --text-muted: rgba(238, 240, 243, 0.62);
-  --text-dim: rgba(238, 240, 243, 0.56);
-  --accent: #5eead4;
-  --accent-strong: #2dd4bf;
-  --accent-ink: #042f2e;
+  --bg: #080e1c;
+  --bg-raised: #101a2b;
+  --line: rgba(183, 208, 242, 0.12);
+  --line-strong: rgba(183, 208, 242, 0.24);
+  --text: #f5f8fd;
+  --text-muted: #b7c5d9;
+  --text-dim: #9cacc5;
+  --accent: #74def4;
+  --accent-strong: #a0ecfa;
+  --accent-ink: #072033;
 }
 
 @theme inline {
@@ -46,7 +46,7 @@ body {
 }
 
 ::selection {
-  background: rgba(94, 234, 212, 0.25);
+  background: rgba(116, 222, 244, 0.28);
   color: #fff;
 }
 
@@ -89,4 +89,19 @@ details > summary::-webkit-details-marker { display: none; }
 @keyframes ve-brand-enter {
   from { opacity: 0; transform: translateY(3px) scale(0.96); }
   to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Shared premium surfaces: presentation-only, no additional runtime JavaScript. */
+.premium-panel {
+  background-image: linear-gradient(145deg, rgba(80, 151, 226, 0.06), transparent 58%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.025), 0 18px 55px rgba(0,0,0,0.08);
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+.premium-panel:hover {
+  border-color: var(--line-strong);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04), 0 22px 65px rgba(0,0,0,0.16);
+}
+section[id] { scroll-margin-top: 5.5rem; }
+@media (prefers-reduced-motion: reduce) {
+  .premium-panel { transition: none; }
 }
