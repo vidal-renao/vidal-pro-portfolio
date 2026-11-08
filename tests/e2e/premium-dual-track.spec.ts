@@ -98,3 +98,42 @@ test("section controls use a compact vertical translucent rail", async ({ page }
   await rail.getByRole("button", { name: "Siguiente sección" }).click();
   await expect(page).toHaveURL(/#specializations$/);
 });
+
+
+test("movable scroll rail can be dragged without changing section and stays within viewport", async ({ page }) => {
+  await page.goto("/es");
+  const rail = page.getByRole("navigation", { name: "Navegación por secciones" });
+  const grip = rail.getByRole("button", { name: "Mover control de navegación" });
+  const before = await rail.boundingBox();
+  expect(before).not.toBeNull();
+  const initialUrl = page.url();
+  const handle = await grip.boundingBox();
+  expect(handle).not.toBeNull();
+  await page.mouse.move(handle!.x + handle!.width / 2, handle!.y + handle!.height / 2);
+  await page.mouse.down();
+  await page.mouse.move(20, 160, { steps: 10 });
+  await page.mouse.up();
+  const after = await rail.boundingBox();
+  expect(after).not.toBeNull();
+  expect(Math.abs(after!.x - before!.x)).toBeGreaterThan(20);
+  expect(after!.x).toBeGreaterThanOrEqual(0);
+  expect(after!.y).toBeGreaterThanOrEqual(0);
+  expect(after!.x + after!.width).toBeLessThanOrEqual(page.viewportSize()!.width + 1);
+  expect(after!.y + after!.height).toBeLessThanOrEqual(page.viewportSize()!.height + 1);
+  expect(page.url()).toBe(initialUrl);
+  await rail.getByRole("button", { name: "Siguiente sección" }).click();
+  await expect(page).toHaveURL(/#specializations$/);
+});
+
+test("movable rail supports keyboard repositioning", async ({ page }) => {
+  await page.goto("/es");
+  const rail = page.getByRole("navigation", { name: "Navegación por secciones" });
+  const before = await rail.boundingBox();
+  const grip = rail.getByRole("button", { name: "Mover control de navegación" });
+  await grip.focus();
+  await grip.press("ArrowLeft");
+  const after = await rail.boundingBox();
+  expect(before).not.toBeNull();
+  expect(after).not.toBeNull();
+  expect(after!.x).toBeLessThan(before!.x);
+});
