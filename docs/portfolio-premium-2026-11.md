@@ -243,3 +243,32 @@ Retain typed SECTIONS and native anchor links, with a small accessible client-si
 
 ### Evidence boundaries and blockers
 GitHub Actions and Vercel provide automated CI and deployment-state evidence. The public-site web audit could not retrieve the live URL; internet resolution is unavailable from the working container, so external URL health and indexing are NOT verified. Search Console/Bing Webmaster Tools, Lighthouse/Core Web Vitals and live SMTP delivery have NOT been checked. The contact endpoint currently uses in-memory per-process rate limiting; evaluate distributed abuse controls before asserting enterprise-grade anti-spam reliability. These are release gates, not claims of failure. Avoid production release until resolved or explicitly risk-accepted.
+
+
+## VE-PORTFOLIO-SEO-NAV-007 — Search discoverability and menu/footer refinement (2026-11-08)
+
+### Public search audit (read-only)
+Search-engine web queries for site:vidal-pro-portfolio.vercel.app and the brand name did not provide a verifiable indexed result for the portfolio. Other listings mentioning the developer and the URL were visible. This is insufficient to conclude that the site is or is not indexed. The web fetch of the public homepage was not accessible through the research environment. Search Console and Bing Webmaster URL Inspection remain the authoritative owner-side verification steps.
+
+### SEO keyword mapping (proposal, not measured search volumes)
+- Business services DE Basel: KI Automatisierung Basel, Webentwicklung Basel, SaaS Entwicklung Schweiz.
+- Business services EN: AI automation Basel, AI integration Switzerland, SaaS developer Switzerland.
+- Hiring DE: ICT System Engineer Basel, Microsoft 365 Administrator Schweiz, Fullstack Entwickler Basel.
+- Hiring EN: Fullstack TypeScript Developer Basel, Systems Administrator Switzerland.
+- Branded: Vidal Reñao, VIDAL ECOSYSTEM. Avoid meta-keywords and keyword stuffing.
+
+### Review findings
+Each locale includes a descriptive canonical title and meta description, alternate language URLs, OG tags and a sitemap. The present single-page architecture limits unique search intents; dedicated indexable project and specialty landing pages require an approved content/SEO spec and evidence. Search Console verification, sitemap submission, Google/Bing indexing, external project availability and field performance remain unverified.
+
+### EARS and design decision
+- HOVER-01: WHEN a fine mouse pointer enters More, the desktop disclosure SHALL open without a click.
+- HOVER-02: WHILE the pointer moves into the dropdown, the disclosure SHALL remain visible; WHEN it leaves, it SHALL close unless keyboard focus remains inside.
+- HOVER-03: WHEN interacting by keyboard or touch, the disclosure SHALL preserve native activation and Escape behavior.
+- FOOTER-01: WHEN viewed at mobile, tablet and desktop breakpoints, the footer SHALL present distinct brand, section navigation and contact zones without horizontal overflow.
+- FOOTER-02: WHEN a footer anchor is selected, it SHALL target a real section; links SHALL retain sufficient tap-target size.
+- NAV-REG: Header refinements SHALL not modify the working pagination controls or the career-profile API.
+
+ADR: Use native details with pointer-hover enhancement for fine mouse input, keep keyboard/touch native fallback, and replace the visual dropdown margin with a continuous hoverable padded area. Footer uses the existing server component and tokens; no new package. GitHub Actions E2E must cover mouse, keyboard, multi-locale anchors and 360–1440px widths.
+
+### Production gates
+Do not merge to main before independent visual review, confirmed indexing/URLs and live form delivery as appropriate. Search-engine rankings are not guaranteed. Code-level SEO checks do not prove indexing.
