@@ -28,3 +28,21 @@ test("premium header remains accessible on mobile", async ({ page, isMobile }) =
   await expect(page.locator("#mobile-nav")).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(0);
 });
+
+for (const locale of ["es", "de", "en"]) {
+  test(`technical detail is optional while solution benefits are visible in ${locale}`, async ({ page }) => {
+    await page.goto(`/${locale}`);
+    const cards = page.locator("#specializations article");
+    await expect(cards).toHaveCount(2);
+    for (const card of await cards.all()) {
+      await expect(card.locator("ul").first()).toBeVisible();
+      const details = card.locator("details");
+      await expect(details).toHaveCount(1);
+      await expect(details).not.toHaveAttribute("open", "");
+      await details.locator("summary").click();
+      await expect(details).toHaveAttribute("open", "");
+      await expect(details.locator("ul li").first()).toBeVisible();
+    }
+    await expect(page.locator("#skills details").first()).not.toHaveAttribute("open", "");
+  });
+}
