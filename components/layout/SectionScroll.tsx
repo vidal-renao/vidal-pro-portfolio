@@ -16,11 +16,11 @@ export function SectionScroll({ sections, labels }: Props) {
   const stops = useMemo(() => [{ id: "top", label: labels.top }, ...sections], [sections, labels.top]);
   const [current, setCurrent] = useState(0);
   const [atBottom, setAtBottom] = useState(false);
+  const [pageProgress, setPageProgress] = useState({ current: 1, total: 1 });
   const [pickerOpen, setPickerOpen] = useState(false);
   const [position, setPosition] = useState<{ x: number; y: number } | null>(null);
   const railRef = useRef<HTMLElement>(null);
   const dragRef = useRef<{ id: number; offsetX: number; offsetY: number } | null>(null);
-  const pendingTargetRef = useRef<number | null>(null);
   const lastStepAtRef = useRef(0);
   const lastDirectionRef = useRef<-1 | 0 | 1>(0);
 
@@ -83,31 +83,31 @@ export function SectionScroll({ sections, labels }: Props) {
     const sync = () => {
       cancelAnimationFrame(frame);
       frame = requestAnimationFrame(() => {
-        const atEnd = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 3;
-        setAtBottom(atEnd);
-        const pending = pendingTargetRef.current;
-        if (pending !== null) {
-          const node = document.getElementById(stops[pending]?.id ?? "");
-          const expectedTop = pending === 0 ? 0 : 88;
-          if (!node || (Math.abs(node.getBoundingClientRect().top - expectedTop) > 35 && !atEnd)) return;
-          pendingTargetRef.current = null;
-        }
-        if (atEnd) { setCurrent(stops.length - 1); return; }
-        let index = 0;
-        stops.forEach(({ id }, i) => {
-          const node = document.getElementById(id);
-          if (node && node.getBoundingClientRect().top <= 110) index = i;
+        const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+        const step = Math.max(1, Math.round(window.innerHeight * 0.82));
+        const total = Math.max(1, Math.ceil(maxScroll / step) + 1);
+        const bottom = window.scrollY >= maxScroll - 3;
+        setPageProgress({
+          current: bottom ? total : Math.min(total, Math.floor(window.scrollY / step) + 1),
+          total,
         });
-        setCurrent(index);
+        setAtBottom(bottom);
+        let section = 0;
+        stops.forEach(({ id }, index) => {
+          const node = document.getElementById(id);
+          if (node && node.getBoundingClientRect().top <= 110) section = index;
+        });
+        setCurrent(section);
       });
     };
     sync();
-    const manualInput = () => { pendingTargetRef.current = null; lastStepAtRef.current = 0; };
-    window.addEventListener("wheel", manualInput, { passive: true });
-    window.addEventListener("touchstart", manualInput, { passive: true });
     window.addEventListener("scroll", sync, { passive: true });
     window.addEventListener("resize", sync);
-    return () => { cancelAnimationFrame(frame); window.removeEventListener("wheel", manualInput); window.removeEventListener("touchstart", manualInput); window.removeEventListener("scroll", sync); window.removeEventListener("resize", sync); };
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", sync);
+      window.removeEventListener("resize", sync);
+    };
   }, [stops]);
 
   useEffect(() => {
@@ -120,34 +120,29 @@ export function SectionScroll({ sections, labels }: Props) {
   }, [pickerOpen]);
 
   function navigateTo(targetIndex: number) {
-    pendingTargetRef.current = targetIndex;
-    lastStepAtRef.current = Date.now();
     setPickerOpen(false);
     const target = stops[targetIndex];
-    document.getElementById(target.id)?.scrollIntoView({
+    const node = document.getElementById(target.id);
+    if (!node) return;
+    node.scrollIntoView({
       behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
       block: "start",
     });
-    window.history.replaceState(null, "", `#${target.id}`);
+    window.history.replaceState(null, "", "#" + target.id);
     setCurrent(targetIndex);
   }
 
   function navigate(direction: -1 | 1) {
-    // Ignore repeated taps while one section is still being animated.
-    if (direction === lastDirectionRef.current && Date.now() - lastStepAtRef.current < 750) return;
+    // This is viewport pagination, never a jump to the next variable-height section.
+    // Rapid repeated taps in one direction are ignored; reverse remains available.
+    if (direction === lastDirectionRef.current && Date.now() - lastStepAtRef.current < 650) return;
+    lastStepAtRef.current = Date.now();
     lastDirectionRef.current = direction;
-    if (direction === 1 && current === stops.length - 1) {
-      if (!atBottom) {
-        lastStepAtRef.current = Date.now();
-        pendingTargetRef.current = null;
-        document.querySelector("footer")?.scrollIntoView({
-          behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
-          block: "end",
-        });
-      }
-      return;
-    }
-    navigateTo(Math.max(0, Math.min(stops.length - 1, current + direction)));
+    const distance = Math.round(window.innerHeight * 0.82);
+    window.scrollBy({
+      top: distance * direction,
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+    });
   }
 
   return (
@@ -162,14 +157,14 @@ export function SectionScroll({ sections, labels }: Props) {
         <span aria-hidden="true" className="text-[15px] leading-none tracking-widest">⠿</span>
       </button>
       <button type="button" aria-label={labels.previous} title={labels.previous}
-        disabled={current === 0} onClick={() => navigate(-1)}
+        disabled={pageProgress.current === 1} onClick={() => navigate(-1)}
         className="flex h-10 w-10 items-center justify-center rounded-full text-muted transition-colors hover:bg-white/[0.08] hover:text-ink disabled:cursor-not-allowed disabled:opacity-30">
         <ArrowUp size={17} />
       </button>
       <button type="button" aria-label={labels.choose} title={stops[current]?.label}
         aria-expanded={pickerOpen} aria-controls="section-scroll-picker" onClick={() => setPickerOpen((value) => !value)}
         className="flex min-h-11 min-w-10 items-center justify-center rounded-full px-1 font-mono text-[10px] tabular-nums text-muted hover:bg-white/[0.08] hover:text-ink">
-        <span aria-hidden="true" className="[writing-mode:vertical-rl]">{String(current + 1).padStart(2, "0")} / {String(stops.length).padStart(2, "0")}</span>
+        <span aria-hidden="true" className="[writing-mode:vertical-rl]">{String(pageProgress.current).padStart(2, "0")} / {String(pageProgress.total).padStart(2, "0")}</span>
       </button>
       <span className="sr-only" aria-live="polite">{stops[current]?.label}</span>
       <div id="section-scroll-picker" hidden={!pickerOpen}
@@ -183,7 +178,7 @@ export function SectionScroll({ sections, labels }: Props) {
         ))}
       </div>
       <button type="button" aria-label={labels.next} title={labels.next}
-        disabled={current === stops.length - 1 && atBottom} onClick={() => navigate(1)}
+        disabled={atBottom} onClick={() => navigate(1)}
         className="flex h-10 w-10 items-center justify-center rounded-full text-muted transition-colors hover:bg-white/[0.08] hover:text-ink disabled:cursor-not-allowed disabled:opacity-30">
         <ArrowDown size={17} />
       </button>
