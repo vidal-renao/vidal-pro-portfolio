@@ -372,7 +372,7 @@
       },
       {
         "area": "AI & Automation",
-        "detail": "Claude · Chatbots · Workflow automation · OCR"
+        "detail": "ChatGPT · Codex · Claude · Claude Code · Gemini · OpenCode · OpenAI API · AI Agents · RAG · MCP · OCR · Workflow automation"
       },
       {
         "area": "Systems & Servers",
@@ -519,14 +519,15 @@
       "close": "Close menu",
       "language": "Language",
       "skip": "Skip to content",
-      "specializations": "Specializations"
+      "specializations": "Specializations",
+      "testimonials": "Reviews"
     },
     "hero": {
       "eyebrow": "Basel, Switzerland · Available in CH and LI",
       "primary": "Explore specializations",
       "secondary": "Get in touch",
       "statProjects": "live projects",
-      "statCerts": "AI certificates",
+      "statCerts": "AI learning courses",
       "statLanguages": "working languages",
       "role": "Fullstack AI Engineer · Systems Administrator"
     },
