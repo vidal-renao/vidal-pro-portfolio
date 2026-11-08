@@ -10,7 +10,7 @@ export async function Testimonials({ locale }: { locale: string }) {
   ]);
   const items = t.raw("items") as Item[];
   return (
-    <section aria-labelledby="testimonials-title" className="border-t border-line px-4 py-16 sm:px-6 sm:py-20">
+    <section id="testimonials" aria-labelledby="testimonials-title" className="border-t border-line px-4 py-16 sm:px-6 sm:py-20">
       <div className="mx-auto max-w-6xl">
         <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-accent">{ui("label")}</p>
         <h2 id="testimonials-title" className="mb-10 text-2xl font-semibold tracking-tight text-ink sm:text-3xl">{t("title")}</h2>
