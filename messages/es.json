@@ -17,10 +17,15 @@
       },
       {
         "title": "Automatización con IA",
-        "desc": "Asistentes y flujos con Claude que leen documentos, clasifican solicitudes y proponen decisiones que una persona revisa.",
+        "desc": "Diseño asistentes y automatizaciones que ayudan a gestionar documentos, clasificar solicitudes y preparar acciones para revisión humana, eligiendo la tecnología adecuada para cada caso.",
         "evidence": "HelpDesk AI, Invoice Auto, WAAI",
         "tags": [
+          "ChatGPT",
+          "Codex",
           "Claude",
+          "Gemini",
+          "OpenCode",
+          "OpenAI API",
           "RAG",
           "MCP",
           "OCR"
@@ -606,12 +611,18 @@
           "Supabase",
           "PostgreSQL",
           "RLS",
-          "Agentes IA",
-          "RAG",
-          "MCP",
           "Vercel",
           "CI/CD",
-          "Playwright"
+          "Playwright",
+          "ChatGPT",
+          "OpenAI API",
+          "Codex",
+          "Claude",
+          "Claude Code",
+          "Gemini",
+          "OpenCode",
+          "Automatización de flujos",
+          "OCR"
         ]
       },
       {
