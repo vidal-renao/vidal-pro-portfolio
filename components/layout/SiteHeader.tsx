@@ -160,7 +160,7 @@ export function SiteHeader({ locale, brand, sections, labels }: Props) {
   onBlur={(event) => {
     if (!event.currentTarget.contains(event.relatedTarget as Node | null) && moreRef.current) moreRef.current.open = false;
   }}>
-              <summary className="flex min-h-10 cursor-pointer items-center gap-2 rounded-xl px-3 text-[13px] font-medium text-muted transition-colors hover:bg-white/[0.06] hover:text-ink">
+              <summary onClick={(event) => { if (event.detail > 0 && window.matchMedia("(hover: hover) and (pointer: fine)").matches) event.preventDefault(); }} className="flex min-h-10 cursor-pointer items-center gap-2 rounded-xl px-3 text-[13px] font-medium text-muted transition-colors hover:bg-white/[0.06] hover:text-ink">
                 {labels.more}
                 <span aria-hidden="true" className="text-xs transition-transform group-open:rotate-180">⌄</span>
               </summary>
