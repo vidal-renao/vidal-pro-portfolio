@@ -78,3 +78,35 @@ Build, CI and preview inspection: pending external verification, not asserted as
 - UX-MOTION-02: Disclosure controls SHALL remain usable with keyboard and reduced-motion preferences.
 
 **Domain / purchase:** deferred explicitly. No price/offer checks and no domain purchase as part of this change.
+
+
+## VE-PORTFOLIO-QA-002 — Audit remediation (approved 2026-11-08)
+
+### EARS requirements
+- SEC-EMAIL-01: WHEN a visitor sends contact data, the HTML email SHALL escape name, address, subject and body, while preserving readable plain text.
+- NAV-ALL-01: WHEN navigating the portfolio, the header, footer and vertical rail SHALL include all nine sections, including testimonials.
+- CAREER-01: WHEN selecting IT experience, the timeline SHALL suppress the non-IT temporary assignment; WHEN selecting full history, it SHALL display the complete, unchanged chronology.
+- AI-CONSISTENCY-01: WHEN viewing AI skills in DE/EN/ES, the detail SHALL include ChatGPT, Codex, Claude, Claude Code, Gemini, OpenCode and OpenAI API.
+- TRUTH-01: WHEN showing AI training metrics, the hero SHALL avoid describing all courses as professional certifications.
+
+### QA review
+Requirements have direct observables; the full chronology, CV routes and the JobPilot career-profile schema remain unchanged. Tests were authored before implementation. User consent covers the draft branch, not the final production release.
+
+### Phase A — Approved tasks (7)
+1. Review existing sources, branches, tests and audit findings.
+2. Add security, navigation, career and content regression tests.
+3. Escape HTML email content.
+4. Include Testimonials in the section navigation.
+5. Add IT-only/full-history experience presentation without altering employment source.
+6. Align AI skill labels, and make AI education metric terminology accurate in DE/EN/ES.
+7. Run CI and independently inspect preview where tools permit; record exclusions.
+
+### Phase B — Evidence and SEO preparation (separate execution gate)
+- Verify live app/repository links and project statuses, particularly FieldForce Pro, before creating project case studies.
+- Reconcile certificates and testimonials against original evidence and publication consent.
+- Review Google/Bing indexing and plan dedicated indexable specialization/project pages.
+- Controlled SMTP email delivery test, visual mobile/desktop assessment, accessibility and performance measurements.
+- Floating rail persistence, restored positioning and distributed rate limiting require specific acceptance criteria before implementation.
+
+### Excluded
+No merging to main, production deployment, domain purchase, new analytics, unverifiable public claims or data migrations.
