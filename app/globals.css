@@ -80,3 +80,13 @@ body {
 /* Native <details> used for expandable timeline entries. */
 details > summary { list-style: none; cursor: pointer; }
 details > summary::-webkit-details-marker { display: none; }
+
+/* VE brand: an understated one-time entrance; reduced-motion is handled above. */
+.ve-brand-mark {
+  filter: drop-shadow(0 0 5px rgba(36, 178, 255, 0.18));
+  animation: ve-brand-enter 750ms ease-out both;
+}
+@keyframes ve-brand-enter {
+  from { opacity: 0; transform: translateY(3px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
