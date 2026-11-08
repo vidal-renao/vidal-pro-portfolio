@@ -16,7 +16,7 @@ export async function Skills({ locale }: { locale: string }) {
     <Section id="skills" label={ui("label")} title={ui("title")} subtitle={ui("subtitle")}>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {areas.map((a) => (
-          <div key={a.area} className="reveal rounded-2xl border border-line bg-raised p-5">
+          <div key={a.area} className="premium-panel reveal rounded-3xl border border-line bg-raised p-6">
             <h3 className="text-sm font-semibold text-ink">{a.area}</h3>
             <ul className="mt-3 flex flex-wrap gap-1.5">
               {a.detail.split(" · ").map((item) => (
