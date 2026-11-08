@@ -134,7 +134,7 @@ export function SiteHeader({ locale, brand, sections, labels }: Props) {
       <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[70] focus:rounded-lg focus:bg-accent focus:px-4 focus:py-2 focus:text-accent-ink">
         {labels.skip}
       </a>
-      <header className={`fixed inset-x-0 top-0 z-50 border-b transition-[background-color,border-color] duration-200 ${scrolled || open ? "border-line-strong bg-bg/95 shadow-lg shadow-black/10 backdrop-blur-xl" : "border-line bg-bg/85 backdrop-blur-lg"}`}>
+      <header className={`fixed inset-x-0 top-0 z-50 border-b transition-[background-color,border-color] duration-200 ${scrolled || open ? "border-line-strong bg-bg/95 shadow-lg shadow-black/10" : "border-line bg-bg/95"}`}>
         <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between gap-3 px-4 sm:px-6">
           <a href="#top" aria-label={`${brand} — VIDAL ECOSYSTEM`} className="flex shrink-0 items-center gap-2.5 rounded-lg text-ink">
             <BrandMark className="h-10 w-11 shrink-0" />
