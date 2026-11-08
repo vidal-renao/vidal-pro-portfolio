@@ -23,6 +23,7 @@ export function SectionScroll({ sections, labels }: Props) {
   const dragRef = useRef<{ id: number; offsetX: number; offsetY: number } | null>(null);
   const lastStepAtRef = useRef(0);
   const lastDirectionRef = useRef<-1 | 0 | 1>(0);
+  const lastArrowTargetRef = useRef<number | null>(null);
 
   const clampToViewport = useCallback((x: number, y: number) => {
     const rect = railRef.current?.getBoundingClientRect();
@@ -101,10 +102,15 @@ export function SectionScroll({ sections, labels }: Props) {
       });
     };
     sync();
+    const nativeInput = () => { lastArrowTargetRef.current = null; };
+    window.addEventListener("wheel", nativeInput, { passive: true });
+    window.addEventListener("touchstart", nativeInput, { passive: true });
     window.addEventListener("scroll", sync, { passive: true });
     window.addEventListener("resize", sync);
     return () => {
       cancelAnimationFrame(frame);
+      window.removeEventListener("wheel", nativeInput);
+      window.removeEventListener("touchstart", nativeInput);
       window.removeEventListener("scroll", sync);
       window.removeEventListener("resize", sync);
     };
@@ -121,6 +127,7 @@ export function SectionScroll({ sections, labels }: Props) {
 
   function navigateTo(targetIndex: number) {
     setPickerOpen(false);
+    lastArrowTargetRef.current = null;
     const target = stops[targetIndex];
     const node = document.getElementById(target.id);
     if (!node) return;
@@ -139,9 +146,13 @@ export function SectionScroll({ sections, labels }: Props) {
     lastStepAtRef.current = Date.now();
     lastDirectionRef.current = direction;
     const distance = Math.round(window.innerHeight * 0.82);
-    window.scrollBy({
-      top: distance * direction,
-      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+    const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+    const base = lastArrowTargetRef.current ?? window.scrollY;
+    const target = Math.max(0, Math.min(maxScroll, base + distance * direction));
+    lastArrowTargetRef.current = target;
+    window.scrollTo({
+      top: target,
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth",
     });
   }
 
