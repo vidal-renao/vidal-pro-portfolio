@@ -16,14 +16,12 @@ export function SectionScroll({ sections, labels }: Props) {
   const stops = useMemo(() => [{ id: "top", label: labels.top }, ...sections], [sections, labels.top]);
   const [current, setCurrent] = useState(0);
   const [atBottom, setAtBottom] = useState(false);
-  const [navigating, setNavigating] = useState(false);
   const [pickerOpen, setPickerOpen] = useState(false);
   const [position, setPosition] = useState<{ x: number; y: number } | null>(null);
   const railRef = useRef<HTMLElement>(null);
   const dragRef = useRef<{ id: number; offsetX: number; offsetY: number } | null>(null);
   const pendingTargetRef = useRef<number | null>(null);
-  const navigationLockedRef = useRef(false);
-  const fallbackRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const lastStepAtRef = useRef(0);
 
   const clampToViewport = useCallback((x: number, y: number) => {
     const rect = railRef.current?.getBoundingClientRect();
@@ -84,13 +82,16 @@ export function SectionScroll({ sections, labels }: Props) {
     const sync = () => {
       cancelAnimationFrame(frame);
       frame = requestAnimationFrame(() => {
-        if (navigationLockedRef.current) return;
-        const bottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 3;
-        setAtBottom(bottom);
-        if (bottom) {
-          setCurrent(stops.length - 1);
-          return;
+        const atEnd = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 3;
+        setAtBottom(atEnd);
+        const pending = pendingTargetRef.current;
+        if (pending !== null) {
+          const node = document.getElementById(stops[pending]?.id ?? "");
+          const expectedTop = pending === 0 ? 0 : 88;
+          if (!node || (Math.abs(node.getBoundingClientRect().top - expectedTop) > 35 && !atEnd)) return;
+          pendingTargetRef.current = null;
         }
+        if (atEnd) { setCurrent(stops.length - 1); return; }
         let index = 0;
         stops.forEach(({ id }, i) => {
           const node = document.getElementById(id);
@@ -99,37 +100,13 @@ export function SectionScroll({ sections, labels }: Props) {
         setCurrent(index);
       });
     };
-
-    const release = () => {
-      if (fallbackRef.current) clearTimeout(fallbackRef.current);
-      fallbackRef.current = null;
-      navigationLockedRef.current = false;
-      pendingTargetRef.current = null;
-      setNavigating(false);
-      sync();
-    };
-    const manualInput = () => {
-      if (navigationLockedRef.current) {
-        // Stop any in-flight smooth animation before the native wheel/touch takes over.
-        window.scrollTo({ top: window.scrollY, behavior: "instant" });
-        release();
-      }
-    };
     sync();
+    const manualInput = () => { pendingTargetRef.current = null; lastStepAtRef.current = 0; };
     window.addEventListener("wheel", manualInput, { passive: true });
     window.addEventListener("touchstart", manualInput, { passive: true });
     window.addEventListener("scroll", sync, { passive: true });
-    window.addEventListener("scrollend", release);
     window.addEventListener("resize", sync);
-    return () => {
-      cancelAnimationFrame(frame);
-      if (fallbackRef.current) clearTimeout(fallbackRef.current);
-      window.removeEventListener("wheel", manualInput);
-      window.removeEventListener("touchstart", manualInput);
-      window.removeEventListener("scroll", sync);
-      window.removeEventListener("scrollend", release);
-      window.removeEventListener("resize", sync);
-    };
+    return () => { cancelAnimationFrame(frame); window.removeEventListener("wheel", manualInput); window.removeEventListener("touchstart", manualInput); window.removeEventListener("scroll", sync); window.removeEventListener("resize", sync); };
   }, [stops]);
 
   useEffect(() => {
@@ -141,40 +118,30 @@ export function SectionScroll({ sections, labels }: Props) {
     return () => { document.removeEventListener("keydown", close); document.removeEventListener("pointerdown", outside); };
   }, [pickerOpen]);
 
-  function scrollToTarget(target: Element, block: ScrollLogicalPosition = "start") {
-    navigationLockedRef.current = true;
-    setNavigating(true);
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    target.scrollIntoView({ behavior: prefersReducedMotion ? "instant" : "smooth", block });
-    if (fallbackRef.current) clearTimeout(fallbackRef.current);
-    // Fallback for browsers that do not dispatch scrollend, or no-op scrolls.
-    fallbackRef.current = setTimeout(() => {
-      navigationLockedRef.current = false;
-      pendingTargetRef.current = null;
-      setNavigating(false);
-      setAtBottom(window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 3);
-    }, prefersReducedMotion ? 50 : 1500);
-  }
-
   function navigateTo(targetIndex: number) {
-    if (navigationLockedRef.current) return;
-    const target = stops[targetIndex];
-    const node = document.getElementById(target.id);
-    if (!node) return;
     pendingTargetRef.current = targetIndex;
+    lastStepAtRef.current = Date.now();
     setPickerOpen(false);
+    const target = stops[targetIndex];
+    document.getElementById(target.id)?.scrollIntoView({
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+      block: "start",
+    });
+    window.history.replaceState(null, "", `#${target.id}`);
     setCurrent(targetIndex);
-    setAtBottom(false);
-    window.history.replaceState(null, "", "#" + target.id);
-    scrollToTarget(node);
   }
 
   function navigate(direction: -1 | 1) {
-    if (navigationLockedRef.current) return; // One intentional step per animation.
+    // Ignore repeated taps while one section is still being animated.
+    if (Date.now() - lastStepAtRef.current < 750) return;
     if (direction === 1 && current === stops.length - 1) {
       if (!atBottom) {
-        const footer = document.querySelector("footer");
-        if (footer) scrollToTarget(footer, "end");
+        lastStepAtRef.current = Date.now();
+        pendingTargetRef.current = null;
+        document.querySelector("footer")?.scrollIntoView({
+          behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+          block: "end",
+        });
       }
       return;
     }
@@ -193,7 +160,7 @@ export function SectionScroll({ sections, labels }: Props) {
         <span aria-hidden="true" className="text-[15px] leading-none tracking-widest">⠿</span>
       </button>
       <button type="button" aria-label={labels.previous} title={labels.previous}
-        disabled={navigating || current === 0} onClick={() => navigate(-1)}
+        disabled={current === 0} onClick={() => navigate(-1)}
         className="flex h-10 w-10 items-center justify-center rounded-full text-muted transition-colors hover:bg-white/[0.08] hover:text-ink disabled:cursor-not-allowed disabled:opacity-30">
         <ArrowUp size={17} />
       </button>
@@ -214,7 +181,7 @@ export function SectionScroll({ sections, labels }: Props) {
         ))}
       </div>
       <button type="button" aria-label={labels.next} title={labels.next}
-        disabled={navigating || (current === stops.length - 1 && atBottom)} onClick={() => navigate(1)}
+        disabled={current === stops.length - 1 && atBottom} onClick={() => navigate(1)}
         className="flex h-10 w-10 items-center justify-center rounded-full text-muted transition-colors hover:bg-white/[0.08] hover:text-ink disabled:cursor-not-allowed disabled:opacity-30">
         <ArrowDown size={17} />
       </button>
