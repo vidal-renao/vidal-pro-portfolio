@@ -16,9 +16,15 @@ export async function Services({ locale }: { locale: string }) {
             <h3 className="mt-3 text-lg font-semibold tracking-tight text-ink">{s.title}</h3>
             <p className="mt-2 text-sm leading-6 text-muted">{s.desc}</p>
             <p className="mt-4 text-xs text-dim"><span className="text-muted">{t("evidenceLabel")}:</span> {s.evidence}</p>
-            <ul className="mt-auto flex flex-wrap gap-1.5 pt-5">
-              {s.tags.map((tag) => <li key={tag} className="rounded-full border border-line px-2.5 py-1 font-mono text-[11px] text-muted">{tag}</li>)}
-            </ul>
+            <details className="group/stack mt-auto border-t border-line pt-5">
+              <summary className="flex min-h-10 items-center justify-between gap-2 text-xs font-medium text-accent">
+                {t("technicalLabel")}
+                <span aria-hidden="true" className="text-lg transition-transform group-open/stack:rotate-45">+</span>
+              </summary>
+              <ul className="flex flex-wrap gap-1.5 pt-3">
+                {s.tags.map((tag) => <li key={tag} className="rounded-full border border-line px-2.5 py-1 font-mono text-[11px] text-muted">{tag}</li>)}
+              </ul>
+            </details>
           </article>
         ))}
       </div>
