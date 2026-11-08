@@ -12,13 +12,14 @@ const viewports = [
 
 async function capture(page: import("@playwright/test").Page, name: string) {
   await page.evaluate(() => document.fonts.ready);
-  const bytes = await page.screenshot({ fullPage: true, animations: "disabled" });
+  const bytes = await page.screenshot({ fullPage: name.endsWith("-full"), animations: "disabled" });
   await test.info().attach(name, { body: bytes, contentType: "image/png" });
 }
 
 for (const locale of locales) {
   for (const viewport of viewports) {
     test(`visual evidence ${locale} ${viewport.name}`, async ({ page }) => {
+      test.skip(process.env.ENTERPRISE_VISUAL_EVIDENCE !== "1", "runs in dedicated Enterprise audit job");
       await page.setViewportSize({ width: viewport.width, height: viewport.height });
       await page.goto(`/${locale}`, { waitUntil: "networkidle" });
       const dimensions = await page.evaluate(() => ({
@@ -51,6 +52,7 @@ for (const locale of locales) {
 }
 
 test("enterprise accessibility smoke: named controls and clear heading hierarchy", async ({page}) => {
+  test.skip(process.env.ENTERPRISE_VISUAL_EVIDENCE !== "1", "runs in dedicated Enterprise audit job");
   await page.goto("/en");
   await expect(page.locator("h1")).toHaveCount(1);
   const broken = await page.locator("img").evaluateAll((images) =>
