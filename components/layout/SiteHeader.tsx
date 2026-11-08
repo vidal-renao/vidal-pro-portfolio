@@ -189,22 +189,48 @@ export function SiteHeader({ locale, brand, sections, labels }: Props) {
           className="fixed inset-x-0 bottom-0 top-[72px] z-0 bg-black/55 backdrop-blur-[2px] xl:hidden" />}
         <div ref={mobilePanelRef} id="mobile-nav" hidden={!open}
           className="fixed bottom-0 right-0 top-[72px] z-10 w-[min(23rem,calc(100vw-2rem))] overflow-y-auto overscroll-contain border-l border-line-strong bg-bg px-4 pb-6 pt-5 shadow-2xl sm:px-6 xl:hidden">
-          <nav aria-label="Mobile" className="grid gap-0.5">
-            {sections.map((s) => (
-              <a key={s.id} href={`#${s.id}`} aria-current={active === s.id ? "location" : undefined}
-                onClick={() => setOpen(false)}
-                className={`flex min-h-11 items-center rounded-xl px-4 text-sm font-medium ${active === s.id ? "bg-accent/10 text-accent" : "text-ink hover:bg-white/[0.06]"}`}>
-                {s.label}
-              </a>
-            ))}
+          <div className="mb-5 flex items-center justify-between gap-2 border-b border-line pb-4">
+            <div className="min-w-0">
+              <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-accent">VIDAL ECOSYSTEM</p>
+              <p className="mt-1 text-sm font-semibold text-ink">{labels.menu}</p>
+            </div>
+            <button type="button" onClick={() => { setOpen(false); menuTriggerRef.current?.focus(); }}
+              aria-label={labels.close} className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-line-strong text-ink hover:bg-white/[0.06]">
+              <Close size={18} />
+            </button>
+          </div>
+          <nav aria-label="Mobile" className="space-y-5">
+            <div data-mobile-primary className="grid gap-1">
+              {primary.map((s, i) => (
+                <a key={s.id} href={"#" + s.id} aria-current={active === s.id ? "location" : undefined}
+                  onClick={() => setOpen(false)}
+                  className={"group flex min-h-12 items-center gap-3 rounded-xl border px-3 py-2 text-sm font-semibold transition-colors " + (active === s.id ? "border-accent/30 bg-accent/10 text-accent" : "border-transparent text-ink hover:border-line hover:bg-white/[0.04]")}>
+                  <span aria-hidden="true" className="w-6 shrink-0 font-mono text-[11px] text-dim">{"0" + (i + 1)}</span>
+                  <span className="min-w-0 flex-1">{s.label}</span>
+                  <span aria-hidden="true" className="text-dim transition-transform group-hover:translate-x-0.5">↗</span>
+                </a>
+              ))}
+            </div>
+            <div className="border-t border-line pt-4">
+              <p className="mb-2 px-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-dim">{labels.more}</p>
+              <div data-mobile-secondary className="grid gap-1">
+                {secondary.map((s) => (
+                  <a key={s.id} href={"#" + s.id} aria-current={active === s.id ? "location" : undefined}
+                    onClick={() => setOpen(false)}
+                    className={"flex min-h-11 items-center rounded-xl px-3 text-sm transition-colors " + (active === s.id ? "bg-accent/10 font-semibold text-accent" : "text-muted hover:bg-white/[0.04] hover:text-ink")}>
+                    {s.label}
+                  </a>
+                ))}
+              </div>
+            </div>
           </nav>
-          <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-line pt-5">
-            {languageSwitch(true)}
-            <a href="#cv" onClick={() => setOpen(false)}
-              className="inline-flex min-h-11 items-center gap-2 rounded-full border border-line-strong px-4 text-sm font-semibold text-ink">
+          <div data-mobile-actions className="mt-5 grid gap-2 border-t border-line pt-5">
+            <a href="#contact" onClick={() => setOpen(false)} className="flex min-h-12 items-center justify-center rounded-xl bg-accent px-4 text-sm font-semibold text-accent-ink hover:bg-accent-strong">{labels.contact}</a>
+            <a href="#cv" onClick={() => setOpen(false)} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-line-strong px-4 text-sm font-semibold text-ink hover:bg-white/[0.06]">
               <Download size={16} />{labels.cv}
             </a>
           </div>
+          <div className="mt-5 flex justify-center border-t border-line pt-5">{languageSwitch(true)}</div>
         </div>
       </header>
     </>
