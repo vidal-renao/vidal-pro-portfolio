@@ -6,6 +6,7 @@ interface Track {
   subtitle: string;
   summary: string;
   capabilities: string[];
+  technical: string[];
   proof: string;
   action: string;
   href: string;
@@ -35,7 +36,18 @@ export async function Specializations({ locale }: { locale: string }) {
                 </li>
               ))}
             </ul>
-            <p className="mt-8 border-t border-line pt-5 text-sm leading-6 text-dim">{track.proof}</p>
+            <details className="group/tech mt-7 rounded-2xl border border-line bg-white/[0.025] px-4 py-3">
+              <summary className="flex min-h-8 cursor-pointer items-center justify-between gap-4 text-sm font-medium text-ink">
+                <span>{t("technicalLabel")}</span>
+                <span aria-hidden="true" className="text-accent transition-transform group-open/tech:rotate-45">+</span>
+              </summary>
+              <ul className="flex flex-wrap gap-2 pb-2 pt-4">
+                {track.technical.map((tech) => (
+                  <li key={tech} className="rounded-lg border border-line bg-bg/50 px-2.5 py-1.5 text-xs text-muted">{tech}</li>
+                ))}
+              </ul>
+            </details>
+            <p className="mt-6 border-t border-line pt-5 text-sm leading-6 text-dim">{track.proof}</p>
             <a href={track.href} className="mt-6 inline-flex min-h-11 w-fit items-center gap-2 rounded-full border border-line-strong bg-white/[0.04] px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:border-accent/50 hover:bg-white/[0.08]">
               {track.action}<span aria-hidden="true">↗</span>
             </a>
