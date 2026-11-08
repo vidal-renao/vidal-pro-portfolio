@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 
 export const viewport: Viewport = {
-  themeColor: "#07080a",
+  themeColor: "#080e1c",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://vidal-pro-portfolio.vercel.app"),
   title: "Vidal Reñao — Fullstack AI Engineer & Systems Administrator | Switzerland & Liechtenstein",
   description:
-    "Websites, apps and AI automation for your business — gyms, restaurants, salons, clinics, shops and agencies. Fullstack AI Engineer and Systems Administrator in Basel: Next.js, AI, Windows, Linux, networks, Microsoft 365, CCNA. Immediately available across Switzerland and Liechtenstein.",
+    "Fullstack AI engineering and enterprise systems administration in Basel, Switzerland. SaaS applications, AI automation, Microsoft 365, Windows Server, Entra ID and networking.",
   keywords: [
     "Website for small business Switzerland",
     "Web developer Basel",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Vidal Reñao — Fullstack AI Engineer & Systems Administrator | Switzerland & Liechtenstein",
     description:
-      "Websites, apps and AI automation for your business — gyms, restaurants, salons, clinics, shops. Fullstack AI Engineer and Systems Administrator in Basel. Immediately available across Switzerland and Liechtenstein.",
+      "Fullstack AI applications, automation and enterprise IT infrastructure in Basel, Switzerland. Software and systems expertise for Swiss and DACH businesses.",
     images: [
       {
         url: "/Photo.jpg",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Vidal Reñao — Fullstack AI Engineer & Systems Administrator",
     description:
-      "Websites, apps and AI automation for your business — every sector. Fullstack AI Engineer and Systems Administrator in Basel.",
+      "Fullstack AI development, SaaS automation and enterprise systems administration in Basel, Switzerland.",
     images: ["/Photo.jpg"],
   },
 };
