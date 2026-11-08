@@ -46,3 +46,19 @@ for (const locale of ["es", "de", "en"]) {
     await expect(page.locator("#skills details").first()).not.toHaveAttribute("open", "");
   });
 }
+
+
+for (const locale of ["es", "de", "en"]) {
+  test(`AI toolchain names are discoverable on demand in ${locale}`, async ({ page }) => {
+    await page.goto(`/${locale}`);
+    const ai = page.locator("#specializations article").first();
+    await ai.locator("details summary").click();
+    for (const technology of ["ChatGPT", "OpenAI API", "Codex", "Claude", "Claude Code", "Gemini", "OpenCode"]) {
+      await expect(ai.locator("details li", { hasText: technology }).first()).toBeVisible();
+    }
+    const automation = page.locator("#services article").nth(1);
+    await automation.locator("details summary").click();
+    await expect(automation).toContainText("Codex");
+    await expect(automation).toContainText("ChatGPT");
+  });
+}
