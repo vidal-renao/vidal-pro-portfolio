@@ -559,7 +559,9 @@
     "experience": {
       "label": "Experiencia",
       "show": "Ver detalles",
-      "hide": "Ocultar"
+      "hide": "Ocultar",
+      "itFocus": "Experiencia IT",
+      "fullHistory": "Trayectoria completa"
     },
     "skills": {
       "label": "Habilidades",
