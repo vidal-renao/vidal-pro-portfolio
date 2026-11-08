@@ -19,8 +19,8 @@ export async function Hero({ locale }: { locale: string }) {
   ];
 
   return (
-    <section id="top" className="relative overflow-hidden px-4 pb-16 pt-28 sm:px-6 sm:pb-24 sm:pt-36">
-      <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-[560px] bg-[radial-gradient(60%_60%_at_50%_0%,rgba(94,234,212,0.12),transparent_70%)]" />
+    <section id="top" className="relative isolate overflow-hidden px-4 pb-20 pt-32 sm:px-6 sm:pb-28 sm:pt-40">
+      <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-[560px] bg-[radial-gradient(ellipse_65%_70%_at_50%_0%,rgba(27,144,255,0.12),transparent_72%)]" />
       <div className="relative mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[1.35fr_0.65fr] lg:gap-16">
         <div>
           <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-line bg-white/[0.03] px-3 py-1.5 text-xs text-muted">
@@ -31,10 +31,10 @@ export async function Hero({ locale }: { locale: string }) {
             <Image src={SITE.photo} alt="" width={128} height={128} loading="eager" sizes="64px" className="h-16 w-16 flex-none rounded-2xl border border-line object-cover lg:hidden" />
             <h1 className="text-4xl font-semibold leading-[1.05] tracking-tight text-ink sm:text-6xl">{SITE.name}</h1>
           </div>
-          <p className="mt-4 text-xl font-medium text-accent sm:text-2xl">{cv("role")}</p>
-          <p className="mt-6 max-w-2xl text-base leading-7 text-muted sm:text-lg sm:leading-8">{t("title2")} {t("subtitle")}</p>
+          <p className="mt-5 text-xl font-medium text-accent sm:text-2xl">{cv("role")}</p>
+          <p className="mt-5 max-w-2xl text-base leading-7 text-muted sm:text-lg sm:leading-8">{t("title2")} {t("subtitle")}</p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href="#projects" className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-semibold text-accent-ink transition-colors hover:bg-accent-strong">
+            <a href="#specializations" className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-semibold text-accent-ink transition-colors hover:bg-accent-strong">
               {ui("primary")}<ArrowDown size={16} />
             </a>
             <a href="#contact" className="inline-flex items-center gap-2 rounded-full border border-line-strong px-5 py-3 text-sm font-semibold text-ink transition-colors hover:bg-white/[0.05]">
