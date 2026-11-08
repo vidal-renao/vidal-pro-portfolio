@@ -61,3 +61,79 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run audit
+
+  enterprise-evidence:
+    name: Enterprise visual + a11y + SEO + links
+    if: github.event_name == 'pull_request' && github.head_ref == 'feat/portfolio-premium-dual-career'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - name: Capture responsive screenshots and interaction evidence
+        env:
+          PLAYWRIGHT_HTML_OUTPUT_DIR: audit-results/playwright-report
+        run: npx playwright test tests/e2e/enterprise-visual-audit.spec.ts --reporter=html,line
+      - name: Install pinned accessibility auditor (temporary, no lockfile changes)
+        run: npm install --no-save --package-lock=false --ignore-scripts --no-audit axe-core@4.10.3
+      - name: Start isolated production build for lab checks
+        run: |
+          npm run start -- --port 3102 > /tmp/ve-qa-next.log 2>&1 &
+          echo $! > /tmp/ve-qa-next.pid
+          for attempt in $(seq 1 50); do
+            if curl -fsS http://localhost:3102/en > /dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/ve-qa-next.log
+          exit 1
+      - name: Run pinned axe-core audit (all locales, desktop and mobile)
+        id: axe
+        continue-on-error: true
+        run: node scripts/audit-accessibility.mjs
+      - name: Run Lighthouse on mobile ES and desktop DE
+        id: lighthouse
+        continue-on-error: true
+        run: |
+          mkdir -p audit-results
+          CHROME_PATH="$(find "$HOME/.cache/ms-playwright" -type f \( -path '*/chrome-linux/chrome' -o -path '*/chrome-linux64/chrome' \) -print -quit)"
+          if [ -z "$CHROME_PATH" ]; then echo "No Chromium executable available"; exit 1; fi
+          export CHROME_PATH
+          ./node_modules/.bin/lighthouse http://localhost:3102/es --quiet --only-categories=performance,accessibility,best-practices,seo --form-factor=mobile --screenEmulation.mobile=true --chrome-flags="--headless --no-sandbox" --output=json --output-path=audit-results/lighthouse-es-mobile.json
+          ./node_modules/.bin/lighthouse http://localhost:3102/de --quiet --only-categories=performance,accessibility,best-practices,seo --preset=desktop --chrome-flags="--headless --no-sandbox" --output=json --output-path=audit-results/lighthouse-de-desktop.json
+      - name: Check external project and profile links
+        id: links
+        continue-on-error: true
+        run: node scripts/audit-external-links.mjs
+      - name: Consolidate audit and state outstanding limits
+        if: always()
+        run: |
+          mkdir -p audit-results
+          node scripts/audit-report.mjs
+          cat audit-results/QA-SUMMARY.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Upload enterprise evidence (screenshots, logs, audits)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: enterprise-qa-${{ github.run_number }}
+          path: |
+            audit-results/
+            test-results/
+          if-no-files-found: warn
+          retention-days: 14
+      - name: Enforce accessibility audit evidence
+        if: always()
+        env:
+          AXE_OUTCOME: ${{ steps.axe.outcome }}
+        run: |
+          if [ "$AXE_OUTCOME" != "success" ]; then
+            echo "Axe audit failed or could not run. Review artifacts and fix before release."
+            exit 1
+          fi
