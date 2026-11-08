@@ -24,6 +24,7 @@ export function SectionScroll({ sections, labels }: Props) {
   const lastStepAtRef = useRef(0);
   const lastDirectionRef = useRef<-1 | 0 | 1>(0);
   const lastArrowTargetRef = useRef<number | null>(null);
+  const animationRef = useRef<number | null>(null);
 
   const clampToViewport = useCallback((x: number, y: number) => {
     const rect = railRef.current?.getBoundingClientRect();
@@ -102,13 +103,18 @@ export function SectionScroll({ sections, labels }: Props) {
       });
     };
     sync();
-    const nativeInput = () => { lastArrowTargetRef.current = null; };
+    const nativeInput = () => {
+      lastArrowTargetRef.current = null;
+      if (animationRef.current !== null) cancelAnimationFrame(animationRef.current);
+      animationRef.current = null;
+    };
     window.addEventListener("wheel", nativeInput, { passive: true });
     window.addEventListener("touchstart", nativeInput, { passive: true });
     window.addEventListener("scroll", sync, { passive: true });
     window.addEventListener("resize", sync);
     return () => {
       cancelAnimationFrame(frame);
+      if (animationRef.current !== null) cancelAnimationFrame(animationRef.current);
       window.removeEventListener("wheel", nativeInput);
       window.removeEventListener("touchstart", nativeInput);
       window.removeEventListener("scroll", sync);
@@ -150,10 +156,24 @@ export function SectionScroll({ sections, labels }: Props) {
     const base = lastArrowTargetRef.current ?? window.scrollY;
     const target = Math.max(0, Math.min(maxScroll, base + distance * direction));
     lastArrowTargetRef.current = target;
-    window.scrollTo({
-      top: target,
-      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth",
-    });
+    if (animationRef.current !== null) cancelAnimationFrame(animationRef.current);
+    animationRef.current = null;
+    const start = window.scrollY;
+    const change = target - start;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      window.scrollTo({ top: target, behavior: "instant" });
+      return;
+    }
+    let startedAt: number | null = null;
+    const tick = (now: number) => {
+      if (startedAt === null) startedAt = now;
+      const progress = Math.min(1, (now - startedAt) / 420);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      window.scrollTo({ top: start + change * eased, behavior: "instant" });
+      if (progress < 1) animationRef.current = requestAnimationFrame(tick);
+      else animationRef.current = null;
+    };
+    animationRef.current = requestAnimationFrame(tick);
   }
 
   return (
