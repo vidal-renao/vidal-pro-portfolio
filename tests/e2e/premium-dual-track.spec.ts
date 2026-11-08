@@ -70,6 +70,7 @@ test("section navigation scrolls progressively up and down", async ({ page }) =>
   await controls.getByRole("button", { name: "Siguiente sección" }).click();
   await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(100);
   await expect(page).toHaveURL(/#specializations$/);
+  await expect(controls.getByRole("button", { name: "Sección anterior" })).toBeEnabled();
   await controls.getByRole("button", { name: "Sección anterior" }).click();
   await expect(page).toHaveURL(/#top$/);
 });
