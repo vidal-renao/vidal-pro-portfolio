@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import nodemailer from "nodemailer";
+import { escapeHtml } from "@/lib/contact/escapeHtml";
 
 // ── Rate limiting — in-memory per-IP (resets on cold start) ──────────────────
 
@@ -64,6 +65,11 @@ Message:
 ${data.message}
   `.trim();
 
+  const safeName = escapeHtml(data.name);
+  const safeEmail = escapeHtml(data.email);
+  const safeSubject = escapeHtml(data.subject ?? "");
+  const safeMessage = escapeHtml(data.message);
+
   const html = `
 <!DOCTYPE html>
 <html>
@@ -71,16 +77,16 @@ ${data.message}
   <div style="border:1px solid rgba(255,255,255,0.08);border-radius:12px;overflow:hidden">
     <div style="background:linear-gradient(135deg,#1e3a5f,#111827);padding:24px 28px;border-bottom:1px solid rgba(255,255,255,0.06)">
       <p style="margin:0;font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.4)">Portfolio Contact</p>
-      <h2 style="margin:6px 0 0;font-size:18px;color:#fff">New message from ${data.name}</h2>
+      <h2 style="margin:6px 0 0;font-size:18px;color:#fff">New message from ${safeName}</h2>
     </div>
     <div style="padding:24px 28px;background:#141414">
       <table style="width:100%;border-collapse:collapse;font-size:13px">
-        <tr><td style="padding:6px 0;color:rgba(255,255,255,0.4);width:72px">From</td><td style="color:#e5e5e5">${data.name}</td></tr>
-        <tr><td style="padding:6px 0;color:rgba(255,255,255,0.4)">Email</td><td><a href="mailto:${data.email}" style="color:#60a5fa;text-decoration:none">${data.email}</a></td></tr>
-        ${data.subject ? `<tr><td style="padding:6px 0;color:rgba(255,255,255,0.4)">Subject</td><td style="color:#e5e5e5">${data.subject}</td></tr>` : ""}
+        <tr><td style="padding:6px 0;color:rgba(255,255,255,0.4);width:72px">From</td><td style="color:#e5e5e5">${safeName}</td></tr>
+        <tr><td style="padding:6px 0;color:rgba(255,255,255,0.4)">Email</td><td><a href="mailto:${safeEmail}" style="color:#60a5fa;text-decoration:none">${safeEmail}</a></td></tr>
+        ${data.subject ? `<tr><td style="padding:6px 0;color:rgba(255,255,255,0.4)">Subject</td><td style="color:#e5e5e5">${safeSubject}</td></tr>` : ""}
       </table>
       <div style="margin-top:20px;padding:16px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:8px">
-        <p style="margin:0;font-size:13px;line-height:1.7;color:rgba(255,255,255,0.7);white-space:pre-wrap">${data.message}</p>
+        <p style="margin:0;font-size:13px;line-height:1.7;color:rgba(255,255,255,0.7);white-space:pre-wrap">${safeMessage}</p>
       </div>
     </div>
     <div style="padding:16px 28px;background:#0f0f0f;border-top:1px solid rgba(255,255,255,0.06)">
