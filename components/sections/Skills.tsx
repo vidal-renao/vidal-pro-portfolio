@@ -16,14 +16,20 @@ export async function Skills({ locale }: { locale: string }) {
     <Section id="skills" label={ui("label")} title={ui("title")} subtitle={ui("subtitle")}>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {areas.map((a) => (
-          <div key={a.area} className="premium-panel reveal rounded-3xl border border-line bg-raised p-6">
-            <h3 className="text-sm font-semibold text-ink">{a.area}</h3>
-            <ul className="mt-3 flex flex-wrap gap-1.5">
+          <details key={a.area} className="premium-panel reveal group rounded-3xl border border-line bg-raised p-6">
+            <summary className="flex min-h-12 items-center justify-between gap-4">
+              <span className="text-base font-semibold text-ink">{a.area}</span>
+              <span className="flex shrink-0 items-center gap-2 text-xs text-accent">
+                {ui("show")}
+                <span aria-hidden="true" className="text-lg transition-transform group-open:rotate-45">+</span>
+              </span>
+            </summary>
+            <ul className="mt-4 flex flex-wrap gap-2 border-t border-line pt-5">
               {a.detail.split(" · ").map((item) => (
-                <li key={item} className="rounded-full border border-line bg-white/[0.03] px-2.5 py-1 text-xs text-muted">{item}</li>
+                <li key={item} className="rounded-lg border border-line bg-white/[0.03] px-3 py-2 text-xs text-muted">{item}</li>
               ))}
             </ul>
-          </div>
+          </details>
         ))}
         <div className="reveal rounded-2xl border border-line bg-raised p-5">
           <h3 className="text-sm font-semibold text-ink">{cv("languagesTitle")}</h3>
