@@ -18,22 +18,22 @@ interface Props {
 /** One project: screenshot, status, what it is, three verifiable facts, stack (click to filter) and links. */
 export function ProjectCard({ project: p, labels, onStack, priority = false }: Props) {
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-raised transition-colors hover:border-line-strong">
+    <article className="premium-panel group flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-raised">
       {p.image && (
         <a href={p.url} target="_blank" rel="noopener noreferrer" tabIndex={-1} aria-hidden className="relative block aspect-[16/9] overflow-hidden border-b border-line bg-black">
           <Image src={p.image} alt="" fill priority={priority} sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 560px"
             className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]" />
         </a>
       )}
-      <div className="flex flex-1 flex-col p-5 sm:p-6">
+      <div className="flex flex-1 flex-col p-6 sm:p-7">
         <div className="mb-3 flex flex-wrap items-center gap-2">
           <span className={`rounded-full border px-2.5 py-0.5 text-xs font-medium ${STATUS_STYLE[p.status]}`}>{labels.status[p.status]}</span>
           {p.featured && <span className="rounded-full border border-accent/30 bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent">{labels.featured}</span>}
           <span className="text-xs text-dim">{p.categories.map((c) => labels.category[c]).join(" · ")}</span>
         </div>
-        <h3 className="text-xl font-semibold tracking-tight text-ink">{p.title}</h3>
-        <p className="mt-2 text-sm leading-6 text-muted">{p.summary}</p>
-        <ul className="mt-4 flex flex-col gap-2">
+        <h3 className="text-2xl font-semibold tracking-tight text-ink">{p.title}</h3>
+        <p className="mt-3 text-sm leading-7 text-muted">{p.summary}</p>
+        <ul className="mt-5 flex flex-col gap-3">
           {p.highlights.map((h) => (
             <li key={h} className="flex gap-2.5 text-sm leading-6 text-muted">
               <Check size={16} className="mt-1 flex-none text-accent" />{h}
