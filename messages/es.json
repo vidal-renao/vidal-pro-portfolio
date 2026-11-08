@@ -41,8 +41,8 @@
     "evidenceLabel": "Ejemplos"
   },
   "hero": {
-    "title2": "Webs, apps y automatización con IA para tu negocio.",
-    "subtitle": "Da igual si tienes un gimnasio, un restaurante, una peluquería, una clínica o una tienda: te creo la web y la app, automatizo tu día a día con IA y me encargo de la parte técnica —sistemas, Windows, Linux y redes— para que todo funcione. Un solo interlocutor, del briefing al resultado."
+    "title2": "Ingeniería de software, IA e infraestructura IT.",
+    "subtitle": "Desarrollo aplicaciones full-stack y soluciones de IA para empresas. También aporto experiencia en administración de sistemas, Microsoft 365 y redes empresariales. Dos especialidades diferenciadas, con una misma exigencia técnica."
   },
   "certifications": {
     "title": "Dos titulaciones superiores en informática",
@@ -512,11 +512,12 @@
       "menu": "Menú",
       "close": "Cerrar menú",
       "language": "Idioma",
-      "skip": "Saltar al contenido"
+      "skip": "Saltar al contenido",
+      "specializations": "Especialidades"
     },
     "hero": {
       "eyebrow": "Basilea, Suiza · Disponible en CH y LI",
-      "primary": "Ver proyectos",
+      "primary": "Explorar especialidades",
       "secondary": "Contactar",
       "statProjects": "proyectos en línea",
       "statCerts": "certificados de IA",
@@ -524,8 +525,8 @@
     },
     "projects": {
       "label": "Proyectos",
-      "title": "Proyectos que puedes abrir y probar",
-      "subtitle": "Solo aparecen proyectos en línea y comprobados. Filtra por tipo o busca por tecnología.",
+      "title": "Soluciones reales, abiertas a evaluación",
+      "subtitle": "Proyectos de software, IA y clientes con enlaces a demostraciones y código cuando es público.",
       "search": "Buscar por nombre o tecnología…",
       "all": "Todos",
       "count_one": "{count} proyecto",
@@ -554,8 +555,8 @@
     },
     "skills": {
       "label": "Habilidades",
-      "title": "Lo que domino",
-      "subtitle": "Las mismas áreas que figuran en mi CV."
+      "title": "Competencias técnicas, por especialidad",
+      "subtitle": "Tecnologías y conocimientos respaldados por proyectos, formación y experiencia profesional."
     },
     "credentials": {
       "label": "Formación",
@@ -572,7 +573,44 @@
     },
     "footer": {
       "rights": "Todos los derechos reservados.",
-      "top": "Volver arriba"
+      "top": "Volver arriba",
+      "tagline": "Fullstack AI Engineering · Systems Administration",
+      "explore": "Explorar"
     }
+  },
+  "specializations": {
+    "label": "Dos especialidades",
+    "title": "Dos áreas de ingeniería. Una visión integral.",
+    "subtitle": "Elige el área que te interesa: soluciones de software e IA, o infraestructura y administración de sistemas.",
+    "tracks": [
+      {
+        "title": "Fullstack AI Engineer",
+        "subtitle": "Software · IA · Automatización",
+        "summary": "Diseño y desarrollo aplicaciones empresariales, plataformas SaaS y automatizaciones con IA, desde la arquitectura hasta el despliegue.",
+        "capabilities": [
+          "Next.js, TypeScript y arquitectura full-stack",
+          "SaaS multiusuario, Supabase y seguridad RLS",
+          "Agentes IA, RAG e integraciones de procesos",
+          "Testing, CI/CD y despliegues en Vercel"
+        ],
+        "proof": "Proyectos: HelpDesk AI, JobPilot AI, D’NAMAR y NATURÆ.",
+        "action": "Ver proyectos de software e IA",
+        "href": "#projects"
+      },
+      {
+        "title": "Systems Administrator",
+        "subtitle": "Infraestructura · Cloud · Workplace",
+        "summary": "Administro y doy soporte a entornos IT empresariales, con foco en continuidad operativa, seguridad, usuarios y servicios de infraestructura.",
+        "capabilities": [
+          "Windows Server, Active Directory y GPO",
+          "Microsoft 365, Entra ID e Intune",
+          "Redes TCP/IP, VLAN, DNS, DHCP y VPN",
+          "VMware, Hyper-V y soporte L2/L3"
+        ],
+        "proof": "Experiencia: Lutelco, Nationale Nederlanden Bank y NSC.",
+        "action": "Ver experiencia en sistemas",
+        "href": "#experience"
+      }
+    ]
   }
 }
