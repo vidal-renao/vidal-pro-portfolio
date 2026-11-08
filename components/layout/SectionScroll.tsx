@@ -141,11 +141,11 @@ export function SectionScroll({ sections, labels }: Props) {
     return () => { document.removeEventListener("keydown", close); document.removeEventListener("pointerdown", outside); };
   }, [pickerOpen]);
 
-  function scrollToTarget(top: number) {
+  function scrollToTarget(target: Element, block: ScrollLogicalPosition = "start") {
     navigationLockedRef.current = true;
     setNavigating(true);
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    window.scrollTo({ top, behavior: prefersReducedMotion ? "instant" : "smooth" });
+    target.scrollIntoView({ behavior: prefersReducedMotion ? "instant" : "smooth", block });
     if (fallbackRef.current) clearTimeout(fallbackRef.current);
     // Fallback for browsers that do not dispatch scrollend, or no-op scrolls.
     fallbackRef.current = setTimeout(() => {
@@ -166,13 +166,16 @@ export function SectionScroll({ sections, labels }: Props) {
     setCurrent(targetIndex);
     setAtBottom(false);
     window.history.replaceState(null, "", "#" + target.id);
-    scrollToTarget(Math.max(0, window.scrollY + node.getBoundingClientRect().top - (targetIndex === 0 ? 0 : 88)));
+    scrollToTarget(node);
   }
 
   function navigate(direction: -1 | 1) {
     if (navigationLockedRef.current) return; // One intentional step per animation.
     if (direction === 1 && current === stops.length - 1) {
-      if (!atBottom) scrollToTarget(document.documentElement.scrollHeight);
+      if (!atBottom) {
+        const footer = document.querySelector("footer");
+        if (footer) scrollToTarget(footer, "end");
+      }
       return;
     }
     navigateTo(Math.max(0, Math.min(stops.length - 1, current + direction)));
