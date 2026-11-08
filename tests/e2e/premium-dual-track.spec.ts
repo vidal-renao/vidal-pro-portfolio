@@ -62,3 +62,22 @@ for (const locale of ["es", "de", "en"]) {
     await expect(automation).toContainText("ChatGPT");
   });
 }
+
+test("section navigation scrolls progressively up and down", async ({ page }) => {
+  await page.goto("/es");
+  const controls = page.getByRole("navigation", { name: "Navegación por secciones" });
+  await expect(controls).toBeVisible();
+  await controls.getByRole("button", { name: "Siguiente sección" }).click();
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(100);
+  await expect(page).toHaveURL(/#specializations$/);
+  await controls.getByRole("button", { name: "Sección anterior" }).click();
+  await expect(page).toHaveURL(/#top$/);
+});
+
+test("section navigation remains operable with reduced motion", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/es");
+  await page.getByRole("navigation", { name: "Navegación por secciones" }).getByRole("button", { name: "Siguiente sección" }).click();
+  await expect(page).toHaveURL(/#specializations$/);
+  await expect(page.locator("html")).toHaveCSS("scroll-behavior", "auto");
+});
