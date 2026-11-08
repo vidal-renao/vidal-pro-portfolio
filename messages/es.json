@@ -521,7 +521,8 @@
       "secondary": "Contactar",
       "statProjects": "proyectos en línea",
       "statCerts": "certificados de IA",
-      "statLanguages": "idiomas de trabajo"
+      "statLanguages": "idiomas de trabajo",
+      "role": "Fullstack AI Engineer · Administrador de Sistemas"
     },
     "projects": {
       "label": "Proyectos",
