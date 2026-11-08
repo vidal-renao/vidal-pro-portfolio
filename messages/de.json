@@ -589,7 +589,8 @@
       "navigation": "Abschnittsnavigation",
       "previous": "Vorheriger Abschnitt",
       "next": "Nächster Abschnitt",
-      "top": "Start"
+      "top": "Start",
+      "move": "Navigationssteuerung verschieben"
     }
   },
   "specializations": {
