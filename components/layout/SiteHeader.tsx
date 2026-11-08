@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { Close, Download, Menu } from "@/components/ui/icons";
+import { BrandMark } from "@/components/ui/BrandMark";
 
 interface Props {
   locale: string;
@@ -58,9 +59,12 @@ export function SiteHeader({ locale, brand, sections, labels }: Props) {
       <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-accent focus:px-4 focus:py-2 focus:text-accent-ink">{labels.skip}</a>
       <header className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${scrolled || open ? "border-b border-line bg-bg/85 backdrop-blur-xl" : "border-b border-transparent"}`}>
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
-          <a href="#top" className="flex items-center gap-2.5 font-semibold tracking-tight text-ink">
-            <span aria-hidden className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent font-mono text-sm font-bold text-accent-ink">VR</span>
-            <span className="text-sm sm:text-base">{brand}</span>
+          <a href="#top" aria-label="VIDAL ECOSYSTEM — inicio" className="group flex shrink-0 items-center gap-2.5 font-semibold tracking-tight text-ink">
+            <BrandMark className="h-9 w-11 shrink-0" />
+            <span className="flex flex-col leading-tight">
+              <span className="text-sm font-bold tracking-[0.12em] sm:text-base">VIDAL</span>
+              <span className="text-[9px] font-semibold tracking-[0.23em] text-accent sm:text-[10px]">ECOSYSTEM</span>
+            </span>
           </a>
           <nav aria-label="Main" className="hidden items-center gap-1 lg:flex">
             {sections.map((s) => (
