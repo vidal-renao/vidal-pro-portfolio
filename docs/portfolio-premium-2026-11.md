@@ -60,3 +60,21 @@ All existing CI jobs pass (lint, TS, build, Playwright and security audit), new 
 2026-11-08: inspected SiteHeader, Hero, sections, project data, three dictionaries, CV selector and existing Playwright suite through GitHub connector.
 2026-11-08: acceptance tests committed before main UI implementation.
 Build, CI and preview inspection: pending external verification, not asserted as passed here.
+
+## Solutions-first UX refinement (approved 2026-11-08)
+**Audience principle:** clients need clear outcomes without jargon; recruiters and technical evaluators need depth on demand. Do not put exhaustive technology labels in the hero or as unstructured clouds.
+
+- First level: plain-language benefits, services, two equally prominent sectors and direct evidence.
+- Second level: native, keyboard-accessible `details/summary` exposing technical capabilities for each sector; skills and service tool lists remain readable in HTML when expanded.
+- Third level (future separate scope): dedicated project case studies and search-indexable sector pages. A client-side filter alone is not an SEO substitute.
+- Keep terminology accurate, preserve original CV record and its API schema; no inflated claims or invented outcomes.
+- Native HTML interactions avoid a new dependency or extra hydration.
+
+**EARS additions**
+- UX-DETAIL-01: WHEN a visitor opens a specialization, the system SHALL initially show outcome-oriented capabilities while technical labels remain optional.
+- UX-DETAIL-02: WHEN an evaluator activates the technical disclosure, the system SHALL reveal the stack without navigating away.
+- UX-DETAIL-03: WHEN a visitor sees the skills and services sections, the system SHALL initially avoid full technology tag clouds and SHALL expose details on request.
+- UX-I18N-02: Technical disclosure labels SHALL be available in DE/EN/ES.
+- UX-MOTION-02: Disclosure controls SHALL remain usable with keyboard and reduced-motion preferences.
+
+**Domain / purchase:** deferred explicitly. No price/offer checks and no domain purchase as part of this change.
