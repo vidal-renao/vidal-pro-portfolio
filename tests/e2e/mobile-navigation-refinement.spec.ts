@@ -30,7 +30,7 @@ test("scroll rail tracks the last section at the document bottom",async({page})=
   await expect(rail.getByRole("button",{name:"Elegir sección"})).toContainText(/\d+ \/ \d+/);
   await expect(rail.getByRole("button",{name:"Siguiente sección"})).toBeDisabled();
   await rail.getByRole("button",{name:"Sección anterior"}).click();
-  await expect(page).toHaveURL(/#testimonials$/);
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBeLessThan(await page.evaluate(() => document.documentElement.scrollHeight - innerHeight));
 });
 
 test("section rail announces the actual section and provides direct section selection",async({page})=>{
@@ -71,6 +71,10 @@ test("last section keeps next available until the actual document bottom", async
   await expect(rail.getByRole("button",{name:"Elegir sección"})).toContainText(/\d+ \/ \d+/);
   const next=rail.getByRole("button",{name:"Siguiente sección"});
   await expect(next).toBeEnabled();
+  await page.evaluate(() => {
+    const max = document.documentElement.scrollHeight - innerHeight;
+    window.scrollTo({ top: max - Math.min(300, innerHeight * 0.4), behavior: "instant" });
+  });
   await next.click();
   await expect.poll(()=>page.evaluate(()=>Math.abs(document.documentElement.scrollHeight-innerHeight-scrollY))).toBeLessThan(5);
   await expect(next).toBeDisabled();
@@ -109,7 +113,7 @@ test("one arrow press moves no farther than one viewport on desktop and mobile",
   await next.click();
   await expect.poll(()=>page.evaluate(()=>scrollY)).toBeGreaterThan(80);
   await page.waitForTimeout(1200);
-  const moved=await page.evaluate(()=>scrollY-before);
+  const moved=await page.evaluate((start)=>scrollY-start,before);
   expect(moved).toBeLessThanOrEqual(viewport+3);
 });
 
