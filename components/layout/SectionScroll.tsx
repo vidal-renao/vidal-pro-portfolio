@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState, type PointerEvent, type KeyboardEvent } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type PointerEvent, type KeyboardEvent } from "react";
 import { ArrowDown, ArrowUp } from "@/components/ui/icons";
 
 interface Props {
@@ -19,14 +19,14 @@ export function SectionScroll({ sections, labels }: Props) {
   const railRef = useRef<HTMLElement>(null);
   const dragRef = useRef<{ id: number; offsetX: number; offsetY: number } | null>(null);
 
-  const clampToViewport = (x: number, y: number) => {
+  const clampToViewport = useCallback((x: number, y: number) => {
     const rect = railRef.current?.getBoundingClientRect();
     if (!rect) return { x, y };
     return {
       x: Math.max(0, Math.min(x, window.innerWidth - rect.width)),
       y: Math.max(0, Math.min(y, window.innerHeight - rect.height)),
     };
-  };
+  }, []);
 
   useEffect(() => {
     const onResize = () => setPosition((previous) =>
@@ -34,7 +34,7 @@ export function SectionScroll({ sections, labels }: Props) {
     );
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
-  }, []);
+  }, [clampToViewport]);
 
   const onGripDown = (event: PointerEvent<HTMLButtonElement>) => {
     if (event.button !== 0 || !event.isPrimary) return;
