@@ -122,7 +122,7 @@ export function SectionScroll({ sections, labels }: Props) {
   return (
     <nav ref={railRef} aria-label={labels.navigation}
       style={position ? { left: position.x, top: position.y } : undefined}
-      className={"fixed z-40 flex flex-col items-center gap-0.5 rounded-full border border-line bg-bg/40 p-1 shadow-lg opacity-60 backdrop-blur-md transition-[background-color,opacity] duration-200 hover:bg-bg/90 hover:opacity-100 focus-within:bg-bg/90 focus-within:opacity-100 " + (position ? "" : "right-2 top-1/2 -translate-y-1/2 sm:right-4")}>
+      className={"section-scroll-rail fixed z-40 flex flex-col items-center gap-0.5 rounded-full border border-line bg-bg/40 p-1 shadow-lg opacity-60 backdrop-blur-md transition-[background-color,opacity] duration-200 hover:bg-bg/90 hover:opacity-100 focus-within:bg-bg/90 focus-within:opacity-100 " + (position ? "" : "right-2 top-1/2 -translate-y-1/2 sm:right-4")}>
       <button type="button" aria-label={labels.move} title={labels.move}
         onPointerDown={onGripDown} onPointerMove={onGripMove}
         onPointerUp={onGripEnd} onPointerCancel={onGripEnd}
