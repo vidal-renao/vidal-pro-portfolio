@@ -35,7 +35,10 @@ export function SiteHeader({ locale, brand, sections, labels }: Props) {
   const secondary = sections.filter((s) => !PRIMARY_IDS.has(s.id) && s.id !== "contact");
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 8);
+      if (moreRef.current?.open) moreRef.current.open = false;
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     const observer = new IntersectionObserver(
