@@ -83,8 +83,11 @@ jobs:
           ENTERPRISE_VISUAL_EVIDENCE: "1"
           PLAYWRIGHT_HTML_OUTPUT_DIR: audit-results/playwright-report
         run: npx playwright test tests/e2e/enterprise-visual-audit.spec.ts --reporter=html,line --workers=2
-      - name: Install pinned accessibility auditor (temporary, no lockfile changes)
-        run: npm install --no-save --package-lock=false --ignore-scripts --no-audit axe-core@4.10.3
+      - name: Fetch pinned axe browser bundle without touching dependencies
+        run: |
+          mkdir -p audit-tools
+          npm pack axe-core@4.10.3 --pack-destination audit-tools --silent
+          tar -xzf audit-tools/axe-core-4.10.3.tgz -C audit-tools
       - name: Start isolated production build for lab checks
         run: |
           npm run start -- --port 3102 > /tmp/ve-qa-next.log 2>&1 &
