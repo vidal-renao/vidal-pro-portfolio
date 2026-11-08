@@ -559,7 +559,9 @@
     "experience": {
       "label": "Experience",
       "show": "Show details",
-      "hide": "Hide"
+      "hide": "Hide",
+      "itFocus": "IT experience",
+      "fullHistory": "Full work history"
     },
     "skills": {
       "label": "Skills",
