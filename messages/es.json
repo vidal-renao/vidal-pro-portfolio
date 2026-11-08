@@ -372,7 +372,7 @@
       },
       {
         "area": "IA y Automatización",
-        "detail": "Claude · Chatbots · Automatización de flujos · OCR"
+        "detail": "ChatGPT · Codex · Claude · Claude Code · Gemini · OpenCode · OpenAI API · Agentes IA · RAG · MCP · OCR · Automatización de flujos"
       },
       {
         "area": "Sistemas y Servidores",
@@ -519,14 +519,15 @@
       "close": "Cerrar menú",
       "language": "Idioma",
       "skip": "Saltar al contenido",
-      "specializations": "Especialidades"
+      "specializations": "Especialidades",
+      "testimonials": "Opiniones"
     },
     "hero": {
       "eyebrow": "Basilea, Suiza · Disponible en CH y LI",
       "primary": "Explorar especialidades",
       "secondary": "Contactar",
       "statProjects": "proyectos en línea",
-      "statCerts": "certificados de IA",
+      "statCerts": "formaciones de IA",
       "statLanguages": "idiomas de trabajo",
       "role": "Fullstack AI Engineer · Administrador de Sistemas"
     },
