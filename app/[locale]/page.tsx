@@ -5,6 +5,7 @@ import { routing } from "@/i18n/routing";
 import { SECTIONS, SITE } from "@/content/site";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
+import { SectionScroll } from "@/components/layout/SectionScroll";
 import { Hero } from "@/components/sections/Hero";
 import { Specializations } from "@/components/sections/Specializations";
 import { Projects } from "@/components/sections/Projects";
@@ -21,6 +22,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
   const nav = await getTranslations({ locale, namespace: "ui.nav" });
+  const scroll = await getTranslations({ locale, namespace: "ui.scroll" });
 
   return (
     <>
@@ -41,6 +43,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
         <Testimonials locale={locale} />
         <Contact locale={locale} />
       </main>
+      <SectionScroll sections={SECTIONS.map((s) => ({ id: s.id, label: nav(s.key) }))} labels={{ navigation: scroll("navigation"), previous: scroll("previous"), next: scroll("next"), top: scroll("top") }} />
       <SiteFooter locale={locale} />
     </>
   );
