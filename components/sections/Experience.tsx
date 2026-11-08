@@ -17,7 +17,7 @@ export async function Experience({ locale }: { locale: string }) {
         {roles.map((role, i) => (
           <li key={role.id} className="reveal relative pb-8 last:pb-0">
             <span aria-hidden className={`absolute -left-[31px] top-1.5 h-3 w-3 rounded-full border-2 sm:-left-[39px] ${i === 0 ? "border-accent bg-accent" : "border-line-strong bg-bg"}`} />
-            <details open={i < 2} className="group rounded-2xl border border-transparent transition-colors open:border-line open:bg-raised">
+            <details open={i < 2} className="group rounded-2xl border border-transparent transition-colors open:border-line open:bg-raised/80">
               <summary className="flex items-start justify-between gap-4 rounded-2xl p-4 hover:bg-white/[0.02] sm:p-5">
                 <div className="min-w-0">
                   <p className="font-mono text-xs text-dim">{role.period}</p>
