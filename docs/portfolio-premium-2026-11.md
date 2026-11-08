@@ -195,3 +195,21 @@ No merging to main, production deployment, domain purchase, new analytics, unver
 - Mobile touch/rotation must be confirmed with real-device QA beyond emulated browser tests; no full WCAG certification without separate audit.
 - The scroll rail is movable within a session; persisted coordinates and a reset-location control remain outside this routine remediation.
 
+
+
+## VE-PORTFOLIO-SCROLL-005 — Viewport pagination correction (2026-11-08)
+
+### Verified defect and design decision
+Arrow navigation previously jumped between variable-height sections, sometimes nearly two viewports. The previous 01/09 indicator counted sections rather than visible viewport pages. The floating arrows now move a bounded 82% viewport step, while the separate chooser retains direct navigation to named sections. The counter is calculated from document height and the current viewport size.
+
+### EARS acceptance
+- SCR-01: WHEN the user activates a pagination arrow, the site SHALL move no more than one viewport height per press.
+- SCR-02: WHEN native touch or wheel movement occurs, the page indicator SHALL update without automatic section snapping or changes to the URL hash.
+- SCR-03: WHEN repeated same-direction presses occur, the page SHALL avoid compounding multiple scroll transitions; reversal SHALL remain available.
+- SCR-04: WHILE more content remains below Contact, the down arrow SHALL remain enabled until the actual document bottom.
+- SCR-05: WHEN an accessible section name is selected, the chooser SHALL retain the corresponding named anchor.
+- SCR-06: WHEN reduced motion is requested, scrolling controls SHALL not animate.
+- SCR-07: WHEN native input interrupts an arrow transition, that transition SHALL be cancelable.
+
+### Implementation and QA
+The arrow motion uses a bounded requestAnimationFrame transition and instantaneous frame positions, avoiding overlapping native smooth animations. No new dependencies or production changes. Browser tests cover desktop/mobile viewport step, wheel update, rapid input, reverse navigation, named selection and end of document. CI/CD #133 completed successfully with 89 passed E2E tests and 13 skipped, plus lint, TypeScript, build and dependency audit. Real phone and visual/manual performance testing remain outstanding. Production merge is explicitly excluded.
