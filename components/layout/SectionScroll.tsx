@@ -5,7 +5,7 @@ import { ArrowDown, ArrowUp } from "@/components/ui/icons";
 
 interface Props {
   sections: { id: string; label: string }[];
-  labels: { navigation: string; previous: string; next: string; top: string; move: string };
+  labels: { navigation: string; previous: string; next: string; top: string; move: string; choose: string };
 }
 
 /**
@@ -15,6 +15,7 @@ interface Props {
 export function SectionScroll({ sections, labels }: Props) {
   const stops = useMemo(() => [{ id: "top", label: labels.top }, ...sections], [sections, labels.top]);
   const [current, setCurrent] = useState(0);
+  const [pickerOpen, setPickerOpen] = useState(false);
   const [position, setPosition] = useState<{ x: number; y: number } | null>(null);
   const railRef = useRef<HTMLElement>(null);
   const dragRef = useRef<{ id: number; offsetX: number; offsetY: number } | null>(null);
@@ -46,6 +47,7 @@ export function SectionScroll({ sections, labels }: Props) {
       offsetY: event.clientY - rect.top,
     };
     setPosition({ x: rect.left, y: rect.top });
+    setPickerOpen(false);
     event.currentTarget.setPointerCapture(event.pointerId);
   };
   const onGripMove = (event: PointerEvent<HTMLButtonElement>) => {
@@ -77,22 +79,33 @@ export function SectionScroll({ sections, labels }: Props) {
     const sync = () => {
       cancelAnimationFrame(frame);
       frame = requestAnimationFrame(() => {
-        const position = window.scrollY + 170;
+        const atEnd = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 3;
+        if (atEnd) { setCurrent(stops.length - 1); return; }
         let index = 0;
         stops.forEach(({ id }, i) => {
-          const el = document.getElementById(id);
-          if (el && el.offsetTop <= position) index = i;
+          const node = document.getElementById(id);
+          if (node && node.getBoundingClientRect().top <= 110) index = i;
         });
         setCurrent(index);
       });
     };
     sync();
     window.addEventListener("scroll", sync, { passive: true });
-    return () => { cancelAnimationFrame(frame); window.removeEventListener("scroll", sync); };
+    window.addEventListener("resize", sync);
+    return () => { cancelAnimationFrame(frame); window.removeEventListener("scroll", sync); window.removeEventListener("resize", sync); };
   }, [stops]);
 
-  function navigate(direction: -1 | 1) {
-    const targetIndex = Math.max(0, Math.min(stops.length - 1, current + direction));
+  useEffect(() => {
+    if (!pickerOpen) return;
+    const close = (event: KeyboardEvent) => { if (event.key === "Escape") setPickerOpen(false); };
+    const outside = (event: globalThis.PointerEvent) => { if (!railRef.current?.contains(event.target as Node)) setPickerOpen(false); };
+    document.addEventListener("keydown", close);
+    document.addEventListener("pointerdown", outside);
+    return () => { document.removeEventListener("keydown", close); document.removeEventListener("pointerdown", outside); };
+  }, [pickerOpen]);
+
+  function navigateTo(targetIndex: number) {
+    setPickerOpen(false);
     const target = stops[targetIndex];
     document.getElementById(target.id)?.scrollIntoView({
       behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
@@ -100,6 +113,10 @@ export function SectionScroll({ sections, labels }: Props) {
     });
     window.history.replaceState(null, "", `#${target.id}`);
     setCurrent(targetIndex);
+  }
+
+  function navigate(direction: -1 | 1) {
+    navigateTo(Math.max(0, Math.min(stops.length - 1, current + direction)));
   }
 
   return (
@@ -118,9 +135,22 @@ export function SectionScroll({ sections, labels }: Props) {
         className="flex h-10 w-10 items-center justify-center rounded-full text-muted transition-colors hover:bg-white/[0.08] hover:text-ink disabled:cursor-not-allowed disabled:opacity-30">
         <ArrowUp size={17} />
       </button>
-      <span className="py-1 text-center font-mono text-[10px] leading-4 tabular-nums text-dim [writing-mode:vertical-rl]" aria-hidden="true">
-        {String(current + 1).padStart(2, "0")} / {String(stops.length).padStart(2, "0")}
-      </span>
+      <button type="button" aria-label={labels.choose} title={stops[current]?.label}
+        aria-expanded={pickerOpen} aria-controls="section-scroll-picker" onClick={() => setPickerOpen((value) => !value)}
+        className="flex min-h-11 min-w-10 items-center justify-center rounded-full px-1 font-mono text-[10px] tabular-nums text-muted hover:bg-white/[0.08] hover:text-ink">
+        <span aria-hidden="true" className="[writing-mode:vertical-rl]">{String(current + 1).padStart(2, "0")} / {String(stops.length).padStart(2, "0")}</span>
+      </button>
+      <span className="sr-only" aria-live="polite">{stops[current]?.label}</span>
+      <div id="section-scroll-picker" hidden={!pickerOpen}
+        className="absolute right-full top-1/2 mr-3 max-h-[min(65dvh,440px)] min-w-40 -translate-y-1/2 overflow-y-auto rounded-2xl border border-line-strong bg-raised p-1.5 shadow-2xl">
+        {stops.map((stop, index) => (
+          <a key={stop.id} href={"#" + stop.id} aria-current={index === current ? "location" : undefined}
+            onClick={(event) => { event.preventDefault(); navigateTo(index); }}
+            className={"flex min-h-10 items-center gap-2 rounded-xl px-3 text-xs font-medium transition-colors " + (index === current ? "bg-accent/10 text-accent" : "text-muted hover:bg-white/[0.06] hover:text-ink")}>
+            <span className="font-mono text-[10px] text-dim">{String(index + 1).padStart(2, "0")}</span>{stop.label}
+          </a>
+        ))}
+      </div>
       <button type="button" aria-label={labels.next} title={labels.next}
         disabled={current === stops.length - 1} onClick={() => navigate(1)}
         className="flex h-10 w-10 items-center justify-center rounded-full text-muted transition-colors hover:bg-white/[0.08] hover:text-ink disabled:cursor-not-allowed disabled:opacity-30">
