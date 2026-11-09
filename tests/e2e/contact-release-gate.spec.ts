@@ -1,7 +1,7 @@
 import {expect,test} from "@playwright/test";
 
 test("contact endpoint rejects malformed JSON and invalid fields without sending",async({request})=>{
-  const badJson=await request.post("/api/contact",{data:"{invalid",headers:{"content-type":"application/json"}});
+  const badJson=await request.post("/api/contact",{data:Buffer.from("{invalid"),headers:{"content-type":"application/json"}});
   expect(badJson.status()).toBe(400);
   const badFields=await request.post("/api/contact",{data:{name:"A",email:"invalid",subject:"",message:"short",_honey:""}});
   expect(badFields.status()).toBe(422);
