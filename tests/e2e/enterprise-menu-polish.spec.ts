@@ -65,3 +65,26 @@ test("header and drawer remain within viewport at 360, 375, 768, 1024, 1280, 144
     }
   }
 });
+
+
+test("language switcher uses flags without visible letter codes across desktop and mobile", async ({page,isMobile}) => {
+  await page.goto("/es");
+  const header = page.locator("header");
+  const switchers = header.locator("[data-language-switch]");
+  await expect(switchers).toHaveCount(2);
+  if (isMobile) {
+    await header.locator("[data-mobile-menu-trigger]").click();
+  }
+  const visibleSwitch = isMobile ? page.locator("#mobile-nav [data-language-switch]") : header.locator("[data-language-switch]").first();
+  await expect(visibleSwitch).toBeVisible();
+  for (const [code, flag, name] of [["de", "🇩🇪", "Deutsch"], ["en", "🇬🇧", "English"], ["es", "🇪🇸", "Español"]]) {
+    const link = visibleSwitch.locator(`a[href="/${code}"]`);
+    await expect(link).toHaveAttribute("aria-label", name);
+    await expect(link.locator("[aria-hidden='true']")).toHaveText(flag);
+    await expect(link).not.toContainText(new RegExp(`^${code}$`, "i"));
+  }
+  await expect(visibleSwitch.locator('a[href="/es"]')).toHaveAttribute("aria-current", "page");
+  await visibleSwitch.locator('a[href="/de"]').click();
+  await expect(page).toHaveURL(/\/de$/);
+  await expect(page.locator("html")).toHaveAttribute("lang", "de");
+});
