@@ -40,3 +40,14 @@ test("release smoke: search filters projects locally without changing navigation
   await expect(page.locator("#projects article").first()).toBeVisible();
   expect(new URL(page.url()).hash).toBe("");
 });
+
+
+test("sitemap does not emit fabricated lastmod on every request",async({request})=>{
+  const response=await request.get("/sitemap.xml");
+  expect(response.ok()).toBe(true);
+  const xml=await response.text();
+  expect(xml).not.toContain("<lastmod>");
+  for(const lang of ["es","en","de"]){
+    expect(xml).toContain(`https://vidal-pro-portfolio.vercel.app/${lang}`);
+  }
+});
