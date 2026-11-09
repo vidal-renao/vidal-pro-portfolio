@@ -31,3 +31,13 @@ test("contact form displays localized labels and has a direct mail fallback",asy
     await expect(form.locator('textarea[name="message"]')).toHaveAttribute("required","");
   }
 });
+
+
+test("unconfigured mail transport returns service unavailable instead of reporting delivery",async({request})=>{
+  // CI intentionally has no RESEND_API_KEY/RESEND_FROM or SMTP secrets.
+  const result=await request.post("/api/contact",{data:{
+    name:"Release QA",email:"qa@example.com",subject:"QA",message:"Automated test only: no email may be sent.",_honey:""
+  }});
+  expect([503,429]).toContain(result.status());
+  if(result.status()===503) expect(await result.json()).toHaveProperty("error");
+});
