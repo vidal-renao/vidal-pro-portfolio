@@ -15,9 +15,9 @@ interface Props {
 }
 
 const LOCALES = [
-  { code: "de", label: "DE", name: "Deutsch" },
-  { code: "en", label: "EN", name: "English" },
-  { code: "es", label: "ES", name: "Español" },
+  { code: "de", flag: "🇩🇪", name: "Deutsch" },
+  { code: "en", flag: "🇬🇧", name: "English" },
+  { code: "es", flag: "🇪🇸", name: "Español" },
 ] as const;
 
 const PRIMARY_IDS = new Set(["specializations", "projects", "services", "experience"]);
@@ -120,13 +120,18 @@ export function SiteHeader({ locale, brand, sections, labels }: Props) {
   }, []);
 
   const languageSwitch = (mobile = false) => (
-    <div data-language-switch role="group" aria-label={labels.language} className="inline-flex items-center gap-0.5 rounded-xl border border-line-strong bg-white/[0.025] p-1">
+    <div data-language-switch role="group" aria-label={labels.language}
+      className="inline-flex items-center gap-1 rounded-2xl border border-line-strong bg-white/[0.035] p-1 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
       {LOCALES.map((l) => (
         <a key={l.code} href={`/${l.code}`} hrefLang={l.code} lang={l.code}
-          aria-label={l.name} aria-current={l.code === locale ? "page" : undefined}
+          aria-label={l.name} title={l.name} aria-current={l.code === locale ? "page" : undefined}
           onClick={mobile ? () => setOpen(false) : undefined}
-          className={`inline-flex min-h-9 min-w-10 items-center justify-center rounded-lg px-2 text-xs font-semibold transition-colors ${l.code === locale ? "bg-accent/15 text-accent shadow-[inset_0_0_0_1px_rgba(116,222,244,0.20)]" : "text-muted hover:bg-white/[0.06] hover:text-ink"}`}>
-          {l.label}
+          className={`group relative inline-flex ${mobile ? "h-11 w-11" : "h-10 w-10"} shrink-0 items-center justify-center rounded-xl border text-xl leading-none transition-[background-color,border-color,transform,box-shadow] duration-200 motion-reduce:transition-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${l.code === locale
+            ? "border-accent/40 bg-accent/15 shadow-[0_0_14px_rgba(116,222,244,0.09)]"
+            : "border-transparent bg-transparent hover:scale-105 hover:border-line-strong hover:bg-white/[0.07] motion-reduce:hover:scale-100"}`}>
+          <span aria-hidden="true" className="inline-flex items-center justify-center drop-shadow-sm">{l.flag}</span>
+          <span className="sr-only">{l.name}</span>
+          {l.code === locale && <span aria-hidden="true" className="absolute bottom-0.5 h-0.5 w-3 rounded-full bg-accent" />}
         </a>
       ))}
     </div>
