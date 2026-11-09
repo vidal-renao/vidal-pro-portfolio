@@ -50,7 +50,7 @@ function buildTransport() {
 }
 
 function buildMailOptions(data: ContactPayload) {
-  const to = process.env.CONTACT_TO ?? "vidalrenao.lab@outlook.com";
+  const to = process.env.CONTACT_TO ?? process.env.NOTIFICATION_EMAIL ?? "vidalrenao.lab@outlook.com";
   const from = process.env.SMTP_USER ?? "noreply@vidalrenao.dev";
 
   const subject = (data.subject
@@ -98,6 +98,50 @@ ${data.message}
   `.trim();
 
   return { from, to, replyTo: data.email, subject, text, html };
+}
+
+/**
+ * Resend is the preferred transport when its API key and an explicitly
+ * verified sender are configured. Never use onboarding@resend.dev as a
+ * production fallback or claim delivery merely because credentials exist.
+ */
+async function sendWithResend(data: ContactPayload) {
+  const key = process.env.RESEND_API_KEY;
+  const sender = process.env.RESEND_FROM;
+  if (!key || !sender) throw new Error("Resend sender not configured");
+  const mail = buildMailOptions(data);
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 12000);
+  try {
+    const response = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${key}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: sender,
+        to: [mail.to],
+        reply_to: mail.replyTo,
+        subject: mail.subject,
+        text: mail.text,
+        html: mail.html,
+      }),
+      cache: "no-store",
+      signal: controller.signal,
+    });
+    if (!response.ok) {
+      // Don't log submitted personal data or the provider's response body.
+      console.error("[contact] Resend rejected message, status:", response.status);
+      throw new Error("Resend rejected outgoing message");
+    }
+    const result: unknown = await response.json();
+    if (!result || typeof result !== "object" || !("id" in result) || typeof result.id !== "string") {
+      throw new Error("Resend did not confirm acceptance");
+    }
+  } finally {
+    clearTimeout(timeout);
+  }
 }
 
 // ── Route handler ─────────────────────────────────────────────────────────────
@@ -154,18 +198,23 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ ok: true });
   }
 
-  if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASS) {
-    // Never report success for a message that was not sent: the form then shows the e-mail fallback.
-    console.error("[contact] SMTP env vars not configured — message not sent");
+  const resendReady = Boolean(process.env.RESEND_API_KEY && process.env.RESEND_FROM);
+  const smtpReady = Boolean(process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS);
+  if (!resendReady && !smtpReady) {
+    console.error("[contact] No configured and verified mail transport — message not sent");
     return NextResponse.json({ error: "Contact service unavailable" }, { status: 503 });
   }
 
   try {
-    const transport = buildTransport();
-    await transport.sendMail(buildMailOptions(data));
+    if (resendReady) {
+      await sendWithResend(data);
+    } else {
+      const transport = buildTransport();
+      await transport.sendMail(buildMailOptions(data));
+    }
     return NextResponse.json({ ok: true });
   } catch (err) {
-    console.error("[contact] Send error:", err);
+    console.error("[contact] Outgoing mail rejected:", err instanceof Error ? err.name : "unknown");
     return NextResponse.json(
       { error: "Failed to send message. Please email directly." },
       { status: 500 }
