@@ -80,7 +80,7 @@ test("language switcher uses flags without visible letter codes across desktop a
   for (const [code, flag, name] of [["de", "🇩🇪", "Deutsch"], ["en", "🇬🇧", "English"], ["es", "🇪🇸", "Español"]]) {
     const link = visibleSwitch.locator(`a[href="/${code}"]`);
     await expect(link).toHaveAttribute("aria-label", name);
-    await expect(link.locator("[aria-hidden='true']")).toHaveText(flag);
+    await expect(link.locator("[aria-hidden='true']").first()).toHaveText(flag);
     await expect(link).not.toContainText(new RegExp(`^${code}$`, "i"));
   }
   await expect(visibleSwitch.locator('a[href="/es"]')).toHaveAttribute("aria-current", "page");
