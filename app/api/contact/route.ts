@@ -30,7 +30,7 @@ const ContactSchema = z.object({
   email: z.string().email("Invalid email address"),
   subject: z.string().min(2).max(150).optional().or(z.literal("")),
   message: z.string().min(10, "Message must be at least 10 characters").max(2000),
-  _honey: z.string().max(0, "Bot detected"),
+  _honey: z.string().max(200).default(""),
 });
 
 type ContactPayload = z.infer<typeof ContactSchema>;
@@ -53,9 +53,9 @@ function buildMailOptions(data: ContactPayload) {
   const to = process.env.CONTACT_TO ?? "vidalrenao.lab@outlook.com";
   const from = process.env.SMTP_USER ?? "noreply@vidalrenao.dev";
 
-  const subject = data.subject
+  const subject = (data.subject
     ? `[Portfolio] ${data.subject}`
-    : `[Portfolio] New message from ${data.name}`;
+    : `[Portfolio] New message from ${data.name}`).replace(/[\r\n]+/g, " ");
 
   const text = `
 Name: ${data.name}
@@ -103,21 +103,33 @@ ${data.message}
 // ── Route handler ─────────────────────────────────────────────────────────────
 
 export async function POST(request: NextRequest) {
+  // JSON only, same-origin browser requests. Do not allow external sites to
+  // submit messages using a visitor's browser; the endpoint is still public.
+  const origin = request.headers.get("origin");
+  if (origin && origin !== request.nextUrl.origin) {
+    return NextResponse.json({ error: "Origin not allowed" }, { status: 403 });
+  }
+  if (!request.headers.get("content-type")?.toLowerCase().startsWith("application/json")) {
+    return NextResponse.json({ error: "Expected application/json" }, { status: 415 });
+  }
+
+  const declaredSize = Number(request.headers.get("content-length") ?? 0);
+  if (declaredSize > 16384) {
+    return NextResponse.json({ error: "Request body too large" }, { status: 413 });
+  }
+
   const ip =
     request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
     request.headers.get("x-real-ip") ??
     "unknown";
 
-  if (isRateLimited(ip)) {
-    return NextResponse.json(
-      { error: "Too many requests. Please try again later." },
-      { status: 429 }
-    );
-  }
-
   let body: unknown;
   try {
-    body = await request.json();
+    const raw = await request.text();
+    if (raw.length > 16384) {
+      return NextResponse.json({ error: "Request body too large" }, { status: 413 });
+    }
+    body = JSON.parse(raw);
   } catch {
     return NextResponse.json({ error: "Invalid request body" }, { status: 400 });
   }
@@ -129,6 +141,13 @@ export async function POST(request: NextRequest) {
   }
 
   const data = parsed.data;
+
+  if (isRateLimited(ip)) {
+    return NextResponse.json(
+      { error: "Too many requests. Please try again later." },
+      { status: 429 }
+    );
+  }
 
   // Honeypot — return 200 to fool bots but don't send
   if (data._honey.length > 0) {
