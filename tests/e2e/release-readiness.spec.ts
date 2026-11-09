@@ -51,3 +51,19 @@ test("sitemap does not emit fabricated lastmod on every request",async({request}
     expect(xml).toContain(`https://vidal-pro-portfolio.vercel.app/${lang}`);
   }
 });
+
+
+test("SEO is eligible for verification and search crawling on all published locales",async({request})=>{
+  const robots=await request.get("/robots.txt");
+  const robotsText=await robots.text();
+  expect(robotsText).not.toMatch(/disallow:\s*\/\s*$/im);
+  const xml=await (await request.get("/sitemap.xml")).text();
+  for (const language of ["es","en","de"]) {
+    const response=await request.get("/"+language);
+    expect(response.status()).toBe(200);
+    const html=await response.text();
+    expect(html).not.toMatch(/<meta[^>]+name=["']robots["'][^>]+noindex/i);
+    expect(html).toContain(`https://vidal-pro-portfolio.vercel.app/${language}`);
+    expect(xml).toContain(`https://vidal-pro-portfolio.vercel.app/${language}`);
+  }
+});
