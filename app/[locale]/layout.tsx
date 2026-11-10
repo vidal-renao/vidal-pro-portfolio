@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: meta.description,
     keywords: meta.keywords,
     metadataBase: new URL(BASE_URL),
-    ...(process.env.GOOGLE_SITE_VERIFICATION ? { verification: { google: process.env.GOOGLE_SITE_VERIFICATION } } : {}),
+    verification: { google: process.env.GOOGLE_SITE_VERIFICATION || "8E5L_H0K-yv5EjGWhb48A08eNjp7iFVGvYeN_cY3i3Y" },
     alternates: {
       canonical: `${BASE_URL}/${locale}`,
       languages: { en: `${BASE_URL}/en`, de: `${BASE_URL}/de`, es: `${BASE_URL}/es` },
