@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Vidal Reñao — Fullstack AI Engineer & Systems Administrator",
+    title: "Vidal Reñao | Fullstack AI Developer & Systems Administrator",
     description:
       "Fullstack AI development, SaaS automation and enterprise systems administration in Basel, Switzerland.",
     images: ["/Photo.jpg"],
