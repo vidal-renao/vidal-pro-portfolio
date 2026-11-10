@@ -11,7 +11,7 @@ for (const locale of ["es", "en", "de"]) {
     const rail = page.locator('nav').filter({ has: page.getByRole("button", { name: /Mover control|Move navigation|Navigationssteuerung/ }) });
     await expect(rail).toBeVisible();
     const steps = await page.locator("main section[id]").evaluateAll((nodes) => nodes.map((n) => n.id));
-    expect(steps).toEqual(["top", "specializations", "projects", "services", "experience", "skills", "credentials", "testimonials", "contact"]);
+    expect(steps).toEqual(["top", "testimonials", "specializations", "projects", "services", "experience", "skills", "credentials", "contact"]);
     await expect(rail).toContainText("09");
     await expect(page.locator('footer a[href="#testimonials"]')).toHaveCount(1);
   });
