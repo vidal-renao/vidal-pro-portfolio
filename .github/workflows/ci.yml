@@ -82,7 +82,7 @@ jobs:
         env:
           ENTERPRISE_VISUAL_EVIDENCE: "1"
           PLAYWRIGHT_HTML_OUTPUT_DIR: audit-results/playwright-report
-        run: npx playwright test tests/e2e/enterprise-visual-audit.spec.ts --reporter=html,line --workers=2
+        run: npx playwright test tests/e2e/enterprise-visual-audit.spec.ts --reporter=html,line --workers=1
       - name: Fetch pinned axe browser bundle without touching dependencies
         run: |
           mkdir -p audit-tools
