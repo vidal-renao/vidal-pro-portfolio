@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     verification: { google: process.env.GOOGLE_SITE_VERIFICATION || "8E5L_H0K-yv5EjGWhb48A08eNjp7iFVGvYeN_cY3i3Y" },
     alternates: {
       canonical: `${BASE_URL}/${locale}`,
-      languages: { en: `${BASE_URL}/en`, de: `${BASE_URL}/de`, es: `${BASE_URL}/es` },
+      languages: { en: `${BASE_URL}/en`, de: `${BASE_URL}/de`, es: `${BASE_URL}/es`, "x-default": `${BASE_URL}/en` },
     },
     openGraph: {
       type: "profile",
