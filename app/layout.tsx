@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 
 export const viewport: Viewport = {
-  themeColor: "#07080a",
+  themeColor: "#080e1c",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -10,46 +10,31 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://vidal-pro-portfolio.vercel.app"),
-  title: "Vidal Reñao — Fullstack Developer & IT Specialist | Switzerland & Liechtenstein",
-  description:
-    "Websites, apps and AI automation for your business — gyms, restaurants, salons, clinics, shops and agencies. Fullstack developer & IT specialist in Basel: Next.js, AI, Windows, Linux, networks, Microsoft 365, CCNA. Immediately available across Switzerland and Liechtenstein.",
-  keywords: [
-    "Website for small business Switzerland",
-    "Web developer Basel",
-    "App developer Switzerland",
-    "AI automation for business",
-    "Website for gym restaurant salon clinic",
-    "Next.js Developer Switzerland",
-    "IT support Basel",
-    "Systems administrator Windows Linux",
-    "Microsoft 365 Switzerland",
-    "Chatbot developer Switzerland",
-    "CCNA Network Basel",
-    "Fullstack Developer Switzerland",
-  ],
+  title: "Vidal Reñao | Fullstack AI Developer & Systems Administrator",
+  description: "VIDAL ECOSYSTEM in Basel: Fullstack development, AI Solutions, business automation and enterprise IT systems administration across Switzerland and Liechtenstein.",
   icons: {
-    icon: [{ url: "/icons/favicon-32.png", sizes: "32x32", type: "image/png" }, { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" }],
+    icon: [{ url: "/icons/ve-mark.svg", type: "image/svg+xml" }, { url: "/icons/favicon-32.png", sizes: "32x32", type: "image/png" }],
     apple: [{ url: "/icons/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
   openGraph: {
-    title: "Vidal Reñao — Fullstack Developer & IT Specialist | Switzerland & Liechtenstein",
+    title: "Vidal Reñao | AI Solutions, Fullstack & IT Systems",
     description:
-      "Websites, apps and AI automation for your business — gyms, restaurants, salons, clinics, shops. Fullstack developer & IT specialist in Basel. Immediately available across Switzerland and Liechtenstein.",
+      "VIDAL ECOSYSTEM: AI Solutions, business automation and Fullstack development, plus Microsoft 365, Entra ID and IT infrastructure in Basel.",
     images: [
       {
         url: "/Photo.jpg",
         width: 872,
         height: 927,
-        alt: "Vidal Reñao — Fullstack Developer & IT Specialist",
+        alt: "Vidal Reñao | Fullstack AI Developer & Systems Administrator",
       },
     ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Vidal Reñao — Fullstack Developer & IT Specialist",
+    title: "Vidal Reñao | Fullstack AI Developer & Systems Administrator",
     description:
-      "Websites, apps and AI automation for your business — every sector. Fullstack developer & IT specialist in Basel.",
+      "Fullstack AI development, SaaS automation and enterprise systems administration in Basel, Switzerland.",
     images: ["/Photo.jpg"],
   },
 };

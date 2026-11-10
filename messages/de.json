@@ -17,10 +17,15 @@
       },
       {
         "title": "Automatisierung mit KI",
-        "desc": "Assistenten und Workflows mit Claude, die Dokumente lesen, Anfragen klassifizieren und Entscheidungen zur Prüfung vorschlagen.",
+        "desc": "Ich entwickle Assistenten und Automatisierungen, die Dokumente verarbeiten, Anfragen klassifizieren und Schritte zur menschlichen Prüfung vorbereiten – mit passenden Werkzeugen für den jeweiligen Einsatz.",
         "evidence": "HelpDesk AI, Invoice Auto, WAAI",
         "tags": [
+          "ChatGPT",
+          "Codex",
           "Claude",
+          "Gemini",
+          "OpenCode",
+          "OpenAI API",
           "RAG",
           "MCP",
           "OCR"
@@ -38,11 +43,12 @@
         ]
       }
     ],
-    "evidenceLabel": "Beispiele"
+    "evidenceLabel": "Beispiele",
+    "technicalLabel": "Eingesetzte Technologien"
   },
   "hero": {
-    "title2": "Websites, Apps und KI-Automatisierung für dein Unternehmen.",
-    "subtitle": "Ob Fitnessstudio, Restaurant, Friseur, Praxis oder Laden: Ich baue deine Website und App, automatisiere deinen Alltag mit KI und kümmere mich um die Technik —Systeme, Windows, Linux und Netzwerke— damit alles läuft. Ein Ansprechpartner, vom Briefing bis zum Ergebnis."
+    "title2": "Softwareentwicklung, KI und Unternehmens-IT.",
+    "subtitle": "Ich entwickle Fullstack-Anwendungen und KI-Lösungen für Unternehmen. Daneben bringe ich Berufserfahrung in der Systemadministration, Microsoft 365 und Unternehmensnetzwerken mit. Zwei eigenständige Fachgebiete mit einem gemeinsamen Qualitätsanspruch."
   },
   "certifications": {
     "title": "Zwei höhere Berufsabschlüsse in Informatik",
@@ -331,7 +337,8 @@
     "form_success_title": "Nachricht gesendet",
     "form_success_msg": "Ich melde mich innerhalb von 24 Stunden.",
     "form_send_another": "Weitere Nachricht senden",
-    "form_error_msg": "Senden fehlgeschlagen. Bitte direkt per E-Mail kontaktieren."
+    "form_error_msg": "Senden fehlgeschlagen. Bitte direkt per E-Mail kontaktieren.",
+    "form_privacy_notice": "Mit dem Absenden werden Ihr Name, Ihre E-Mail-Adresse, der Betreff und Ihre Nachricht zur Bearbeitung Ihrer Anfrage an Formspree übermittelt. Bitte geben Sie keine sensiblen Daten an."
   },
   "cv": {
     "role": "Fullstack-Entwickler & IT-Spezialist",
@@ -366,7 +373,7 @@
       },
       {
         "area": "KI & Automatisierung",
-        "detail": "Claude · Chatbots · Workflow-Automatisierung · OCR"
+        "detail": "ChatGPT · Codex · Claude · Claude Code · Gemini · OpenCode · OpenAI API · KI-Agenten · RAG · MCP · OCR · Workflow-Automatisierung"
       },
       {
         "area": "Systeme & Server",
@@ -512,20 +519,24 @@
       "menu": "Menü",
       "close": "Menü schliessen",
       "language": "Sprache",
-      "skip": "Zum Inhalt springen"
+      "skip": "Zum Inhalt springen",
+      "specializations": "Fachgebiete",
+      "testimonials": "Bewertungen",
+      "more": "Mehr"
     },
     "hero": {
       "eyebrow": "Basel, Schweiz · Verfügbar in CH und LI",
-      "primary": "Projekte ansehen",
+      "primary": "Fachgebiete entdecken",
       "secondary": "Kontakt aufnehmen",
       "statProjects": "Projekte online",
-      "statCerts": "KI-Zertifikate",
-      "statLanguages": "Arbeitssprachen"
+      "statCerts": "KI-Weiterbildungen",
+      "statLanguages": "Arbeitssprachen",
+      "role": "Fullstack AI Engineer · Systemadministrator"
     },
     "projects": {
       "label": "Projekte",
-      "title": "Projekte zum Öffnen und Ausprobieren",
-      "subtitle": "Nur erreichbare, geprüfte Projekte. Nach Typ filtern oder nach Technologie suchen.",
+      "title": "Reale Lösungen zum Kennenlernen",
+      "subtitle": "Software-, KI- und Kundenprojekte mit Live-Demos und Quellcode, soweit öffentlich verfügbar.",
       "search": "Nach Name oder Technologie suchen…",
       "all": "Alle",
       "count_one": "{count} Projekt",
@@ -550,12 +561,15 @@
     "experience": {
       "label": "Erfahrung",
       "show": "Details anzeigen",
-      "hide": "Ausblenden"
+      "hide": "Ausblenden",
+      "itFocus": "IT-Erfahrung",
+      "fullHistory": "Gesamter Werdegang"
     },
     "skills": {
       "label": "Kenntnisse",
-      "title": "Womit ich arbeite",
-      "subtitle": "Dieselben Bereiche wie in meinem Lebenslauf."
+      "title": "Technische Kompetenzen im Überblick",
+      "subtitle": "Kenntnisse aus Projekten, Weiterbildung und Berufspraxis.",
+      "show": "Technologien anzeigen"
     },
     "credentials": {
       "label": "Ausbildung",
@@ -572,7 +586,87 @@
     },
     "footer": {
       "rights": "Alle Rechte vorbehalten.",
-      "top": "Nach oben"
+      "top": "Nach oben",
+      "tagline": "Fullstack AI Engineering · Systemadministration",
+      "explore": "Entdecken"
+    },
+    "scroll": {
+      "navigation": "Abschnittsnavigation",
+      "previous": "Vorheriger Abschnitt",
+      "next": "Nächster Abschnitt",
+      "top": "Start",
+      "move": "Navigationssteuerung verschieben",
+      "choose": "Abschnitt auswählen"
     }
+  },
+  "specializations": {
+    "label": "Zwei Fachgebiete",
+    "title": "Zwei technische Schwerpunkte. Ein ganzheitlicher Blick.",
+    "subtitle": "Wählen Sie Ihren Schwerpunkt: Software und KI oder IT-Infrastruktur und Systemadministration.",
+    "tracks": [
+      {
+        "title": "Fullstack AI Engineer",
+        "subtitle": "Software · KI · Automatisierung",
+        "summary": "Ich konzipiere und entwickle Geschäftsanwendungen, SaaS-Plattformen und KI-Automatisierungen – von der Architektur bis zum Deployment.",
+        "capabilities": [
+          "Ich entwickle Websites und Geschäftsanwendungen für konkrete Anforderungen.",
+          "Ich automatisiere wiederkehrende Aufgaben und verbinde Prozesse mit KI.",
+          "Ich entwickle sichere, wartbare und erweiterbare Anwendungen.",
+          "Ich gestalte digitale Lösungen für Desktop und Mobilgeräte."
+        ],
+        "proof": "Projekte: HelpDesk AI, JobPilot AI, D’NAMAR und NATURÆ.",
+        "action": "Software- und KI-Projekte ansehen",
+        "href": "#projects",
+        "technical": [
+          "Next.js",
+          "TypeScript",
+          "React",
+          "Supabase",
+          "PostgreSQL",
+          "RLS",
+          "Vercel",
+          "CI/CD",
+          "Playwright",
+          "ChatGPT",
+          "OpenAI API",
+          "Codex",
+          "Claude",
+          "Claude Code",
+          "Gemini",
+          "OpenCode",
+          "Workflow-Automatisierung",
+          "OCR"
+        ]
+      },
+      {
+        "title": "Systems Administrator",
+        "subtitle": "Infrastruktur · Cloud · Workplace",
+        "summary": "Ich betreue Unternehmens-IT mit Schwerpunkt auf zuverlässigem Betrieb, Sicherheit, Benutzerverwaltung und Infrastrukturdiensten.",
+        "capabilities": [
+          "Ich sorge für den zuverlässigen Betrieb von Geräten, Benutzerkonten und IT-Diensten.",
+          "Ich verwalte Zugriffe, Kollaborationslösungen und Endgeräte.",
+          "Ich behebe Störungen und unterstütze einen stabilen Geschäftsbetrieb.",
+          "Ich administriere Netzwerke, Server und virtuelle Umgebungen."
+        ],
+        "proof": "Berufserfahrung: Lutelco, Nationale Nederlanden Bank und NSC.",
+        "action": "Systemerfahrung ansehen",
+        "href": "#experience",
+        "technical": [
+          "Windows Server",
+          "Windows 10/11",
+          "Linux",
+          "macOS",
+          "Active Directory",
+          "GPO",
+          "Microsoft 365",
+          "Entra ID",
+          "Intune",
+          "DNS / DHCP",
+          "VLAN / VPN",
+          "VMware / Hyper-V"
+        ]
+      }
+    ],
+    "technicalLabel": "Technologien und Tools anzeigen"
   }
 }

@@ -1,4 +1,5 @@
 import { getTranslations } from "next-intl/server";
+import { Section } from "@/components/ui/Section";
 
 interface Item { quote: string; author: string; role: string; initials: string; url: string; urlLabel: string }
 
@@ -10,13 +11,10 @@ export async function Testimonials({ locale }: { locale: string }) {
   ]);
   const items = t.raw("items") as Item[];
   return (
-    <section aria-labelledby="testimonials-title" className="border-t border-line px-4 py-16 sm:px-6 sm:py-20">
-      <div className="mx-auto max-w-6xl">
-        <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-accent">{ui("label")}</p>
-        <h2 id="testimonials-title" className="mb-10 text-2xl font-semibold tracking-tight text-ink sm:text-3xl">{t("title")}</h2>
+    <Section id="testimonials" label={ui("label")} title={t("title")}>
         <div className="grid gap-4 md:grid-cols-2">
           {items.map((item) => (
-            <figure key={item.author} className="reveal flex flex-col rounded-2xl border border-line bg-raised p-6">
+            <figure key={item.author} className="premium-panel reveal flex flex-col rounded-3xl border border-line bg-raised p-7">
               <blockquote className="text-base leading-7 text-ink/90">“{item.quote}”</blockquote>
               <figcaption className="mt-6 flex items-center gap-3 border-t border-line pt-5">
                 <span aria-hidden className="flex h-10 w-10 flex-none items-center justify-center rounded-full bg-accent/10 text-sm font-semibold text-accent">{item.initials}</span>
@@ -28,7 +26,6 @@ export async function Testimonials({ locale }: { locale: string }) {
             </figure>
           ))}
         </div>
-      </div>
-    </section>
+    </Section>
   );
 }

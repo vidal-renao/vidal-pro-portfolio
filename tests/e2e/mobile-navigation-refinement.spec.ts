@@ -1,0 +1,139 @@
+import { expect, test } from "@playwright/test";
+
+test("mobile menu is dismissible by backdrop and does not trap background scrolling after close", async ({page,isMobile}) => {
+  test.skip(!isMobile, "mobile only");
+  await page.goto("/es");
+  await page.getByRole("button", {name:"Menú"}).click();
+  await expect(page.locator("#mobile-nav")).toBeVisible();
+  await expect(page.locator("[data-mobile-menu-backdrop]")).toBeVisible();
+  await page.locator("[data-mobile-menu-backdrop]").click({position:{x:10,y:100}});
+  await expect(page.locator("#mobile-nav")).toBeHidden();
+  await expect(page.locator("body")).not.toHaveCSS("overflow","hidden");
+  await expect(page.getByRole("button",{name:"Menú"})).toBeFocused();
+});
+
+test("mobile menu shows direct section route and supports keyboard Tab containment",async ({page,isMobile})=>{
+  test.skip(!isMobile,"mobile only");
+  await page.goto("/es");
+  await page.getByRole("button",{name:"Menú"}).click();
+  const panel=page.locator("#mobile-nav");
+  await expect(panel.locator('a[href="#contact"]')).toHaveCount(1);
+  await expect(panel.locator('a[href="#services"]')).toHaveCount(1);
+  await page.keyboard.press("Shift+Tab");
+  expect(await page.evaluate(() => document.getElementById("mobile-nav")?.contains(document.activeElement))).toBe(true);
+});
+
+test("scroll rail tracks the last section at the document bottom",async({page})=>{
+  await page.goto("/es");
+  await page.evaluate(()=>window.scrollTo({top:document.documentElement.scrollHeight,behavior:"instant"}));
+  const rail=page.getByRole("navigation",{name:"Navegación por secciones"});
+  await expect(rail.getByRole("button",{name:"Elegir sección"})).toContainText(/\d+ \/ \d+/);
+  await expect(rail.getByRole("button",{name:"Siguiente sección"})).toBeDisabled();
+  await rail.getByRole("button",{name:"Sección anterior"}).click();
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBeLessThan(await page.evaluate(() => document.documentElement.scrollHeight - innerHeight));
+});
+
+test("section rail announces the actual section and provides direct section selection",async({page})=>{
+  await page.goto("/es");
+  const rail=page.getByRole("navigation",{name:"Navegación por secciones"});
+  await rail.getByRole("button",{name:"Elegir sección"}).click();
+  await expect(rail.getByRole("link",{name:"Servicios"})).toBeVisible();
+  await rail.getByRole("link",{name:"Servicios"}).click();
+  await expect(page).toHaveURL(/#services$/);
+  await expect(rail.getByRole("link",{name:"Servicios"})).toBeHidden();
+});
+
+test("scroll controls remain in viewport after portrait-to-landscape resize",async({page,isMobile})=>{
+  test.skip(!isMobile,"mobile only");
+  await page.goto("/es");
+  const rail=page.getByRole("navigation",{name:"Navegación por secciones"});
+  const grip=rail.getByRole("button",{name:"Mover control de navegación"});
+  const handle=await grip.boundingBox();
+  expect(handle).not.toBeNull();
+  await page.mouse.move(handle!.x+20,handle!.y+15);
+  await page.mouse.down();
+  await page.mouse.move(4,210,{steps:8});
+  await page.mouse.up();
+  await page.setViewportSize({width:800,height:360});
+  const rect=await rail.boundingBox();
+  expect(rect).not.toBeNull();
+  expect(rect!.y).toBeGreaterThanOrEqual(0);
+  expect(rect!.y+rect!.height).toBeLessThanOrEqual(361);
+});
+
+
+test("last section keeps next available until the actual document bottom", async ({page}) => {
+  await page.goto("/es");
+  const rail=page.getByRole("navigation",{name:"Navegación por secciones"});
+  await rail.getByRole("button",{name:"Elegir sección"}).click();
+  await rail.getByRole("link",{name:"Contacto"}).click();
+  await expect(page).toHaveURL(/#contact$/);
+  await page.waitForTimeout(950);
+  await expect(rail.getByRole("button",{name:"Elegir sección"})).toContainText(/\d+ \/ \d+/);
+  const next=rail.getByRole("button",{name:"Siguiente sección"});
+  await expect(next).toBeEnabled();
+  await page.evaluate(() => {
+    const max = document.documentElement.scrollHeight - innerHeight;
+    window.scrollTo({ top: max - Math.min(300, innerHeight * 0.4), behavior: "instant" });
+  });
+  await next.click();
+  await expect.poll(()=>page.evaluate(()=>Math.abs(document.documentElement.scrollHeight-innerHeight-scrollY))).toBeLessThan(5);
+  await expect(next).toBeDisabled();
+});
+
+test("rapid repeated next taps do not skip multiple sections",async({page})=>{
+  await page.goto("/es");
+  const rail=page.getByRole("navigation",{name:"Navegación por secciones"});
+  const next=rail.getByRole("button",{name:"Siguiente sección"});
+  await next.click();
+  await next.click({force:true});
+  await expect(page).not.toHaveURL(/#projects$/);
+  await expect.poll(()=>page.evaluate(()=>window.scrollY)).toBeGreaterThan(80);
+});
+
+test("manual touch scroll interrupts navigation without another automatic jump",async({page,isMobile})=>{
+  test.skip(!isMobile,"mobile only");
+  await page.goto("/es");
+  const rail=page.getByRole("navigation",{name:"Navegación por secciones"});
+  await rail.getByRole("button",{name:"Siguiente sección"}).click();
+  await page.evaluate(()=>window.dispatchEvent(new Event("touchstart")));
+  await page.evaluate(()=>window.scrollTo({top:950,behavior:"instant"}));
+  const before=await page.evaluate(()=>window.scrollY);
+  await page.waitForTimeout(500);
+  const after=await page.evaluate(()=>window.scrollY);
+  expect(Math.abs(after-before)).toBeLessThan(8);
+});
+
+
+test("one arrow press moves no farther than one viewport on desktop and mobile",async({page})=>{
+  await page.goto("/es");
+  const rail=page.getByRole("navigation",{name:"Navegación por secciones"});
+  const next=rail.getByRole("button",{name:"Siguiente sección"});
+  const before=await page.evaluate(()=>scrollY);
+  const viewport=await page.evaluate(()=>innerHeight);
+  await next.click();
+  await expect.poll(()=>page.evaluate(()=>scrollY)).toBeGreaterThan(80);
+  await page.waitForTimeout(1200);
+  const moved=await page.evaluate((start)=>scrollY-start,before);
+  expect(moved).toBeLessThanOrEqual(viewport+3);
+});
+
+test("wheel movement updates page count without changing the hash",async({page})=>{
+  await page.goto("/es");
+  const rail=page.getByRole("navigation",{name:"Navegación por secciones"});
+  const count=rail.getByRole("button",{name:"Elegir sección"});
+  const first=await count.innerText();
+  await page.mouse.wheel(0,1100);
+  await expect.poll(async()=>count.innerText()).not.toBe(first);
+  await expect(page).not.toHaveURL(/#(?:specializations|projects|services)$/);
+});
+
+test("scroll counter remains active through contact until document bottom",async({page})=>{
+  await page.goto("/es");
+  const rail=page.getByRole("navigation",{name:"Navegación por secciones"});
+  await rail.getByRole("button",{name:"Elegir sección"}).click();
+  await rail.getByRole("link",{name:"Contacto"}).click();
+  await expect(rail.getByRole("button",{name:"Siguiente sección"})).toBeEnabled();
+  await page.evaluate(()=>window.scrollTo({top:document.documentElement.scrollHeight,behavior:"instant"}));
+  await expect(rail.getByRole("button",{name:"Siguiente sección"})).toBeDisabled();
+});

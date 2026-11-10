@@ -15,11 +15,13 @@ export const SITE = {
 
 /** In-page sections, in display order; `key` is the label in `ui.nav`. */
 export const SECTIONS = [
+  { id: "testimonials", key: "testimonials" },
+  { id: "specializations", key: "specializations" },
   { id: "projects", key: "projects" },
+  { id: "services", key: "services" },
   { id: "experience", key: "experience" },
   { id: "skills", key: "skills" },
   { id: "credentials", key: "credentials" },
-  { id: "services", key: "services" },
   { id: "contact", key: "contact" },
 ] as const;
 

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="VIDAL ECOSYSTEM">
+  <defs>
+    <linearGradient id="ve" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#17F5E7"/>
+      <stop offset="50%" stop-color="#159EFF"/>
+      <stop offset="100%" stop-color="#BB58EE"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="#080E1C"/>
+  <g transform="translate(9 19)" fill="url(#ve)">
+    <path d="M3 7h21l28 47L82 7h23L52 85z"/>
+    <path d="M75 7h35L99 24H65z"/>
+    <path d="M62 35h38L89 52H52z"/>
+    <path d="M50 63h47L85 80H39z"/>
+  </g>
+</svg>
