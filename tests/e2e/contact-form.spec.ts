@@ -18,6 +18,7 @@ for (const locale of ["es", "de", "en"]) {
     });
     await page.goto(`/${locale}`);
     const form = page.locator("#contact form");
+    await expect(form).toContainText("Formspree");
     await form.locator('[name="name"]').fill("QA Example");
     await form.locator('[name="email"]').fill("qa@example.com");
     await form.locator('[name="subject"]').fill("Integration test");
