@@ -10,37 +10,22 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://vidal-pro-portfolio.vercel.app"),
-  title: "Vidal Reñao — Fullstack AI Engineer & Systems Administrator | Switzerland & Liechtenstein",
-  description:
-    "Fullstack AI engineering and enterprise systems administration in Basel, Switzerland. SaaS applications, AI automation, Microsoft 365, Windows Server, Entra ID and networking.",
-  keywords: [
-    "Website for small business Switzerland",
-    "Web developer Basel",
-    "App developer Switzerland",
-    "AI automation for business",
-    "Website for gym restaurant salon clinic",
-    "Next.js Developer Switzerland",
-    "IT support Basel",
-    "Systems administrator Windows Linux",
-    "Microsoft 365 Switzerland",
-    "Chatbot developer Switzerland",
-    "CCNA Network Basel",
-    "Fullstack Developer Switzerland",
-  ],
+  title: "Vidal Reñao | Fullstack AI Developer & Systems Administrator",
+  description: "VIDAL ECOSYSTEM in Basel: Fullstack development, AI Solutions, business automation and enterprise IT systems administration across Switzerland and Liechtenstein.",
   icons: {
     icon: [{ url: "/icons/ve-mark.svg", type: "image/svg+xml" }, { url: "/icons/favicon-32.png", sizes: "32x32", type: "image/png" }],
     apple: [{ url: "/icons/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
   openGraph: {
-    title: "Vidal Reñao — Fullstack AI Engineer & Systems Administrator | Switzerland & Liechtenstein",
+    title: "Vidal Reñao | AI Solutions, Fullstack & IT Systems",
     description:
-      "Fullstack AI applications, automation and enterprise IT infrastructure in Basel, Switzerland. Software and systems expertise for Swiss and DACH businesses.",
+      "VIDAL ECOSYSTEM: AI Solutions, business automation and Fullstack development, plus Microsoft 365, Entra ID and IT infrastructure in Basel.",
     images: [
       {
         url: "/Photo.jpg",
         width: 872,
         height: 927,
-        alt: "Vidal Reñao — Fullstack AI Engineer & Systems Administrator",
+        alt: "Vidal Reñao | Fullstack AI Developer & Systems Administrator",
       },
     ],
     type: "website",
