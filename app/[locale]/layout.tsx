@@ -40,6 +40,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: meta.title,
     description: meta.description,
     metadataBase: new URL(BASE_URL),
+    verification: { google: "8E5L_H0K-yv5EjGWhb48A08eNjp7iFVGvYeN_cY3i3Y" },
     alternates: {
       canonical: `${BASE_URL}/${locale}`,
       languages: { en: "/en", de: "/de", es: "/es" },
