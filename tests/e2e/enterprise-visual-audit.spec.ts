@@ -65,3 +65,17 @@ test("enterprise accessibility smoke: named controls and clear heading hierarchy
   await page.emulateMedia({ reducedMotion: "reduce" });
   await expect(page.locator("html")).toHaveCSS("scroll-behavior", "auto");
 });
+
+for(const locale of ["es","en","de"] as const){
+  test(`client testimonials are prominent on entry in ${locale}`, async ({page})=>{
+    await page.goto(`/${locale}`);
+    const featured=page.locator('[data-featured-testimonial]');
+    await expect(featured).toBeVisible();
+    await expect(featured).toContainText("Nadjib Rasuly");
+    await expect(featured.locator('a[href="#testimonials"]')).toBeVisible();
+    await expect(page.locator('main > section#testimonials')).toBeVisible();
+    const order=await page.locator('main > section').evaluateAll(nodes=>nodes.map(n=>n.id));
+    expect(order.indexOf("testimonials")).toBeGreaterThan(order.indexOf("top"));
+    expect(order.indexOf("testimonials")).toBeLessThan(order.indexOf("projects"));
+  });
+}
