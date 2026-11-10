@@ -20,7 +20,7 @@ test("desktop More remains available to keyboard and click",async({page,isMobile
   await summary.focus();
   await summary.press("Enter");
   await expect(details).toHaveAttribute("open","");
-  await details.locator('a[href="#testimonials"]').focus();
+  await details.locator('a[href="#skills"]').focus();
   await expect(details).toHaveAttribute("open","");
   await page.keyboard.press("Escape");
   await expect(details).not.toHaveAttribute("open","");

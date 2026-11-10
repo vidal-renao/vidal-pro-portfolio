@@ -34,13 +34,13 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
       />
       <main id="main">
         <Hero locale={locale} />
+        <Testimonials locale={locale} />
         <Specializations locale={locale} />
         <Projects locale={locale} />
         <Services locale={locale} />
         <Experience locale={locale} />
         <Skills locale={locale} />
         <Credentials locale={locale} />
-        <Testimonials locale={locale} />
         <Contact locale={locale} />
       </main>
       <SectionScroll sections={SECTIONS.map((s) => ({ id: s.id, label: nav(s.key) }))} labels={{ navigation: scroll("navigation"), previous: scroll("previous"), next: scroll("next"), top: scroll("top"), move: scroll("move"), choose: scroll("choose") }} />

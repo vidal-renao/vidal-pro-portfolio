@@ -11,7 +11,7 @@ const audits = ["es-mobile", "de-desktop"].map((name) => {
 const text = [
   "# VIDAL ECOSYSTEM — Enterprise QA evidence",
   "",
-  "Source: audited feature branch. Automated lab checks; NOT a real-device, search-index or live SMTP sign-off.",
+  "Source: audited feature branch. Automated lab checks; NOT a real-device, search-index or Formspree-dashboard configuration sign-off.",
   `Generated: ${new Date().toISOString()}`,
   "",
   "## Lighthouse (laboratory, not field Core Web Vitals)",
@@ -26,9 +26,9 @@ const text = [
   "## Required manual / connected-service gates",
   "- Human inspection of screenshots including actual device gestures, focus and hover interactions.",
   "- Google Search Console and Bing Webmaster indexation / sitemap state.",
-  "- Real SMTP contact end-to-end delivery with configured secrets, without test-spamming customers.",
+  "- Real Formspree submission receipt verified independently (Outlook confirmation); recheck the branded subject on one controlled test before production.",
   "- Production-domain CDN/HTTPS/redirect checks after explicit release approval.",
-  "- Review of anti-spam distributed rate limiting and external project evidence.",
+  "- Verify Formspree CAPTCHA, _gotcha honeypot, authorized production domain and privacy retention in provider settings.",
   "",
 ];
 writeFileSync("audit-results/QA-SUMMARY.md", text.join("\n")+"\n");

@@ -9,7 +9,7 @@ on:
   push:
     branches: [main]
   pull_request:
-    branches: [main]
+    branches: [main, feat/portfolio-premium-dual-career]
 
 concurrency:
   group: ci-${{ github.ref }}
@@ -64,7 +64,7 @@ jobs:
 
   enterprise-evidence:
     name: Enterprise visual + a11y + SEO + links
-    if: github.event_name == 'pull_request' && github.head_ref == 'feat/portfolio-premium-dual-career'
+    if: github.event_name == 'pull_request' && (github.head_ref == 'feat/portfolio-premium-dual-career' || github.head_ref == 'feat/premium-formspree-release')
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     permissions:
@@ -82,7 +82,7 @@ jobs:
         env:
           ENTERPRISE_VISUAL_EVIDENCE: "1"
           PLAYWRIGHT_HTML_OUTPUT_DIR: audit-results/playwright-report
-        run: npx playwright test tests/e2e/enterprise-visual-audit.spec.ts --reporter=html,line --workers=2
+        run: npx playwright test tests/e2e/enterprise-visual-audit.spec.ts --reporter=html,line --workers=1
       - name: Fetch pinned axe browser bundle without touching dependencies
         run: |
           mkdir -p audit-tools

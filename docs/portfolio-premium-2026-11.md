@@ -272,3 +272,19 @@ ADR: Use native details with pointer-hover enhancement for fine mouse input, kee
 
 ### Production gates
 Do not merge to main before independent visual review, confirmed indexing/URLs and live form delivery as appropriate. Search-engine rankings are not guaranteed. Code-level SEO checks do not prove indexing.
+
+
+## VE-PORTFOLIO-SEO-007 — Search Console follow-up (2026-11-10)
+
+### Verified external observations
+Google Search Console confirms verified ownership via HTML meta tag; sitemap submission accepted. The live tests for `/de`, `/en` and `/es` each report indexability and one valid ProfilePage enhancement, but none is indexed yet. `/es` is recorded as discovered via sitemap; `/de` and `/en` initially reported unknown. Daily manual indexing quota has been reached. These observations are not evidence of actual indexing or search ranking.
+
+### EARS acceptance and QA
+- SEO-I18N-01: WHEN a localized landing page renders, it SHALL declare its own canonical URL and alternates for the three supported languages, plus `x-default` pointing to the English fallback `/en`.
+- SEO-SCHEMA-02: WHEN a localized page renders structured data, it SHALL have a unique ProfilePage URL and `@id` for that locale, and reference one stable Person identity across locales.
+- SEO-VERIFY-03: WHILE ownership relies on the HTML meta verification method, all supported localized pages SHALL retain the approved Google site-verification token.
+- SEO-SITEMAP-04: WHEN the sitemap is generated, it SHALL list all three locales without inventing modification dates.
+- SEO-TRUTH-05: UNTIL verified organization registration and supporting evidence are supplied, public structured data SHALL avoid claims of an independently registered LocalBusiness.
+
+### Result and limits
+The existing Premium implementation already satisfies SEO-SCHEMA-02, SEO-VERIFY-03, SEO-SITEMAP-04 and SEO-TRUTH-05 by source review; regression assertions added. `x-default` and its test added on the Premium integration branch only. CI results and browser verification must be recorded separately. Production changes, merge and Search Console indexing requests are excluded from this branch change.

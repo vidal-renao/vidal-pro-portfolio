@@ -337,7 +337,8 @@
     "form_success_title": "Nachricht gesendet",
     "form_success_msg": "Ich melde mich innerhalb von 24 Stunden.",
     "form_send_another": "Weitere Nachricht senden",
-    "form_error_msg": "Senden fehlgeschlagen. Bitte direkt per E-Mail kontaktieren."
+    "form_error_msg": "Senden fehlgeschlagen. Bitte direkt per E-Mail kontaktieren.",
+    "form_privacy_notice": "Mit dem Absenden werden Ihr Name, Ihre E-Mail-Adresse, der Betreff und Ihre Nachricht zur Bearbeitung Ihrer Anfrage an Formspree übermittelt. Bitte geben Sie keine sensiblen Daten an."
   },
   "cv": {
     "role": "Fullstack-Entwickler & IT-Spezialist",

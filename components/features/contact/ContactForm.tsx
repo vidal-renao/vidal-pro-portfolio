@@ -7,7 +7,7 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/xbggnyab";
 
 export interface ContactFormLabels {
   title: string; name: string; namePh: string; email: string; emailPh: string; subject: string; subjectPh: string;
-  message: string; messagePh: string; submit: string; submitting: string; successTitle: string; successMsg: string; another: string; error: string;
+  message: string; messagePh: string; submit: string; submitting: string; successTitle: string; successMsg: string; another: string; error: string; privacyNotice: string;
 }
 
 /** Submits to Formspree via its documented AJAX endpoint; `_gotcha` is its native spam trap. */
@@ -19,6 +19,10 @@ export function ContactForm({ labels, fallbackEmail }: { labels: ContactFormLabe
     event.preventDefault();
     const form = event.currentTarget;
     const data = new FormData(form);
+    // Formspree uses the subject field for the notification email heading.
+    const visitorSubject = String(data.get("subject") ?? "").trim();
+    data.set("subject", `VIDAL ECOSYSTEM | ${visitorSubject || "Portfolio contact"}`);
+    data.set("source", "Portfolio Premium 2.0");
     setStatus("submitting");
     try {
       const res = await fetch(FORMSPREE_ENDPOINT, {
@@ -54,6 +58,7 @@ export function ContactForm({ labels, fallbackEmail }: { labels: ContactFormLabe
       <label className="flex flex-col gap-1.5 text-xs text-muted">{labels.subject}<input name="subject" maxLength={150} placeholder={labels.subjectPh} className={field} /></label>
       <label className="flex flex-col gap-1.5 text-xs text-muted">{labels.message}<textarea name="message" required minLength={10} maxLength={2000} rows={5} placeholder={labels.messagePh} className={`${field} h-auto py-3`} /></label>
       <input name="_gotcha" tabIndex={-1} autoComplete="off" aria-hidden className="hidden" defaultValue="" />
+      <p className="text-xs leading-relaxed text-muted">{labels.privacyNotice}</p>
       {status === "error" && <p role="alert" className="text-sm text-rose-300">{labels.error} <a className="underline" href={`mailto:${fallbackEmail}`}>{fallbackEmail}</a></p>}
       <button type="submit" disabled={status === "submitting"} className="h-11 rounded-full bg-accent text-sm font-semibold text-accent-ink transition-colors hover:bg-accent-strong disabled:opacity-60">
         {status === "submitting" ? labels.submitting : labels.submit}

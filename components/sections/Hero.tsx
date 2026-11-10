@@ -7,10 +7,13 @@ import { ArrowDown, Pin } from "@/components/ui/icons";
 
 /** First screen: who, what, where — and the numbers behind it, counted from the content modules. */
 export async function Hero({ locale }: { locale: string }) {
-  const [t, ui] = await Promise.all([
+  const [t, ui, reviews, nav] = await Promise.all([
     getTranslations({ locale, namespace: "hero" }),
     getTranslations({ locale, namespace: "ui.hero" }),
+    getTranslations({ locale, namespace: "testimonials" }),
+    getTranslations({ locale, namespace: "ui.nav" }),
   ]);
+  const featured = (reviews.raw("items") as { quote: string; author: string; role: string }[])[0];
   const stats = [
     { value: String(PROJECTS.length), label: ui("statProjects") },
     { value: String(CREDENTIALS.filter((c) => c.group === "ai").length), label: ui("statCerts") },
@@ -31,6 +34,14 @@ export async function Hero({ locale }: { locale: string }) {
             <h1 className="text-4xl font-semibold leading-[1.05] tracking-tight text-ink sm:text-6xl">{SITE.name}</h1>
           </div>
           <p className="mt-5 text-xl font-medium text-accent sm:text-2xl">{ui("role")}</p>
+          {featured && <aside data-featured-testimonial aria-label={reviews("title")} className="premium-panel mt-6 max-w-2xl rounded-2xl border border-accent/25 bg-raised px-4 py-4 sm:px-5">
+            <div className="flex items-center justify-between gap-3">
+              <span className="text-xs font-semibold uppercase tracking-widest text-accent">{reviews("title")}</span>
+              <a href="#testimonials" className="text-xs font-semibold text-accent underline underline-offset-4 hover:text-accent-strong">{nav("testimonials")}</a>
+            </div>
+            <blockquote className="mt-2 line-clamp-2 text-sm leading-6 text-ink">“{featured.quote}”</blockquote>
+            <p className="mt-2 text-xs text-muted">{featured.author} · {featured.role}</p>
+          </aside>}
           <p className="mt-5 max-w-2xl text-base leading-7 text-muted sm:text-lg sm:leading-8">{t("title2")} {t("subtitle")}</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a href="#specializations" className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-semibold text-accent-ink transition-colors hover:bg-accent-strong">
