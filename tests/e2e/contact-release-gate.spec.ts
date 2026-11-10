@@ -27,6 +27,7 @@ test("contact form displays localized labels and has a direct mail fallback",asy
     await page.goto("/"+locale);
     const form=page.locator('#contact form');
     await expect(form).toBeVisible();
+    await expect(form.getByText("Formspree")).toBeVisible();
     await expect(form.locator('input[name="email"]')).toHaveAttribute("type","email");
     await expect(form.locator('textarea[name="message"]')).toHaveAttribute("required","");
   }
