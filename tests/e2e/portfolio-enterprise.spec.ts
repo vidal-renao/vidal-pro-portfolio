@@ -1,7 +1,7 @@
 import { expect, test } from "@playwright/test";
 
 const locales = ["es", "en", "de"] as const;
-const order = ["top", "specializations", "projects", "services", "experience", "skills", "credentials", "testimonials", "contact"];
+const order = ["top", "testimonials", "specializations", "projects", "services", "experience", "skills", "credentials", "contact"];
 
 for (const locale of locales) {
   test(`enterprise section hierarchy and shared anchors are correct in ${locale}`, async ({ page }) => {
@@ -22,13 +22,13 @@ test("enterprise desktop menu is compact, navigable, and has secondary disclosur
   await page.goto("/en");
   const nav = page.getByRole("navigation", { name: "Main" });
   await expect(nav).toBeVisible();
-  for (const id of ["specializations", "projects", "services", "experience"]) {
+  for (const id of ["specializations", "testimonials", "projects", "experience"]) {
     await expect(nav.locator(`:scope > a[href="#${id}"]`)).toHaveCount(1);
   }
   await expect(nav.locator('a[href="#skills"]')).toBeHidden();
   await nav.locator("details summary").click();
   await expect(nav.locator('a[href="#skills"]')).toBeVisible();
-  await expect(nav.locator('a[href="#testimonials"]')).toBeVisible();
+  await expect(nav.locator(':scope > a[href="#testimonials"]')).toBeVisible();
   await expect(page.locator("header a[href='#cv']").first()).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
 });
