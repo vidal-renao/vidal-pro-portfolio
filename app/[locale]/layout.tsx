@@ -4,26 +4,26 @@ import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { GeistSans } from "geist/font/sans";
 import { routing } from "@/i18n/routing";
+import { SITE } from "@/content/site";
 import "@/app/globals.css";
 
-const BASE_URL = "https://vidal-pro-portfolio.vercel.app";
-const BASE = BASE_URL;
+const BASE_URL = SITE.url;
 
-const META: Record<string, { title: string; description: string }> = {
+const META: Record<string, { title: string; description: string; keywords: string[] }> = {
   en: {
-    title: "Vidal Reñao — Fullstack AI Engineer & Systems Administrator",
-    description:
-      "Fullstack AI engineering and enterprise systems administration in Basel, Switzerland. SaaS development, AI automation, Microsoft 365, Windows Server, Entra ID and networking.",
+    title: "Vidal Reñao | Fullstack AI Developer & Systems Administrator",
+    description: "VIDAL ECOSYSTEM, Basel: Fullstack Developer, AI Solutions and Automation for businesses; Systems Administrator with Microsoft 365, Entra ID and networks.",
+    keywords: ["Vidal Reñao", "VIDAL ECOSYSTEM", "VIDALECOSYSTEM", "Fullstack Developer Basel", "AI Solutions Switzerland", "AI Automation Basel", "Systems Administrator Basel", "IT Infrastructure Switzerland", "Microsoft 365", "Entra ID", "Next.js", "Supabase"],
   },
   de: {
-    title: "Vidal Reñao — Fullstack AI Engineer & Systemadministrator",
-    description:
-      "Fullstack-KI-Entwicklung und Systemadministration in Basel: SaaS, KI-Automatisierung, Microsoft 365, Windows Server, Entra ID und Unternehmensnetzwerke.",
+    title: "Vidal Reñao | KI Fullstack Developer & Systemadministrator",
+    description: "VIDAL ECOSYSTEM in Basel: Fullstack-Entwicklung, KI-Lösungen und Automatisierung für KMU sowie Systemadministration mit Microsoft 365, Entra ID und Netzwerken.",
+    keywords: ["Vidal Reñao", "VIDAL ECOSYSTEM", "VIDALECOSYSTEM", "Fullstack Entwickler Basel", "KI Automatisierung Schweiz", "KI Lösungen", "Systemadministrator Basel", "IT System Engineer Schweiz", "Microsoft 365", "Entra ID", "Next.js", "Supabase"],
   },
   es: {
-    title: "Vidal Reñao — Fullstack AI Engineer & Administrador de Sistemas",
-    description:
-      "Ingeniería Fullstack con IA y administración de sistemas en Basilea: desarrollo SaaS, automatización, Microsoft 365, Windows Server, Entra ID y redes empresariales.",
+    title: "Vidal Reñao | Fullstack IA y Administrador de Sistemas",
+    description: "VIDAL ECOSYSTEM en Basilea: desarrollo Fullstack, soluciones de IA y automatización para empresas; administración de sistemas, Microsoft 365, Entra ID y redes.",
+    keywords: ["Vidal Reñao", "VIDAL ECOSYSTEM", "VIDALECOSYSTEM", "Fullstack Developer", "AI Solutions", "IA para empresas", "Automation", "automatización empresarial", "Administrador de Sistemas", "System Admin", "Basilea", "Suiza", "Next.js", "Microsoft 365"],
   },
 };
 
@@ -39,6 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: meta.title,
     description: meta.description,
+    keywords: meta.keywords,
     metadataBase: new URL(BASE_URL),
     ...(process.env.GOOGLE_SITE_VERIFICATION ? { verification: { google: process.env.GOOGLE_SITE_VERIFICATION } } : {}),
     alternates: {
@@ -50,7 +51,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: `${BASE_URL}/${locale}`,
       title: meta.title,
       description: meta.description,
-      siteName: "Vidal Reñao — Portfolio",
+      siteName: "VIDAL ECOSYSTEM — Vidal Reñao",
       images: [
         {
           url: "/Photo.jpg",
@@ -66,7 +67,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: meta.title,
       description: meta.description,
       images: ["/Photo.jpg"],
-      creator: "@vidalrenao",
     },
   };
 }
@@ -75,65 +75,37 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-const jsonLd = [
-  {
+/** One consistent identity graph; avoid asserting an unverified registered local business. */
+function structuredData(locale: string) {
+  const pageUrl = `${BASE_URL}/${locale}`;
+  return {
     "@context": "https://schema.org",
-    "@type": "ProfilePage",
-    "@id": `${BASE}/#webpage`,
-    name: "Vidal Reñao — Fullstack AI Engineer & Systems Administrator",
-    url: BASE,
-    description:
-      "Fullstack AI Engineer and Systems Administrator based in Basel, Switzerland. SaaS, AI automation, Microsoft 365, Windows Server, Entra ID and enterprise networks.",
-    mainEntity: {
-      "@type": "Person",
-      "@id": `${BASE}/#person`,
-      name: "Vidal Reñao",
-      jobTitle: "Fullstack AI Engineer & Systems Administrator",
-      url: BASE,
-      image: `${BASE}/Photo.jpg`,
-      email: "vidalrenao.lab@outlook.com",
-      telephone: "+41779726299",
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Basel",
-        addressRegion: "Basel-Stadt",
-        addressCountry: "CH",
+    "@graph": [
+      {
+        "@type": "WebSite", "@id": `${BASE_URL}/#website`,
+        name: "VIDAL ECOSYSTEM", alternateName: ["Vidal Ecosystem", "VIDALECOSYSTEM", "Vidal Reñao Portfolio"],
+        url: BASE_URL, inLanguage: ["de", "en", "es"],
       },
-      knowsLanguage: ["en", "de", "es"],
-      hasOccupation: {
-        "@type": "Occupation",
-        name: "Fullstack AI Engineer & Systems Administrator",
-        occupationLocation: { "@type": "Country", name: "Switzerland" },
-        skills:
-          "Next.js, TypeScript, Supabase, Claude AI, Web Development, App Development, Windows Server, Active Directory, Linux, VMware, Networking, Microsoft 365, CCNA",
+      {
+        "@type": "Person", "@id": `${BASE_URL}/#person`,
+        name: "Vidal Reñao", alternateName: "Vidal Reñao Lopelo",
+        url: BASE_URL, image: `${BASE_URL}${SITE.photo}`,
+        jobTitle: ["Fullstack AI Developer", "Systems Administrator"],
+        knowsAbout: ["Artificial intelligence", "AI Automation", "AI Solutions", "Fullstack Development", "Next.js", "TypeScript", "Supabase", "Microsoft 365", "Microsoft Entra ID", "Active Directory", "Windows Server", "IT infrastructure"],
+        knowsLanguage: ["de", "en", "es"],
+        address: { "@type": "PostalAddress", addressLocality: "Basel", addressCountry: "CH" },
+        sameAs: [SITE.linkedin, SITE.github],
       },
-      sameAs: [
-        "https://linkedin.com/in/vidalrenao",
-        "https://github.com/vidal-renao",
-      ],
-    },
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": `${BASE}/#business`,
-    name: "Vidal Reñao — Web, Apps & IT",
-    description:
-      "Fullstack software and AI solutions, systems administration and infrastructure support for companies across Switzerland and Liechtenstein.",
-    url: BASE,
-    telephone: "+41779726299",
-    email: "vidalrenao.lab@outlook.com",
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Basel",
-      addressRegion: "Basel-Stadt",
-      addressCountry: "CH",
-    },
-    areaServed: ["CH", "LI"],
-    priceRange: "$$",
-    employee: { "@id": `${BASE}/#person` },
-  },
-];
+      {
+        "@type": "ProfilePage", "@id": `${pageUrl}#webpage`,
+        url: pageUrl, name: META[locale]?.title ?? META.en.title,
+        description: META[locale]?.description ?? META.en.description,
+        inLanguage: locale, isPartOf: { "@id": `${BASE_URL}/#website` },
+        mainEntity: { "@id": `${BASE_URL}/#person` },
+      },
+    ],
+  };
+}
 
 export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params;
@@ -148,7 +120,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <html lang={locale} className={GeistSans.variable}>
       <body>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData(locale)).replace(/</g, "\\u003c") }} />
         {children}
       </body>
     </html>
