@@ -19,6 +19,10 @@ export function ContactForm({ labels, fallbackEmail }: { labels: ContactFormLabe
     event.preventDefault();
     const form = event.currentTarget;
     const data = new FormData(form);
+    // Formspree uses the subject field for the notification email heading.
+    const visitorSubject = String(data.get("subject") ?? "").trim();
+    data.set("subject", `VIDAL ECOSYSTEM | ${visitorSubject || "Portfolio contact"}`);
+    data.set("source", "Portfolio Premium 2.0");
     setStatus("submitting");
     try {
       const res = await fetch(FORMSPREE_ENDPOINT, {
