@@ -64,7 +64,7 @@ jobs:
 
   enterprise-evidence:
     name: Enterprise visual + a11y + SEO + links
-    if: github.event_name == 'pull_request' && github.head_ref == 'feat/portfolio-premium-dual-career'
+    if: github.event_name == 'pull_request' && (github.head_ref == 'feat/portfolio-premium-dual-career' || github.head_ref == 'feat/premium-formspree-release')
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     permissions:
