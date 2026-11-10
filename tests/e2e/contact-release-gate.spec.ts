@@ -41,3 +41,40 @@ test("unconfigured mail transport returns service unavailable instead of reporti
   expect([503,429]).toContain(result.status());
   if(result.status()===503) expect(await result.json()).toHaveProperty("error");
 });
+
+
+for(const locale of ["es","en","de"] as const){
+  test(`Formspree contact submits successfully without live delivery in ${locale}`,async({page})=>{
+    let calls=0;
+    await page.route("https://formspree.io/f/xbggnyab",async route=>{
+      calls++;
+      const req=route.request();
+      expect(req.method()).toBe("POST");
+      expect(req.headers()["accept"]).toContain("application/json");
+      const body=req.postData()??"";
+      for(const value of ["Test Client","test@example.com","Portfolio QA","This is a valid mocked test request","_gotcha"]) expect(body).toContain(value);
+      await route.fulfill({status:200,contentType:"application/json",headers:{"access-control-allow-origin":"*"},body:JSON.stringify({ok:true})});
+    });
+    await page.goto("/"+locale);
+    const form=page.locator("#contact form");
+    await form.locator('[name="name"]').fill("Test Client");
+    await form.locator('[name="email"]').fill("test@example.com");
+    await form.locator('[name="subject"]').fill("Portfolio QA");
+    await form.locator('[name="message"]').fill("This is a valid mocked test request");
+    await form.locator('button[type="submit"]').click();
+    await expect(page.locator("#contact [role='status']")).toBeVisible();
+    expect(calls).toBe(1);
+  });
+}
+test("Formspree error retains form values and offers direct email fallback",async({page})=>{
+  await page.route("https://formspree.io/f/xbggnyab",route=>route.fulfill({status:429,contentType:"application/json",headers:{"access-control-allow-origin":"*"},body:JSON.stringify({errors:[{message:"Too many requests"}]})}));
+  await page.goto("/es");
+  const form=page.locator("#contact form");
+  await form.locator('[name="name"]').fill("Test Client");
+  await form.locator('[name="email"]').fill("test@example.com");
+  await form.locator('[name="message"]').fill("Message retained after Formspree error");
+  await form.locator('button[type="submit"]').click();
+  await expect(form.locator('[role="alert"]')).toBeVisible();
+  await expect(form.locator('a[href="mailto:vidalrenao.lab@outlook.com"]')).toBeVisible();
+  await expect(form.locator('[name="message"]')).toHaveValue("Message retained after Formspree error");
+});
