@@ -331,7 +331,8 @@
     "form_success_title": "Message sent",
     "form_success_msg": "I'll get back to you within 24 hours.",
     "form_send_another": "Send another message",
-    "form_error_msg": "Sending failed. Please email directly."
+    "form_error_msg": "Sending failed. Please email directly.",
+    "form_privacy_notice": "By submitting this form, your name, email and message will be sent to Formspree to handle your inquiry. Please do not include sensitive information."
   },
   "cv": {
     "role": "Fullstack Developer & IT Specialist",

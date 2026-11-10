@@ -35,7 +35,7 @@ app/
 ├── [locale]/layout.tsx      ← fonts (self-hosted Geist), metadata, JSON-LD
 ├── [locale]/print/          ← printable CV (PDF via browser print)
 └── api/
-    ├── contact/             ← Zod · honeypot · 3 req/h per IP · SMTP
+    ├── contact/             ← legacy SMTP endpoint (not used by the public contact form)
     ├── download/            ← CV as .docx
     └── career-profile/      ← CV JSON for JobPilot AI (contract: do not change shape)
 content/                     ← typed data, single source of truth (no copy)
@@ -76,13 +76,13 @@ The e2e suite checks that every project has a safe outbound link and every certi
 | `/[locale]/print?variant=..&email=..` | Printable CV |
 | `/api/download?format=word&locale=..&email=..` | CV `.docx` |
 | `/api/career-profile` | CV JSON (schema v1) consumed by JobPilot AI; CDN cache 5 min, ETag |
-| `POST /api/contact` | Contact form; returns 503 if SMTP is not configured (form shows the e-mail fallback) |
+| `POST /api/contact` | Legacy SMTP endpoint (no longer used by the public contact form) |
 
 Legacy `/[locale]/consultation`, `/brand` and `/labs/*` redirect (308) to `/[locale]#contact`.
 
 ## Environment variables
 
-Only the contact form needs configuration (`.env.example`):
+The public contact form submits directly to Formspree (`xbggnyab`) via AJAX, with no SMTP environment variables needed. The following variables are only needed for the retained legacy `/api/contact` endpoint (`.env.example`):
 
 | Variable | Description |
 |---|---|
@@ -111,8 +111,7 @@ Vercel deploys `main`.
 
 ## Privacy
 
-No analytics, trackers or external fonts. Contact messages are forwarded by e-mail only, never
-stored. `/api/career-profile` contains no phone number or e-mail address.
+No analytics, trackers or external fonts. Public contact form submissions are sent directly to Formspree, an external processor; they are not persisted by this application's own database. Review Formspree data retention, processing location, and privacy notice before enabling production traffic. `/api/career-profile` contains no phone number or e-mail address.
 
 ## Profile content consistency
 
@@ -127,3 +126,9 @@ The English project card uses verified rule-based matching and EN/DE/ES document
 claims. JobPilot links carry the portfolio locale (`/install?lang=en` from `/en`),
 including its screenshot link. The public install screenshot replaces the Spanish
 account screenshot so the showcase contains no personal application data.
+
+## Formspree contact integration (PR pending)
+
+`components/features/contact/ContactForm.tsx` uses a browser `fetch` POST with `FormData` and `Accept: application/json` to `https://formspree.io/f/xbggnyab`. It preserves the three existing locale labels, validation constraints, success/error states, and e-mail fallback. A hidden `_gotcha` field supports Formspree's honeypot handling. The legacy SMTP endpoint remains untouched while references are checked. Playwright tests intercept Formspree requests, without delivering real messages.
+
+Before production activation, verify the Formspree destination inbox, spam protection, privacy disclosure and cross-border data processing (Swiss nDSG); perform one authorized end-to-end delivery test separately. Provider-side protections and data retention are not audited by the code tests.

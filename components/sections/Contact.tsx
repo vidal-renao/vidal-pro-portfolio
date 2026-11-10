@@ -39,7 +39,7 @@ export async function Contact({ locale }: { locale: string }) {
           title: t("form_label"), name: t("form_name"), namePh: t("form_name_ph"), email: t("form_email"), emailPh: t("form_email_ph"),
           subject: t("form_subject"), subjectPh: t("form_subject_ph"), message: t("form_message"), messagePh: t("form_message_ph"),
           submit: t("form_submit"), submitting: t("form_submitting"), successTitle: t("form_success_title"), successMsg: t("form_success_msg"),
-          another: t("form_send_another"), error: t("form_error_msg"),
+          another: t("form_send_another"), error: t("form_error_msg"), privacyNotice: t("form_privacy_notice"),
         }} />
       </div>
     </Section>

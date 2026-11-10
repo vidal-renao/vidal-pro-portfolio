@@ -4,10 +4,12 @@ import { Check } from "@/components/ui/icons";
 
 export interface ContactFormLabels {
   title: string; name: string; namePh: string; email: string; emailPh: string; subject: string; subjectPh: string;
-  message: string; messagePh: string; submit: string; submitting: string; successTitle: string; successMsg: string; another: string; error: string;
+  message: string; messagePh: string; submit: string; submitting: string; successTitle: string; successMsg: string; another: string; error: string; privacyNotice: string;
 }
 
-/** Posts to /api/contact (validated and rate-limited server-side); `_honey` is the bot trap. */
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xbggnyab";
+
+/** Sends directly to Formspree via AJAX; maintains the existing localized UI. */
 export function ContactForm({ labels, fallbackEmail }: { labels: ContactFormLabels; fallbackEmail: string }) {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const field = "h-11 w-full rounded-xl border border-line bg-bg px-3.5 text-sm text-ink placeholder:text-dim focus:border-accent/50 focus:outline-none";
@@ -15,11 +17,16 @@ export function ContactForm({ labels, fallbackEmail }: { labels: ContactFormLabe
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
-    const data = Object.fromEntries(new FormData(form)) as Record<string, string>;
+    const data = new FormData(form);
     setStatus("submitting");
+
     try {
-      const res = await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...data, _honey: data._honey ?? "" }) });
-      if (!res.ok) throw new Error(String(res.status));
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+      if (!res.ok) throw new Error(`Formspree returned ${res.status}`);
       form.reset();
       setStatus("success");
     } catch {
@@ -37,6 +44,7 @@ export function ContactForm({ labels, fallbackEmail }: { labels: ContactFormLabe
       </div>
     );
   }
+
   return (
     <form onSubmit={onSubmit} className="flex flex-col gap-4 rounded-2xl border border-line bg-raised p-5 sm:p-6">
       <p className="text-sm font-semibold text-ink">{labels.title}</p>
@@ -46,7 +54,8 @@ export function ContactForm({ labels, fallbackEmail }: { labels: ContactFormLabe
       </div>
       <label className="flex flex-col gap-1.5 text-xs text-muted">{labels.subject}<input name="subject" maxLength={150} placeholder={labels.subjectPh} className={field} /></label>
       <label className="flex flex-col gap-1.5 text-xs text-muted">{labels.message}<textarea name="message" required minLength={10} maxLength={2000} rows={5} placeholder={labels.messagePh} className={`${field} h-auto py-3`} /></label>
-      <input name="_honey" tabIndex={-1} autoComplete="off" aria-hidden className="hidden" defaultValue="" />
+      <input name="_gotcha" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" defaultValue="" />
+      <p className="text-xs leading-relaxed text-muted">{labels.privacyNotice}</p>
       {status === "error" && <p role="alert" className="text-sm text-rose-300">{labels.error} <a className="underline" href={`mailto:${fallbackEmail}`}>{fallbackEmail}</a></p>}
       <button type="submit" disabled={status === "submitting"} className="h-11 rounded-full bg-accent text-sm font-semibold text-accent-ink transition-colors hover:bg-accent-strong disabled:opacity-60">
         {status === "submitting" ? labels.submitting : labels.submit}

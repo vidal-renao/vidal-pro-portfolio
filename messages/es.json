@@ -331,7 +331,8 @@
     "form_success_title": "Mensaje enviado",
     "form_success_msg": "Te respondo en menos de 24 horas.",
     "form_send_another": "Enviar otro mensaje",
-    "form_error_msg": "Error al enviar. Por favor escríbeme directamente."
+    "form_error_msg": "Error al enviar. Por favor escríbeme directamente.",
+    "form_privacy_notice": "Al enviar este formulario, tu nombre, correo y mensaje se transmitirán a Formspree para gestionar tu consulta. No incluyas datos sensibles."
   },
   "cv": {
     "role": "Desarrollador Fullstack & Especialista IT",
