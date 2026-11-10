@@ -1,31 +1,37 @@
-# VIDAL ECOSYSTEM — Formspree contact integration
+# VIDAL ECOSYSTEM — Formspree release checklist
+
 Date: 2026-11-10
-Branch: `feat/portfolio-premium-dual-career`
-Release authorization: **not yet granted**.
+Integration PR: #17 (`feat/premium-formspree-release` → `feat/portfolio-premium-dual-career`)
+Release authorization: **not granted**. Do not merge or publish.
 
-## Approved configuration
-- Formspree form ID: `xbggnyab`.
-- Public endpoint: `https://formspree.io/f/xbggnyab` (form IDs are public identifiers, not secrets).
-- Destination intended by owner: `vidalrenao.lab@outlook.com`.
-- The Formspree account, mailbox ownership, confirmed notification recipient and successful inbox delivery **have not been independently verified**.
-- The existing React contact form sends a multipart `FormData` POST using `Accept: application/json` directly to Formspree. This follows the provider's AJAX integration pattern without changing dependencies or UI strings.
-- Formspree-native honeypot field `_gotcha` replaces `_honey` in the browser form.
-- The old `/api/contact` Resend/SMTP handler remains in source for potential future migrations; the public portfolio UI no longer calls it. Its CI API regression tests remain independent.
+## Verified
 
-## Tests and release limitations
-- Playwright intercepts Formspree POSTs, asserts payload and tests 200 success / 429 failure without delivering emails or using free-plan quota. Tests run for DE, EN, ES.
-- Formspree server-side spam filtering, deliverability and notifications require one controlled real submission from an approved preview. No real messages are sent during CI.
-- A successful Formspree HTTP response is evidence of **acceptance by the provider**, not proof of Outlook inbox delivery.
-- The user must confirm Formspree Settings > target email is `vidalrenao.lab@outlook.com`, that notifications are enabled and that the Formspree account is verified. Check Outlook Inbox and Junk.
-- For production, consider restricting the form's allowed domain to the production Vercel hostname after validating preview; restricting too early would break preview submissions. Ensure preview is not erroneously blocked.
-- Verify the form is compliant with any applicable privacy notice / handling of contact data. Keep third-party processor disclosure accurate.
-- The legacy Resend route is not needed to use Formspree; do not put the existing Resend key in browser code.
+- React form uses public Formspree endpoint `https://formspree.io/f/xbggnyab`; no private token in client code.
+- Browser sends `FormData` with JSON response requested; success/failure states and direct Outlook mailto fallback are present.
+- Browser form includes Formspree's native hidden `_gotcha` field and disclosure in DE/EN/ES.
+- A controlled submission from Vercel preview was actually received in `vidalrenao.lab@outlook.com` at 2026-11-10 09:18:42 UTC. Subject: `QA Portfolio Premium 2.0 - Formspree`. This was **before** the newly branded subject change.
+- A later code change adds `VIDAL ECOSYSTEM | ` to the notification subject, keeps the visitor's subject (or uses `Portfolio contact`), and adds a `source=Portfolio Premium 2.0` field.
+- Formspree HTML notification templates and custom sender domains require a **Business** subscription; this project does not assume a paid plan.
 
-## Release sequence
-1. All GitHub CI jobs pass for the exact branch head.
-2. Vercel preview for the exact SHA is READY and browser smoke tests pass.
-3. One controlled email arrives in Outlook and reply behavior is validated.
-4. Owner authorizes merge and production deployment explicitly.
-5. Verify production form once and record result, then submit production sitemap / inspect ES EN DE in Search Console.
+## Provider dashboard checks — pending, manual, read-only until approved settings are known
 
-The Google indexing timeline and inclusion are controlled by Google; ownership verification and sitemap submission remain separate from this integration.
+1. Open form `xbggnyab` in Formspree and confirm plan, owner, linked email and enabled target notifications.
+2. In **Settings → Spam protection**, check CAPTCHA setting. Formspree supports built-in CAPTCHA and honeypot; decide whether an additional challenge is necessary. Do not disable existing protections.
+3. In **Project Settings → Restrict to Domain**, confirm whether a domain restriction exists. Before enabling, identify the stable **production domain**. A strict restriction can classify preview submissions as spam. Do not whitelist a transient deployment-specific URL by default.
+4. Inspect Inbox, Spam and any Over Limit folder, provider submission quota, and retention/storage behavior. The free tier has a 30-day submission history and monthly limits (vendor docs); verify the current plan.
+5. Confirm no unsolicited autoresponse or third-party workflow is enabled. Autoresponse and advanced spam filtering can depend on plan.
+6. Review data-controller identification, purposes, Formspree as processor, applicable cross-border transfer, retention, deletion requests and up-to-date privacy notice under the Swiss nDSG (and GDPR if applicable). The short disclosure beside the form is not a complete legal privacy-policy review.
+
+## Audit and release gates
+
+- GitHub CI: lint, typecheck, production build, Playwright mock success/error, npm production dependency audit.
+- Enterprise audit for integrated PR #17: responsive screenshots, axe-core on locales and mobile/desktop, Lighthouse ES mobile / DE desktop, external link checks. Check CI run and uploaded evidence, including failures; a skipped/failed job is not a pass.
+- Check that branded subject and new source metadata pass mocked E2E tests.
+- Make **one** controlled live submission on the integrated preview only after green CI; confirm branded subject and content in Outlook.
+- Check visually on real mobile and desktop, keyboard navigation, links, layout and contrast.
+- Obtain explicit merge and production deployment approval.
+- After production release, recheck form and HTTPS on real production hostname. No release has occurred as part of this work.
+
+## Known architectural limit
+
+The public form posts directly to Formspree, so locally defined validation on the legacy `/api/contact` Resend/SMTP route does **not** provide server-side security to Formspree submissions. Actual abuse protection depends on Formspree settings and provider controls. Do not claim the old route's API tests cover the current Formspree route.
