@@ -53,7 +53,7 @@ for(const locale of ["es","en","de"] as const){
       expect(req.method()).toBe("POST");
       expect(req.headers()["accept"]).toContain("application/json");
       const body=req.postData()??"";
-      for(const value of ["Test Client","test@example.com","Portfolio QA","This is a valid mocked test request","_gotcha"]) expect(body).toContain(value);
+      for(const value of ["Test Client","test@example.com","VIDAL ECOSYSTEM | Portfolio QA","This is a valid mocked test request","_gotcha","source","Portfolio Premium 2.0"]) expect(body).toContain(value);
       await route.fulfill({status:200,contentType:"application/json",headers:{"access-control-allow-origin":"*"},body:JSON.stringify({ok:true})});
     });
     await page.goto("/"+locale);
@@ -78,4 +78,22 @@ test("Formspree error retains form values and offers direct email fallback",asyn
   await expect(form.locator('[role="alert"]')).toBeVisible();
   await expect(form.locator('a[href="mailto:vidalrenao.lab@outlook.com"]')).toBeVisible();
   await expect(form.locator('[name="message"]')).toHaveValue("Message retained after Formspree error");
+});
+
+
+test("Formspree notification uses a branded fallback subject when visitor leaves subject empty",async({page})=>{
+  let subjectSent=false;
+  await page.route("https://formspree.io/f/xbggnyab",async route=>{
+    const body=route.request().postData()??"";
+    subjectSent=body.includes("VIDAL ECOSYSTEM | Portfolio contact");
+    await route.fulfill({status:200,contentType:"application/json",headers:{"access-control-allow-origin":"*"},body:JSON.stringify({ok:true})});
+  });
+  await page.goto("/es");
+  const form=page.locator("#contact form");
+  await form.locator('[name="name"]').fill("Test Client");
+  await form.locator('[name="email"]').fill("test@example.com");
+  await form.locator('[name="message"]').fill("This message intentionally has no subject.");
+  await form.locator('button[type="submit"]').click();
+  await expect(page.locator("#contact [role='status']")).toBeVisible();
+  expect(subjectSent).toBe(true);
 });
