@@ -317,3 +317,4 @@ The existing Premium implementation already satisfies SEO-SCHEMA-02, SEO-VERIFY-
 - Experience bullet no longer claims an "active production portfolio": HelpDesk AI (Ticket System) and JobPilot AI in production, Invoice Auto as public demo, MatchPoint AI listed without status (EN/DE/ES). Value-only change; career-profile schema v1 unchanged.
 - TRUTH-02: all 8 project URLs reachable from a browser (2026-11-13). Opaque requests confirm reachability, not HTTP status or content; NATURÆ go-live status still to be confirmed by the owner.
 - Regression test TRUTH-03 failed before the fix and passes after. Local: lint ✓, typecheck ✓, build ✓, Playwright 172 passed / 58 skipped.
+- SYNC-01 (2026-11-13): Deinta Seguridad period set to Nov 2013 – Nov 2014 (EN/DE/ES) to match LinkedIn; months approved by the owner, chosen so they do not overlap other roles. Playwright 174 passed / 58 skipped.
