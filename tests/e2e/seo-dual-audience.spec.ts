@@ -6,9 +6,11 @@ for (const locale of langs) {
     await page.goto(`/${locale}`);
     await expect(page).toHaveTitle(/Vidal Reñao/);
     const title = await page.title();
-    expect(title).toMatch(/AI|IA|KI/);
     expect(title).toMatch(/System|Sistemas|IT/);
+    expect(title).toMatch(/Full-Stack/);
     const description = await page.locator('meta[name="description"]').getAttribute("content");
+    // VE-PORTFOLIO-BRAND-006: AI stays a search signal through the tagline/description, not the job title.
+    expect(description).toMatch(/\bAI\b|\bIA\b|\bKI\b/);
     expect(description).toMatch(/Fullstack|Full-Stack/i);
     expect(description).toMatch(/Automation|Automatisierung|automatización/i);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://vidal-pro-portfolio.vercel.app/${locale}`);

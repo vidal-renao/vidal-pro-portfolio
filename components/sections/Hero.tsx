@@ -22,7 +22,7 @@ export async function Hero({ locale }: { locale: string }) {
 
   return (
     <section id="top" className="relative isolate overflow-hidden px-4 pb-20 pt-32 sm:px-6 sm:pb-28 sm:pt-40">
-      <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-[560px] bg-[radial-gradient(ellipse_65%_70%_at_50%_0%,rgba(27,144,255,0.12),transparent_72%)]" />
+      <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-[560px] bg-[radial-gradient(ellipse_65%_70%_at_50%_0%,rgba(91,141,184,0.10),transparent_72%)]" />
       <div className="relative mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[1.35fr_0.65fr] lg:gap-16">
         <div>
           <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-line bg-white/[0.03] px-3 py-1.5 text-xs text-muted">
