@@ -107,7 +107,7 @@
           "Building helpdesk and workflow systems with SLA-aligned processes, role-based access control, and structured service logic",
           "Hands-on Microsoft 365 / Azure lab for a simulated 12-person company: bulk user import into Entra ID, security groups, admin roles, MFA and Microsoft Defender",
           "Translating infrastructure and operational thinking into modern SaaS environments — automation and continuous optimization",
-          "Active production portfolio: Ticket System, MatchPoint AI, Invoice Auto, HelpDesk AI",
+          "Project portfolio: HelpDesk AI (Ticket System) and JobPilot AI in production, plus Invoice Auto (public demo) and MatchPoint AI",
           "Hands-on hybrid identity synchronisation between on-premises Active Directory and Microsoft Entra ID using Microsoft Entra Connect in my own lab."
         ]
       },
@@ -198,7 +198,7 @@
         "title": "Technical Customer Support",
         "company": "Deinta Seguridad",
         "location": "Spain",
-        "period": "2013 – 2014",
+        "period": "Nov 2013 – Nov 2014",
         "highlights": [
           "Diagnosed faults in communications and security systems remotely and coordinated field technicians for on-site interventions",
           "Prepared and configured customer communications and security equipment, supporting on-site installation, start-up and functional checks."

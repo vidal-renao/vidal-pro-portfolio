@@ -107,7 +107,7 @@
           "Implementación de sistemas helpdesk y flujos de trabajo con procesos alineados a SLA, control de acceso por roles y lógica de servicio estructurada",
           "Laboratorio práctico Microsoft 365 / Azure para una empresa simulada de 12 empleados: alta masiva de usuarios en Entra ID, grupos de seguridad, roles de administración, MFA y Microsoft Defender",
           "Traslado del pensamiento de infraestructura y operaciones a entornos SaaS modernos — automatización y optimización continua",
-          "Portfolio de producción activo: Ticket System, MatchPoint AI, Invoice Auto, HelpDesk AI",
+          "Portfolio de proyectos: HelpDesk AI (Ticket System) y JobPilot AI en producción, además de Invoice Auto (demo pública) y MatchPoint AI",
           "Práctica de sincronización híbrida de identidades entre Active Directory local y Microsoft Entra ID mediante Microsoft Entra Connect en mi laboratorio propio."
         ]
       },
@@ -198,7 +198,7 @@
         "title": "Soporte Técnico al Cliente",
         "company": "Deinta Seguridad",
         "location": "España",
-        "period": "2013 – 2014",
+        "period": "nov. 2013 – nov. 2014",
         "highlights": [
           "Diagnóstico remoto de averías en sistemas de comunicación y seguridad y coordinación de técnicos de campo para intervenciones in situ",
           "Preparación y configuración de equipos de comunicación y seguridad para clientes, apoyo a la instalación, puesta en marcha y pruebas funcionales in situ."

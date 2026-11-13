@@ -67,3 +67,18 @@ test("VIS-01 steel-blue accent meets WCAG AA contrast", async ({ page }) => {
   expect(ratio(tokens.accent, tokens.bg)).toBeGreaterThanOrEqual(4.5);
   expect(ratio(tokens.ink, tokens.accent)).toBeGreaterThanOrEqual(4.5);
 });
+
+test("TRUTH-03 no cyan leftovers and no overstated production claims", async ({ page }) => {
+  await page.goto("/en");
+  const html = await page.content();
+  expect(html).not.toContain("116,222,244");
+  expect(html).not.toContain("116, 222, 244");
+  await expect(page.locator("#experience")).not.toContainText("Active production portfolio");
+  await expect(page.locator("#experience")).toContainText("Invoice Auto (public demo)");
+});
+
+test("SYNC-01 Deinta period matches LinkedIn (Nov 2013 – Nov 2014)", async ({ page }) => {
+  await page.goto("/en");
+  await page.locator("#experience").getByRole("button", { name: "Full work history" }).click();
+  await expect(page.locator("#experience")).toContainText("Nov 2013 – Nov 2014");
+});
