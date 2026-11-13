@@ -127,7 +127,7 @@ export function SiteHeader({ locale, brand, sections, labels }: Props) {
           aria-label={l.name} title={l.name} aria-current={l.code === locale ? "page" : undefined}
           onClick={mobile ? () => setOpen(false) : undefined}
           className={`group relative inline-flex ${mobile ? "h-11 w-11" : "h-10 w-10"} shrink-0 items-center justify-center rounded-xl border text-xl leading-none transition-[background-color,border-color,transform,box-shadow] duration-200 motion-reduce:transition-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${l.code === locale
-            ? "border-accent/40 bg-accent/15 shadow-[0_0_14px_rgba(116,222,244,0.09)]"
+            ? "border-accent/40 bg-accent/15 shadow-[0_0_14px_rgba(91,141,184,0.09)]"
             : "border-transparent bg-transparent hover:scale-105 hover:border-line-strong hover:bg-white/[0.07] motion-reduce:hover:scale-100"}`}>
           <span aria-hidden="true" className="inline-flex items-center justify-center drop-shadow-sm">{l.flag}</span>
           <span className="sr-only">{l.name}</span>
@@ -155,7 +155,7 @@ export function SiteHeader({ locale, brand, sections, labels }: Props) {
           <nav data-header-primary aria-label="Main" className="hidden items-center gap-0.5 rounded-2xl border border-line bg-white/[0.025] p-1 xl:flex">
             {primary.map((s) => (
               <a key={s.id} href={`#${s.id}`} aria-current={active === s.id ? "location" : undefined}
-                className={`relative inline-flex min-h-10 items-center rounded-xl px-3 py-2 text-[13px] font-medium transition-[background-color,color,box-shadow] duration-200 ${active === s.id ? "bg-accent/10 text-accent shadow-[inset_0_0_0_1px_rgba(116,222,244,0.18)]" : "text-muted hover:bg-white/[0.06] hover:text-ink"}`}>
+                className={`relative inline-flex min-h-10 items-center rounded-xl px-3 py-2 text-[13px] font-medium transition-[background-color,color,box-shadow] duration-200 ${active === s.id ? "bg-accent/10 text-accent shadow-[inset_0_0_0_1px_rgba(91,141,184,0.18)]" : "text-muted hover:bg-white/[0.06] hover:text-ink"}`}>
                 {s.label}
               </a>
             ))}
@@ -191,7 +191,7 @@ export function SiteHeader({ locale, brand, sections, labels }: Props) {
             <a href="#cv" className="hidden min-h-10 items-center gap-1.5 rounded-xl border border-line-strong px-3 text-xs font-semibold text-ink transition-colors hover:bg-white/[0.06] xl:inline-flex">
               <Download size={15} />{labels.cv}
             </a>
-            <a href="#contact" className="hidden min-h-10 items-center rounded-xl bg-accent px-4 text-xs font-semibold text-accent-ink transition-[background-color,box-shadow] hover:bg-accent-strong hover:shadow-[0_0_24px_rgba(116,222,244,0.12)] xl:inline-flex">
+            <a href="#contact" className="hidden min-h-10 items-center rounded-xl bg-accent px-4 text-xs font-semibold text-accent-ink transition-[background-color,box-shadow] hover:bg-accent-strong hover:shadow-[0_0_24px_rgba(91,141,184,0.12)] xl:inline-flex">
               {labels.contact}
             </a>
             <button data-mobile-menu-trigger ref={menuTriggerRef} type="button" onClick={() => setOpen((value) => !value)}
