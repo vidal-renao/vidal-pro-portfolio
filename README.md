@@ -130,7 +130,7 @@ account screenshot so the showcase contains no personal application data.
 
 ## Premium dual-career identity (2026-11-08)
 
-The site deliberately retains **two equal professional tracks**: **Fullstack AI Engineer** (software, SaaS, AI and automation) and **Systems Administrator** (enterprise infrastructure, Microsoft 365, Windows Server, Entra ID, virtualisation and networking).
+The site deliberately retains **two equal professional tracks**: **Full-Stack Developer** (software, SaaS, AI and automation) and **IT Systems Administrator** (enterprise infrastructure, Microsoft 365, Windows Server, Entra ID, virtualisation and networking).
 
 A dedicated `Specializations` section is shown after the hero in every locale. Navigation, brand, premium visual tokens and footer share a consistent accessible design, built on existing Next.js server components and CSS; no new runtime dependencies. Technical evidence and original chronology are not rewritten.
 

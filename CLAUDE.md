@@ -1,9 +1,11 @@
 # VIDAL ECOSYSTEM — MASTER ENGINEERING STANDARD
 
 ## IDENTIDAD
-**Vidal Reñao** — Senior Engineer & AI-Powered SaaS Architect  
+**Vidal Reñao** — IT Systems Administrator & Full-Stack Developer  
+Lema público: "Reliable IT today. AI-ready tomorrow."  
 Ubicación: Basel, Switzerland · Mercado objetivo: Swiss & DACH SMEs  
-Especialización: AI-Powered SaaS Infrastructure · Swiss DSG/nDSG Compliance · Microsoft 365 Enterprise
+Especialización: Microsoft 365 · Entra ID · Infraestructura IT · Full-stack (Next.js, Supabase) · Automatización con IA  
+Tono de los textos públicos: sobrio y verificable (estilo suizo); sin títulos "Senior/Architect" ni afirmaciones de cumplimiento legal sin evaluación.
 
 ## STACK GLOBAL
 | Layer | Technology |

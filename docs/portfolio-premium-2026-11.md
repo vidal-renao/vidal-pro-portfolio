@@ -288,3 +288,26 @@ Google Search Console confirms verified ownership via HTML meta tag; sitemap sub
 
 ### Result and limits
 The existing Premium implementation already satisfies SEO-SCHEMA-02, SEO-VERIFY-03, SEO-SITEMAP-04 and SEO-TRUTH-05 by source review; regression assertions added. `x-default` and its test added on the Premium integration branch only. CI results and browser verification must be recorded separately. Production changes, merge and Search Console indexing requests are excluded from this branch change.
+
+
+## VE-PORTFOLIO-BRAND-006 — Unified identity with LinkedIn (approved 2026-11-13)
+
+**Scope:** align the public identity of the portfolio with the LinkedIn profile. Branch `feat/brand-unified-identity`; Preview only, production release not authorized.
+
+### EARS requirements
+- **ID-01:** The title SHALL be identical in metadata, Open Graph, JSON-LD, hero, footer and specialization cards — EN "IT Systems Administrator & Full-Stack Developer"; DE "IT-Systemadministrator & Full-Stack-Entwickler"; ES "Administrador de Sistemas IT y Desarrollador Full-Stack".
+- **ID-02:** The hero SHALL lead with the tagline — EN "Reliable IT today. AI-ready tomorrow."; DE "Zuverlässige IT heute. Bereit für KI morgen."; ES "IT fiable hoy. Preparada para la IA mañana."
+- **VIS-01:** The accent SHALL be steel blue #5B8DB8 (hover #7FA6CC); accent on background and accent-ink on accent SHALL reach ≥ 4.5:1 (measured 5.46:1 and 4.71:1). WCAG AA is a target, not a compliance claim.
+- **DOC-01:** `CLAUDE.md`, `AGENTS.md` and `README.md` SHALL describe the owner with the unified title and a sober tone.
+- **REG-01:** CV PDF/Word routes, contact behaviour and `/api/career-profile` schema v1 SHALL remain unchanged. CV variant roles (`cv.role`, `cvSystems.role`) are intentionally untouched: they are tailored per application and feed JobPilot.
+
+### Decisions
+- AI remains a search signal through the tagline and meta description instead of the job title; `seo-dual-audience` test updated accordingly.
+- Specialization card titles: "Full-Stack Developer" and "IT Systems Administrator" (localized).
+- Hard-coded cyan/violet utilities replaced by accent tokens. The VE monogram gradient (`public/icons/ve-mark.svg`) is a brand asset and is left unchanged pending a separate decision.
+
+### Evidence (2026-11-13, local)
+- New E2E tests failed before implementation (5/5), as expected.
+- After implementation: lint ✓, typecheck ✓, build ✓, Playwright 170 passed / 58 skipped (desktop + mobile), `npm audit` 0 vulnerabilities.
+- Visual inspection: desktop 1440 px (EN) and mobile 390 px (DE) screenshots reviewed.
+- Pending: Vercel Preview check, user acceptance, separate production release authorization.

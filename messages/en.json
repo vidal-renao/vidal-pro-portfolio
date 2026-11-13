@@ -47,7 +47,7 @@
     "technicalLabel": "Technologies used"
   },
   "hero": {
-    "title2": "Software engineering, AI and enterprise IT infrastructure.",
+    "title2": "Reliable IT today. AI-ready tomorrow.",
     "subtitle": "I build full-stack applications and AI solutions for businesses. I also bring professional experience in systems administration, Microsoft 365 and enterprise networks. Two distinct specializations, one engineering mindset."
   },
   "certifications": {
@@ -531,7 +531,7 @@
       "statProjects": "live projects",
       "statCerts": "AI learning courses",
       "statLanguages": "working languages",
-      "role": "Fullstack AI Engineer · Systems Administrator"
+      "role": "IT Systems Administrator & Full-Stack Developer"
     },
     "projects": {
       "label": "Projects",
@@ -587,7 +587,7 @@
     "footer": {
       "rights": "All rights reserved.",
       "top": "Back to top",
-      "tagline": "Fullstack AI Engineering · Systems Administration",
+      "tagline": "IT Systems Administration · Full-Stack Development",
       "explore": "Explore"
     },
     "scroll": {
@@ -605,7 +605,7 @@
     "subtitle": "Choose what matters to you: software and AI solutions or infrastructure and systems administration.",
     "tracks": [
       {
-        "title": "Fullstack AI Engineer",
+        "title": "Full-Stack Developer",
         "subtitle": "Software · AI · Automation",
         "summary": "I design and build business applications, SaaS platforms and AI automation, from architecture to deployment.",
         "capabilities": [
@@ -639,7 +639,7 @@
         ]
       },
       {
-        "title": "Systems Administrator",
+        "title": "IT Systems Administrator",
         "subtitle": "Infrastructure · Cloud · Workplace",
         "summary": "I manage and support enterprise IT environments with a focus on reliable operations, security, user access and infrastructure services.",
         "capabilities": [

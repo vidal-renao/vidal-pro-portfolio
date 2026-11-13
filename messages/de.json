@@ -47,7 +47,7 @@
     "technicalLabel": "Eingesetzte Technologien"
   },
   "hero": {
-    "title2": "Softwareentwicklung, KI und Unternehmens-IT.",
+    "title2": "Zuverlässige IT heute. Bereit für KI morgen.",
     "subtitle": "Ich entwickle Fullstack-Anwendungen und KI-Lösungen für Unternehmen. Daneben bringe ich Berufserfahrung in der Systemadministration, Microsoft 365 und Unternehmensnetzwerken mit. Zwei eigenständige Fachgebiete mit einem gemeinsamen Qualitätsanspruch."
   },
   "certifications": {
@@ -531,7 +531,7 @@
       "statProjects": "Projekte online",
       "statCerts": "KI-Weiterbildungen",
       "statLanguages": "Arbeitssprachen",
-      "role": "Fullstack AI Engineer · Systemadministrator"
+      "role": "IT-Systemadministrator & Full-Stack-Entwickler"
     },
     "projects": {
       "label": "Projekte",
@@ -587,7 +587,7 @@
     "footer": {
       "rights": "Alle Rechte vorbehalten.",
       "top": "Nach oben",
-      "tagline": "Fullstack AI Engineering · Systemadministration",
+      "tagline": "IT-Systemadministration · Full-Stack-Entwicklung",
       "explore": "Entdecken"
     },
     "scroll": {
@@ -605,7 +605,7 @@
     "subtitle": "Wählen Sie Ihren Schwerpunkt: Software und KI oder IT-Infrastruktur und Systemadministration.",
     "tracks": [
       {
-        "title": "Fullstack AI Engineer",
+        "title": "Full-Stack-Entwickler",
         "subtitle": "Software · KI · Automatisierung",
         "summary": "Ich konzipiere und entwickle Geschäftsanwendungen, SaaS-Plattformen und KI-Automatisierungen – von der Architektur bis zum Deployment.",
         "capabilities": [
@@ -639,7 +639,7 @@
         ]
       },
       {
-        "title": "Systems Administrator",
+        "title": "IT-Systemadministrator",
         "subtitle": "Infrastruktur · Cloud · Workplace",
         "summary": "Ich betreue Unternehmens-IT mit Schwerpunkt auf zuverlässigem Betrieb, Sicherheit, Benutzerverwaltung und Infrastrukturdiensten.",
         "capabilities": [

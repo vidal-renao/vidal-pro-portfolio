@@ -5,8 +5,8 @@ for (const locale of ["es", "de", "en"]) {
     await page.goto(`/${locale}`);
     const sectors = page.locator("#specializations article");
     await expect(sectors).toHaveCount(2);
-    await expect(sectors.nth(0)).toContainText("Fullstack AI Engineer");
-    await expect(sectors.nth(1)).toContainText("Systems Administrator");
+    await expect(sectors.nth(0)).toContainText(locale === "en" ? "Full-Stack Developer" : locale === "de" ? "Full-Stack-Entwickler" : "Desarrollador Full-Stack");
+    await expect(sectors.nth(1)).toContainText(locale === "en" ? "IT Systems Administrator" : locale === "de" ? "IT-Systemadministrator" : "Administrador de Sistemas IT");
     await expect(sectors.nth(0).getByRole("link")).toHaveAttribute("href", "#projects");
     await expect(sectors.nth(1).getByRole("link")).toHaveAttribute("href", "#experience");
     await expect(page.locator('nav[aria-label="Main"] a[href="#specializations"]')).toHaveCount(1);

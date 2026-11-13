@@ -47,7 +47,7 @@
     "technicalLabel": "Tecnologías utilizadas"
   },
   "hero": {
-    "title2": "Ingeniería de software, IA e infraestructura IT.",
+    "title2": "IT fiable hoy. Preparada para la IA mañana.",
     "subtitle": "Desarrollo aplicaciones full-stack y soluciones de IA para empresas. También aporto experiencia en administración de sistemas, Microsoft 365 y redes empresariales. Dos especialidades diferenciadas, con una misma exigencia técnica."
   },
   "certifications": {
@@ -531,7 +531,7 @@
       "statProjects": "proyectos en línea",
       "statCerts": "formaciones de IA",
       "statLanguages": "idiomas de trabajo",
-      "role": "Fullstack AI Engineer · Administrador de Sistemas"
+      "role": "Administrador de Sistemas IT y Desarrollador Full-Stack"
     },
     "projects": {
       "label": "Proyectos",
@@ -587,7 +587,7 @@
     "footer": {
       "rights": "Todos los derechos reservados.",
       "top": "Volver arriba",
-      "tagline": "Fullstack AI Engineering · Systems Administration",
+      "tagline": "Administración de Sistemas IT · Desarrollo Full-Stack",
       "explore": "Explorar"
     },
     "scroll": {
@@ -605,7 +605,7 @@
     "subtitle": "Elige el área que te interesa: soluciones de software e IA, o infraestructura y administración de sistemas.",
     "tracks": [
       {
-        "title": "Fullstack AI Engineer",
+        "title": "Desarrollador Full-Stack",
         "subtitle": "Software · IA · Automatización",
         "summary": "Diseño y desarrollo aplicaciones empresariales, plataformas SaaS y automatizaciones con IA, desde la arquitectura hasta el despliegue.",
         "capabilities": [
@@ -639,7 +639,7 @@
         ]
       },
       {
-        "title": "Systems Administrator",
+        "title": "Administrador de Sistemas IT",
         "subtitle": "Infraestructura · Cloud · Workplace",
         "summary": "Administro y doy soporte a entornos IT empresariales, con foco en continuidad operativa, seguridad, usuarios y servicios de infraestructura.",
         "capabilities": [

@@ -11,18 +11,18 @@ const BASE_URL = SITE.url;
 
 const META: Record<string, { title: string; description: string; keywords: string[] }> = {
   en: {
-    title: "Vidal Reñao | Fullstack AI Developer & Systems Administrator",
-    description: "VIDAL ECOSYSTEM, Basel: Fullstack Developer, AI Solutions and Automation for businesses; Systems Administrator with Microsoft 365, Entra ID and networks.",
+    title: "Vidal Reñao | IT Systems Administrator & Full-Stack Developer",
+    description: "Reliable IT today. AI-ready tomorrow. IT Systems Administrator and Full-Stack Developer in Basel: Microsoft 365, Entra ID and networks, plus web applications and AI automation for businesses.",
     keywords: ["Vidal Reñao", "VIDAL ECOSYSTEM", "VIDALECOSYSTEM", "Fullstack Developer Basel", "AI Solutions Switzerland", "AI Automation Basel", "Systems Administrator Basel", "IT Infrastructure Switzerland", "Microsoft 365", "Entra ID", "Next.js", "Supabase"],
   },
   de: {
-    title: "Vidal Reñao | KI Fullstack Developer & Systemadministrator",
-    description: "VIDAL ECOSYSTEM in Basel: Fullstack-Entwicklung, KI-Lösungen und Automatisierung für KMU sowie Systemadministration mit Microsoft 365, Entra ID und Netzwerken.",
+    title: "Vidal Reñao | IT-Systemadministrator & Full-Stack-Entwickler",
+    description: "Zuverlässige IT heute. Bereit für KI morgen. IT-Systemadministrator und Full-Stack-Entwickler in Basel: Microsoft 365, Entra ID und Netzwerke sowie Webanwendungen und KI-Automatisierung für KMU.",
     keywords: ["Vidal Reñao", "VIDAL ECOSYSTEM", "VIDALECOSYSTEM", "Fullstack Entwickler Basel", "KI Automatisierung Schweiz", "KI Lösungen", "Systemadministrator Basel", "IT System Engineer Schweiz", "Microsoft 365", "Entra ID", "Next.js", "Supabase"],
   },
   es: {
-    title: "Vidal Reñao | Fullstack IA y Administrador de Sistemas",
-    description: "VIDAL ECOSYSTEM en Basilea: desarrollo Fullstack, soluciones de IA y automatización para empresas; administración de sistemas, Microsoft 365, Entra ID y redes.",
+    title: "Vidal Reñao | Administrador de Sistemas IT y Desarrollador Full-Stack",
+    description: "IT fiable hoy. Preparada para la IA mañana. Administrador de Sistemas IT y Desarrollador Full-Stack en Basilea: Microsoft 365, Entra ID y redes, además de aplicaciones web y automatización con IA para empresas.",
     keywords: ["Vidal Reñao", "VIDAL ECOSYSTEM", "VIDALECOSYSTEM", "Fullstack Developer", "AI Solutions", "IA para empresas", "Automation", "automatización empresarial", "Administrador de Sistemas", "System Admin", "Basilea", "Suiza", "Next.js", "Microsoft 365"],
   },
 };
@@ -57,7 +57,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           url: "/Photo.jpg",
           width: 800,
           height: 800,
-          alt: "Vidal Reñao — Fullstack AI Engineer & Systems Administrator",
+          alt: "Vidal Reñao — IT Systems Administrator & Full-Stack Developer",
         },
       ],
       locale: locale === "de" ? "de_CH" : locale === "es" ? "es_ES" : "en_US",
@@ -90,7 +90,7 @@ function structuredData(locale: string) {
         "@type": "Person", "@id": `${BASE_URL}/#person`,
         name: "Vidal Reñao", alternateName: "Vidal Reñao Lopelo",
         url: BASE_URL, image: `${BASE_URL}${SITE.photo}`,
-        jobTitle: ["Fullstack AI Developer", "Systems Administrator"],
+        jobTitle: ["IT Systems Administrator", "Full-Stack Developer"],
         knowsAbout: ["Artificial intelligence", "AI Automation", "AI Solutions", "Fullstack Development", "Next.js", "TypeScript", "Supabase", "Microsoft 365", "Microsoft Entra ID", "Active Directory", "Windows Server", "IT infrastructure"],
         knowsLanguage: ["de", "en", "es"],
         address: { "@type": "PostalAddress", addressLocality: "Basel", addressCountry: "CH" },

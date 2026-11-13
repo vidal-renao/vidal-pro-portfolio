@@ -2,10 +2,10 @@
 
 ## Purpose and professional identity
 This portfolio represents two **equal, independent professional sectors**:
-- **Fullstack AI Engineer:** application engineering, SaaS, AI agents and process automation.
-- **Systems Administrator:** Windows Server, Active Directory, Microsoft 365, Entra ID/Intune, virtualization, networks and user support.
+- **Full-Stack Developer:** application engineering, SaaS, AI agents and process automation.
+- **IT Systems Administrator:** Windows Server, Active Directory, Microsoft 365, Entra ID/Intune, virtualization, networks and user support.
 
-Preserve both tracks in navigation, marketing copy, experience and CV variants. Do not describe course completion as professional certification or invent employment results, metrics or technical claims. Market: Swiss / DACH, Basel and Liechtenstein.
+Unified public title (VE-PORTFOLIO-BRAND-006, shared with LinkedIn): "IT Systems Administrator & Full-Stack Developer"; tagline "Reliable IT today. AI-ready tomorrow."; accent #5B8DB8. Preserve both tracks in navigation, marketing copy, experience and CV variants. Do not describe course completion as professional certification or invent employment results, metrics or technical claims. Market: Swiss / DACH, Basel and Liechtenstein.
 
 ## Source of truth
 - Requirements, scope and release gates: `docs/portfolio-premium-2026-11.md`.

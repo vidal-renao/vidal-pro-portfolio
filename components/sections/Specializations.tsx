@@ -21,17 +21,17 @@ export async function Specializations({ locale }: { locale: string }) {
       <div className="grid gap-5 lg:grid-cols-2">
         {tracks.map((track, index) => (
           <article key={track.title} className="premium-panel group relative flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-raised p-6 sm:p-8">
-            <div aria-hidden="true" className={`pointer-events-none absolute inset-x-0 top-0 h-px ${index === 0 ? "bg-gradient-to-r from-cyan-400/80 via-blue-400/60 to-transparent" : "bg-gradient-to-r from-violet-400/80 via-blue-400/60 to-transparent"}`} />
+            <div aria-hidden="true" className={`pointer-events-none absolute inset-x-0 top-0 h-px ${index === 0 ? "bg-gradient-to-r from-accent/80 via-accent/30 to-transparent" : "bg-gradient-to-r from-muted/60 via-accent/30 to-transparent"}`} />
             <div className="mb-7 flex items-center justify-between">
               <span className="font-mono text-xs tracking-[0.18em] text-dim">0{index + 1} / 02</span>
-              <span className={`rounded-full border px-3 py-1 text-xs ${index === 0 ? "border-cyan-400/25 bg-cyan-400/5 text-cyan-200" : "border-violet-400/25 bg-violet-400/5 text-violet-200"}`}>{track.subtitle}</span>
+              <span className={`rounded-full border px-3 py-1 text-xs ${index === 0 ? "border-accent/30 bg-accent/5 text-accent-strong" : "border-line-strong bg-white/[0.03] text-muted"}`}>{track.subtitle}</span>
             </div>
             <h3 className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">{track.title}</h3>
             <p className="mt-4 max-w-lg text-sm leading-7 text-muted sm:text-base">{track.summary}</p>
             <ul className="mt-7 grid gap-3" aria-label={track.title}>
               {track.capabilities.map((capability) => (
                 <li key={capability} className="flex items-start gap-3 text-sm leading-6 text-ink/85">
-                  <span aria-hidden="true" className={`mt-2 h-1.5 w-1.5 shrink-0 rounded-full ${index === 0 ? "bg-cyan-300" : "bg-violet-300"}`} />
+                  <span aria-hidden="true" className={`mt-2 h-1.5 w-1.5 shrink-0 rounded-full ${index === 0 ? "bg-accent" : "bg-muted"}`} />
                   {capability}
                 </li>
               ))}
