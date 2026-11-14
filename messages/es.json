@@ -222,11 +222,12 @@
     "items": {
       "helpdesk-ai": {
         "title": "HelpDesk AI",
-        "summary": "Helpdesk multi-tenant para pymes suizas con triaje asistido por IA en alemán, inglés y español.",
+        "summary": "Sistema de tickets para proveedores de IT y pymes suizas: desde la solicitud hasta la confirmación del cliente, cada traspaso queda registrado.",
         "highlights": [
-          "Servidor MCP con siete herramientas acotadas y validación Zod: la IA nunca accede directamente a la base de datos",
-          "Seguimiento de SLA, responsable por ticket y control de acceso por roles",
-          "Más de 200 commits, pruebas en CI y base de datos propia"
+          "Cadena de custodia en seis etapas: entrada, asignación, ejecución, aprobación del admin, resolución y confirmación del cliente",
+          "Acceso por roles con row-level security: el cliente ve solo sus tickets, el técnico solo los asignados, las notas internas no salen del equipo",
+          "Seguimiento de SLA en hora suiza e informe diario de SLA por email mediante un servidor MCP con ocho herramientas validadas con Zod",
+          "Triaje y sugerencias de respuesta con IA opcionales, con fallback honesto; DE/EN/ES, 290 tests y tests de base de datos en CI"
         ]
       },
       "jobpilot-ai": {

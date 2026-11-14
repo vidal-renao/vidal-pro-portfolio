@@ -222,11 +222,12 @@
     "items": {
       "helpdesk-ai": {
         "title": "HelpDesk AI",
-        "summary": "Multi-tenant helpdesk for Swiss SMEs with AI-assisted triage in German, English and Spanish.",
+        "summary": "Ticket system for IT service providers and Swiss SMEs: from the customer's request to the customer's confirmation, every hand-off is recorded.",
         "highlights": [
-          "MCP server with seven scoped tools and Zod validation: the AI never touches the database directly",
-          "SLA tracking, an owner per ticket and role-based access control",
-          "Over 200 commits, tests in CI and its own database"
+          "Six-stage chain of custody: intake, routing, execution, admin approval, resolution and customer confirmation",
+          "Role-based access with row-level security: customers see only their tickets, specialists only assigned ones, internal notes never leave the team",
+          "Live SLA tracking in Swiss time and a daily SLA brief by email via an MCP server with eight Zod-validated tools",
+          "Optional AI triage and reply suggestions with an honest fallback; DE/EN/ES, 290 tests and database tests in CI"
         ]
       },
       "jobpilot-ai": {
