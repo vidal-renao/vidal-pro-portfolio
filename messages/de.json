@@ -222,11 +222,12 @@
     "items": {
       "helpdesk-ai": {
         "title": "HelpDesk AI",
-        "summary": "Mandantenfähiges Helpdesk für Schweizer KMU mit KI-gestützter Triage auf Deutsch, Englisch und Spanisch.",
+        "summary": "Ticketsystem für IT-Dienstleister und Schweizer KMU: von der Anfrage bis zur Bestätigung durch den Kunden ist jede Übergabe nachvollziehbar.",
         "highlights": [
-          "MCP-Server mit sieben eng begrenzten Tools und Zod-Validierung: Die KI greift nie direkt auf die Datenbank zu",
-          "SLA-Überwachung, ein Verantwortlicher pro Ticket und rollenbasierte Zugriffskontrolle",
-          "Über 200 Commits, Tests in der CI und eigene Datenbank"
+          "Sechsstufige Übergabekette: Erfassung, Zuweisung, Bearbeitung, Freigabe durch den Admin, Lösung und Kundenbestätigung",
+          "Rollenbasierter Zugriff mit Row-Level Security: Kunden sehen nur ihre Tickets, Fachpersonen nur zugewiesene, interne Notizen bleiben im Team",
+          "SLA-Überwachung in Schweizer Zeit und täglicher SLA-Bericht per E-Mail über einen MCP-Server mit acht Zod-validierten Tools",
+          "Optionale KI-Triage und Antwortvorschläge mit ehrlichem Fallback; auf Deutsch, Englisch und Spanisch, 290 Tests und Datenbanktests in der CI"
         ]
       },
       "jobpilot-ai": {
