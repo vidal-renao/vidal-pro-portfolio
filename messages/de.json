@@ -227,7 +227,7 @@
           "Sechsstufige Übergabekette: Erfassung, Zuweisung, Bearbeitung, Freigabe durch den Admin, Lösung und Kundenbestätigung",
           "Rollenbasierter Zugriff mit Row-Level Security: Kunden sehen nur ihre Tickets, Fachpersonen nur zugewiesene, interne Notizen bleiben im Team",
           "SLA-Überwachung in Schweizer Zeit und täglicher SLA-Bericht per E-Mail über einen MCP-Server mit acht Zod-validierten Tools",
-          "Optionale KI-Triage und Antwortvorschläge mit ehrlichem Fallback; DE/EN/ES, 290 Tests und Datenbanktests in der CI"
+          "Optionale KI-Triage und Antwortvorschläge mit ehrlichem Fallback; auf Deutsch, Englisch und Spanisch, 290 Tests und Datenbanktests in der CI"
         ]
       },
       "jobpilot-ai": {

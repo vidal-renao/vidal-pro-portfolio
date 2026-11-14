@@ -227,7 +227,7 @@
           "Six-stage chain of custody: intake, routing, execution, admin approval, resolution and customer confirmation",
           "Role-based access with row-level security: customers see only their tickets, specialists only assigned ones, internal notes never leave the team",
           "Live SLA tracking in Swiss time and a daily SLA brief by email via an MCP server with eight Zod-validated tools",
-          "Optional AI triage and reply suggestions with an honest fallback; DE/EN/ES, 290 tests and database tests in CI"
+          "Optional AI triage and reply suggestions with an honest fallback; in German, English and Spanish, 290 tests and database tests in CI"
         ]
       },
       "jobpilot-ai": {
