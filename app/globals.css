@@ -109,3 +109,9 @@ section[id], #cv { scroll-margin-top: 5.5rem; }
 
 /* Keep optional floating pagination out of the way while the mobile drawer is open. */
 body[data-mobile-menu-open="true"] .section-scroll-rail { visibility: hidden; }
+
+/* WCAG AA: compact accent chips identified by axe on all locales and viewports.
+   Preserve their accent surface while using a high-contrast foreground. */
+.border-accent\/50.bg-accent\/15.py-1\.5 {
+  color: var(--text) !important;
+}
