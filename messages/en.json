@@ -340,7 +340,8 @@
     "form_send_another": "Send another message",
     "form_error_msg": "Sending failed. Please email directly.",
     "form_privacy_notice": "By submitting this form, your name, email address, subject and message will be sent to Formspree to handle your inquiry. Please do not include sensitive information.",
-    "form_success_email": "I've also sent a confirmation to your email address."
+    "form_success_email": "I've also sent a confirmation to your email address.",
+    "form_success_closing": "Best regards,"
   },
   "cv": {
     "role": "Fullstack Developer & IT Specialist",
