@@ -335,11 +335,12 @@
     "form_message_ph": "Beschreiben Sie Ihr Projekt oder Anliegen…",
     "form_submit": "Nachricht senden",
     "form_submitting": "Wird gesendet…",
-    "form_success_title": "Nachricht gesendet",
-    "form_success_msg": "Ich melde mich innerhalb von 24 Stunden.",
+    "form_success_title": "Ihre Nachricht ist angekommen!",
+    "form_success_msg": "Vielen Dank für Ihre Kontaktaufnahme. Ich habe Ihre Nachricht erhalten und werde Ihr Anliegen persönlich prüfen. Ich melde mich so bald wie möglich bei Ihnen.",
     "form_send_another": "Weitere Nachricht senden",
     "form_error_msg": "Senden fehlgeschlagen. Bitte direkt per E-Mail kontaktieren.",
-    "form_privacy_notice": "Mit dem Absenden werden Ihr Name, Ihre E-Mail-Adresse, der Betreff und Ihre Nachricht zur Bearbeitung Ihrer Anfrage an Formspree übermittelt. Bitte geben Sie keine sensiblen Daten an."
+    "form_privacy_notice": "Mit dem Absenden werden Ihr Name, Ihre E-Mail-Adresse, der Betreff und Ihre Nachricht zur Bearbeitung Ihrer Anfrage an Formspree übermittelt. Bitte geben Sie keine sensiblen Daten an.",
+    "form_success_email": "Sie haben auch eine Eingangsbestätigung per E-Mail erhalten."
   },
   "cv": {
     "role": "Fullstack-Entwickler & IT-Spezialist",
