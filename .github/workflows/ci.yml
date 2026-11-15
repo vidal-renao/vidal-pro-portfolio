@@ -64,7 +64,7 @@ jobs:
 
   enterprise-evidence:
     name: Enterprise visual + a11y + SEO + links
-    if: github.event_name == 'pull_request' && (github.head_ref == 'feat/portfolio-premium-dual-career' || github.head_ref == 'feat/premium-formspree-release')
+    if: github.event_name == 'pull_request' && (github.head_ref == 'feat/portfolio-premium-dual-career' || github.head_ref == 'feat/premium-formspree-release' || github.head_ref == 'feat/seo-geo-indexability-20261115')
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     permissions:
