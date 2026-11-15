@@ -7,7 +7,7 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/xbggnyab";
 
 export interface ContactFormLabels {
   title: string; name: string; namePh: string; email: string; emailPh: string; subject: string; subjectPh: string;
-  message: string; messagePh: string; submit: string; submitting: string; successTitle: string; successMsg: string; another: string; error: string; privacyNotice: string;
+  message: string; messagePh: string; submit: string; submitting: string; successTitle: string; successMsg: string; successEmail: string; successClosing: string; another: string; error: string; privacyNotice: string;
 }
 
 /** Submits to Formspree via its documented AJAX endpoint; `_gotcha` is its native spam trap. */
@@ -43,7 +43,9 @@ export function ContactForm({ labels, fallbackEmail }: { labels: ContactFormLabe
       <div className="flex flex-col items-start gap-3 rounded-2xl border border-line bg-raised p-6" role="status">
         <span className="flex h-10 w-10 items-center justify-center rounded-full bg-accent/15 text-accent"><Check /></span>
         <p className="text-lg font-semibold text-ink">{labels.successTitle}</p>
-        <p className="text-sm text-muted">{labels.successMsg}</p>
+        <p className="text-sm leading-relaxed text-muted">{labels.successMsg}</p>
+        <p className="text-sm text-muted">{labels.successEmail}</p>
+        <p className="mt-1 text-sm leading-relaxed text-muted">{labels.successClosing}<br />VIDAL ECOSYSTEM</p>
         <button type="button" onClick={() => setStatus("idle")} className="mt-2 text-sm font-semibold text-accent hover:underline">{labels.another}</button>
       </div>
     );

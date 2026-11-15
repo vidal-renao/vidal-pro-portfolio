@@ -319,8 +319,8 @@
   },
   "contact": {
     "label": "Contact",
-    "title": "Let's Connect",
-    "subtitle": "Open to a permanent position (80–100 %) in IT support & systems or full-stack development. Alongside, I take on selected freelance projects across Switzerland and Liechtenstein.",
+    "title": "I'd Love to Hear from You",
+    "subtitle": "Have a question, an idea, or an opportunity you'd like to discuss? Tell me about it. I'll be happy to hear from you and get back to you personally.",
     "availability": "Immediately Available · Switzerland & Liechtenstein",
     "copy": "Copy Email",
     "copied": "Copied!",
@@ -335,11 +335,13 @@
     "form_message_ph": "Describe your project or inquiry…",
     "form_submit": "Send Message",
     "form_submitting": "Sending…",
-    "form_success_title": "Message sent",
-    "form_success_msg": "I'll get back to you within 24 hours.",
+    "form_success_title": "Your message has arrived!",
+    "form_success_msg": "Thank you for getting in touch. I've received your message and will personally review your enquiry. I'll get back to you as soon as possible.",
     "form_send_another": "Send another message",
     "form_error_msg": "Sending failed. Please email directly.",
-    "form_privacy_notice": "By submitting this form, your name, email address, subject and message will be sent to Formspree to handle your inquiry. Please do not include sensitive information."
+    "form_privacy_notice": "By submitting this form, your name, email address, subject and message will be sent to Formspree to handle your inquiry. Please do not include sensitive information.",
+    "form_success_email": "I've also sent a confirmation to your email address.",
+    "form_success_closing": "Best regards,"
   },
   "cv": {
     "role": "Fullstack Developer & IT Specialist",

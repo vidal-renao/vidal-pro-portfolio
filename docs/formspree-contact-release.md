@@ -35,3 +35,17 @@ Release authorization: **not granted**. Do not merge or publish.
 ## Known architectural limit
 
 The public form posts directly to Formspree, so locally defined validation on the legacy `/api/contact` Resend/SMTP route does **not** provide server-side security to Formspree submissions. Actual abuse protection depends on Formspree settings and provider controls. Do not claim the old route's API tests cover the current Formspree route.
+
+
+## VE-CONTACT-001 — Personalized success confirmation (2026-11-15)
+
+Status: implemented on feature branch only; not authorized for production.
+
+- EARS: WHEN Formspree responds successfully, the website SHALL show a personalized confirmation in the selected website locale (ES/EN/DE) and offer another submission.
+- EARS: WHEN Formspree fails, the website SHALL retain entered values and display the existing error with direct-email fallback.
+- EARS: WHEN the selected locale changes, the confirmation copy SHALL come from the corresponding next-intl dictionary, not message-body language detection.
+- EARS: The success copy SHALL avoid a guaranteed 24-hour reply time.
+- Acceptance tests: mocked successful Formspree submission for ES/EN/DE, localized title/body/email notice, existing failure coverage.
+- Provider dependency: the notice claiming an email confirmation is sent relies on the Formspree Auto Response workflow; a real browser success response alone does not prove delivery of the autoresponse. Business Trial shown in account screenshot ends 2026-11-24. Before that date, either maintain a supported autoresponse plan, provide a separate verified transactional delivery mechanism, or remove/conditionally hide the email-confirmation sentence.
+- No changes to Formspree dashboard or provider subscription are made by this branch.
+- Verification remaining: CI lint, typecheck, build, E2E, audit, Vercel preview and mobile visual review. Do not merge/deploy until approved.
