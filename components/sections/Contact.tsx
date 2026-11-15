@@ -17,7 +17,7 @@ export async function Contact({ locale }: { locale: string }) {
     { href: SITE.github, label: "github.com/vidal-renao", icon: GitHub, external: true },
   ];
   return (
-    <Section id="contact" label={t("label")} title={t("title")} subtitle={t("subtitle")}>
+    <Section id="contact" label={t("label")} title={t("title")} subtitle={t("subtitle")} titleClassName="!text-4xl sm:!text-5xl lg:!text-[3.5rem] !leading-[1.1]">
       <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
         <div className="order-2 flex flex-col gap-6 lg:order-1">
           <div className="premium-panel rounded-3xl border border-line bg-raised p-6 sm:p-7">
