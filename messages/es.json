@@ -340,7 +340,8 @@
     "form_send_another": "Enviar otro mensaje",
     "form_error_msg": "Error al enviar. Por favor escríbeme directamente.",
     "form_privacy_notice": "Al enviar este formulario, tu nombre, correo electrónico, asunto y mensaje se transmitirán a Formspree para gestionar tu consulta. No incluyas datos sensibles.",
-    "form_success_email": "También te he enviado una confirmación a tu correo electrónico."
+    "form_success_email": "También te he enviado una confirmación a tu correo electrónico.",
+    "form_success_closing": "Un saludo,"
   },
   "cv": {
     "role": "Desarrollador Fullstack & Especialista IT",
