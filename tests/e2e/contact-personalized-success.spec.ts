@@ -46,3 +46,18 @@ test("desktop contact columns preserve channels on the left", async ({ page }) =
   expect(email).not.toBeNull();
   expect(form!.x).toBeGreaterThan(email!.x);
 });
+
+const contactHeading = {
+  es: "Me encantará saber de ti",
+  en: "I'd Love to Hear from You",
+  de: "Ich freue mich auf Ihre Nachricht",
+} as const;
+for (const locale of ["es", "en", "de"] as const) {
+  test(`contact invitation is prominent and translated in ${locale}`, async ({ page }) => {
+    await page.goto("/" + locale);
+    const heading = page.locator("#contact-title");
+    await expect(heading).toHaveText(contactHeading[locale]);
+    await expect(heading).toHaveClass(/text-4xl/);
+    await expect(page.locator("#contact form")).toBeVisible();
+  });
+}
