@@ -17,6 +17,14 @@ test.describe("SEO indexability and internationalization", () => {
       await expect(page.locator('link[rel="alternate"][hreflang="x-default"]')).toHaveAttribute("href", `${origin}/en`);
       await expect(page.locator('script[type="application/ld+json"]')).toHaveCount(1);
       await expect(page).toHaveTitle(/Vidal Reñao/);
+      await expect(page.locator('meta[name="description"]')).toHaveAttribute("content", /Basel|Basilea/);
+      await expect(page.locator('meta[property="og:url"]')).toHaveAttribute("content", `${origin}/${locale}`);
+      const identity = await page.locator('script[type="application/ld+json"]').textContent();
+      const graph = JSON.parse(identity ?? "{}")["@graph"] as Array<Record<string, unknown>>;
+      expect(graph.find((node) => node["@type"] === "Person")?.name).toBe("Vidal Reñao");
+      const profile = graph.find((node) => node["@type"] === "ProfilePage");
+      expect(profile?.url).toBe(`${origin}/${locale}`);
+      expect(profile?.inLanguage).toBe(locale);
     });
   }
 
