@@ -340,7 +340,8 @@
     "form_send_another": "Weitere Nachricht senden",
     "form_error_msg": "Senden fehlgeschlagen. Bitte direkt per E-Mail kontaktieren.",
     "form_privacy_notice": "Mit dem Absenden werden Ihr Name, Ihre E-Mail-Adresse, der Betreff und Ihre Nachricht zur Bearbeitung Ihrer Anfrage an Formspree übermittelt. Bitte geben Sie keine sensiblen Daten an.",
-    "form_success_email": "Sie haben auch eine Eingangsbestätigung per E-Mail erhalten."
+    "form_success_email": "Sie haben auch eine Eingangsbestätigung per E-Mail erhalten.",
+    "form_success_closing": "Freundliche Grüsse"
   },
   "cv": {
     "role": "Fullstack-Entwickler & IT-Spezialist",
