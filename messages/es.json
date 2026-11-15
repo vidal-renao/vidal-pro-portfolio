@@ -335,11 +335,12 @@
     "form_message_ph": "Describe tu proyecto o consulta…",
     "form_submit": "Enviar mensaje",
     "form_submitting": "Enviando…",
-    "form_success_title": "Mensaje enviado",
-    "form_success_msg": "Te respondo en menos de 24 horas.",
+    "form_success_title": "¡Tu mensaje ha llegado!",
+    "form_success_msg": "Gracias por ponerte en contacto conmigo. He recibido correctamente tu mensaje y revisaré personalmente tu consulta para responderte lo antes posible.",
     "form_send_another": "Enviar otro mensaje",
     "form_error_msg": "Error al enviar. Por favor escríbeme directamente.",
-    "form_privacy_notice": "Al enviar este formulario, tu nombre, correo electrónico, asunto y mensaje se transmitirán a Formspree para gestionar tu consulta. No incluyas datos sensibles."
+    "form_privacy_notice": "Al enviar este formulario, tu nombre, correo electrónico, asunto y mensaje se transmitirán a Formspree para gestionar tu consulta. No incluyas datos sensibles.",
+    "form_success_email": "También te he enviado una confirmación a tu correo electrónico."
   },
   "cv": {
     "role": "Desarrollador Fullstack & Especialista IT",
