@@ -22,6 +22,27 @@ for (const locale of ["es", "en", "de"] as const) {
     await expect(status).toContainText(copy[locale].message);
     await expect(status).toContainText(copy[locale].email);
     await expect(status).not.toContainText("24 hours");
+    await expect(status).toContainText("VIDAL ECOSYSTEM");
     await expect(status.getByRole("button")).toBeVisible();
   });
 }
+
+test("mobile contact form is shown before direct contact channels", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/es");
+  const form = await page.locator("#contact form").boundingBox();
+  const email = await page.locator('#contact a[href^="mailto:"]').first().boundingBox();
+  expect(form).not.toBeNull();
+  expect(email).not.toBeNull();
+  expect(form!.y).toBeLessThan(email!.y);
+});
+
+test("desktop contact columns preserve channels on the left", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/es");
+  const form = await page.locator("#contact form").boundingBox();
+  const email = await page.locator('#contact a[href^="mailto:"]').first().boundingBox();
+  expect(form).not.toBeNull();
+  expect(email).not.toBeNull();
+  expect(form!.x).toBeGreaterThan(email!.x);
+});
