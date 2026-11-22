@@ -31,16 +31,22 @@ export async function Skills({ locale }: { locale: string }) {
             </ul>
           </details>
         ))}
-        <div className="reveal rounded-2xl border border-line bg-raised p-5">
-          <h3 className="text-sm font-semibold text-ink">{cv("languagesTitle")}</h3>
-          <ul className="mt-3 flex flex-col gap-2">
+        <details className="premium-panel reveal group rounded-3xl border border-line bg-raised p-6">
+          <summary className="flex min-h-12 items-center justify-between gap-4">
+            <span className="text-base font-semibold text-ink">{cv("languagesTitle")}</span>
+            <span className="flex shrink-0 items-center gap-2 text-xs text-accent">
+              {ui("show")}
+              <span aria-hidden="true" className="text-lg transition-transform group-open:rotate-45">+</span>
+            </span>
+          </summary>
+          <ul className="mt-4 flex flex-col gap-3 border-t border-line pt-5">
             {languages.map((l) => (
               <li key={l.id} className="flex items-baseline justify-between gap-3 text-sm">
                 <span className="text-ink">{l.lang}</span><span className="text-right text-xs text-dim">{l.level}</span>
               </li>
             ))}
           </ul>
-        </div>
+        </details>
       </div>
     </Section>
   );
