@@ -129,3 +129,9 @@ body[data-mobile-menu-open="true"] .section-scroll-rail { visibility: hidden; }
 }
 .v3-path { box-shadow: 0 22px 65px rgba(0,0,0,.18), inset 0 1px 0 rgba(255,255,255,.035); }
 @media (prefers-reduced-motion: reduce) { .v3-path { transition: none; } }
+
+/* UX-003 final polish: equally prominent but recognizable career pathways. */
+.v3-path-software { background-image: radial-gradient(circle at 100% 0%, rgba(65, 151, 222, .13), transparent 48%); }
+.v3-path-infra { background-image: radial-gradient(circle at 100% 0%, rgba(91, 166, 169, .11), transparent 48%); }
+.v3-path-software .v3-path-symbol { color: #9cc9ff; background: rgba(65,151,222,.10); }
+.v3-path-infra .v3-path-symbol { color: #9cd8d0; background: rgba(91,166,169,.10); }
