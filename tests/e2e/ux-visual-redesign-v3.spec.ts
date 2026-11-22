@@ -12,3 +12,21 @@ for (const locale of ["es", "en", "de"]) {
     expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(1);
   });
 }
+
+for (const locale of ["es", "en", "de"]) {
+  test(`UX-003 polish: mobile pathways and navigation in ${locale}`, async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 812 });
+    await page.goto(`/${locale}`);
+    const paths = page.locator("#top [data-ux-v3-path]");
+    await expect(paths).toHaveCount(2);
+    for (const path of await paths.all()) {
+      await expect(path).toBeVisible();
+      await expect(path.locator(".v3-path-symbol svg")).toBeVisible();
+      expect((await path.boundingBox())?.width ?? 0).toBeGreaterThan(300);
+    }
+    for (const target of ["services", "projects", "experience"]) {
+      await expect(page.locator(`#${target}`)).toHaveCount(1);
+    }
+    expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
+  });
+}
