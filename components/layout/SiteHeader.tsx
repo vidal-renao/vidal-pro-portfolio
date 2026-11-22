@@ -120,21 +120,23 @@ export function SiteHeader({ locale, brand, sections, labels }: Props) {
   }, []);
 
   const languageSwitch = (mobile = false) => (
-    <div data-language-switch role="group" aria-label={labels.language}
-      className="inline-flex items-center gap-1 rounded-2xl border border-line-strong bg-white/[0.035] p-1 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
-      {LOCALES.map((l) => (
-        <a key={l.code} href={`/${l.code}`} hrefLang={l.code} lang={l.code}
-          aria-label={l.name} title={l.name} aria-current={l.code === locale ? "page" : undefined}
-          onClick={mobile ? () => setOpen(false) : undefined}
-          className={`group relative inline-flex ${mobile ? "h-11 w-11" : "h-10 w-10"} shrink-0 items-center justify-center rounded-xl border text-xl leading-none transition-[background-color,border-color,transform,box-shadow] duration-200 motion-reduce:transition-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${l.code === locale
-            ? "border-accent/40 bg-accent/15 shadow-[0_0_14px_rgba(91,141,184,0.09)]"
-            : "border-transparent bg-transparent hover:scale-105 hover:border-line-strong hover:bg-white/[0.07] motion-reduce:hover:scale-100"}`}>
-          <span aria-hidden="true" className="inline-flex items-center justify-center drop-shadow-sm">{l.flag}</span>
-          <span className="sr-only">{l.name}</span>
-          {l.code === locale && <span aria-hidden="true" className="absolute bottom-0.5 h-0.5 w-3 rounded-full bg-accent" />}
-        </a>
-      ))}
-    </div>
+    <details data-language-switch className="group/language relative">
+      <summary aria-label={labels.language} className="flex min-h-11 cursor-pointer list-none items-center gap-2 rounded-xl border border-line-strong bg-white/[0.035] px-3 text-sm font-medium text-ink transition-colors hover:bg-white/[0.08] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent [&::-webkit-details-marker]:hidden">
+        <span aria-hidden="true">{LOCALES.find((l) => l.code === locale)?.flag}</span>
+        <span className="sr-only">{labels.language}</span>
+        <span aria-hidden="true" className="text-xs text-muted transition-transform group-open/language:rotate-180">⌄</span>
+      </summary>
+      <div role="group" aria-label={labels.language} className={`z-[60] min-w-44 rounded-2xl border border-line-strong bg-raised p-2 shadow-2xl shadow-black/35 ${mobile ? "mt-2" : "absolute right-0 top-full mt-2"}`}>
+        {LOCALES.map((l) => (
+          <a key={l.code} href={`/${l.code}`} hrefLang={l.code} lang={l.code}
+            aria-current={l.code === locale ? "page" : undefined}
+            onClick={mobile ? () => setOpen(false) : undefined}
+            className={`flex min-h-11 items-center gap-3 rounded-xl px-3 py-2 text-sm transition-colors focus-visible:outline-2 focus-visible:outline-accent ${l.code === locale ? "bg-accent/15 font-semibold text-ink" : "text-muted hover:bg-white/[0.07] hover:text-ink"}`}>
+            <span aria-hidden="true">{l.flag}</span>{l.name}
+          </a>
+        ))}
+      </div>
+    </details>
   );
 
   return (
