@@ -1,5 +1,6 @@
 "use client";
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
+import { CONTACT_INTENT_EVENT, type ServiceId } from "@/components/features/contact/ContactIntentLink";
 import { Check } from "@/components/ui/icons";
 
 /** Public Formspree submission endpoint. No API key or private token is exposed. */
@@ -7,11 +8,25 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/xbggnyab";
 
 export interface ContactFormLabels {
   title: string; name: string; namePh: string; email: string; emailPh: string; subject: string; subjectPh: string;
+  purposeLabel: string; purposeBusiness: string; purposeCareer: string; purposeGeneral: string; serviceLabel: string; serviceNone: string; serviceWeb: string; serviceAi: string; serviceIt: string;
   message: string; messagePh: string; submit: string; submitting: string; successTitle: string; successMsg: string; successEmail: string; successClosing: string; another: string; error: string; privacyNotice: string;
 }
 
 /** Submits to Formspree via its documented AJAX endpoint; `_gotcha` is its native spam trap. */
 export function ContactForm({ labels, fallbackEmail }: { labels: ContactFormLabels; fallbackEmail: string }) {
+  const [purpose, setPurpose] = useState<"business" | "career" | "general">("general");
+  const [service, setService] = useState<"" | ServiceId>("");
+  useEffect(() => {
+    const handler = (event: Event) => {
+      const value = (event as CustomEvent<{ service?: string }>).detail?.service;
+      if (value === "web" || value === "ai" || value === "it") {
+        setPurpose("business");
+        setService(value);
+      }
+    };
+    window.addEventListener(CONTACT_INTENT_EVENT, handler);
+    return () => window.removeEventListener(CONTACT_INTENT_EVENT, handler);
+  }, []);
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const field = "h-11 w-full rounded-xl border border-line bg-bg px-3.5 text-sm text-ink placeholder:text-dim focus:border-accent/50 focus:outline-none";
 
@@ -23,6 +38,9 @@ export function ContactForm({ labels, fallbackEmail }: { labels: ContactFormLabe
     const visitorSubject = String(data.get("subject") ?? "").trim();
     data.set("subject", `VIDAL ECOSYSTEM | ${visitorSubject || "Portfolio contact"}`);
     data.set("source", "Portfolio Premium 2.0");
+    data.set("contact_purpose", purpose);
+    if (purpose === "business" && service) data.set("contact_service", service);
+    else data.delete("contact_service");
     setStatus("submitting");
     try {
       const res = await fetch(FORMSPREE_ENDPOINT, {
@@ -44,7 +62,7 @@ export function ContactForm({ labels, fallbackEmail }: { labels: ContactFormLabe
         <span className="flex h-10 w-10 items-center justify-center rounded-full bg-accent/15 text-accent"><Check /></span>
         <p className="text-lg font-semibold text-ink">{labels.successTitle}</p>
         <p className="text-sm leading-relaxed text-muted">{labels.successMsg}</p>
-        <p className="text-sm text-muted">{labels.successEmail}</p>
+
         <p className="mt-1 text-sm leading-relaxed text-muted">{labels.successClosing}<br />VIDAL ECOSYSTEM</p>
         <button type="button" onClick={() => setStatus("idle")} className="mt-2 text-sm font-semibold text-accent hover:underline">{labels.another}</button>
       </div>
@@ -57,6 +75,21 @@ export function ContactForm({ labels, fallbackEmail }: { labels: ContactFormLabe
         <label className="flex flex-col gap-1.5 text-xs text-muted">{labels.name}<input name="name" required minLength={2} maxLength={100} autoComplete="name" placeholder={labels.namePh} className={field} /></label>
         <label className="flex flex-col gap-1.5 text-xs text-muted">{labels.email}<input name="email" type="email" required autoComplete="email" placeholder={labels.emailPh} className={field} /></label>
       </div>
+      <label className="flex flex-col gap-1.5 text-xs text-muted">{labels.purposeLabel}
+        <select data-testid="contact-purpose" name="contact_purpose" value={purpose} onChange={(e) => { const value = e.target.value; if (value === "business" || value === "career" || value === "general") { setPurpose(value); if (value !== "business") setService(""); } }} className={field}>
+          <option value="general">{labels.purposeGeneral}</option>
+          <option value="business">{labels.purposeBusiness}</option>
+          <option value="career">{labels.purposeCareer}</option>
+        </select>
+      </label>
+      {purpose === "business" && <label className="flex flex-col gap-1.5 text-xs text-muted">{labels.serviceLabel}
+        <select data-testid="contact-service" name="contact_service" value={service} onChange={(e) => { const value = e.target.value; if (value === "" || value === "web" || value === "ai" || value === "it") setService(value); }} className={field}>
+          <option value="">{labels.serviceNone}</option>
+          <option value="web">{labels.serviceWeb}</option>
+          <option value="ai">{labels.serviceAi}</option>
+          <option value="it">{labels.serviceIt}</option>
+        </select>
+      </label>}
       <label className="flex flex-col gap-1.5 text-xs text-muted">{labels.subject}<input name="subject" maxLength={150} placeholder={labels.subjectPh} className={field} /></label>
       <label className="flex flex-col gap-1.5 text-xs text-muted">{labels.message}<textarea name="message" required minLength={10} maxLength={2000} rows={5} placeholder={labels.messagePh} className={`${field} h-auto py-3`} /></label>
       <input name="_gotcha" tabIndex={-1} autoComplete="off" aria-hidden className="hidden" defaultValue="" />
