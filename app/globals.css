@@ -115,3 +115,17 @@ body[data-mobile-menu-open="true"] .section-scroll-rail { visibility: hidden; }
 .border-accent\/50.bg-accent\/15.py-1\.5 {
   color: var(--text) !important;
 }
+
+/* VE-PORTFOLIO-UX-003: editorial hero and distinct professional gateways. */
+.v3-hero {
+  background: radial-gradient(ellipse 80% 75% at 88% 12%, rgba(51, 114, 165, 0.13), transparent 70%),
+    linear-gradient(180deg, #0b1425 0%, #080e1c 100%);
+}
+.v3-hero-glow {
+  background-image: linear-gradient(rgba(127, 166, 204, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(127, 166, 204, 0.045) 1px, transparent 1px);
+  background-size: 76px 76px;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,.7), transparent 85%);
+}
+.v3-path { box-shadow: 0 22px 65px rgba(0,0,0,.18), inset 0 1px 0 rgba(255,255,255,.035); }
+@media (prefers-reduced-motion: reduce) { .v3-path { transition: none; } }
