@@ -44,7 +44,8 @@
       }
     ],
     "evidenceLabel": "Beispiele",
-    "technicalLabel": "Eingesetzte Technologien"
+    "technicalLabel": "Eingesetzte Technologien",
+    "contactCta": "Zu dieser Leistung anfragen"
   },
   "hero": {
     "title2": "Zuverlässige IT heute. Bereit für KI morgen.",
@@ -335,13 +336,22 @@
     "form_message_ph": "Beschreiben Sie Ihr Projekt oder Anliegen…",
     "form_submit": "Nachricht senden",
     "form_submitting": "Wird gesendet…",
-    "form_success_title": "Ihre Nachricht ist angekommen!",
-    "form_success_msg": "Vielen Dank für Ihre Kontaktaufnahme. Ich habe Ihre Nachricht erhalten und werde Ihr Anliegen persönlich prüfen. Ich melde mich so bald wie möglich bei Ihnen.",
+    "form_success_title": "Nachricht übermittelt",
+    "form_success_msg": "Der Formulardienst hat Ihre Nachricht zur Übermittlung angenommen. Vielen Dank für Ihre Anfrage.",
     "form_send_another": "Weitere Nachricht senden",
     "form_error_msg": "Senden fehlgeschlagen. Bitte direkt per E-Mail kontaktieren.",
     "form_privacy_notice": "Mit dem Absenden werden Ihr Name, Ihre E-Mail-Adresse, der Betreff und Ihre Nachricht zur Bearbeitung Ihrer Anfrage an Formspree übermittelt. Bitte geben Sie keine sensiblen Daten an.",
-    "form_success_email": "Sie haben auch eine Eingangsbestätigung per E-Mail erhalten.",
-    "form_success_closing": "Freundliche Grüsse"
+    "form_success_email": "",
+    "form_success_closing": "Freundliche Grüsse",
+    "form_purpose": "Grund Ihrer Anfrage",
+    "form_purpose_business": "Projekt oder Dienstleistung für Unternehmen",
+    "form_purpose_career": "Stellenangebot",
+    "form_purpose_general": "Allgemeine Anfrage",
+    "form_service": "Gewünschte Leistung (optional)",
+    "form_service_none": "Leistung auswählen",
+    "form_service_web": "Websites und Apps",
+    "form_service_ai": "KI-Automatisierung",
+    "form_service_it": "IT-Support und Systeme"
   },
   "cv": {
     "role": "Fullstack-Entwickler & IT-Spezialist",
@@ -529,8 +539,8 @@
     },
     "hero": {
       "eyebrow": "Basel, Schweiz · Verfügbar in CH und LI",
-      "primary": "Fachgebiete entdecken",
-      "secondary": "Kontakt aufnehmen",
+      "primary": "Leistungen für Unternehmen",
+      "secondary": "Berufsprofil und Lebenslauf",
       "statProjects": "Projekte online",
       "statCerts": "KI-Weiterbildungen",
       "statLanguages": "Arbeitssprachen",
