@@ -16,8 +16,8 @@ for (const locale of ["es", "de", "en"]) {
 
 test("hero offers clear business and career routes without removing either specialization", async ({ page }) => {
   await page.goto("/en");
-  await expect(page.locator("#top a[href='#services']")).toBeVisible();
-  await expect(page.locator("#top a[href='#experience']")).toBeVisible();
+  await expect(page.locator("#top [data-testid=hero-business-cta]")).toBeVisible();
+  await expect(page.locator("#top [data-testid=hero-career-cta]")).toBeVisible();
   await expect(page.locator("#specializations article")).toHaveCount(2);
 });
 
