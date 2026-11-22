@@ -20,7 +20,7 @@ const LOCALES = [
   { code: "es", flag: "🇪🇸", name: "Español" },
 ] as const;
 
-const PRIMARY_IDS = new Set(["specializations", "testimonials", "projects", "experience"]);
+const PRIMARY_IDS = new Set(["specializations", "services", "projects", "experience"]);
 const FOCUSABLE = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
 /** One navigation model for all viewports: primary desktop links, native More, accessible mobile sheet. */
