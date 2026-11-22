@@ -1,58 +1,64 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
-import { PROJECTS } from "@/content/projects";
-import { CREDENTIALS } from "@/content/credentials";
 import { SITE } from "@/content/site";
-import { ArrowDown, Pin } from "@/components/ui/icons";
+import { ArrowDown, ArrowUpRight, Pin } from "@/components/ui/icons";
 
-/** First screen: who, what, where — and the numbers behind it, counted from the content modules. */
+interface HeroTrack {
+  title: string;
+  subtitle: string;
+  summary: string;
+  action: string;
+  href: string;
+}
+
+/** Compact dual-career entry: both pathways are visible without scrolling on desktop. */
 export async function Hero({ locale }: { locale: string }) {
-  const [t, ui] = await Promise.all([
+  const [t, ui, specializations] = await Promise.all([
     getTranslations({ locale, namespace: "hero" }),
     getTranslations({ locale, namespace: "ui.hero" }),
+    getTranslations({ locale, namespace: "specializations" }),
   ]);
-  const stats = [
-    { value: String(PROJECTS.length), label: ui("statProjects") },
-    { value: String(CREDENTIALS.filter((c) => c.group === "ai").length), label: ui("statCerts") },
-    { value: String(SITE.languages.length), label: `${ui("statLanguages")} · ${SITE.languages.join(" ")}` },
-  ];
+  const tracks = specializations.raw("tracks") as HeroTrack[];
 
   return (
-    <section id="top" className="hero-stage relative isolate overflow-hidden px-4 pb-20 pt-28 sm:px-6 sm:pb-28 sm:pt-36">
-      <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-[560px] bg-[radial-gradient(ellipse_65%_70%_at_50%_0%,rgba(91,141,184,0.10),transparent_72%)]" />
-      <div className="relative mx-auto grid max-w-6xl items-center gap-10 lg:min-h-[590px] lg:grid-cols-[1.2fr_0.8fr] lg:gap-16">
-        <div className="hero-content relative z-10">
-          <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-line bg-white/[0.03] px-3 py-1.5 text-xs text-muted">
-            <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_10px_var(--accent)]" />
-            <Pin size={13} />{ui("eyebrow")}
-          </p>
-          <div className="flex items-center gap-4">
-            <Image src={SITE.photo} alt="" width={128} height={128} loading="eager" sizes="64px" className="h-16 w-16 flex-none rounded-2xl border border-line object-cover lg:hidden" />
-            <h1 className="text-[clamp(2.6rem,6vw,5rem)] font-semibold leading-[1.04] tracking-[-0.045em] text-ink">{SITE.name}</h1>
+    <section id="top" className="v3-hero relative isolate overflow-hidden border-b border-line px-4 pb-12 pt-24 sm:px-6 sm:pb-16 sm:pt-28">
+      <div aria-hidden="true" className="v3-hero-glow pointer-events-none absolute inset-0" />
+      <div className="relative mx-auto max-w-6xl" data-ux-v3-hero>
+        <div className="grid items-center gap-7 lg:grid-cols-[minmax(0,1fr)_190px] lg:gap-12">
+          <div className="hero-content relative z-10">
+            <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3 py-1.5 text-xs font-medium text-ink">
+              <span aria-hidden="true" className="h-2 w-2 rounded-full bg-accent-strong" />
+              <Pin size={13} />{ui("eyebrow")}
+            </p>
+            <div className="flex items-center gap-4">
+              <Image src={SITE.photo} alt="" width={80} height={80} loading="eager" sizes="56px" className="h-14 w-14 flex-none rounded-xl border border-line-strong object-cover lg:hidden" />
+              <h1 className="text-[clamp(2.6rem,5vw,4.6rem)] font-semibold leading-[1.02] tracking-[-0.055em] text-ink">{SITE.name}</h1>
+            </div>
+            <p className="mt-4 max-w-3xl border-l-2 border-accent pl-4 text-base font-semibold leading-snug text-accent-strong sm:text-xl">{ui("role")}</p>
+            <p className="mt-4 max-w-[66ch] text-sm leading-6 text-muted sm:text-base">{t("title2")} {t("subtitle")}</p>
+            <div className="mt-5 flex flex-wrap gap-3">
+              <a data-testid="hero-business-cta" href="#services" className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-accent px-5 py-2.5 text-sm font-semibold text-accent-ink transition-colors hover:bg-accent-strong">{ui("primary")}<ArrowDown size={16} /></a>
+              <a data-testid="hero-career-cta" href="#experience" className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-line-strong bg-white/[0.04] px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:bg-white/[0.09]">{ui("secondary")}</a>
+            </div>
           </div>
-          <p className="mt-5 text-xl font-medium text-accent sm:text-2xl">{ui("role")}</p>
-          <p className="mt-7 max-w-[59ch] text-base leading-7 text-muted sm:text-lg sm:leading-8">{t("title2")} {t("subtitle")}</p>
-          <div className="mt-9 flex flex-wrap items-center gap-3">
-            <a data-testid="hero-business-cta" href="#services" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-ink transition-colors hover:bg-accent-strong">
-              {ui("primary")}<ArrowDown size={16} />
-            </a>
-            <a data-testid="hero-career-cta" href="#experience" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-line-strong px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-white/[0.05]">
-              {ui("secondary")}
-            </a>
+          <div className="hero-portrait relative mx-auto hidden w-full max-w-[190px] lg:block">
+            <div aria-hidden="true" className="absolute -inset-3 rounded-[1.8rem] border border-accent/20 bg-accent/[0.035]" />
+            <Image src={SITE.photo} alt={SITE.name} width={320} height={400} loading="eager" sizes="190px" className="relative aspect-[4/5] w-full rounded-2xl border border-line-strong object-cover shadow-[0_22px_65px_rgba(0,0,0,0.3)]" />
           </div>
-          <dl className="mt-12 grid max-w-xl grid-cols-3 gap-3 border-t border-line-strong pt-7 sm:gap-6">
-            {stats.map((s) => (
-              <div key={s.label} className="flex flex-col-reverse">
-                <dt className="mt-1 text-xs leading-5 text-dim sm:text-sm">{s.label}</dt>
-                <dd className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">{s.value}</dd>
-              </div>
-            ))}
-          </dl>
         </div>
-        <div className="hero-portrait relative mx-auto hidden w-full max-w-[390px] lg:block">
-          <div aria-hidden className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-accent/25 via-transparent to-transparent blur-2xl" />
-          <Image src={SITE.photo} alt={SITE.name} width={680} height={720} loading="eager" sizes="340px"
-            className="relative aspect-[4/5] w-full rounded-[1.75rem] border border-line-strong object-cover shadow-[0_28px_90px_rgba(0,0,0,0.32)]" />
+        <div className="mt-8 border-t border-line-strong pt-5">
+          <p className="mb-4 font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-accent-strong">{specializations("label")}</p>
+          <div className="grid gap-4 md:grid-cols-2">
+            {tracks.map((track, index) => (
+              <a key={track.title} data-ux-v3-path href={track.href} className={`v3-path ${index === 0 ? "v3-path-software" : "v3-path-infra"} group relative flex min-h-[190px] flex-col overflow-hidden rounded-2xl border border-line-strong bg-raised p-5 transition-[border-color,background-color,transform] duration-200 hover:-translate-y-1 hover:border-accent/60 hover:bg-[#16263b] focus-visible:outline-offset-4 motion-reduce:transform-none sm:p-6`}>
+                <span aria-hidden="true" className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-accent via-sky-300/40 to-transparent" />
+                <div className="mb-3 flex items-center justify-between gap-3"><span className="font-mono text-[11px] tracking-[0.12em] text-accent-strong">0{index + 1} / 02 · {track.subtitle}</span><span aria-hidden="true" className="v3-path-symbol flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-line-strong">{index === 0 ? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="m8 8-4 4 4 4m8-8 4 4-4 4m-3-13-2 18"/></svg> : <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.01M7 17.5h.01M12 10v4"/></svg>}</span></div>
+                <h2 className="max-w-[27ch] text-xl font-semibold leading-tight tracking-tight text-ink sm:text-2xl">{track.title}</h2>
+                <p className="mt-2 max-w-[58ch] text-sm leading-6 text-muted">{track.summary}</p>
+                <span className="mt-auto inline-flex items-center gap-2 pt-4 text-sm font-semibold text-accent-strong">{track.action}<ArrowUpRight size={16} className="transition-transform group-hover:translate-x-1 motion-reduce:transform-none" /></span>
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </section>
