@@ -1,6 +1,6 @@
 # VE-PORTFOLIO-UX-002 — UX redesign
 
-Status: UX direction and plan approved by owner on 2026-11-22. Phase 1 implemented in feature branch; pending CI, preview QA, and explicit production approval.
+Status: UX direction and plan approved by owner on 2026-11-22. Phases 1–3 implemented in feature branch; CI and visual/accessibility release gates pending. Owner authorized production release on 2026-11-22, conditional on QA.
 
 ## Goal and users
 Make the portfolio easier to navigate for Swiss/DACH SMB customers seeking IT/AI services and recruiters evaluating either of two independent career tracks.
@@ -26,7 +26,7 @@ Each requirement has an observable route, DOM order, interaction, or regression 
 5. Release (up to 4 tasks): preview review, approval, merge, smoke test.
 
 ## Phase 1 evidence
-New E2E acceptance test committed before UI changes. Updated the section order, primary navigation and hero testimonial duplication. CI, preview and manual checks pending. No production changes authorized for this branch.
+New E2E acceptance test committed before UI changes. Updated the section order, primary navigation and hero testimonial duplication. Initial CI and Vercel preview passed. A second test-first change refined the hero, balanced professional-track cards and service hierarchy. Subsequent CI and visual/a11y checks remain pending. No production merge until validation.
 
 ## Exclusions
 No dependency upgrades, database, authentication, paid services, analytics or API schema changes.
