@@ -44,7 +44,8 @@
       }
     ],
     "evidenceLabel": "Examples",
-    "technicalLabel": "Technologies used"
+    "technicalLabel": "Technologies used",
+    "contactCta": "Ask about this service"
   },
   "hero": {
     "title2": "Reliable IT today. AI-ready tomorrow.",
@@ -335,13 +336,22 @@
     "form_message_ph": "Describe your project or inquiry…",
     "form_submit": "Send Message",
     "form_submitting": "Sending…",
-    "form_success_title": "Your message has arrived!",
-    "form_success_msg": "Thank you for getting in touch. I've received your message and will personally review your enquiry. I'll get back to you as soon as possible.",
+    "form_success_title": "Message submitted",
+    "form_success_msg": "The message service accepted your form submission. Thank you for reaching out.",
     "form_send_another": "Send another message",
     "form_error_msg": "Sending failed. Please email directly.",
     "form_privacy_notice": "By submitting this form, your name, email address, subject and message will be sent to Formspree to handle your inquiry. Please do not include sensitive information.",
-    "form_success_email": "I've also sent a confirmation to your email address.",
-    "form_success_closing": "Best regards,"
+    "form_success_email": "",
+    "form_success_closing": "Best regards,",
+    "form_purpose": "Reason for contacting me",
+    "form_purpose_business": "Business project or service",
+    "form_purpose_career": "Job opportunity",
+    "form_purpose_general": "General enquiry",
+    "form_service": "Service of interest (optional)",
+    "form_service_none": "Choose a service",
+    "form_service_web": "Websites and apps",
+    "form_service_ai": "AI automation",
+    "form_service_it": "IT support and systems"
   },
   "cv": {
     "role": "Fullstack Developer & IT Specialist",
@@ -529,8 +539,8 @@
     },
     "hero": {
       "eyebrow": "Basel, Switzerland · Available in CH and LI",
-      "primary": "Explore specializations",
-      "secondary": "Get in touch",
+      "primary": "Services for businesses",
+      "secondary": "Professional profile and CV",
       "statProjects": "live projects",
       "statCerts": "AI learning courses",
       "statLanguages": "working languages",

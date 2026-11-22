@@ -1,9 +1,9 @@
 import { expect, test } from "@playwright/test";
 
 const copy = {
-  es: { title: "¡Tu mensaje ha llegado!", message: "He recibido correctamente tu mensaje", email: "También te he enviado una confirmación a tu correo electrónico." },
-  en: { title: "Your message has arrived!", message: "I've received your message", email: "I've also sent a confirmation to your email address." },
-  de: { title: "Ihre Nachricht ist angekommen!", message: "Ich habe Ihre Nachricht erhalten", email: "Sie haben auch eine Eingangsbestätigung per E-Mail erhalten." },
+  es: { title: "Mensaje enviado", message: "El formulario ha sido aceptado por el servicio de envío. Gracias por tu consulta." },
+  en: { title: "Message submitted", message: "The message service accepted your form submission. Thank you for reaching out." },
+  de: { title: "Nachricht übermittelt", message: "Der Formulardienst hat Ihre Nachricht zur Übermittlung angenommen. Vielen Dank für Ihre Anfrage." },
 } as const;
 
 for (const locale of ["es", "en", "de"] as const) {
@@ -20,7 +20,7 @@ for (const locale of ["es", "en", "de"] as const) {
     const status = page.locator("#contact [role='status']");
     await expect(status).toContainText(copy[locale].title);
     await expect(status).toContainText(copy[locale].message);
-    await expect(status).toContainText(copy[locale].email);
+    await expect(status).not.toContainText(/confirmación a tu correo|confirmation to your email|Eingangsbestätigung per E-Mail/);
     await expect(status).not.toContainText("24 hours");
     await expect(status).toContainText("VIDAL ECOSYSTEM");
     await expect(status.getByRole("button")).toBeVisible();

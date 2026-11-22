@@ -14,10 +14,11 @@ for (const locale of ["es", "de", "en"]) {
   });
 }
 
-test("hero offers a clear route to both career tracks", async ({ page }) => {
+test("hero offers clear business and career routes without removing either specialization", async ({ page }) => {
   await page.goto("/en");
-  await expect(page.locator("#top a[href='#specializations']")).toBeVisible();
-  await expect(page.locator("#top a[href='#contact']")).toBeVisible();
+  await expect(page.locator("#top a[href='#services']")).toBeVisible();
+  await expect(page.locator("#top a[href='#experience']")).toBeVisible();
+  await expect(page.locator("#specializations article")).toHaveCount(2);
 });
 
 test("premium header remains accessible on mobile", async ({ page, isMobile }) => {

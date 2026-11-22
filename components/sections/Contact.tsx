@@ -37,6 +37,8 @@ export async function Contact({ locale }: { locale: string }) {
         </div>
         <div className="order-1 lg:order-2"><ContactForm fallbackEmail={SITE.email} labels={{
           title: t("form_label"), name: t("form_name"), namePh: t("form_name_ph"), email: t("form_email"), emailPh: t("form_email_ph"),
+          purposeLabel: t("form_purpose"), purposeBusiness: t("form_purpose_business"), purposeCareer: t("form_purpose_career"), purposeGeneral: t("form_purpose_general"),
+          serviceLabel: t("form_service"), serviceNone: t("form_service_none"), serviceWeb: t("form_service_web"), serviceAi: t("form_service_ai"), serviceIt: t("form_service_it"),
           subject: t("form_subject"), subjectPh: t("form_subject_ph"), message: t("form_message"), messagePh: t("form_message_ph"),
           submit: t("form_submit"), submitting: t("form_submitting"), successTitle: t("form_success_title"), successMsg: t("form_success_msg"), successEmail: t("form_success_email"), successClosing: t("form_success_closing"),
           another: t("form_send_another"), error: t("form_error_msg"), privacyNotice: t("form_privacy_notice"),

@@ -44,10 +44,10 @@ export async function Hero({ locale }: { locale: string }) {
           </aside>}
           <p className="mt-5 max-w-2xl text-base leading-7 text-muted sm:text-lg sm:leading-8">{t("title2")} {t("subtitle")}</p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href="#specializations" className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-semibold text-accent-ink transition-colors hover:bg-accent-strong">
+            <a data-testid="hero-business-cta" href="#services" className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-semibold text-accent-ink transition-colors hover:bg-accent-strong">
               {ui("primary")}<ArrowDown size={16} />
             </a>
-            <a href="#contact" className="inline-flex items-center gap-2 rounded-full border border-line-strong px-5 py-3 text-sm font-semibold text-ink transition-colors hover:bg-white/[0.05]">
+            <a data-testid="hero-career-cta" href="#experience" className="inline-flex items-center gap-2 rounded-full border border-line-strong px-5 py-3 text-sm font-semibold text-ink transition-colors hover:bg-white/[0.05]">
               {ui("secondary")}
             </a>
           </div>
