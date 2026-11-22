@@ -18,9 +18,9 @@ export async function Specializations({ locale }: { locale: string }) {
 
   return (
     <Section id="specializations" label={t("label")} title={t("title")} subtitle={t("subtitle")}>
-      <div className="grid gap-5 lg:grid-cols-2">
+      <div className="grid items-stretch gap-5 lg:grid-cols-2">
         {tracks.map((track, index) => (
-          <article key={track.title} className="premium-panel group relative flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-raised p-6 sm:p-8">
+          <article key={track.title} className="premium-panel group relative flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-raised p-6 sm:p-9">
             <div aria-hidden="true" className={`pointer-events-none absolute inset-x-0 top-0 h-px ${index === 0 ? "bg-gradient-to-r from-accent/80 via-accent/30 to-transparent" : "bg-gradient-to-r from-muted/60 via-accent/30 to-transparent"}`} />
             <div className="mb-7 flex items-center justify-between">
               <span className="font-mono text-xs tracking-[0.18em] text-dim">0{index + 1} / 02</span>
@@ -48,7 +48,7 @@ export async function Specializations({ locale }: { locale: string }) {
               </ul>
             </details>
             <p className="mt-6 border-t border-line pt-5 text-sm leading-6 text-dim">{track.proof}</p>
-            <a href={track.href} className="mt-6 inline-flex min-h-11 w-fit items-center gap-2 rounded-full border border-line-strong bg-white/[0.04] px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:border-accent/50 hover:bg-white/[0.08]">
+            <a href={track.href} className="mt-auto inline-flex min-h-11 w-fit items-center gap-2 rounded-full border border-line-strong bg-white/[0.04] px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:border-accent/50 hover:bg-white/[0.08]">
               {track.action}<span aria-hidden="true">↗</span>
             </a>
           </article>

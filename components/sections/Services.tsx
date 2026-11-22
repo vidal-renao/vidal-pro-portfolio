@@ -10,14 +10,14 @@ export async function Services({ locale }: { locale: string }) {
   const items = t.raw("items") as Service[];
   return (
     <Section id="services" label={t("label")} title={t("title")} subtitle={t("subtitle")}>
-      <div className="grid gap-4 md:grid-cols-3">
+      <div className="grid items-stretch gap-5 md:grid-cols-3">
         {items.map((s, i) => (
-          <article key={s.title} className="premium-panel reveal flex flex-col rounded-3xl border border-line bg-raised p-7">
-            <span className="font-mono text-xs text-accent">0{i + 1}</span>
-            <h3 className="mt-3 text-lg font-semibold tracking-tight text-ink">{s.title}</h3>
-            <p className="mt-2 text-sm leading-6 text-muted">{s.desc}</p>
-            <p className="mt-4 text-xs text-dim"><span className="text-muted">{t("evidenceLabel")}:</span> {s.evidence}</p>
-            <div className="mt-5"><ContactIntentLink service={(["web", "ai", "it"] as const)[i]} label={t("contactCta")} /></div>
+          <article key={s.title} className="premium-panel reveal group relative flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-raised p-6 sm:p-7">
+            <span aria-hidden="true" className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-accent/70 via-accent/20 to-transparent" /><span className="font-mono text-xs tracking-[0.16em] text-accent">0{i + 1}</span>
+            <h3 className="mt-5 text-xl font-semibold tracking-tight text-ink">{s.title}</h3>
+            <p className="mt-3 min-h-24 text-sm leading-7 text-muted">{s.desc}</p>
+            <p className="mt-4 border-t border-line pt-4 text-xs leading-6 text-dim"><span className="text-muted">{t("evidenceLabel")}:</span> {s.evidence}</p>
+            <div className="service-action mt-6 mb-6"><ContactIntentLink service={(["web", "ai", "it"] as const)[i]} label={t("contactCta")} /></div>
             <details className="group/stack mt-auto border-t border-line pt-5">
               <summary className="flex min-h-10 items-center justify-between gap-2 text-xs font-medium text-accent">
                 {t("technicalLabel")}
