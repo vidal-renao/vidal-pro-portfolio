@@ -1,4 +1,5 @@
 import { getTranslations } from "next-intl/server";
+import { ContactIntentLink } from "@/components/features/contact/ContactIntentLink";
 import { Section } from "@/components/ui/Section";
 
 interface Service { title: string; desc: string; evidence: string; tags: string[] }
@@ -16,6 +17,7 @@ export async function Services({ locale }: { locale: string }) {
             <h3 className="mt-3 text-lg font-semibold tracking-tight text-ink">{s.title}</h3>
             <p className="mt-2 text-sm leading-6 text-muted">{s.desc}</p>
             <p className="mt-4 text-xs text-dim"><span className="text-muted">{t("evidenceLabel")}:</span> {s.evidence}</p>
+            <div className="mt-5"><ContactIntentLink service={(["web", "ai", "it"] as const)[i]} label={t("contactCta")} /></div>
             <details className="group/stack mt-auto border-t border-line pt-5">
               <summary className="flex min-h-10 items-center justify-between gap-2 text-xs font-medium text-accent">
                 {t("technicalLabel")}
