@@ -27,3 +27,10 @@ Each requirement has an observable selector, navigation target or regression tes
 No framework upgrade, backend change, database, analytics, external font, new images, invented accomplishments, or production deployment before QA.
 
 © VIDAL ECOSYSTEM
+
+## Final polish (2026-11-22)
+- Retained approved brand tagline in all three locales after regression tests detected identity drift.
+- Shortened hero descriptions and introduced recognizable software/infrastructure symbols and subtle distinct visual treatments, preserving equal prominence.
+- Extended those treatments to detailed specialization panels, with visible keyboard focus on their actions.
+- Added mobile E2E assertions for both pathways, icon visibility, navigation anchors and horizontal overflow in ES/EN/DE.
+- QA status: pending completion of latest CI after this change. Production remains unchanged; merge and release require passing checks and visual approval.
