@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { SITE } from "@/content/site";
-import { ArrowDown, Pin } from "@/components/ui/icons";
+import { ArrowDown, ArrowUpRight, Pin } from "@/components/ui/icons";
 
 interface HeroTrack {
   title: string;
@@ -35,7 +35,7 @@ export async function Hero({ locale }: { locale: string }) {
               <h1 className="text-[clamp(2.6rem,5vw,4.6rem)] font-semibold leading-[1.02] tracking-[-0.055em] text-ink">{SITE.name}</h1>
             </div>
             <p className="mt-4 max-w-3xl border-l-2 border-accent pl-4 text-base font-semibold leading-snug text-accent-strong sm:text-xl">{ui("role")}</p>
-            <p className="mt-4 max-w-[70ch] text-sm leading-6 text-muted sm:text-base">{t("title2")} {t("subtitle")}</p>
+            <p className="mt-4 max-w-[66ch] text-sm leading-6 text-muted sm:text-base">{t("title2")} {t("subtitle")}</p>
             <div className="mt-5 flex flex-wrap gap-3">
               <a data-testid="hero-business-cta" href="#services" className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-accent px-5 py-2.5 text-sm font-semibold text-accent-ink transition-colors hover:bg-accent-strong">{ui("primary")}<ArrowDown size={16} /></a>
               <a data-testid="hero-career-cta" href="#experience" className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-line-strong bg-white/[0.04] px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:bg-white/[0.09]">{ui("secondary")}</a>
@@ -50,12 +50,12 @@ export async function Hero({ locale }: { locale: string }) {
           <p className="mb-4 font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-accent-strong">{specializations("label")}</p>
           <div className="grid gap-4 md:grid-cols-2">
             {tracks.map((track, index) => (
-              <a key={track.title} data-ux-v3-path href={track.href} className="v3-path group relative flex min-h-[190px] flex-col overflow-hidden rounded-2xl border border-line-strong bg-raised p-5 transition-[border-color,background-color,transform] duration-200 hover:-translate-y-1 hover:border-accent/60 hover:bg-[#16263b] focus-visible:outline-offset-4 motion-reduce:transform-none sm:p-6">
+              <a key={track.title} data-ux-v3-path href={track.href} className={`v3-path ${index === 0 ? "v3-path-software" : "v3-path-infra"} group relative flex min-h-[190px] flex-col overflow-hidden rounded-2xl border border-line-strong bg-raised p-5 transition-[border-color,background-color,transform] duration-200 hover:-translate-y-1 hover:border-accent/60 hover:bg-[#16263b] focus-visible:outline-offset-4 motion-reduce:transform-none sm:p-6`}>
                 <span aria-hidden="true" className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-accent via-sky-300/40 to-transparent" />
-                <span className="mb-3 font-mono text-[11px] tracking-[0.16em] text-accent-strong">0{index + 1} / 02 · {track.subtitle}</span>
+                <div className="mb-3 flex items-center justify-between gap-3"><span className="font-mono text-[11px] tracking-[0.12em] text-accent-strong">0{index + 1} / 02 · {track.subtitle}</span><span aria-hidden="true" className="v3-path-symbol flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-line-strong">{index === 0 ? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="m8 8-4 4 4 4m8-8 4 4-4 4m-3-13-2 18"/></svg> : <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.01M7 17.5h.01M12 10v4"/></svg>}</span></div>
                 <h2 className="max-w-[27ch] text-xl font-semibold leading-tight tracking-tight text-ink sm:text-2xl">{track.title}</h2>
                 <p className="mt-2 max-w-[58ch] text-sm leading-6 text-muted">{track.summary}</p>
-                <span className="mt-auto inline-flex items-center gap-2 pt-4 text-sm font-semibold text-accent-strong">{track.action}<span aria-hidden="true" className="transition-transform group-hover:translate-x-1 motion-reduce:transform-none">↗</span></span>
+                <span className="mt-auto inline-flex items-center gap-2 pt-4 text-sm font-semibold text-accent-strong">{track.action}<ArrowUpRight size={16} className="transition-transform group-hover:translate-x-1 motion-reduce:transform-none" /></span>
               </a>
             ))}
           </div>
