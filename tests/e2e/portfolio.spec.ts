@@ -123,6 +123,7 @@ test.describe("navigation", () => {
     await page.keyboard.press("Escape");
     await expect(menu).toBeHidden();
     await page.getByRole("button", { name: "Menü" }).click();
+    await menu.locator("[data-language-switch] summary").click();
     await menu.getByRole("link", { name: "English" }).click();
     await expect(page).toHaveURL(/\/en$/);
     await expect(page.locator("html")).toHaveAttribute("lang", "en");

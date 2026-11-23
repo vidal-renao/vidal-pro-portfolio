@@ -42,6 +42,7 @@ test("enterprise mobile menu contains focus, closes on Escape and returns to tri
   await expect(panel).toBeVisible();
   await expect(panel.getByRole("link", { name: "Contacto" })).toBeVisible();
   await expect(panel.locator('a[href="#cv"]')).toBeVisible();
+  await panel.locator("[data-language-switch] summary").click();
   await expect(panel.getByRole("link", { name: "Deutsch" })).toBeVisible();
   const focusedInside = await page.evaluate(() => document.getElementById("mobile-nav")?.contains(document.activeElement));
   expect(focusedInside).toBe(true);
