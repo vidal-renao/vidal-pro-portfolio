@@ -136,7 +136,8 @@
           "Verwaltete Benutzer, Gruppen und Berechtigungen in Active Directory und Group Policy sowie Microsoft 365 (Exchange, Teams, Lizenzen, MFA)",
           "Arbeit mit Azure AD (heute Entra ID) und Microsoft Intune",
           "Netzwerk-Troubleshooting (TCP/IP, DNS, DHCP, VLAN, VPN) und Unterstützung der Virtualisierungsumgebung mit VMware vSphere und Hyper-V",
-          "Hielt Arbeitsplätze und Server mit Updates und Patches aktuell; führte Backups durch, überwachte sie und prüfte die Wiederherstellung; Virenschutz mit Microsoft Defender"
+          "Hielt Arbeitsplätze und Server mit Updates und Patches aktuell; führte Backups durch, überwachte sie und prüfte die Wiederherstellung; Virenschutz mit Microsoft Defender",
+          "Nachverfolgung von Störungen und Service-Level-Vereinbarungen (SLA)."
         ]
       },
       {
@@ -148,7 +149,8 @@
         "highlights": [
           "Bearbeitung von Incidents, Service Requests und Changes im 1st-Level Service Desk mit ServiceNow nach ITIL.",
           "Support für Microsoft-365-Konten, Lizenzen, MFA und Remote-Zugriff per Telefon und schriftlich",
-          "Eskalation komplexer Infrastruktur-Incidents mit vollständiger Übergabe an die zuständigen Teams"
+          "Eskalation komplexer Infrastruktur-Incidents mit vollständiger Übergabe an die zuständigen Teams",
+          "Nachverfolgung von Störungen von Mitarbeitenden und Kunden sowie Service-Level-Vereinbarungen (SLA)."
         ]
       },
       {
@@ -167,7 +169,8 @@
           "Infrastrukturunterstützung für mehrere Kundenstandorte",
           "Erfassung und Nachverfolgung von System- und Netzwerkstörungen mit ServiceNow",
           "Vorbereitung und Konfiguration von IT-Geräten für Kunden sowie Installation, Inbetriebnahme und Konnektivitätsprüfung direkt vor Ort.",
-          "Synchronisierung lokaler Active-Directory-Benutzer mit Azure AD (heute Microsoft Entra ID) für Microsoft 365."
+          "Synchronisierung lokaler Active-Directory-Benutzer mit Azure AD (heute Microsoft Entra ID) für Microsoft 365.",
+          "Nachverfolgung von Störungen und Service-Level-Vereinbarungen (SLA)."
         ]
       },
       {
@@ -202,7 +205,8 @@
         "period": "Nov. 2013 – Nov. 2014",
         "highlights": [
           "Ferndiagnose von Störungen an Kommunikations- und Sicherheitssystemen und Koordination von Aussendiensttechnikern für Vor-Ort-Einsätze",
-          "Vorbereitung und Konfiguration von Kommunikations- und Sicherheitstechnik für Kunden sowie Unterstützung bei Vor-Ort-Installation, Inbetriebnahme und Funktionsprüfung."
+          "Vorbereitung und Konfiguration von Kommunikations- und Sicherheitstechnik für Kunden sowie Unterstützung bei Vor-Ort-Installation, Inbetriebnahme und Funktionsprüfung.",
+          "Nachverfolgung von Störungen und Service-Level-Vereinbarungen (SLA); Arbeit mit dem Telefonsystem 3CX."
         ]
       },
       {
