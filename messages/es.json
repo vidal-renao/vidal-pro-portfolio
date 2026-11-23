@@ -653,7 +653,13 @@
           "Gemini",
           "OpenCode",
           "Automatización de flujos",
-          "OCR"
+          "OCR",
+          "n8n",
+          "Docker",
+          "Docker Compose",
+          "pgvector",
+          "Zod",
+          "Vitest"
         ]
       },
       {
