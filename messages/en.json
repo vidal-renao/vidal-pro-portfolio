@@ -136,7 +136,8 @@
           "Administered users, groups and permissions in Active Directory and Group Policy, and Microsoft 365 (Exchange, Teams, licences, MFA)",
           "Worked with Azure AD (now Entra ID) and Microsoft Intune",
           "Network troubleshooting (TCP/IP, DNS, DHCP, VLAN, VPN) and support of the virtualization environment on VMware vSphere and Hyper-V",
-          "Kept workstations and servers patched and up to date; ran and monitored backups, including restore checks; antivirus with Microsoft Defender"
+          "Kept workstations and servers patched and up to date; ran and monitored backups, including restore checks; antivirus with Microsoft Defender",
+          "Tracked incidents and service level agreements (SLAs)."
         ]
       },
       {
@@ -148,7 +149,8 @@
         "highlights": [
           "Handled incidents, service requests and changes on the 1st-level service desk using ServiceNow and ITIL processes.",
           "Supported Microsoft 365 accounts, licences, MFA and remote access by phone and in writing",
-          "Escalated complex infrastructure incidents with complete handover to the responsible teams"
+          "Escalated complex infrastructure incidents with complete handover to the responsible teams",
+          "Tracked employee and customer incidents and service level agreements (SLAs)."
         ]
       },
       {
@@ -167,7 +169,8 @@
           "Provided infrastructure support across multiple client sites",
           "Logged and tracked systems and network incidents using ServiceNow",
           "Prepared and configured client IT equipment before delivery and carried out on-site installation, commissioning and connectivity checks.",
-          "Synchronised on-premises Active Directory users with Azure AD (now Microsoft Entra ID) for Microsoft 365."
+          "Synchronised on-premises Active Directory users with Azure AD (now Microsoft Entra ID) for Microsoft 365.",
+          "Tracked incidents and service level agreements (SLAs)."
         ]
       },
       {
@@ -202,7 +205,8 @@
         "period": "Nov 2013 – Nov 2014",
         "highlights": [
           "Diagnosed faults in communications and security systems remotely and coordinated field technicians for on-site interventions",
-          "Prepared and configured customer communications and security equipment, supporting on-site installation, start-up and functional checks."
+          "Prepared and configured customer communications and security equipment, supporting on-site installation, start-up and functional checks.",
+          "Tracked incidents and service level agreements (SLAs); worked with the 3CX telephony system."
         ]
       },
       {
