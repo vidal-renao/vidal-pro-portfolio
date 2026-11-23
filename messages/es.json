@@ -136,7 +136,8 @@
           "Administración de usuarios, grupos y permisos en Active Directory y Group Policy, y Microsoft 365 (Exchange, Teams, licencias, MFA)",
           "Trabajo con Azure AD (hoy Entra ID) y Microsoft Intune",
           "Resolución de incidencias de red (TCP/IP, DNS, DHCP, VLAN, VPN) y soporte del entorno de virtualización con VMware vSphere e Hyper-V",
-          "Mantenimiento de equipos y servidores actualizados con parches; ejecución y supervisión de copias de seguridad, incluidas pruebas de restauración; antivirus con Microsoft Defender"
+          "Mantenimiento de equipos y servidores actualizados con parches; ejecución y supervisión de copias de seguridad, incluidas pruebas de restauración; antivirus con Microsoft Defender",
+          "Seguimiento de incidencias y de los acuerdos de nivel de servicio (SLA)."
         ]
       },
       {
@@ -148,7 +149,8 @@
         "highlights": [
           "Gestión de incidencias, peticiones y cambios en el service desk de primer nivel con ServiceNow según ITIL.",
           "Soporte de cuentas, licencias, MFA y acceso remoto de Microsoft 365 por teléfono y por escrito",
-          "Escalado de incidencias complejas de infraestructura con traspaso completo a los equipos responsables"
+          "Escalado de incidencias complejas de infraestructura con traspaso completo a los equipos responsables",
+          "Seguimiento de incidencias de empleados y clientes y de los acuerdos de nivel de servicio (SLA)."
         ]
       },
       {
@@ -167,7 +169,8 @@
           "Soporte de infraestructura para múltiples sedes de clientes",
           "Registro y seguimiento de incidencias de sistemas y redes con ServiceNow",
           "Preparación y configuración de equipos IT para clientes, instalación y puesta en marcha in situ, con comprobaciones de funcionamiento y conectividad.",
-          "Sincronización de usuarios de Active Directory local con Azure AD (hoy Microsoft Entra ID) para Microsoft 365."
+          "Sincronización de usuarios de Active Directory local con Azure AD (hoy Microsoft Entra ID) para Microsoft 365.",
+          "Seguimiento de incidencias y de los acuerdos de nivel de servicio (SLA)."
         ]
       },
       {
@@ -202,7 +205,8 @@
         "period": "nov. 2013 – nov. 2014",
         "highlights": [
           "Diagnóstico remoto de averías en sistemas de comunicación y seguridad y coordinación de técnicos de campo para intervenciones in situ",
-          "Preparación y configuración de equipos de comunicación y seguridad para clientes, apoyo a la instalación, puesta en marcha y pruebas funcionales in situ."
+          "Preparación y configuración de equipos de comunicación y seguridad para clientes, apoyo a la instalación, puesta en marcha y pruebas funcionales in situ.",
+          "Seguimiento de incidencias y de los acuerdos de nivel de servicio (SLA); trabajo con el sistema de telefonía 3CX."
         ]
       },
       {
