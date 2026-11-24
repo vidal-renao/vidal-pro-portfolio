@@ -10,9 +10,14 @@ const viewports = [
   { name: "desktop-1440", width: 1440, height: 900 },
 ] as const;
 
+/**
+ * Full-page captures of the tall mobile page exceed Chromium's encoder limit in CI
+ * ("Unable to encode screenshot"), so phones (<= 414px wide) are captured as viewport screenshots.
+ */
 async function capture(page: import("@playwright/test").Page, name: string) {
   await page.evaluate(() => document.fonts.ready);
-  const bytes = await page.screenshot({ type: "jpeg", quality: 82, fullPage: name.endsWith("-full"), animations: "disabled" });
+  const isPhone = (page.viewportSize()?.width ?? Infinity) <= 414;
+  const bytes = await page.screenshot({ type: "jpeg", quality: 82, fullPage: name.endsWith("-full") && !isPhone, animations: "disabled" });
   await test.info().attach(name, { body: bytes, contentType: "image/jpeg" });
 }
 

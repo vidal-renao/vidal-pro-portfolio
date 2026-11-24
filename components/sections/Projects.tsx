@@ -21,7 +21,7 @@ export async function Projects({ locale }: { locale: string }) {
   }));
   const labels: ExplorerLabels = {
     search: ui("search"), all: ui("all"), countOne: ui.raw("count_one") as string, countOther: ui.raw("count_other") as string,
-    empty: ui("empty"), clear: ui("clear"), open: ui("open"), code: ui("code"), private: ui("private"), featured: ui("featured"), bridge: ui("bridge"),
+    empty: ui("empty"), clear: ui("clear"), open: ui("open"), code: ui("code"), private: ui("private"), featured: ui("featured"), bridge: ui("bridge"), moreFacts: ui("moreFacts"), showAll: ui("showAll"),
     status: { production: ui("status.production"), demo: ui("status.demo"), staging: ui("status.staging"), lab: ui("status.lab") },
     category: { systems: ui("category.systems"), ai: ui("category.ai"), saas: ui("category.saas"), client: ui("category.client") },
   };

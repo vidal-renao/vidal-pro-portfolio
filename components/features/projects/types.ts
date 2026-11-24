@@ -28,6 +28,8 @@ export interface ExplorerLabels {
   private: string;
   featured: string;
   bridge: string;
+  moreFacts: string;
+  showAll: string;
   status: Record<ProjectStatus, string>;
   category: Record<ProjectCategory, string>;
 }

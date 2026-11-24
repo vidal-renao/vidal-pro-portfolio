@@ -20,6 +20,73 @@ const LOCALES = [
   { code: "es", flag: "🇪🇸", name: "Español" },
 ] as const;
 
+interface LanguageSwitchProps { locale: string; label: string; mobile: boolean; onNavigate?: () => void }
+
+/**
+ * Language menu. On desktop with a mouse it opens on hover (all languages visible, like the "More" menu),
+ * on touch and keyboard it stays a native details toggle. The panel is attached to the trigger by padding,
+ * not margin, so the pointer never crosses a gap that would close it.
+ */
+function LanguageSwitch({ locale, label, mobile, onNavigate }: LanguageSwitchProps) {
+  const ref = useRef<HTMLDetailsElement>(null);
+
+  useEffect(() => {
+    const close = () => { if (ref.current?.open) ref.current.open = false; };
+    const dismiss = (event: PointerEvent) => { if (ref.current && !ref.current.contains(event.target as Node)) close(); };
+    const onEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape" && ref.current?.open) {
+        close();
+        ref.current.querySelector("summary")?.focus();
+      }
+    };
+    // The drawer menu scrolls programmatically (section links); only the desktop menu closes on page scroll.
+    if (!mobile) window.addEventListener("scroll", close, { passive: true });
+    document.addEventListener("pointerdown", dismiss);
+    document.addEventListener("keydown", onEscape);
+    return () => {
+      window.removeEventListener("scroll", close);
+      document.removeEventListener("pointerdown", dismiss);
+      document.removeEventListener("keydown", onEscape);
+    };
+  }, [mobile]);
+
+  const hoverProps = mobile ? {} : {
+    onPointerEnter: (event: React.PointerEvent) => { if (event.pointerType === "mouse" && ref.current) ref.current.open = true; },
+    onPointerLeave: (event: React.PointerEvent) => {
+      if (event.pointerType !== "mouse" || !ref.current) return;
+      if (!ref.current.contains(document.activeElement)) ref.current.open = false;
+    },
+    onBlur: (event: React.FocusEvent) => {
+      if (!event.currentTarget.contains(event.relatedTarget as Node | null) && ref.current) ref.current.open = false;
+    },
+  };
+
+  return (
+    <details ref={ref} data-language-switch className="group/language relative" {...hoverProps}>
+      <summary
+        aria-label={label}
+        onClick={mobile ? undefined : (event) => { if (event.detail > 0 && window.matchMedia("(hover: hover) and (pointer: fine)").matches) event.preventDefault(); }}
+        className="flex min-h-11 cursor-pointer list-none items-center gap-2 rounded-xl border border-line-strong bg-white/[0.035] px-3 text-sm font-medium text-ink transition-colors hover:bg-white/[0.08] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent [&::-webkit-details-marker]:hidden">
+        <span aria-hidden="true">{LOCALES.find((l) => l.code === locale)?.flag}</span>
+        <span className="sr-only">{label}</span>
+        <span aria-hidden="true" className="text-xs text-muted transition-transform group-open/language:rotate-180">⌄</span>
+      </summary>
+      <div className={mobile ? "mt-2" : "absolute right-0 top-full z-[60] pt-2"}>
+        <div role="group" aria-label={label} className="min-w-44 rounded-2xl border border-line-strong bg-raised p-2 shadow-2xl shadow-black/35">
+          {LOCALES.map((l) => (
+            <a key={l.code} href={"/" + l.code} hrefLang={l.code} lang={l.code}
+              aria-current={l.code === locale ? "page" : undefined}
+              onClick={onNavigate}
+              className={"flex min-h-11 items-center gap-3 rounded-xl px-3 py-2 text-sm transition-colors focus-visible:outline-2 focus-visible:outline-accent " + (l.code === locale ? "bg-accent/15 font-semibold text-ink" : "text-muted hover:bg-white/[0.07] hover:text-ink")}>
+              <span aria-hidden="true">{l.flag}</span>{l.name}
+            </a>
+          ))}
+        </div>
+      </div>
+    </details>
+  );
+}
+
 const PRIMARY_IDS = new Set(["specializations", "services", "projects", "experience"]);
 const FOCUSABLE = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
@@ -120,23 +187,7 @@ export function SiteHeader({ locale, brand, sections, labels }: Props) {
   }, []);
 
   const languageSwitch = (mobile = false) => (
-    <details data-language-switch className="group/language relative">
-      <summary aria-label={labels.language} className="flex min-h-11 cursor-pointer list-none items-center gap-2 rounded-xl border border-line-strong bg-white/[0.035] px-3 text-sm font-medium text-ink transition-colors hover:bg-white/[0.08] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent [&::-webkit-details-marker]:hidden">
-        <span aria-hidden="true">{LOCALES.find((l) => l.code === locale)?.flag}</span>
-        <span className="sr-only">{labels.language}</span>
-        <span aria-hidden="true" className="text-xs text-muted transition-transform group-open/language:rotate-180">⌄</span>
-      </summary>
-      <div role="group" aria-label={labels.language} className={`z-[60] min-w-44 rounded-2xl border border-line-strong bg-raised p-2 shadow-2xl shadow-black/35 ${mobile ? "mt-2" : "absolute right-0 top-full mt-2"}`}>
-        {LOCALES.map((l) => (
-          <a key={l.code} href={`/${l.code}`} hrefLang={l.code} lang={l.code}
-            aria-current={l.code === locale ? "page" : undefined}
-            onClick={mobile ? () => setOpen(false) : undefined}
-            className={`flex min-h-11 items-center gap-3 rounded-xl px-3 py-2 text-sm transition-colors focus-visible:outline-2 focus-visible:outline-accent ${l.code === locale ? "bg-accent/15 font-semibold text-ink" : "text-muted hover:bg-white/[0.07] hover:text-ink"}`}>
-            <span aria-hidden="true">{l.flag}</span>{l.name}
-          </a>
-        ))}
-      </div>
-    </details>
+    <LanguageSwitch locale={locale} label={labels.language} mobile={mobile} onNavigate={mobile ? () => setOpen(false) : undefined} />
   );
 
   return (

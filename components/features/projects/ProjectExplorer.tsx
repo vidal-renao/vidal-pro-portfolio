@@ -13,13 +13,18 @@ interface Props {
 }
 
 /** Search box + category chips over the project grid. Featured projects lead when nothing is filtered. */
+/** On phones only the first cards show until expanded; filtering or searching always shows every match. */
+const PHONE_INITIAL = 6;
+
 export function ProjectExplorer({ projects, categories, labels }: Props) {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<ProjectCategory | null>(null);
+  const [expanded, setExpanded] = useState(false);
   const results = useMemo(() => filterProjects(projects, query, category), [projects, query, category]);
   const filtered = Boolean(query.trim() || category);
   const count = (results.length === 1 ? labels.countOne : labels.countOther).replace("{count}", String(results.length));
   const clear = () => { setQuery(""); setCategory(null); };
+  const phoneCollapsed = !filtered && !expanded && results.length > PHONE_INITIAL;
   const chip = (active: boolean) => `rounded-full border px-3.5 py-1.5 text-sm transition-colors ${active ? "border-accent/50 bg-accent/15 text-accent" : "border-line text-muted hover:border-line-strong hover:text-ink"}`;
 
   return (
@@ -54,11 +59,20 @@ export function ProjectExplorer({ projects, categories, labels }: Props) {
       </p>
 
       {results.length ? (
-        <div className="grid gap-5 md:grid-cols-2">
-          {results.map((p) => (
-            <ProjectCard key={p.slug} project={p} labels={labels} onStack={(tech) => { setCategory(null); setQuery(tech); }} />
-          ))}
-        </div>
+        <>
+          <div className="grid gap-5 md:grid-cols-2">
+            {results.map((p, i) => (
+              <ProjectCard key={p.slug} project={p} labels={labels} onStack={(tech) => { setCategory(null); setQuery(tech); }}
+                className={phoneCollapsed && i >= PHONE_INITIAL ? "max-sm:hidden" : ""} />
+            ))}
+          </div>
+          {phoneCollapsed && (
+            <button type="button" data-show-all-projects onClick={() => setExpanded(true)}
+              className="mt-6 flex min-h-12 w-full items-center justify-center rounded-full border border-line-strong bg-white/[0.04] px-5 text-sm font-semibold text-ink hover:bg-white/[0.08] sm:hidden">
+              {labels.showAll.replace("{count}", String(results.length))}
+            </button>
+          )}
+        </>
       ) : (
         <div className="rounded-2xl border border-dashed border-line px-6 py-14 text-center">
           <p className="text-muted">{labels.empty}</p>

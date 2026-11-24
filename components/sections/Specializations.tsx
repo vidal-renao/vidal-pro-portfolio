@@ -2,12 +2,14 @@ import { getTranslations } from "next-intl/server";
 import { Section } from "@/components/ui/Section";
 import { ContactIntentLink, type ContactPurpose } from "@/components/features/contact/ContactIntentLink";
 
+interface TechGroup { label: string; items: string[] }
+
 interface Track {
   title: string;
   subtitle: string;
   summary: string;
   capabilities: string[];
-  technical: string[];
+  technical: TechGroup[];
   proof: string;
   action: string;
   href: string;
@@ -45,11 +47,18 @@ export async function Specializations({ locale }: { locale: string }) {
                 <span>{t("technicalLabel")}</span>
                 <span aria-hidden="true" className="text-accent transition-transform group-open/tech:rotate-45">+</span>
               </summary>
-              <ul className="flex flex-wrap gap-2 pb-2 pt-4">
-                {track.technical.map((tech) => (
-                  <li key={tech} className="rounded-lg border border-line bg-bg/50 px-2.5 py-1.5 text-xs text-muted">{tech}</li>
+              <div className="grid gap-4 pb-2 pt-4">
+                {track.technical.map((group) => (
+                  <div key={group.label} data-tech-group>
+                    <p className={`mb-2 font-mono text-[10px] font-semibold uppercase tracking-[0.16em] ${index === 0 ? "text-accent-strong" : "text-teal-200"}`}>{group.label}</p>
+                    <ul className="flex flex-wrap gap-1.5">
+                      {group.items.map((tech) => (
+                        <li key={tech} className="rounded-lg border border-line bg-bg/50 px-2.5 py-1.5 text-xs text-muted">{tech}</li>
+                      ))}
+                    </ul>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </details>
             <p className="mt-6 border-t border-line pt-5 text-sm leading-6 text-dim">{track.proof}</p>
             <div className="mt-auto flex flex-wrap items-center gap-3 pt-1">

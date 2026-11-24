@@ -9,17 +9,27 @@ const STATUS_STYLE = {
   lab: "border-teal-300/30 bg-teal-300/10 text-teal-200",
 } as const;
 
+function Highlight({ text }: { text: string }) {
+  return (
+    <li className="flex gap-2.5 text-sm leading-6 text-muted">
+      <Check size={16} className="mt-1 flex-none text-accent" />{text}
+    </li>
+  );
+}
+
 interface Props {
   project: LocalizedProject;
   labels: ExplorerLabels;
   onStack: (tech: string) => void;
   priority?: boolean;
+  /** Extra classes on the card, e.g. to hide it on phones until the list is expanded. */
+  className?: string;
 }
 
 /** One project: screenshot, status, what it is, three verifiable facts, stack (click to filter) and links. */
-export function ProjectCard({ project: p, labels, onStack, priority = false }: Props) {
+export function ProjectCard({ project: p, labels, onStack, priority = false, className = "" }: Props) {
   return (
-    <article className="premium-panel group flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-raised">
+    <article className={`premium-panel group flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-raised ${className}`}>
       {p.image && (
         <a href={p.url} target="_blank" rel="noopener noreferrer" tabIndex={-1} aria-hidden className="relative block aspect-[16/9] overflow-hidden border-b border-line bg-black">
           <Image src={p.image} alt="" fill priority={priority} sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 560px"
@@ -35,13 +45,22 @@ export function ProjectCard({ project: p, labels, onStack, priority = false }: P
         </div>
         <h3 className="text-2xl font-semibold tracking-tight text-ink">{p.title}</h3>
         <p className="mt-3 text-sm leading-7 text-muted">{p.summary}</p>
-        <ul className="mt-5 flex flex-col gap-3">
-          {p.highlights.map((h) => (
-            <li key={h} className="flex gap-2.5 text-sm leading-6 text-muted">
-              <Check size={16} className="mt-1 flex-none text-accent" />{h}
-            </li>
-          ))}
+        {/* Desktop: all facts visible. Phones: first fact + the rest on demand, so the section stays short. */}
+        <ul className="mt-5 hidden flex-col gap-3 sm:flex">
+          {p.highlights.map((h) => <Highlight key={h} text={h} />)}
         </ul>
+        <div className="mt-5 sm:hidden">
+          <ul className="flex flex-col gap-3">{p.highlights.slice(0, 1).map((h) => <Highlight key={h} text={h} />)}</ul>
+          {p.highlights.length > 1 && (
+            <details className="group/facts mt-3 rounded-xl border border-line bg-white/[0.025] px-3 py-2">
+              <summary className="flex min-h-10 cursor-pointer items-center justify-between text-xs font-medium text-accent">
+                {labels.moreFacts.replace("{count}", String(p.highlights.length - 1))}
+                <span aria-hidden="true" className="text-lg transition-transform group-open/facts:rotate-45">+</span>
+              </summary>
+              <ul className="flex flex-col gap-3 pb-2 pt-3">{p.highlights.slice(1).map((h) => <Highlight key={h} text={h} />)}</ul>
+            </details>
+          )}
+        </div>
         <div className="mt-5 flex flex-wrap gap-1.5">
           {p.stack.map((tech) => (
             <button key={tech} type="button" onClick={() => onStack(tech)}

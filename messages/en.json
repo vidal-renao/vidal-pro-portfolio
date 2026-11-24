@@ -616,7 +616,9 @@
         "saas": "SaaS",
         "client": "Client project"
       },
-      "bridge": "Connects both pillars"
+      "bridge": "Connects both pillars",
+      "moreFacts": "{count} more key facts",
+      "showAll": "Show all {count} projects"
     },
     "experience": {
       "label": "Experience",
@@ -682,30 +684,50 @@
         "action": "Explore software & AI projects",
         "href": "#projects",
         "technical": [
-          "Next.js",
-          "TypeScript",
-          "React",
-          "Supabase",
-          "PostgreSQL",
-          "RLS",
-          "Vercel",
-          "CI/CD",
-          "Playwright",
-          "ChatGPT",
-          "OpenAI API",
-          "Codex",
-          "Claude",
-          "Claude Code",
-          "Gemini",
-          "OpenCode",
-          "Workflow automation",
-          "OCR",
-          "n8n",
-          "Docker",
-          "Docker Compose",
-          "pgvector",
-          "Zod",
-          "Vitest"
+          {
+            "label": "Frontend & language",
+            "items": [
+              "Next.js",
+              "TypeScript",
+              "React"
+            ]
+          },
+          {
+            "label": "Data & platform",
+            "items": [
+              "Supabase",
+              "PostgreSQL",
+              "RLS",
+              "Vercel",
+              "pgvector",
+              "Docker",
+              "Docker Compose"
+            ]
+          },
+          {
+            "label": "AI & automation",
+            "items": [
+              "ChatGPT",
+              "OpenAI API",
+              "Codex",
+              "Claude",
+              "Claude Code",
+              "Gemini",
+              "OpenCode",
+              "Workflow automation",
+              "OCR",
+              "n8n"
+            ]
+          },
+          {
+            "label": "Quality & delivery",
+            "items": [
+              "CI/CD",
+              "Playwright",
+              "Zod",
+              "Vitest"
+            ]
+          }
         ],
         "contact": "Discuss a software or AI project",
         "intent": "business"
@@ -724,31 +746,51 @@
         "action": "Explore systems experience",
         "href": "#experience",
         "technical": [
-          "Windows Server",
-          "Windows 10/11",
-          "Linux (Debian/Ubuntu)",
-          "macOS",
-          "Active Directory",
-          "GPO",
-          "Microsoft 365",
-          "Exchange",
-          "Teams",
-          "SharePoint",
-          "Intune",
-          "Microsoft Defender",
-          "Entra ID",
-          "Entra Connect",
-          "PowerShell",
-          "VMware vSphere",
-          "Hyper-V",
-          "NAS / SAN",
-          "Veeam Backup & Replication",
-          "Acronis Cyber Protect",
-          "Windows Server Backup",
-          "DNS / DHCP",
-          "VLAN / VPN",
-          "Firewalls",
-          "ServiceNow / Jira"
+          {
+            "label": "Microsoft 365 & identity",
+            "items": [
+              "Microsoft 365",
+              "Exchange",
+              "Teams",
+              "SharePoint",
+              "Intune",
+              "Microsoft Defender",
+              "Entra ID",
+              "Entra Connect",
+              "Active Directory",
+              "GPO"
+            ]
+          },
+          {
+            "label": "Servers & virtualization",
+            "items": [
+              "Windows Server",
+              "Windows 10/11",
+              "Linux (Debian/Ubuntu)",
+              "macOS",
+              "VMware vSphere",
+              "Hyper-V",
+              "PowerShell"
+            ]
+          },
+          {
+            "label": "Backup & storage",
+            "items": [
+              "NAS / SAN",
+              "Veeam Backup & Replication",
+              "Acronis Cyber Protect",
+              "Windows Server Backup"
+            ]
+          },
+          {
+            "label": "Network & service management",
+            "items": [
+              "DNS / DHCP",
+              "VLAN / VPN",
+              "Firewalls",
+              "ServiceNow / Jira"
+            ]
+          }
         ],
         "contact": "Contact me about an IT role",
         "intent": "career"

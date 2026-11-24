@@ -79,7 +79,11 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: npx playwright install --with-deps chromium
+      # Each lab check below is decoupled (continue-on-error + id): one failing step can no longer skip the others.
+      # The final gate step fails the job if any of the required checks did not succeed.
       - name: Capture responsive screenshots and interaction evidence
+        id: visual
+        continue-on-error: true
         env:
           ENTERPRISE_VISUAL_EVIDENCE: "1"
           PLAYWRIGHT_HTML_OUTPUT_DIR: audit-results/playwright-report
@@ -133,12 +137,19 @@ jobs:
             test-results/
           if-no-files-found: warn
           retention-days: 14
-      - name: Enforce accessibility audit evidence
+      # Lighthouse and the external-link check stay advisory (third-party sites can rate-limit CI); axe and the visual run are required.
+      - name: Enforce audit gates
         if: always()
         env:
           AXE_OUTCOME: ${{ steps.axe.outcome }}
+          VISUAL_OUTCOME: ${{ steps.visual.outcome }}
         run: |
-          if [ "$AXE_OUTCOME" != "success" ]; then
-            echo "Axe audit failed or could not run. Review artifacts and fix before release."
-            exit 1
-          fi
+          status=0
+          for gate in "axe:$AXE_OUTCOME" "visual evidence:$VISUAL_OUTCOME"; do
+            name="${gate%%:*}"; outcome="${gate##*:}"
+            if [ "$outcome" != "success" ]; then
+              echo "::error::$name check finished as '$outcome'. Review the enterprise-qa artifact."
+              status=1
+            fi
+          done
+          exit $status
