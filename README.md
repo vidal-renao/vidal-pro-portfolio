@@ -155,5 +155,6 @@ The page presents **IT Systems & Cloud** and **Software & AI** with equal weight
 specialization cards, a contact link per pillar that preselects the form purpose (`career` or
 `business`), skills grouped per pillar (systems areas from `cvSystems.knowledge`, software areas from
 `cv.knowledge` entries tagged `pillar: "software"`), and HelpDesk AI plus the Enterprise M365 & Hybrid
-Identity Lab marked as the bridge between both. The `pillar` tag is stripped from `/api/career-profile`,
+Identity Lab (a simulated company with 12 employees: Entra ID, MFA, Defender, Intune and hybrid identity
+with Entra Connect; repo `vidal-renao/m365-enterprise-lab`) marked as the bridge between both. The `pillar` tag is stripped from `/api/career-profile`,
 so the JobPilot contract is unchanged.
