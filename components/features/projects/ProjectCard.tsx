@@ -6,6 +6,7 @@ const STATUS_STYLE = {
   production: "border-emerald-400/30 bg-emerald-400/10 text-emerald-300",
   demo: "border-sky-400/30 bg-sky-400/10 text-sky-300",
   staging: "border-amber-400/30 bg-amber-400/10 text-amber-300",
+  lab: "border-teal-300/30 bg-teal-300/10 text-teal-200",
 } as const;
 
 interface Props {
@@ -29,6 +30,7 @@ export function ProjectCard({ project: p, labels, onStack, priority = false }: P
         <div className="mb-3 flex flex-wrap items-center gap-2">
           <span className={`rounded-full border px-2.5 py-0.5 text-xs font-medium ${STATUS_STYLE[p.status]}`}>{labels.status[p.status]}</span>
           {p.featured && <span className="rounded-full border border-accent/30 bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent">{labels.featured}</span>}
+          {p.bridge && <span data-project-bridge className="rounded-full border border-teal-300/30 bg-teal-300/[0.06] px-2.5 py-0.5 text-xs font-medium text-teal-200">{labels.bridge}</span>}
           <span className="text-xs text-dim">{p.categories.map((c) => labels.category[c]).join(" · ")}</span>
         </div>
         <h3 className="text-2xl font-semibold tracking-tight text-ink">{p.title}</h3>

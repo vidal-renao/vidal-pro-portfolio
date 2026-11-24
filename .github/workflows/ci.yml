@@ -9,7 +9,7 @@ on:
   push:
     branches: [main]
   pull_request:
-    branches: [main, feat/portfolio-premium-dual-career]
+    branches: [main]
 
 concurrency:
   group: ci-${{ github.ref }}
@@ -64,7 +64,8 @@ jobs:
 
   enterprise-evidence:
     name: Enterprise visual + a11y + SEO + links
-    if: github.event_name == 'pull_request' && (github.head_ref == 'feat/portfolio-premium-dual-career' || github.head_ref == 'feat/premium-formspree-release' || github.head_ref == 'feat/seo-geo-indexability-20261115' || github.head_ref == 'feat/ve-portfolio-ux-003')
+    # Every pull request into main and every push to main (previously pinned to four retired branch names).
+    if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     permissions:

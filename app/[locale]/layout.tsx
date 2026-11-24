@@ -52,21 +52,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: meta.title,
       description: meta.description,
       siteName: "VIDAL ECOSYSTEM — Vidal Reñao",
-      images: [
-        {
-          url: "/Photo.jpg",
-          width: 800,
-          height: 800,
-          alt: "Vidal Reñao — IT Systems Administrator & Full-Stack Developer",
-        },
-      ],
+      // og:image and twitter:image come from ./opengraph-image.tsx and ./twitter-image.tsx (1200×630, per locale).
       locale: locale === "de" ? "de_CH" : locale === "es" ? "es_ES" : "en_US",
     },
     twitter: {
       card: "summary_large_image",
       title: meta.title,
       description: meta.description,
-      images: ["/Photo.jpg"],
     },
   };
 }

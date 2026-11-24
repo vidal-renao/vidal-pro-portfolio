@@ -82,7 +82,8 @@ function localeData(m: Messages): CareerLocaleData {
         specialties: m.cv.specialties,
         profile: m.cv.profile,
         competencies: m.cv.competencies,
-        knowledge: m.cv.knowledge,
+        // The page-only "pillar" tag is not part of the JobPilot contract.
+        knowledge: m.cv.knowledge.map(({ area, detail }) => ({ area, detail })),
       },
       systems: {
         role: m.cvSystems.role,

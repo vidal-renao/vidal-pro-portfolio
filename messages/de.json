@@ -33,12 +33,15 @@
       },
       {
         "title": "IT-Support und Systeme",
-        "desc": "Benutzersupport und Administration von Windows, Microsoft 365, Active Directory und Netzwerken, mit Ticket-basierter Störungsbearbeitung.",
-        "evidence": "Lutelco, Nationale Nederlanden Bank, NSC",
+        "desc": "1st- & 2nd-Level-Support vor Ort und remote sowie Administration von Microsoft 365, Entra ID, Windows Server, Netzwerken und Backup, mit Ticket- und SLA-basierter Störungsbearbeitung.",
+        "evidence": "Lutelco, Nationale Nederlanden Bank, NSC, Enterprise M365 & Hybrid Identity Lab",
         "tags": [
-          "Windows",
+          "Windows Server",
           "Microsoft 365",
+          "Entra ID",
           "Active Directory",
+          "Veeam",
+          "Acronis",
           "Netzwerke"
         ]
       }
@@ -130,7 +133,7 @@
         "location": "Zaragoza, Spanien",
         "period": "2021 – Juli 2023",
         "highlights": [
-          "Betreute 500+ Benutzer an mehreren Standorten im 2nd/3rd-Level-Support – vor Ort und remote für Windows, Microsoft 365, Hardware und Netzwerkzugang; Tickets in Jira nachverfolgt",
+          "Betreute 500+ Benutzer an mehreren Standorten im 1st/2nd-Level-Support – vor Ort und remote für Windows, Microsoft 365, Hardware und Netzwerkzugang; Tickets in Jira nachverfolgt",
           "Support für interne Mitarbeitende und Endkunden mit Windows, macOS, iOS und Linux",
           "Dokumentation wiederkehrender Störungen und Lösungen in einer strukturierten Wissensdatenbank.",
           "Verwaltete Benutzer, Gruppen und Berechtigungen in Active Directory und Group Policy sowie Microsoft 365 (Exchange, Teams, Lizenzen, MFA)",
@@ -298,6 +301,24 @@
           "Auf Android und iOS installierbar",
           "Dreisprachiger Katalog; privates Repository nach Absprache mit der Marke"
         ]
+      },
+      "m365-lab": {
+        "title": "Enterprise M365 & Hybrid Identity Lab",
+        "summary": "Simuliertes Unternehmen mit 12 Mitarbeitenden, um Microsoft-365-Administration und hybride Identität durchgängig umzusetzen, Schritt für Schritt dokumentiert.",
+        "highlights": [
+          "Entra-ID-Benutzer, -Gruppen und -Rollen für 12 simulierte Mitarbeitende, MFA erzwungen",
+          "Hybride Identität: lokales Active Directory per Entra Connect mit Entra ID synchronisiert",
+          "Microsoft Defender, Intune-Registrierung und Compliance-Richtlinien, mit PowerShell-Skripten im Repository"
+        ]
+      },
+      "matchpoint-ai": {
+        "title": "MatchPoint AI",
+        "summary": "KI-Recruiting-Plattform: Kandidaten laden ihren Lebenslauf einmal hoch und werden mit jeder offenen Stelle abgeglichen.",
+        "highlights": [
+          "Claude extrahiert Fähigkeiten, Rollen und Erfolge aus dem hochgeladenen Lebenslauf",
+          "Bewertung in vier Dimensionen statt Keyword-Abgleich, mit Aufschlüsselung für Recruiter",
+          "Next.js, Supabase und Claude, bereitgestellt auf Vercel"
+        ]
       }
     }
   },
@@ -383,31 +404,38 @@
     "knowledge": [
       {
         "area": "Frontend",
-        "detail": "Next.js 16 · React 19 · TypeScript · Tailwind CSS · Framer Motion"
+        "detail": "Next.js 16 · React 19 · TypeScript · Tailwind CSS · Framer Motion",
+        "pillar": "software"
       },
       {
         "area": "Backend & Daten",
-        "detail": "Supabase · PostgreSQL · Node.js · Zod · REST-APIs"
+        "detail": "Supabase · PostgreSQL · Node.js · Zod · REST-APIs",
+        "pillar": "software"
       },
       {
         "area": "KI & Automatisierung",
-        "detail": "ChatGPT · Codex · Claude · Claude Code · Gemini · OpenCode · OpenAI API · KI-Agenten · RAG · MCP · OCR · Workflow-Automatisierung"
+        "detail": "ChatGPT · Codex · Claude · Claude Code · Gemini · OpenCode · OpenAI API · KI-Agenten · RAG · MCP · OCR · Workflow-Automatisierung",
+        "pillar": "software"
       },
       {
         "area": "Systeme & Server",
-        "detail": "Windows Server · Active Directory · Microsoft 365 · VMware · Hyper-V · Linux"
+        "detail": "Windows Server · Active Directory · Microsoft 365 · VMware · Hyper-V · Linux",
+        "pillar": "systems"
       },
       {
         "area": "Netzwerk",
-        "detail": "CCNA · TCP/IP · DNS/DHCP · VLAN · VPN · Firewall"
+        "detail": "CCNA · TCP/IP · DNS/DHCP · VLAN · VPN · Firewall",
+        "pillar": "systems"
       },
       {
         "area": "Cloud & Delivery",
-        "detail": "Vercel · GitHub Actions · PWA · Azure · CI/CD"
+        "detail": "Vercel · GitHub Actions · PWA · Azure · CI/CD",
+        "pillar": "software"
       },
       {
         "area": "IT-Service-Management",
-        "detail": "ServiceNow · Jira · ITSM · SLA"
+        "detail": "ServiceNow · Jira · ITSM · SLA",
+        "pillar": "systems"
       }
     ],
     "certsTitle": "Zertifizierungen & Weiterbildung",
@@ -469,12 +497,12 @@
     "footerNote": "Referenzen auf Anfrage verfügbar"
   },
   "cvSystems": {
-    "role": "IT-Support & Systemtechnik",
-    "specialties": "Windows · macOS / iOS · Microsoft 365 · Active Directory · ITIL / ServiceNow",
-    "profile": "IT-Support- und Systemtechniker mit über 5 Jahren Erfahrung in IT-Betrieb und Support, darunter Systemadministration (Active Directory, Microsoft 365, VMware vSphere und Hyper-V) und rund 1,5 Jahre im Service Desk einer Bank. Schwerpunkte: Windows-Umgebungen, Active Directory und Group Policy, Microsoft 365, Patch-Management, Backup und Wiederherstellung, Incident- und Request-Management nach ITIL in ServiceNow und Jira sowie saubere Dokumentation. Support für 500+ Benutzer an mehreren Standorten. Deutsch: B2-Kurs laufend, Englisch C1, Spanisch Muttersprache. EU-Bürger mit Ausweis B.",
+    "role": "IT System Engineer · Microsoft 365, Cloud & Infrastruktur",
+    "specialties": "Microsoft 365 · Entra ID / Hybrid Identity · Windows Server · Active Directory · Backup & Recovery · 1st/2nd-Level-Support",
+    "profile": "IT System Engineer mit über 8 Jahren Erfahrung in IT-Betrieb und Support für KMU und Unternehmen: Planung, Implementierung, Migration sowie 1st- & 2nd-Level-Support vor Ort und remote. Berufliche Erfahrung mit Windows Server, Active Directory und GPO, Benutzeranlage und -deaktivierung sowie hybrider Identität: Konfiguration und Überwachung der Synchronisierung lokaler Benutzer mit Microsoft Entra ID über Entra Connect, inklusive Behebung von Zugriffsproblemen beim Onboarding. Administration von Microsoft 365 (Exchange, Teams, SharePoint, Intune, Defender, MFA), VMware vSphere und Hyper-V, NAS/SAN-Storage, Backup und Wiederherstellung mit Veeam Backup & Replication und Acronis Cyber Protect, Netzwerke und Firewalls. PowerShell-Automatisierung für Onboarding, Konfigurationen und Installationen. Incident- und Request-Management nach ITIL in ServiceNow und Jira, darunter rund 1,5 Jahre im Service Desk einer Bank und Support für 500+ Benutzer an mehreren Standorten. Verständliche Erklärungen, Empathie und aktives Zuhören im Umgang mit Anwendern. Wohnhaft in Basel, sofort verfügbar (80–100 %). Englisch C1, Deutsch B2, Spanisch Muttersprache. EU-Bürger mit Ausweis B.",
     "residency": "EU-Bürger | Ausweis B (5 J.)",
     "nationality": "Nationalität: Spanisch (EU-Staatsbürger)",
-    "license": "Führerschein Kategorie B",
+    "license": "Führerschein Kat. B",
     "educationTitle": "Ausbildung",
     "education": [
       {
@@ -489,14 +517,17 @@
       }
     ],
     "competencies": [
-      "IT Service Desk – 1st/2nd Level, Telefon und schriftlich",
+      "IT-Support – 1st & 2nd Level, vor Ort und remote, telefonisch und schriftlich",
       "ITIL – Incident, Request, Change, Problem",
       "ServiceNow & Jira – SLA-Tracking, Eskalation",
       "Windows 10/11, macOS & iOS – Clients, Laptops, Mobilgeräte, Drucker, Peripherie",
-      "Microsoft 365 – Konten, Lizenzen, MFA, Exchange, Teams",
-      "Active Directory – Benutzer, Gruppen, Berechtigungen, GPO",
-      "Netzwerk – TCP/IP, DNS, DHCP, VLAN, VPN",
-      "Dreisprachiger Support – DE / EN / ES"
+      "Microsoft 365 – Exchange, Teams, SharePoint, Intune, Defender, Lizenzen und MFA",
+      "Windows Server / Active Directory – Benutzeranlage und -deaktivierung, Gruppen, Berechtigungen und GPO",
+      "Hybride Identität – Entra ID und Entra Connect: Konfiguration und Überwachung der Benutzersynchronisierung",
+      "Backup & Recovery – Veeam Backup & Replication, Acronis Cyber Protect, Wiederherstellungstests",
+      "PowerShell – Automatisierung von Onboarding, Konfigurationen und Installationen",
+      "Netzwerk und Remote-Support – TCP/IP, DNS, DHCP, VLAN, VPN und Firewalls",
+      "Anwenderservice – Empathie, aktives Zuhören und verständliche Erklärungen; DE / EN / ES"
     ],
     "knowledge": [
       {
@@ -504,24 +535,32 @@
         "detail": "Windows 10/11 · Hardware · Drucker & Peripherie · Remote-Support · macOS · iOS"
       },
       {
-        "area": "Microsoft 365 & E-Mail",
-        "detail": "M365 Admin Center · Exchange/Outlook · Teams · SharePoint · MFA"
+        "area": "Microsoft 365 & Modern Workplace",
+        "detail": "M365 Admin Center · Exchange/Outlook · Teams · SharePoint · Intune · Microsoft Defender · MFA"
       },
       {
         "area": "Identität & Zugriffe",
-        "detail": "Active Directory · Group Policy · Azure AD / Entra ID und Intune"
+        "detail": "Active Directory · Group Policy · Microsoft Entra ID · Entra Connect (hybride Identität) · Benutzeranlage und -deaktivierung · Zugriffsprobleme beim Onboarding"
+      },
+      {
+        "area": "Server & Virtualisierung",
+        "detail": "Windows Server · Linux (Debian/Ubuntu) · VMware vSphere · Hyper-V"
+      },
+      {
+        "area": "Storage, Backup & Recovery",
+        "detail": "NAS / SAN · Veeam Backup & Replication · Acronis Cyber Protect · Windows Server Backup · Wiederherstellungstests"
+      },
+      {
+        "area": "Netzwerk & Sicherheit",
+        "detail": "TCP/IP · DNS/DHCP · VLAN · VPN · Firewalls · Microsoft Defender · Sophos · ESET"
+      },
+      {
+        "area": "Automatisierung",
+        "detail": "PowerShell · Onboarding · Konfigurationen · Installationen"
       },
       {
         "area": "IT-Service-Management",
         "detail": "ServiceNow · Jira · ITIL · SLA · Wissensdatenbank"
-      },
-      {
-        "area": "Netzwerk & Systeme",
-        "detail": "TCP/IP · DNS/DHCP · VLAN · VPN · Windows Server · VMware vSphere · Hyper-V · PowerShell"
-      },
-      {
-        "area": "Sicherheit",
-        "detail": "Microsoft Defender · Sophos · ESET · MFA"
       }
     ]
   },
@@ -568,13 +607,16 @@
       "status": {
         "production": "Produktiv",
         "demo": "Öffentliche Demo",
-        "staging": "Staging"
+        "staging": "Staging",
+        "lab": "Dokumentiertes Labor"
       },
       "category": {
+        "systems": "IT-Systeme & Cloud",
         "ai": "Angewandte KI",
         "saas": "SaaS",
         "client": "Kundenprojekt"
-      }
+      },
+      "bridge": "Verbindet beide Schwerpunkte"
     },
     "experience": {
       "label": "Erfahrung",
@@ -587,7 +629,11 @@
       "label": "Kenntnisse",
       "title": "Technische Kompetenzen im Überblick",
       "subtitle": "Kenntnisse aus Projekten, Weiterbildung und Berufspraxis.",
-      "show": "Technologien anzeigen"
+      "show": "Technologien anzeigen",
+      "groups": {
+        "systems": "IT-Systeme & Cloud",
+        "software": "Software & KI"
+      }
     },
     "credentials": {
       "label": "Ausbildung",
@@ -624,7 +670,7 @@
     "tracks": [
       {
         "title": "Full-Stack-Entwickler",
-        "subtitle": "Software · KI · Automatisierung",
+        "subtitle": "Software & KI",
         "summary": "Ich konzipiere und entwickle Geschäftsanwendungen, SaaS-Plattformen und KI-Automatisierungen – von der Architektur bis zum Deployment.",
         "capabilities": [
           "Ich entwickle Websites und Geschäftsanwendungen für konkrete Anforderungen.",
@@ -632,7 +678,7 @@
           "Ich entwickle sichere, wartbare und erweiterbare Anwendungen.",
           "Ich gestalte digitale Lösungen für Desktop und Mobilgeräte."
         ],
-        "proof": "Projekte: HelpDesk AI, JobPilot AI, D’NAMAR und NATURÆ.",
+        "proof": "Projekte: HelpDesk AI, JobPilot AI, Invoice Auto, MatchPoint AI, D’NAMAR und NATURÆ.",
         "action": "Software- und KI-Projekte ansehen",
         "href": "#projects",
         "technical": [
@@ -660,37 +706,55 @@
           "pgvector",
           "Zod",
           "Vitest"
-        ]
+        ],
+        "contact": "Software- oder KI-Projekt besprechen",
+        "intent": "business"
       },
       {
         "title": "IT-Systemadministrator",
-        "subtitle": "Infrastruktur · Cloud · Workplace",
-        "summary": "Ich betreue Unternehmens-IT mit Schwerpunkt auf zuverlässigem Betrieb, Sicherheit, Benutzerverwaltung und Infrastrukturdiensten.",
+        "subtitle": "IT-Systeme & Cloud",
+        "summary": "Über 8 Jahre Planung, Implementierung, Migration und Support für KMU und Unternehmen: Microsoft 365, hybride Identität, Server, Netzwerke und Backup, mit 1st- & 2nd-Level-Support vor Ort und remote.",
         "capabilities": [
-          "Ich sorge für den zuverlässigen Betrieb von Geräten, Benutzerkonten und IT-Diensten.",
-          "Ich verwalte Zugriffe, Kollaborationslösungen und Endgeräte.",
-          "Ich behebe Störungen und unterstütze einen stabilen Geschäftsbetrieb.",
-          "Ich administriere Netzwerke, Server und virtuelle Umgebungen."
+          "Ich leiste 1st- & 2nd-Level-Support vor Ort und remote, mit SLA-gerechter Ticketbearbeitung.",
+          "Ich administriere Microsoft 365, Entra ID und hybride Identitäten mit Entra Connect.",
+          "Ich betreibe Windows Server, Active Directory, Linux und virtualisierte Umgebungen.",
+          "Ich sichere Daten mit Backup und Recovery über Veeam und Acronis sowie NAS/SAN-Storage."
         ],
-        "proof": "Berufserfahrung: Lutelco, Nationale Nederlanden Bank und NSC.",
+        "proof": "Berufserfahrung: Lutelco, Nationale Nederlanden Bank und NSC. Labor: Enterprise M365 & Hybrid Identity Lab.",
         "action": "Systemerfahrung ansehen",
         "href": "#experience",
         "technical": [
           "Windows Server",
           "Windows 10/11",
-          "Linux",
+          "Linux (Debian/Ubuntu)",
           "macOS",
           "Active Directory",
           "GPO",
           "Microsoft 365",
-          "Entra ID",
+          "Exchange",
+          "Teams",
+          "SharePoint",
           "Intune",
+          "Microsoft Defender",
+          "Entra ID",
+          "Entra Connect",
+          "PowerShell",
+          "VMware vSphere",
+          "Hyper-V",
+          "NAS / SAN",
+          "Veeam Backup & Replication",
+          "Acronis Cyber Protect",
+          "Windows Server Backup",
           "DNS / DHCP",
           "VLAN / VPN",
-          "VMware / Hyper-V"
-        ]
+          "Firewalls",
+          "ServiceNow / Jira"
+        ],
+        "contact": "Kontakt für eine IT-Stelle",
+        "intent": "career"
       }
     ],
-    "technicalLabel": "Technologien und Tools anzeigen"
+    "technicalLabel": "Technologien und Tools anzeigen",
+    "bridge": "HelpDesk AI und das Enterprise M365 & Hybrid Identity Lab verbinden beide Schwerpunkte: IT-Betriebswissen, das in Software einfliesst."
   }
 }

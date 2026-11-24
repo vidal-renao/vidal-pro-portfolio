@@ -17,7 +17,7 @@ export async function Services({ locale }: { locale: string }) {
             <h3 className="mt-5 text-xl font-semibold tracking-tight text-ink">{s.title}</h3>
             <p className="mt-3 min-h-24 text-sm leading-7 text-muted">{s.desc}</p>
             <p className="mt-4 border-t border-line pt-4 text-xs leading-6 text-dim"><span className="text-muted">{t("evidenceLabel")}:</span> {s.evidence}</p>
-            <div className="service-action mt-6 mb-6"><ContactIntentLink service={(["web", "ai", "it"] as const)[i]} label={t("contactCta")} /></div>
+            <div className="service-action mt-6 mb-6"><ContactIntentLink intent={{ purpose: "business", service: (["web", "ai", "it"] as const)[i] }} label={t("contactCta")} /></div>
             <details className="group/stack mt-auto border-t border-line pt-5">
               <summary className="flex min-h-10 items-center justify-between gap-2 text-xs font-medium text-accent">
                 {t("technicalLabel")}

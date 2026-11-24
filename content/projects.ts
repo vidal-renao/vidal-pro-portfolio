@@ -4,8 +4,9 @@
  * To add a project: add an entry here, its texts in the three message files and, optionally,
  * a screenshot in /public/screenshots.
  */
-export type ProjectCategory = "ai" | "saas" | "client";
-export type ProjectStatus = "production" | "demo" | "staging";
+export type ProjectCategory = "systems" | "ai" | "saas" | "client";
+/** "lab": a documented, reproducible lab in a public repository (no hosted demo). */
+export type ProjectStatus = "production" | "demo" | "staging" | "lab";
 
 export interface Project {
   slug: string;
@@ -18,18 +19,32 @@ export interface Project {
   repo: string | null;
   image: string | null;
   featured?: boolean;
+  /** Connects both pillars (IT systems and software/AI). */
+  bridge?: boolean;
 }
 
 export const PROJECTS: Project[] = [
   {
     slug: "helpdesk-ai",
-    categories: ["ai", "saas"],
+    categories: ["systems", "ai", "saas"],
     status: "production",
     stack: ["Next.js", "TypeScript", "Supabase", "MCP", "Claude", "Zod"],
     url: "https://ticket-system-sigma-pink.vercel.app",
     repo: "https://github.com/vidal-renao/ticket-system",
     image: "/screenshots/helpdesk-ai.png",
     featured: true,
+    bridge: true,
+  },
+  {
+    slug: "m365-lab",
+    categories: ["systems"],
+    status: "lab",
+    stack: ["Microsoft 365", "Entra ID", "Entra Connect", "Intune", "Defender", "PowerShell"],
+    url: "https://github.com/vidal-renao/m365-enterprise-lab",
+    repo: "https://github.com/vidal-renao/m365-enterprise-lab",
+    image: null,
+    featured: true,
+    bridge: true,
   },
   {
     slug: "jobpilot-ai",
@@ -49,6 +64,15 @@ export const PROJECTS: Project[] = [
     url: "https://invoice-auto-xi.vercel.app/es/demo/payments",
     repo: "https://github.com/vidal-renao/invoice-auto",
     image: "/screenshots/invoicepilot-pagos.png",
+  },
+  {
+    slug: "matchpoint-ai",
+    categories: ["ai", "saas"],
+    status: "demo",
+    stack: ["Next.js", "TypeScript", "Supabase", "Claude"],
+    url: "https://matchpoint-ai.vercel.app",
+    repo: "https://github.com/vidal-renao/matchpoint-ai",
+    image: null,
   },
   {
     slug: "waai",
@@ -84,7 +108,7 @@ export const PROJECTS: Project[] = [
     stack: ["Next.js", "TypeScript", "Nodemailer", "SEO"],
     url: "https://www.dnamar.ch",
     repo: "https://github.com/vidal-renao/limpiezas-najip-maritza",
-    image: "/screenshots/dnamar.png",
+    image: "/screenshots/dnamar.webp",
   },
   {
     slug: "naturae",
@@ -97,4 +121,4 @@ export const PROJECTS: Project[] = [
   },
 ];
 
-export const PROJECT_CATEGORIES: ProjectCategory[] = ["ai", "saas", "client"];
+export const PROJECT_CATEGORIES: ProjectCategory[] = ["systems", "ai", "saas", "client"];

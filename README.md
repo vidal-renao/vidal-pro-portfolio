@@ -58,9 +58,11 @@ Only the header, project explorer and contact widgets ship JavaScript to the bro
 ## How to add content
 
 **A project** — add an entry to `content/projects.ts` (`slug`, `categories`, `status`, `stack`,
-`url`, `repo` or `null` if private, optional `image` in `public/screenshots/`), then
+`url`, `repo` or `null` if private, optional `image` in `public/screenshots/` as WebP, optional
+`bridge: true` when it connects both pillars), then
 `projects.items.<slug>` = `{ title, summary, highlights[3] }` in the three message files.
-Only add projects whose URL works for an anonymous visitor.
+Only add projects whose URL works for an anonymous visitor. Categories: `systems` (IT Systems & Cloud),
+`ai`, `saas`, `client`; status `lab` marks a documented lab in a public repository.
 
 **A certificate** — put the PDF in `public/assets/certs/`, add `{ key, group, pdf }` to
 `content/credentials.ts`, and `certifications.<key>_title` / `_issuer` (plus the other keys used
@@ -75,6 +77,7 @@ The e2e suite checks that every project has a safe outbound link and every certi
 | `/es` · `/de` · `/en` | Portfolio |
 | `/[locale]/print?variant=..&email=..` | Printable CV |
 | `/api/download?format=word&locale=..&email=..` | CV `.docx` |
+| `/[locale]/opengraph-image` · `/[locale]/twitter-image` | 1200×630 share card per locale, prerendered from the messages |
 | `/api/career-profile` | CV JSON (schema v1) consumed by JobPilot AI; CDN cache 5 min, ETag |
 | `POST /api/contact` | Contact form; returns 503 if SMTP is not configured (form shows the e-mail fallback) |
 
@@ -106,8 +109,16 @@ Local runs can reuse an existing Chromium with `PW_CHROMIUM_PATH=/path/to/chrome
 ## CI
 
 `.github/workflows/ci.yml` (Node 22): **quality** (lint + typecheck) · **build-and-test**
-(build + Playwright desktop/mobile) · **security** (`npm audit` on production deps).
+(build + Playwright desktop/mobile) · **security** (`npm audit` on production deps) ·
+**enterprise-evidence** (screenshots, axe, Lighthouse, link check) on every PR into `main` and every push to `main`.
 Vercel deploys `main`.
+
+## Security headers
+
+`next.config.ts` sends a Content-Security-Policy (self + `formspree.io` for the contact form,
+`vercel.live` for the preview toolbar, `frame-ancestors 'none'`), `Referrer-Policy:
+strict-origin-when-cross-origin`, a restrictive `Permissions-Policy`, `X-Content-Type-Options` and
+`X-Frame-Options`. Adding an external script, font or API means adding its origin to the CSP.
 
 ## Privacy
 
@@ -137,3 +148,12 @@ A dedicated `Specializations` section is shown after the hero in every locale. N
 Specification, EARS requirements, QA gates and release boundaries: [`docs/portfolio-premium-2026-11.md`](docs/portfolio-premium-2026-11.md).
 
 **Release policy:** the redesign stays on `feat/portfolio-premium-dual-career` until CI, visual review and explicit production release approval. The existing `/api/career-profile` contract, targeted Fullstack/AI and Systems CV downloads, and all three languages must remain operational.
+
+## Two pillars (2026-11-24)
+
+The page presents **IT Systems & Cloud** and **Software & AI** with equal weight: pillar labels on the
+specialization cards, a contact link per pillar that preselects the form purpose (`career` or
+`business`), skills grouped per pillar (systems areas from `cvSystems.knowledge`, software areas from
+`cv.knowledge` entries tagged `pillar: "software"`), and HelpDesk AI plus the Enterprise M365 & Hybrid
+Identity Lab marked as the bridge between both. The `pillar` tag is stripped from `/api/career-profile`,
+so the JobPilot contract is unchanged.

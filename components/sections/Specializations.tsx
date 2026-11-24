@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { Section } from "@/components/ui/Section";
+import { ContactIntentLink, type ContactPurpose } from "@/components/features/contact/ContactIntentLink";
 
 interface Track {
   title: string;
@@ -10,6 +11,9 @@ interface Track {
   proof: string;
   action: string;
   href: string;
+  /** Second call to action: opens the contact form with this purpose preselected. */
+  contact: string;
+  intent: ContactPurpose;
 }
 
 export async function Specializations({ locale }: { locale: string }) {
@@ -48,12 +52,16 @@ export async function Specializations({ locale }: { locale: string }) {
               </ul>
             </details>
             <p className="mt-6 border-t border-line pt-5 text-sm leading-6 text-dim">{track.proof}</p>
-            <a href={track.href} className="mt-auto inline-flex min-h-11 w-fit items-center focus-visible:outline-offset-4 gap-2 rounded-full border border-line-strong bg-white/[0.04] px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:border-accent/50 hover:bg-white/[0.08]">
-              {track.action}<span aria-hidden="true">↗</span>
-            </a>
+            <div className="mt-auto flex flex-wrap items-center gap-3 pt-1">
+              <a data-track-action href={track.href} className="inline-flex min-h-11 w-fit items-center focus-visible:outline-offset-4 gap-2 rounded-full border border-line-strong bg-white/[0.04] px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:border-accent/50 hover:bg-white/[0.08]">
+                {track.action}<span aria-hidden="true">↗</span>
+              </a>
+              <ContactIntentLink testId="track-contact-cta" intent={track.intent === "career" ? { purpose: "career" } : { purpose: "business", service: "web" }} label={track.contact} />
+            </div>
           </article>
         ))}
       </div>
+      <p data-pillar-bridge className="mx-auto mt-6 max-w-3xl rounded-2xl border border-line bg-white/[0.025] px-5 py-4 text-center text-sm leading-6 text-muted">{t("bridge")}</p>
     </Section>
   );
 }

@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { SITE } from "@/content/site";
 
 export const viewport: Viewport = {
   themeColor: "#080e1c",
@@ -9,7 +10,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://vidal-pro-portfolio.vercel.app"),
+  metadataBase: new URL(SITE.url),
   title: "Vidal Reñao | IT Systems Administrator & Full-Stack Developer",
   description: "Reliable IT today. AI-ready tomorrow. IT systems administration, full-stack development and AI automation in Basel, for Switzerland and Liechtenstein.",
   icons: {

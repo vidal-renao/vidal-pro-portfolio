@@ -11,7 +11,8 @@ interface HeroTrack {
   href: string;
 }
 
-/** Compact dual-career entry: both pathways are visible without scrolling on desktop. */
+/** Compact dual-career entry: both pathways are visible without scrolling on desktop and carry equal visual weight. */
+const AUDIENCE_CTA = "inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-accent/50 bg-accent/10 px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:bg-accent/20";
 export async function Hero({ locale }: { locale: string }) {
   const [t, ui, specializations] = await Promise.all([
     getTranslations({ locale, namespace: "hero" }),
@@ -37,8 +38,8 @@ export async function Hero({ locale }: { locale: string }) {
             <p className="mt-4 max-w-3xl border-l-2 border-accent pl-4 text-base font-semibold leading-snug text-accent-strong sm:text-xl">{ui("role")}</p>
             <p className="mt-4 max-w-[66ch] text-sm leading-6 text-muted sm:text-base">{t("title2")} {t("subtitle")}</p>
             <div className="mt-5 flex flex-wrap gap-3">
-              <a data-testid="hero-business-cta" href="#services" className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-accent px-5 py-2.5 text-sm font-semibold text-accent-ink transition-colors hover:bg-accent-strong">{ui("primary")}<ArrowDown size={16} /></a>
-              <a data-testid="hero-career-cta" href="#experience" className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-line-strong bg-white/[0.04] px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:bg-white/[0.09]">{ui("secondary")}</a>
+              <a data-testid="hero-business-cta" href="#services" className={AUDIENCE_CTA}>{ui("primary")}<ArrowDown size={16} /></a>
+              <a data-testid="hero-career-cta" href="#experience" className={AUDIENCE_CTA}>{ui("secondary")}<ArrowDown size={16} /></a>
             </div>
           </div>
           <div className="hero-portrait relative mx-auto hidden w-full max-w-[190px] lg:block">

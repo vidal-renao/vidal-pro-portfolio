@@ -2,20 +2,31 @@ import { getTranslations } from "next-intl/server";
 import { Section } from "@/components/ui/Section";
 
 interface Area { area: string; detail: string }
+interface FullstackArea extends Area { pillar: "software" | "systems" }
 interface Language { id: string; lang: string; level: string }
 
-/** Skills and languages straight from the CV data, so the page and the CV never disagree. */
+/**
+ * Skills grouped by pillar, straight from the CV data so the page and both CVs never disagree:
+ * IT Systems & Cloud from the systems CV, Software & AI from the full-stack CV.
+ */
 export async function Skills({ locale }: { locale: string }) {
-  const [cv, ui] = await Promise.all([
+  const [cv, cvSystems, ui] = await Promise.all([
     getTranslations({ locale, namespace: "cv" }),
+    getTranslations({ locale, namespace: "cvSystems" }),
     getTranslations({ locale, namespace: "ui.skills" }),
   ]);
-  const areas = cv.raw("knowledge") as Area[];
+  const groups = [
+    { id: "systems", title: ui("groups.systems"), areas: cvSystems.raw("knowledge") as Area[] },
+    { id: "software", title: ui("groups.software"), areas: (cv.raw("knowledge") as FullstackArea[]).filter((a) => a.pillar === "software") },
+  ];
   const languages = cv.raw("languages") as Language[];
   return (
     <Section id="skills" label={ui("label")} title={ui("title")} subtitle={ui("subtitle")}>
+      {groups.map((group) => (
+      <div key={group.id} data-skill-group={group.id} className="mb-8">
+      <h3 className="mb-4 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-accent-strong">{group.title}</h3>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {areas.map((a) => (
+        {group.areas.map((a) => (
           <details key={a.area} className="premium-panel reveal group rounded-3xl border border-line bg-raised p-6">
             <summary className="flex min-h-12 items-center justify-between gap-4">
               <span className="text-base font-semibold text-ink">{a.area}</span>
@@ -31,6 +42,10 @@ export async function Skills({ locale }: { locale: string }) {
             </ul>
           </details>
         ))}
+      </div>
+      </div>
+      ))}
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <details className="premium-panel reveal group rounded-3xl border border-line bg-raised p-6">
           <summary className="flex min-h-12 items-center justify-between gap-4">
             <span className="text-base font-semibold text-ink">{cv("languagesTitle")}</span>

@@ -13,6 +13,7 @@ export interface LocalizedProject {
   repo: string | null;
   image: string | null;
   featured: boolean;
+  bridge: boolean;
 }
 
 export interface ExplorerLabels {
@@ -26,6 +27,7 @@ export interface ExplorerLabels {
   code: string;
   private: string;
   featured: string;
+  bridge: string;
   status: Record<ProjectStatus, string>;
   category: Record<ProjectCategory, string>;
 }

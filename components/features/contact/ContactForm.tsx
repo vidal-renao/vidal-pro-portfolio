@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState, type FormEvent } from "react";
-import { CONTACT_INTENT_EVENT, type ServiceId } from "@/components/features/contact/ContactIntentLink";
+import { CONTACT_INTENT_EVENT, type ContactIntent, type ServiceId } from "@/components/features/contact/ContactIntentLink";
 import { Check } from "@/components/ui/icons";
 
 /** Public Formspree submission endpoint. No API key or private token is exposed. */
@@ -18,10 +18,14 @@ export function ContactForm({ labels, fallbackEmail }: { labels: ContactFormLabe
   const [service, setService] = useState<"" | ServiceId>("");
   useEffect(() => {
     const handler = (event: Event) => {
-      const value = (event as CustomEvent<{ service?: string }>).detail?.service;
-      if (value === "web" || value === "ai" || value === "it") {
+      const detail = (event as CustomEvent<Partial<ContactIntent>>).detail;
+      if (detail?.purpose === "career") {
+        setPurpose("career");
+        setService("");
+      } else if (detail?.purpose === "business") {
         setPurpose("business");
-        setService(value);
+        const value = detail.service;
+        setService(value === "web" || value === "ai" || value === "it" ? value : "");
       }
     };
     window.addEventListener(CONTACT_INTENT_EVENT, handler);

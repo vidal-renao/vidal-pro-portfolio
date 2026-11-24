@@ -1,6 +1,7 @@
-import { MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
+import { SITE } from "@/content/site";
 
-const BASE_URL = "https://vidal-pro-portfolio.vercel.app";
+const BASE_URL = SITE.url;
 
 export default function robots(): MetadataRoute.Robots {
   return {

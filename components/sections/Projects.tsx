@@ -14,15 +14,16 @@ export async function Projects({ locale }: { locale: string }) {
     ...p,
     url: p.slug === "jobpilot-ai" ? `${p.url}?lang=${locale}` : p.url,
     featured: Boolean(p.featured),
+    bridge: Boolean(p.bridge),
     title: t(`${p.slug}.title`),
     summary: t(`${p.slug}.summary`),
     highlights: t.raw(`${p.slug}.highlights`) as string[],
   }));
   const labels: ExplorerLabels = {
     search: ui("search"), all: ui("all"), countOne: ui.raw("count_one") as string, countOther: ui.raw("count_other") as string,
-    empty: ui("empty"), clear: ui("clear"), open: ui("open"), code: ui("code"), private: ui("private"), featured: ui("featured"),
-    status: { production: ui("status.production"), demo: ui("status.demo"), staging: ui("status.staging") },
-    category: { ai: ui("category.ai"), saas: ui("category.saas"), client: ui("category.client") },
+    empty: ui("empty"), clear: ui("clear"), open: ui("open"), code: ui("code"), private: ui("private"), featured: ui("featured"), bridge: ui("bridge"),
+    status: { production: ui("status.production"), demo: ui("status.demo"), staging: ui("status.staging"), lab: ui("status.lab") },
+    category: { systems: ui("category.systems"), ai: ui("category.ai"), saas: ui("category.saas"), client: ui("category.client") },
   };
   return (
     <Section id="projects" label={ui("label")} title={ui("title")} subtitle={ui("subtitle")}>
