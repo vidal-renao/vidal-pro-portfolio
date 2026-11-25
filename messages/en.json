@@ -647,7 +647,11 @@
       "show": "Show details",
       "hide": "Hide",
       "itFocus": "IT experience",
-      "fullHistory": "Full work history"
+      "fullHistory": "Full work history",
+      "more": "Show {count} more achievements",
+      "less": "Show less",
+      "stack": "Tech stack",
+      "current": "Current"
     },
     "skills": {
       "label": "Skills",

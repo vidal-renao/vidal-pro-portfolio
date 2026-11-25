@@ -21,7 +21,7 @@ export async function Contact({ locale }: { locale: string }) {
       <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
         <div className="order-2 flex flex-col gap-6 lg:order-1">
           <div className="premium-panel rounded-3xl border border-line bg-raised p-6 sm:p-7">
-            <p className="inline-flex items-center gap-2 text-xs text-accent"><span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />{t("availability")}</p>
+            <p className="inline-flex items-center gap-2 text-sm text-accent"><span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />{t("availability")}</p>
             <ul className="mt-4 flex flex-col">
               {channels.map(({ href, label, icon: Icon, external }) => (
                 <li key={href} className="border-b border-line last:border-0">

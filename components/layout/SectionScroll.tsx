@@ -176,6 +176,7 @@ export function SectionScroll({ sections, labels }: Props) {
     animationRef.current = requestAnimationFrame(tick);
   }
 
+  const progressText = `${String(pageProgress.current).padStart(2, "0")} / ${String(pageProgress.total).padStart(2, "0")}`;
   return (
     <nav ref={railRef} aria-label={labels.navigation}
       style={position ? { left: position.x, top: position.y } : undefined}
@@ -192,10 +193,10 @@ export function SectionScroll({ sections, labels }: Props) {
         className="flex h-10 w-10 items-center justify-center rounded-full text-muted transition-colors hover:bg-white/[0.08] hover:text-ink disabled:cursor-not-allowed disabled:opacity-30">
         <ArrowUp size={17} />
       </button>
-      <button type="button" aria-label={labels.choose} title={stops[current]?.label}
+      <button type="button" aria-label={`${labels.choose}: ${progressText}`} title={stops[current]?.label}
         aria-expanded={pickerOpen} aria-controls="section-scroll-picker" onClick={() => setPickerOpen((value) => !value)}
         className="flex min-h-11 min-w-10 items-center justify-center rounded-full px-1 font-mono text-[10px] tabular-nums text-muted hover:bg-white/[0.08] hover:text-ink">
-        <span aria-hidden="true" className="[writing-mode:vertical-rl]">{String(pageProgress.current).padStart(2, "0")} / {String(pageProgress.total).padStart(2, "0")}</span>
+        <span aria-hidden="true" className="[writing-mode:vertical-rl]">{progressText}</span>
       </button>
       <span className="sr-only" aria-live="polite">{stops[current]?.label}</span>
       <div id="section-scroll-picker" hidden={!pickerOpen}

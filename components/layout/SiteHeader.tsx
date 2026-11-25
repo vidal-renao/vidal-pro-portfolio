@@ -64,7 +64,6 @@ function LanguageSwitch({ locale, label, mobile, onNavigate }: LanguageSwitchPro
   return (
     <details ref={ref} data-language-switch className="group/language relative" {...hoverProps}>
       <summary
-        aria-label={label}
         onClick={mobile ? undefined : (event) => { if (event.detail > 0 && window.matchMedia("(hover: hover) and (pointer: fine)").matches) event.preventDefault(); }}
         className="flex min-h-11 cursor-pointer list-none items-center gap-2 rounded-xl border border-line-strong bg-white/[0.035] px-3 text-sm font-medium text-ink transition-colors hover:bg-white/[0.08] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent [&::-webkit-details-marker]:hidden">
         <span aria-hidden="true">{LOCALES.find((l) => l.code === locale)?.flag}</span>
@@ -197,10 +196,10 @@ export function SiteHeader({ locale, brand, sections, labels }: Props) {
       </a>
       <header data-enterprise-header className={`fixed inset-x-0 top-0 z-50 border-b transition-[background-color,border-color] duration-200 ${scrolled || open ? "border-line-strong bg-bg/95 shadow-lg shadow-black/10" : "border-line bg-bg/95"}`}>
         <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 xl:px-8">
-          <a data-site-brand href="#top" aria-label={`${brand} — VIDAL ECOSYSTEM`} className="group flex shrink-0 items-center gap-2.5 rounded-xl px-1 py-1.5 text-ink transition-colors hover:bg-white/[0.035]">
+          <a data-site-brand href="#top" aria-label={`VIDAL ECOSYSTEM — ${brand}`} className="group flex shrink-0 items-center gap-2.5 rounded-xl px-1 py-1.5 text-ink transition-colors hover:bg-white/[0.035]">
             <BrandMark className="h-10 w-11 shrink-0" />
             <span className="flex flex-col leading-tight">
-              <strong className="text-sm tracking-[0.14em] sm:text-base">VIDAL</strong>
+              <strong className="text-sm tracking-[0.14em] sm:text-base">VIDAL</strong>{" "}
               <span className="text-[9px] font-semibold tracking-[0.23em] text-accent sm:text-[10px]">ECOSYSTEM</span>
             </span>
           </a>
@@ -244,7 +243,7 @@ export function SiteHeader({ locale, brand, sections, labels }: Props) {
             <a href="#cv" className="hidden min-h-10 items-center gap-1.5 rounded-xl border border-line-strong px-3 text-xs font-semibold text-ink transition-colors hover:bg-white/[0.06] xl:inline-flex">
               <Download size={15} />{labels.cv}
             </a>
-            <a href="#contact" className="hidden min-h-10 items-center rounded-xl bg-accent px-4 text-xs font-semibold text-accent-ink transition-[background-color,box-shadow] hover:bg-accent-strong hover:shadow-[0_0_24px_rgba(91,141,184,0.12)] xl:inline-flex">
+            <a href="#contact" className="cta-sw hidden min-h-11 items-center rounded-xl px-4 text-sm font-semibold text-white xl:inline-flex">
               {labels.contact}
             </a>
             <button data-mobile-menu-trigger ref={menuTriggerRef} type="button" onClick={() => setOpen((value) => !value)}
@@ -296,7 +295,7 @@ export function SiteHeader({ locale, brand, sections, labels }: Props) {
             </div>
           </nav>
           <div data-mobile-actions className="mt-5 grid gap-2 border-t border-line pt-5">
-            <a href="#contact" onClick={() => setOpen(false)} className="flex min-h-12 items-center justify-center rounded-xl bg-accent px-4 text-sm font-semibold text-accent-ink hover:bg-accent-strong">{labels.contact}</a>
+            <a href="#contact" onClick={() => setOpen(false)} className="cta-sw flex min-h-12 items-center justify-center rounded-xl px-4 text-base font-semibold text-white">{labels.contact}</a>
             <a href="#cv" onClick={() => setOpen(false)} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-line-strong px-4 text-sm font-semibold text-ink hover:bg-white/[0.06]">
               <Download size={16} />{labels.cv}
             </a>

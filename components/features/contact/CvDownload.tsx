@@ -17,27 +17,27 @@ export function CvDownload({ locale }: { locale: string }) {
   const t = UI[locale] ?? UI.en;
   const [variant, setVariant] = useState<Variant>("fullstack");
   const [email, setEmail] = useState<EmailVariant>("outlook");
-  const option = (active: boolean) => `rounded-full border px-3 py-1.5 text-xs transition-colors ${active ? "border-accent/50 bg-accent/15 text-accent" : "border-line text-muted hover:text-ink"}`;
+  const option = (active: boolean) => `rounded-full border px-3 py-1.5 text-sm transition-colors ${active ? "border-accent/50 bg-accent/15 text-accent" : "border-line text-muted hover:text-ink"}`;
   return (
     <div id="cv" className="rounded-2xl border border-line bg-raised p-5 sm:p-6">
       <p className="flex items-center gap-2 text-sm font-semibold text-ink"><Download size={16} className="text-accent" />{t.heading}</p>
-      <p className="mt-1 text-xs text-dim">{t.hint}</p>
+      <p className="mt-1 text-sm text-dim">{t.hint}</p>
       <div className="mt-4 flex flex-col gap-3">
         <div role="group" aria-label={t.focus} className="flex flex-wrap items-center gap-2">
-          <span className="w-full text-xs text-dim sm:w-auto sm:min-w-28">{t.focus}</span>
+          <span className="w-full text-sm text-dim sm:w-auto sm:min-w-28">{t.focus}</span>
           {(["fullstack", "systems"] as const).map((v) => <button key={v} type="button" aria-pressed={variant === v} onClick={() => setVariant(v)} className={option(variant === v)}>{t[v]}</button>)}
         </div>
         <div role="group" aria-label={t.email} className="flex flex-wrap items-center gap-2">
-          <span className="w-full text-xs text-dim sm:w-auto sm:min-w-28">{t.email}</span>
+          <span className="w-full text-sm text-dim sm:w-auto sm:min-w-28">{t.email}</span>
           {(Object.keys(EMAIL_ADDRESSES) as EmailVariant[]).map((e) => <button key={e} type="button" aria-pressed={email === e} onClick={() => setEmail(e)} className={option(email === e)}>{EMAIL_ADDRESSES[e]}</button>)}
         </div>
       </div>
       <ul className="mt-5 grid grid-cols-3 gap-2">
         {LANGS.map((l) => (
           <li key={l.code} className="flex flex-col gap-1.5 rounded-xl border border-line p-2.5 text-center">
-            <span className="text-xs font-semibold text-ink">{l.label}</span>
-            <a href={`/${l.code}/print?print=1&email=${email}&variant=${variant}`} target="_blank" rel="noopener noreferrer" className="rounded-lg bg-white/[0.04] py-1.5 text-xs text-muted hover:text-accent">PDF</a>
-            <a href={`/api/download?format=word&locale=${l.code}&email=${email}&variant=${variant}`} className="rounded-lg bg-white/[0.04] py-1.5 text-xs text-muted hover:text-accent">Word</a>
+            <span className="text-sm font-semibold text-ink">{l.label}</span>
+            <a href={`/${l.code}/print?print=1&email=${email}&variant=${variant}`} target="_blank" rel="noopener noreferrer" className="flex min-h-11 items-center justify-center rounded-lg bg-white/[0.04] text-sm text-muted hover:text-accent">PDF</a>
+            <a href={`/api/download?format=word&locale=${l.code}&email=${email}&variant=${variant}`} className="flex min-h-11 items-center justify-center rounded-lg bg-white/[0.04] text-sm text-muted hover:text-accent">Word</a>
           </li>
         ))}
       </ul>

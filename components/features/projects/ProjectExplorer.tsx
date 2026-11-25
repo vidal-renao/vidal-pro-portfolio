@@ -60,7 +60,7 @@ export function ProjectExplorer({ projects, categories, labels }: Props) {
 
       {results.length ? (
         <>
-          <div className="grid gap-5 md:grid-cols-2">
+          <div className="grid gap-6 md:grid-cols-2 lg:gap-8">
             {results.map((p, i) => (
               <ProjectCard key={p.slug} project={p} labels={labels} onStack={(tech) => { setCategory(null); setQuery(tech); }}
                 className={phoneCollapsed && i >= PHONE_INITIAL ? "max-sm:hidden" : ""} />

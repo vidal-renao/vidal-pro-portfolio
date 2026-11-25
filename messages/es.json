@@ -647,7 +647,11 @@
       "show": "Ver detalles",
       "hide": "Ocultar",
       "itFocus": "Experiencia IT",
-      "fullHistory": "Trayectoria completa"
+      "fullHistory": "Trayectoria completa",
+      "more": "Ver {count} logros más",
+      "less": "Mostrar menos",
+      "stack": "Stack tecnológico",
+      "current": "Actual"
     },
     "skills": {
       "label": "Habilidades",
