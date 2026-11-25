@@ -44,7 +44,7 @@ export function ProjectCard({ project: p, labels, onStack, priority = false, cla
           </a>
         </div>
       )}
-      <div className="flex flex-1 flex-col p-6 sm:p-7">
+      <div className="flex flex-1 flex-col p-6 lg:p-8">
         <div className="mb-3 flex flex-wrap items-center gap-2">
           <span className={`rounded-full border px-2.5 py-0.5 text-xs font-medium ${STATUS_STYLE[p.status]}`}>{labels.status[p.status]}</span>
           {p.featured && <span className="rounded-full border border-accent/30 bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent">{labels.featured}</span>}

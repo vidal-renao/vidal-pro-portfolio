@@ -1,7 +1,8 @@
+import { Fragment } from "react";
 import { getTranslations } from "next-intl/server";
 import { Section } from "@/components/ui/Section";
 import { ContactIntentLink, type ContactPurpose } from "@/components/features/contact/ContactIntentLink";
-import { CheckCircle, Code, Server } from "@/components/ui/icons";
+import { ArrowLeftRight, CheckCircle, Code, Server } from "@/components/ui/icons";
 import { PILLAR, type Pillar } from "@/components/ui/pillar";
 
 /** Track order in `specializations.tracks`: Software & AI first, IT Systems & Cloud second. */
@@ -29,12 +30,18 @@ export async function Specializations({ locale }: { locale: string }) {
 
   return (
     <Section id="specializations" label={t("label")} title={t("title")} subtitle={t("subtitle")}>
-      <div className="grid items-stretch gap-6 lg:grid-cols-2 lg:gap-8">
+      <div className="relative grid items-stretch gap-4 lg:grid-cols-2 lg:gap-8">
         {tracks.map((track, index) => {
           const kind = TRACK_PILLAR[index] ?? "software";
           const pillar = PILLAR[kind];
           return (
-          <article key={track.title} className={`card-elevated ${pillar.card} group relative flex h-full flex-col overflow-hidden rounded-3xl border border-line-strong bg-raised p-6 sm:p-9`}>
+          <Fragment key={track.title}>
+          {index === 1 && (
+            <div aria-hidden="true" data-pillar-connector className="pillar-connector z-10 mx-auto flex h-14 w-14 items-center justify-center rounded-full lg:absolute lg:left-1/2 lg:top-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2">
+              <ArrowLeftRight size={24} className="rotate-90 lg:rotate-0" />
+            </div>
+          )}
+          <article className={`card-elevated ${pillar.card} group relative flex h-full flex-col overflow-hidden rounded-3xl border border-line-strong bg-raised p-6 lg:p-9`}>
             <div aria-hidden="true" className={`pointer-events-none absolute inset-x-0 top-0 h-1 ${pillar.topLine}`} />
             <div className="mb-7 flex items-center justify-between gap-3">
               <span aria-hidden="true" className={`flex h-12 w-12 items-center justify-center rounded-2xl border ${pillar.iconBox}`}>{kind === "software" ? <Code size={24} /> : <Server size={24} />}</span>
@@ -76,10 +83,18 @@ export async function Specializations({ locale }: { locale: string }) {
               <ContactIntentLink testId="track-contact-cta" intent={track.intent === "career" ? { purpose: "career" } : { purpose: "business", service: "web" }} label={track.contact} />
             </div>
           </article>
+          </Fragment>
           );
         })}
       </div>
-      <p data-pillar-bridge className="mx-auto mt-8 max-w-3xl rounded-2xl border border-line bg-white/[0.03] px-5 py-4 text-center text-base leading-relaxed text-muted">{t("bridge")}</p>
+      <div data-pillar-bridge className="mx-auto mt-10 max-w-3xl rounded-3xl border border-line-strong bg-white/[0.03] p-6 text-center lg:p-8">
+        <div className="flex flex-wrap items-center justify-center gap-3 font-mono text-sm font-semibold">
+          <span className={`rounded-full border px-3 py-1 ${PILLAR.software.chip}`}>{tracks[0]?.subtitle}</span>
+          <ArrowLeftRight size={22} className="text-ink" />
+          <span className={`rounded-full border px-3 py-1 ${PILLAR.systems.chip}`}>{tracks[1]?.subtitle}</span>
+        </div>
+        <p className="mt-4 text-base leading-relaxed text-muted">{t("bridge")}</p>
+      </div>
     </Section>
   );
 }

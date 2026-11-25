@@ -6,6 +6,7 @@ import { CREDENTIALS } from "@/content/credentials";
 import { ArrowDown, ArrowUpRight, Code, Download, Pin, Server } from "@/components/ui/icons";
 import { PILLAR, type Pillar } from "@/components/ui/pillar";
 import { Flag, type FlagCode } from "@/components/ui/Flag";
+import { ContactIntentLink } from "@/components/features/contact/ContactIntentLink";
 
 interface HeroTrack {
   title: string;
@@ -29,6 +30,7 @@ export async function Hero({ locale }: { locale: string }) {
     getTranslations({ locale, namespace: "specializations" }),
   ]);
   const tracks = specializations.raw("tracks") as HeroTrack[];
+  const studio = ui.raw("studio") as { badge: string; text: string; cta: string };
   const stats = [
     { value: PROJECTS.filter((p) => p.status !== "lab").length, label: ui("statProjects") },
     { value: CREDENTIALS.filter((c) => c.group === "ai").length, label: ui("statCerts") },
@@ -78,7 +80,13 @@ export async function Hero({ locale }: { locale: string }) {
             </div>
           </div>
         </div>
-        <div className="mt-14 sm:mt-16">
+        <ContactIntentLink testId="hero-studio-cta" intent={{ purpose: "business" }} label={studio.cta}
+          className="studio-notice group mt-12 flex flex-col gap-3 rounded-2xl border border-line bg-white/[0.035] p-4 backdrop-blur focus-visible:outline-offset-4 sm:p-5 lg:flex-row lg:items-center lg:gap-5">
+          <span className="inline-flex w-fit flex-none rounded-full border border-sw/40 bg-sw/10 px-3 py-1 font-mono text-xs font-semibold uppercase tracking-[0.12em] text-sw-soft">{studio.badge}</span>
+          <span className="min-w-0 flex-1 text-base leading-relaxed text-muted">{studio.text}</span>
+          <span className="inline-flex flex-none items-center gap-2 text-base font-semibold text-sw-soft">{studio.cta}<span aria-hidden="true" className="transition-transform group-hover:translate-x-1 motion-reduce:transform-none">→</span></span>
+        </ContactIntentLink>
+        <div className="mt-12">
           <p className="mb-5 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-muted">{specializations("label")}</p>
           <div className="grid gap-5 md:grid-cols-2 lg:gap-6">
             {tracks.map((track, index) => {

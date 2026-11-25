@@ -9,9 +9,10 @@ export const ROLE_STACK: Record<string, readonly string[]> = {
   "lutelco-2021": ["Active Directory", "Microsoft 365", "Intune", "VMware vSphere", "Jira"],
   "nn-bank-2019": ["ServiceNow", "ITIL", "Microsoft 365", "MFA"],
   "nsc-2017": ["Active Directory", "Azure AD", "Intune", "ServiceNow", "Sophos"],
-  "web-freelance-2016": ["MySQL"],
+  "web-freelance-2016": ["MySQL", "Web Apps", "App Support"],
   "sprinet-2016": ["Windows", "Linux", "macOS", "iOS", "ESET"],
-  "deinta-2013": ["3CX", "SLA"],
+  "deinta-2013": ["3CX", "SLA", "Remote Support"],
+  "vodafone-2010": ["Fiber Optic", "Copper Cabling", "Datacenter"],
 };
 
 /**

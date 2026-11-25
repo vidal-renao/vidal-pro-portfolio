@@ -82,7 +82,7 @@ export function ExperienceTimeline({ roles, stacks, leads, labels }: Props) {
                   <span className={"h-2 w-2 rounded-full sm:h-3 sm:w-3 " + (isCurrent ? "bg-sys" : kind === "software" ? "bg-sw" : "bg-sys/60")} />
                 </span>
               </span>
-              <article className={`card-elevated ${pillar.card} rounded-3xl border ${isCurrent ? "border-sys/40" : "border-line-strong"} bg-raised p-5 sm:p-7`}>
+              <article className={`card-elevated ${pillar.card} rounded-3xl border ${isCurrent ? "border-sys/40" : "border-line-strong"} bg-raised p-5 sm:p-6 lg:p-8`}>
                 <div className="flex flex-wrap items-center gap-2">
                   <span className={`inline-flex items-center rounded-full border px-3 py-1 font-mono text-sm font-semibold tabular-nums ${pillar.chip}`}>{role.period}</span>
                   {role.location && <span className="inline-flex items-center gap-1.5 rounded-full border border-line bg-white/[0.03] px-3 py-1 text-sm text-muted"><Pin size={14} />{role.location}</span>}
