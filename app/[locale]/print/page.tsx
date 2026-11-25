@@ -44,8 +44,8 @@ export default async function PrintPage({
         <header className="cv-head">
           <div className="cv-head-main">
             <h1>Vidal Reñao Lopelo</h1>
-            <p className="cv-role">{source("role")}</p>
-            <p className="cv-spec">{source("specialties")}</p>
+            <p className="cv-role">{isSystemsVariant ? ts("role") : t("cvRole")}</p>
+            <p className="cv-spec">{isSystemsVariant ? ts("specialties") : t("cvSpecialties")}</p>
             <ul className="cv-contact">
               {contact.map((c) => (
                 <li key={c}>{c}</li>
@@ -64,7 +64,7 @@ export default async function PrintPage({
 
         <section>
           <h2 className="cv-bar">{t("profileTitle")}</h2>
-          <p className="cv-profile">{source("profile")}</p>
+          <p className="cv-profile">{isSystemsVariant ? ts("profile") : t("cvProfile")}</p>
         </section>
 
         <section>

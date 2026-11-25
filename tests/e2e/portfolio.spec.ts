@@ -88,7 +88,7 @@ test.describe("content", () => {
     await expect(page.locator(".cv")).toContainText("BIG School");
     await expect(page.locator(".cv")).not.toContainText("Microsoft labs");
     await expect(page.locator(".cv")).not.toContainText("Systems administration —");
-    await expect(page.locator(".cv")).not.toContainText("Cisco Networking Academy");
+    await expect(page.locator(".cv")).not.toContainText("CCNA");
   });
 
   test("career profile API keeps its contract (JobPilot sync)", async ({ request }) => {

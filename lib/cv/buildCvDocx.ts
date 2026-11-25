@@ -74,9 +74,9 @@ export async function buildCvDocx(
   const languages = t.raw("languages") as { lang: string; level: string }[];
   const education = ts.raw("education") as { title: string; detail: string }[];
 
-  const role = isSystemsVariant ? ts("role") : t("role");
-  const specialties = isSystemsVariant ? ts("specialties") : t("specialties");
-  const profile = isSystemsVariant ? ts("profile") : t("profile");
+  const role = isSystemsVariant ? ts("role") : t("cvRole");
+  const specialties = isSystemsVariant ? ts("specialties") : t("cvSpecialties");
+  const profile = isSystemsVariant ? ts("profile") : t("cvProfile");
 
   const contactParts = [
     cvLocation(locale),
