@@ -5,6 +5,7 @@ import { PROJECTS } from "@/content/projects";
 import { CREDENTIALS } from "@/content/credentials";
 import { ArrowDown, ArrowUpRight, Code, Download, Pin, Server } from "@/components/ui/icons";
 import { PILLAR, type Pillar } from "@/components/ui/pillar";
+import { Flag, type FlagCode } from "@/components/ui/Flag";
 
 interface HeroTrack {
   title: string;
@@ -73,7 +74,7 @@ export async function Hero({ locale }: { locale: string }) {
               </div>
             </div>
             <div aria-hidden="true" className="absolute -bottom-5 -left-6 flex items-center gap-2 rounded-2xl border border-line-strong bg-raised px-4 py-2.5 font-mono text-sm font-semibold text-ink shadow-[0_18px_40px_-12px_rgba(0,0,0,0.7)]">
-              <span className="h-2 w-2 rounded-full bg-sys-2" />{SITE.languages.join(" · ")}
+              <span className="h-2 w-2 rounded-full bg-sys-2" />{SITE.languages.map((l) => <Flag key={l} code={l.toLowerCase() as FlagCode} className="h-5 w-[30px]" />)}
             </div>
           </div>
         </div>

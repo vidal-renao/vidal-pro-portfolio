@@ -126,8 +126,8 @@ section[id], #cv { scroll-margin-top: 5.5rem; }
   .premium-panel { transition: none; }
 }
 
-/* Keep optional floating pagination out of the way while the mobile drawer is open. */
-body[data-mobile-menu-open="true"] .section-scroll-rail { visibility: hidden; }
+/* Keep the floating arrow out of the way while the mobile drawer is open. */
+body[data-mobile-menu-open="true"] .scroll-arrow { visibility: hidden; }
 
 /* WCAG AA: compact accent chips identified by axe on all locales and viewports.
    Preserve their accent surface while using a high-contrast foreground. */
@@ -239,4 +239,59 @@ body::before {
 @media (prefers-reduced-motion: reduce) {
   .card-elevated, .cta-sw, .cta-sys { transition: none; }
   .card-elevated:hover, .cta-sw:hover, .cta-sys:hover { transform: none; }
+}
+
+/* ── Hover polish ───────────────────────────────────────────────────────── */
+/* Cards: gradient edge fades in over the card (opacity only), slower, softer lift. */
+.card-elevated { transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1); transition-duration: 350ms; }
+.card-elevated::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(140deg, var(--sw-soft), transparent 35%, transparent 65%, var(--sys-soft));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  transition: opacity 350ms ease-out;
+}
+.card-elevated:hover::after { opacity: 0.8; }
+
+/* Header links: gradient underline grows from the centre. */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0.75rem;
+  right: 0.75rem;
+  bottom: 4px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--sw), var(--sys));
+  transform: scaleX(0);
+  transition: transform 250ms ease-out;
+}
+.nav-link:hover::after, .nav-link:focus-visible::after, .nav-link[aria-current]::after { transform: scaleX(1); }
+
+/* Language switcher. */
+.lang-trigger, .lang-option, .channel-link, .file-link, .form-field {
+  transition: transform 200ms ease-out, border-color 200ms ease-out, box-shadow 200ms ease-out, background-color 200ms ease-out;
+}
+.lang-trigger:hover, [data-language-switch][open] > .lang-trigger { border-color: rgba(129, 140, 248, 0.6); box-shadow: 0 8px 24px -12px rgba(129, 140, 248, 0.8); }
+.lang-option:hover { transform: translateY(-2px); border-color: rgba(129, 140, 248, 0.55); background-color: rgba(129, 140, 248, 0.12); box-shadow: 0 10px 22px -10px rgba(129, 140, 248, 0.7); }
+@keyframes panel-in { from { opacity: 0; transform: translateY(-6px) scale(0.97); } to { opacity: 1; transform: none; } }
+[data-language-switch][open] > .lang-panel > div { animation: panel-in 180ms ease-out both; transform-origin: top right; }
+
+/* Contact channels, CV files and form fields. */
+.channel-link:hover { transform: translateX(4px); border-color: rgba(129, 140, 248, 0.5); background-color: rgba(129, 140, 248, 0.09); }
+.file-link:hover { transform: translateY(-2px); border-color: rgba(34, 211, 238, 0.6); background-color: rgba(34, 211, 238, 0.12); }
+.form-field:hover { border-color: rgba(183, 208, 242, 0.45); }
+.form-field:focus { border-color: var(--sw); box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.3); }
+.scroll-arrow:hover { transform: translateY(-3px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .card-elevated::after, .nav-link::after, .lang-trigger, .lang-option, .channel-link, .file-link, .form-field { transition: none; }
+  .lang-option:hover, .channel-link:hover, .file-link:hover, .scroll-arrow:hover { transform: none; }
 }

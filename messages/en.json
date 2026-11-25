@@ -683,12 +683,8 @@
       "explore": "Explore"
     },
     "scroll": {
-      "navigation": "Section navigation",
-      "previous": "Previous section",
       "next": "Next section",
-      "top": "Top",
-      "move": "Move navigation control",
-      "choose": "Choose section"
+      "back": "Back to top"
     }
   },
   "specializations": {

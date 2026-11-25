@@ -683,12 +683,8 @@
       "explore": "Entdecken"
     },
     "scroll": {
-      "navigation": "Abschnittsnavigation",
-      "previous": "Vorheriger Abschnitt",
       "next": "Nächster Abschnitt",
-      "top": "Start",
-      "move": "Navigationssteuerung verschieben",
-      "choose": "Abschnitt auswählen"
+      "back": "Nach oben"
     }
   },
   "specializations": {

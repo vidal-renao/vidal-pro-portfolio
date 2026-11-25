@@ -1,7 +1,8 @@
 "use client";
 import { useState } from "react";
 import { EMAIL_ADDRESSES, type EmailVariant } from "@/lib/cv/emailVariants";
-import { Download } from "@/components/ui/icons";
+import { Download, FileText } from "@/components/ui/icons";
+import { Flag } from "@/components/ui/Flag";
 
 type Variant = "fullstack" | "systems";
 const LANGS = [{ code: "de", label: "Deutsch" }, { code: "en", label: "English" }, { code: "es", label: "Español" }] as const;
@@ -17,11 +18,13 @@ export function CvDownload({ locale }: { locale: string }) {
   const t = UI[locale] ?? UI.en;
   const [variant, setVariant] = useState<Variant>("fullstack");
   const [email, setEmail] = useState<EmailVariant>("outlook");
-  const option = (active: boolean) => `rounded-full border px-3 py-1.5 text-sm transition-colors ${active ? "border-accent/50 bg-accent/15 text-accent" : "border-line text-muted hover:text-ink"}`;
+  const option = (active: boolean) => `min-h-11 rounded-xl border px-4 py-2 text-sm font-semibold transition-colors ${active ? "border-sys/60 bg-sys/15 text-sys-soft" : "border-line-strong text-muted hover:border-white/40 hover:bg-white/[0.05] hover:text-ink"}`;
+  const file = "file-link flex min-h-11 items-center justify-center gap-1.5 rounded-lg border border-line bg-white/[0.04] text-sm font-semibold text-ink";
   return (
-    <div id="cv" className="rounded-2xl border border-line bg-raised p-5 sm:p-6">
-      <p className="flex items-center gap-2 text-sm font-semibold text-ink"><Download size={16} className="text-accent" />{t.heading}</p>
-      <p className="mt-1 text-sm text-dim">{t.hint}</p>
+    <div id="cv" className="relative overflow-hidden rounded-3xl border border-line-strong bg-raised p-5 sm:p-7">
+      <span aria-hidden="true" className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-sys via-sys-2/60 to-transparent" />
+      <p className="flex items-center gap-3 text-xl font-bold text-ink"><span aria-hidden="true" className="flex h-11 w-11 items-center justify-center rounded-xl border border-sys/30 bg-sys/10 text-sys-soft"><Download size={20} /></span>{t.heading}</p>
+      <p className="mt-3 text-base leading-relaxed text-muted">{t.hint}</p>
       <div className="mt-4 flex flex-col gap-3">
         <div role="group" aria-label={t.focus} className="flex flex-wrap items-center gap-2">
           <span className="w-full text-sm text-dim sm:w-auto sm:min-w-28">{t.focus}</span>
@@ -34,10 +37,10 @@ export function CvDownload({ locale }: { locale: string }) {
       </div>
       <ul className="mt-5 grid grid-cols-3 gap-2">
         {LANGS.map((l) => (
-          <li key={l.code} className="flex flex-col gap-1.5 rounded-xl border border-line p-2.5 text-center">
-            <span className="text-sm font-semibold text-ink">{l.label}</span>
-            <a href={`/${l.code}/print?print=1&email=${email}&variant=${variant}`} target="_blank" rel="noopener noreferrer" className="flex min-h-11 items-center justify-center rounded-lg bg-white/[0.04] text-sm text-muted hover:text-accent">PDF</a>
-            <a href={`/api/download?format=word&locale=${l.code}&email=${email}&variant=${variant}`} className="flex min-h-11 items-center justify-center rounded-lg bg-white/[0.04] text-sm text-muted hover:text-accent">Word</a>
+          <li key={l.code} className="flex flex-col gap-2 rounded-2xl border border-line bg-bg/50 p-2.5 text-center">
+            <span className="flex justify-center py-1" title={l.label}><Flag code={l.code} className="h-6 w-9" /><span className="sr-only">{l.label}</span></span>
+            <a href={`/${l.code}/print?print=1&email=${email}&variant=${variant}`} target="_blank" rel="noopener noreferrer" className={file}><FileText size={15} />PDF</a>
+            <a href={`/api/download?format=word&locale=${l.code}&email=${email}&variant=${variant}`} className={file}><FileText size={15} />Word</a>
           </li>
         ))}
       </ul>

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Close, Download, Menu } from "@/components/ui/icons";
 import { BrandMark } from "@/components/ui/BrandMark";
+import { Flag } from "@/components/ui/Flag";
 
 interface Props {
   locale: string;
@@ -15,9 +16,9 @@ interface Props {
 }
 
 const LOCALES = [
-  { code: "de", flag: "🇩🇪", name: "Deutsch" },
-  { code: "en", flag: "🇬🇧", name: "English" },
-  { code: "es", flag: "🇪🇸", name: "Español" },
+  { code: "de", name: "Deutsch" },
+  { code: "en", name: "English" },
+  { code: "es", name: "Español" },
 ] as const;
 
 interface LanguageSwitchProps { locale: string; label: string; mobile: boolean; onNavigate?: () => void }
@@ -65,19 +66,19 @@ function LanguageSwitch({ locale, label, mobile, onNavigate }: LanguageSwitchPro
     <details ref={ref} data-language-switch className="group/language relative" {...hoverProps}>
       <summary
         onClick={mobile ? undefined : (event) => { if (event.detail > 0 && window.matchMedia("(hover: hover) and (pointer: fine)").matches) event.preventDefault(); }}
-        className="flex min-h-11 cursor-pointer list-none items-center gap-2 rounded-xl border border-line-strong bg-white/[0.035] px-3 text-sm font-medium text-ink transition-colors hover:bg-white/[0.08] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent [&::-webkit-details-marker]:hidden">
-        <span aria-hidden="true">{LOCALES.find((l) => l.code === locale)?.flag}</span>
+        className="lang-trigger flex min-h-11 cursor-pointer list-none items-center gap-2 rounded-xl border border-line-strong bg-white/[0.035] px-3 text-sm font-medium text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent [&::-webkit-details-marker]:hidden">
+        <Flag code={LOCALES.find((l) => l.code === locale)?.code ?? "en"} />
         <span className="sr-only">{label}</span>
         <span aria-hidden="true" className="text-xs text-muted transition-transform group-open/language:rotate-180">⌄</span>
       </summary>
-      <div className={mobile ? "mt-2" : "absolute right-0 top-full z-[60] pt-2"}>
-        <div role="group" aria-label={label} className="min-w-44 rounded-2xl border border-line-strong bg-raised p-2 shadow-2xl shadow-black/35">
+      <div className={mobile ? "mt-2" : "lang-panel absolute right-0 top-full z-[60] pt-2"}>
+        <div role="group" aria-label={label} className="flex gap-1 rounded-2xl border border-line-strong bg-raised p-2 shadow-2xl shadow-black/50">
           {LOCALES.map((l) => (
-            <a key={l.code} href={"/" + l.code} hrefLang={l.code} lang={l.code}
+            <a key={l.code} href={"/" + l.code} hrefLang={l.code} lang={l.code} title={l.name}
               aria-current={l.code === locale ? "page" : undefined}
               onClick={onNavigate}
-              className={"flex min-h-11 items-center gap-3 rounded-xl px-3 py-2 text-sm transition-colors focus-visible:outline-2 focus-visible:outline-accent " + (l.code === locale ? "bg-accent/15 font-semibold text-ink" : "text-muted hover:bg-white/[0.07] hover:text-ink")}>
-              <span aria-hidden="true">{l.flag}</span>{l.name}
+              className={"lang-option flex h-12 w-14 items-center justify-center rounded-xl border focus-visible:outline-2 focus-visible:outline-accent " + (l.code === locale ? "border-sw/60 bg-sw/15" : "border-transparent")}>
+              <Flag code={l.code} className="h-5 w-[30px]" /><span className="sr-only">{l.name}</span>
             </a>
           ))}
         </div>
@@ -207,7 +208,7 @@ export function SiteHeader({ locale, brand, sections, labels }: Props) {
           <nav data-header-primary aria-label="Main" className="hidden items-center gap-0.5 rounded-2xl border border-line bg-white/[0.025] p-1 xl:flex">
             {primary.map((s) => (
               <a key={s.id} href={`#${s.id}`} aria-current={active === s.id ? "location" : undefined}
-                className={`relative inline-flex min-h-10 items-center rounded-xl px-3 py-2 text-[13px] font-medium transition-[background-color,color,box-shadow] duration-200 ${active === s.id ? "bg-accent/10 text-accent shadow-[inset_0_0_0_1px_rgba(91,141,184,0.18)]" : "text-muted hover:bg-white/[0.06] hover:text-ink"}`}>
+                className={`relative nav-link inline-flex min-h-10 items-center rounded-xl px-3 py-2 text-[13px] font-medium transition-[background-color,color,box-shadow] duration-200 ${active === s.id ? "bg-accent/10 text-accent shadow-[inset_0_0_0_1px_rgba(91,141,184,0.18)]" : "text-muted hover:bg-white/[0.06] hover:text-ink"}`}>
                 {s.label}
               </a>
             ))}

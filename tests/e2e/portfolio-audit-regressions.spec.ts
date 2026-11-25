@@ -5,17 +5,6 @@ test("HTML escaping rejects markup and preserves readable punctuation", () => {
   expect(escapeHtml('<img src=x onerror="alert(1)"> & \'hello\'')).toBe("&lt;img src=x onerror=&quot;alert(1)&quot;&gt; &amp; &#39;hello&#39;");
 });
 
-for (const locale of ["es", "en", "de"]) {
-  test(`all nine content sections are represented in the rail in ${locale}`, async ({ page }) => {
-    await page.goto(`/${locale}`);
-    const rail = page.locator('nav').filter({ has: page.getByRole("button", { name: /Mover control|Move navigation|Navigationssteuerung/ }) });
-    await expect(rail).toBeVisible();
-    const steps = await page.locator("main section[id]").evaluateAll((nodes) => nodes.map((n) => n.id));
-    expect(steps).toEqual(["top", "specializations", "services", "projects", "experience", "skills", "credentials", "testimonials", "contact"]);
-    await expect(rail).toContainText("09");
-    await expect(page.locator('footer a[href="#testimonials"]')).toHaveCount(1);
-  });
-}
 
 test("skills reveal the same core AI tools available under specializations", async ({ page }) => {
   await page.goto("/es");
@@ -35,3 +24,12 @@ test("recruiters can focus the experience timeline on relevant IT roles", async 
   await scope.getByRole("button", { name: "Trayectoria completa" }).click();
   await expect(scope.getByText("Trabajos temporales fuera del sector IT")).toBeVisible();
 });
+
+for (const locale of ["es", "en", "de"]) {
+  test(`all nine content sections exist in order in ${locale}`, async ({ page }) => {
+    await page.goto(`/${locale}`);
+    const steps = await page.locator("main section[id]").evaluateAll((nodes) => nodes.map((n) => n.id));
+    expect(steps).toEqual(["top", "specializations", "services", "projects", "experience", "skills", "credentials", "testimonials", "contact"]);
+    await expect(page.locator('footer a[href="#testimonials"]')).toHaveCount(1);
+  });
+}
