@@ -79,6 +79,16 @@ test.describe("content", () => {
     expect(word.headers()["content-type"]).toContain("wordprocessingml");
   });
 
+  test("printed CV only contains the selected profile", async ({ page }) => {
+    await page.goto("/en/print?variant=systems");
+    await expect(page.locator(".cv")).toHaveAttribute("data-cv-variant", "systems");
+    await expect(page.locator(".cv")).not.toContainText("BIG School");
+    await expect(page.locator(".cv")).toContainText("Other Experience");
+    await page.goto("/en/print?variant=fullstack");
+    await expect(page.locator(".cv")).toContainText("BIG School");
+    await expect(page.locator(".cv")).not.toContainText("Microsoft labs");
+  });
+
   test("career profile API keeps its contract (JobPilot sync)", async ({ request }) => {
     const res = await request.get("/api/career-profile");
     expect(res.status()).toBe(200);
