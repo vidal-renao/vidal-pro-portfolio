@@ -14,24 +14,17 @@ import {
 } from "docx";
 import { getTranslations } from "next-intl/server";
 import { EMAIL_ADDRESSES, type EmailVariant } from "./emailVariants";
+import { cvLocation, otherRoleLine, selectCerts, selectCompetencies, selectKnowledge, selectRoles, type CvCert, type CvKnowledge, type CvRole, type CvVariant } from "./profileContent";
 
-type Role = {
-  title: string;
-  company: string;
-  location: string;
-  period: string;
-  highlights: string[];
-};
+export type { CvVariant };
 
-export type CvVariant = "fullstack" | "systems";
-
-// Swiss corporate palette shared with the application CVs (petroleum blue)
-const NAVY = "0F4D67";
-const NAVY_DARK = "155A76";
-const ACCENT = "155A76";
-const PALE = "DCEEF8";
-const TEXT = "1B2430";
-const MUTED = "55606E";
+// Swiss corporate palette shared with the print view (petroleum blue); all text colours pass WCAG AA on white
+const NAVY = "134E66";
+const NAVY_DARK = "134E66";
+const ACCENT = "1A5F7A";
+const PALE = "E4F0F6";
+const TEXT = "1F2937";
+const MUTED = "4B5563";
 const FONT = "Arial";
 
 const noBorder = { style: BorderStyle.NONE, size: 0, color: "FFFFFF" } as const;
@@ -73,20 +66,20 @@ export async function buildCvDocx(
   const te = await getTranslations({ locale, namespace: "experience" });
   const ts = await getTranslations({ locale, namespace: "cvSystems" });
 
-  const roles = te.raw("roles") as Role[];
+  const { full: roles, other: otherRoles } = selectRoles(te.raw("roles") as CvRole[], cvVariant);
   const source = isSystemsVariant ? ts : t;
-  const competencies = source.raw("competencies") as string[];
-  const knowledge = source.raw("knowledge") as { area: string; detail: string }[];
-  const certs = t.raw("certs") as { title: string; detail: string }[];
+  const competencies = selectCompetencies(source.raw("competencies") as string[], cvVariant);
+  const knowledge = selectKnowledge(source.raw("knowledge") as CvKnowledge[], cvVariant);
+  const certs = selectCerts(t.raw("certs") as CvCert[], cvVariant);
   const languages = t.raw("languages") as { lang: string; level: string }[];
   const education = ts.raw("education") as { title: string; detail: string }[];
 
-  const role = isSystemsVariant ? ts("role") : t("role");
-  const specialties = isSystemsVariant ? ts("specialties") : t("specialties");
-  const profile = isSystemsVariant ? ts("profile") : t("profile");
+  const role = isSystemsVariant ? ts("role") : t("cvRole");
+  const specialties = isSystemsVariant ? ts("specialties") : t("cvSpecialties");
+  const profile = isSystemsVariant ? ts("profile") : t("cvProfile");
 
   const contactParts = [
-    "Basel, Switzerland",
+    cvLocation(locale),
     "+41 77 972 62 99",
     email,
     "linkedin.com/in/vidalrenao",
@@ -126,21 +119,25 @@ export async function buildCvDocx(
                       new Paragraph({
                         spacing: { after: 40 },
                         children: [
-                          new TextRun({ text: role.toUpperCase(), bold: true, size: 20, color: "E3F1F8", font: FONT }),
+                          new TextRun({ text: role, bold: true, size: 23, color: "FFFFFF", font: FONT }),
                         ],
                       }),
                       new Paragraph({
                         spacing: { after: 80 },
-                        children: [new TextRun({ text: specialties, size: 17, color: "CFE6F1", font: FONT })],
+                        children: [new TextRun({ text: specialties, size: 18, color: "DCEBF2", font: FONT })],
                       }),
                       new Paragraph({
                         spacing: { after: 40 },
-                        children: [new TextRun({ text: contactLine, size: 15, color: "F2F8FB", font: FONT })],
+                        children: [new TextRun({ text: contactLine, size: 17, color: "F4F9FB", font: FONT })],
                       }),
                       new Paragraph({
+                        spacing: { after: 20 },
                         children: [
-                          new TextRun({ text: t("available"), bold: true, size: 15, color: "FFFFFF", font: FONT }),
+                          new TextRun({ text: `${t("available")} · ${t("seeking")}`, bold: true, size: 17, color: "FFFFFF", font: FONT }),
                         ],
+                      }),
+                      new Paragraph({
+                        children: [new TextRun({ text: t("commitment"), size: 16, color: "DCEBF2", font: FONT })],
                       }),
                     ],
                   }),
@@ -153,7 +150,7 @@ export async function buildCvDocx(
                       new Paragraph({
                         alignment: AlignmentType.RIGHT,
                         children: photo
-                          ? [new ImageRun({ type: "jpg", data: photo, transformation: { width: 96, height: 102 } })]
+                          ? [new ImageRun({ type: "jpg", data: photo, transformation: { width: 100, height: 114 } })]
                           : [],
                       }),
                     ],
@@ -182,7 +179,7 @@ export async function buildCvDocx(
             new Paragraph({
               spacing: { before: 100, after: 20 },
               children: [
-                new TextRun({ text: r.title, bold: true, size: 20, color: "0f172a", font: FONT }),
+                new TextRun({ text: r.title, bold: true, size: 21, color: "0E3B50", font: FONT }),
                 new TextRun({ text: `    ${r.period}`, size: 16, color: MUTED, font: FONT }),
               ],
             }),
@@ -200,6 +197,17 @@ export async function buildCvDocx(
             }),
             ...r.highlights.map(bullet),
           ]),
+          ...(otherRoles.length > 0
+            ? [
+                new Paragraph({
+                  spacing: { before: 100, after: 40 },
+                  children: [
+                    new TextRun({ text: t("otherExperienceTitle"), bold: true, size: 21, color: "0E3B50", font: FONT }),
+                  ],
+                }),
+                ...otherRoles.map((r) => bullet(otherRoleLine(r))),
+              ]
+            : []),
 
           // Technical Knowledge
           sectionBar(t("knowledgeTitle")),
@@ -306,19 +314,11 @@ export async function buildCvDocx(
             ),
           }),
 
-          // Footer
+          // Footer (contact details already sit in the header band)
           new Paragraph({
-            alignment: AlignmentType.CENTER,
             spacing: { before: 260 },
-            border: { top: { style: BorderStyle.SINGLE, size: 4, color: "e2e8f0" } },
-            children: [
-              new TextRun({
-                text: `${email} · +41 77 972 62 99 · linkedin.com/in/vidalrenao`,
-                size: 15,
-                color: MUTED,
-                font: FONT,
-              }),
-            ],
+            border: { top: { style: BorderStyle.SINGLE, size: 4, color: "D5DEE5" } },
+            children: [],
           }),
           ...(isSystemsVariant
             ? [

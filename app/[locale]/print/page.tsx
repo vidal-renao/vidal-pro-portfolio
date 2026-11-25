@@ -1,14 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import PrintTrigger from "@/components/ui/PrintTrigger";
 import { EMAIL_ADDRESSES, resolveEmailVariant } from "@/lib/cv/emailVariants";
-
-type Role = {
-  title: string;
-  company: string;
-  location: string;
-  period: string;
-  highlights: string[];
-};
+import { cvLocation, otherRoleLine, selectCerts, selectCompetencies, selectKnowledge, selectRoles, type CvCert, type CvKnowledge, type CvRole, type CvVariant } from "@/lib/cv/profileContent";
 
 export default async function PrintPage({
   params,
@@ -20,59 +13,62 @@ export default async function PrintPage({
   const { locale } = await params;
   const { print, email, variant } = await searchParams;
   const emailAddress = EMAIL_ADDRESSES[resolveEmailVariant(email)];
-  const isSystemsVariant = variant === "systems";
+  const cvVariant: CvVariant = variant === "systems" ? "systems" : "fullstack";
+  const isSystemsVariant = cvVariant === "systems";
   const t = await getTranslations({ locale, namespace: "cv" });
   const te = await getTranslations({ locale, namespace: "experience" });
   const ts = await getTranslations({ locale, namespace: "cvSystems" });
 
-  const roles = te.raw("roles") as Role[];
   const source = isSystemsVariant ? ts : t;
-  const competencies = source.raw("competencies") as string[];
-  const knowledge = source.raw("knowledge") as { area: string; detail: string }[];
-  const certs = t.raw("certs") as { title: string; detail: string }[];
+  const { full: roles, other: otherRoles } = selectRoles(te.raw("roles") as CvRole[], cvVariant);
+  const certs = selectCerts(t.raw("certs") as CvCert[], cvVariant);
+  const competencies = selectCompetencies(source.raw("competencies") as string[], cvVariant);
+  const knowledge = selectKnowledge(source.raw("knowledge") as CvKnowledge[], cvVariant);
   const languages = t.raw("languages") as { lang: string; level: string }[];
   const education = ts.raw("education") as { title: string; detail: string }[];
 
-  const role = isSystemsVariant ? ts("role") : t("role");
-  const specialties = isSystemsVariant ? ts("specialties") : t("specialties");
-  const profile = isSystemsVariant ? ts("profile") : t("profile");
+  const contact = [
+    cvLocation(locale),
+    "+41 77 972 62 99",
+    emailAddress,
+    "linkedin.com/in/vidalrenao",
+    "github.com/vidal-renao",
+    ...(isSystemsVariant ? [ts("residency")] : []),
+  ];
 
   return (
     <>
       <PrintTrigger auto={print === "1"} />
-      <div className="cv">
+      <div className="cv" data-cv-variant={cvVariant}>
         {/* ── HEADER BAND ── */}
         <header className="cv-head">
           <div className="cv-head-main">
             <h1>Vidal Reñao Lopelo</h1>
-            <p className="cv-role">{role}</p>
-            <p className="cv-spec">{specialties}</p>
-          </div>
-          <div className="cv-head-side">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/Photo.jpg" alt="Vidal Reñao Lopelo" className="cv-photo" />
+            <p className="cv-role">{isSystemsVariant ? ts("role") : t("cvRole")}</p>
+            <p className="cv-spec">{isSystemsVariant ? ts("specialties") : t("cvSpecialties")}</p>
             <ul className="cv-contact">
-              <li>Basel, Switzerland</li>
-              <li>+41 77 972 62 99</li>
-              <li>{emailAddress}</li>
-              <li>linkedin.com/in/vidalrenao</li>
-              <li>github.com/vidal-renao</li>
-              {isSystemsVariant && <li>{ts("residency")}</li>}
-              <li className="cv-avail">{t("available")} · {t("seeking")}</li>
-              <li>{t("commitment")}</li>
+              {contact.map((c) => (
+                <li key={c}>{c}</li>
+              ))}
             </ul>
+            <p className="cv-status">
+              <span className="cv-avail">
+                {t("available")} · {t("seeking")}
+              </span>
+              <span className="cv-commit">{t("commitment")}</span>
+            </p>
           </div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/Photo.jpg" alt="Vidal Reñao Lopelo" className="cv-photo" />
         </header>
 
-        {/* ── PROFILE ── */}
         <section>
-          <div className="cv-bar">{t("profileTitle")}</div>
-          <p className="cv-profile">{profile}</p>
+          <h2 className="cv-bar">{t("profileTitle")}</h2>
+          <p className="cv-profile">{isSystemsVariant ? ts("profile") : t("cvProfile")}</p>
         </section>
 
-        {/* ── KEY COMPETENCIES ── */}
         <section>
-          <div className="cv-bar">{t("competenciesTitle")}</div>
+          <h2 className="cv-bar">{t("competenciesTitle")}</h2>
           <ul className="cv-comp">
             {competencies.map((c) => (
               <li key={c}>{c}</li>
@@ -80,18 +76,15 @@ export default async function PrintPage({
           </ul>
         </section>
 
-        {/* ── EXPERIENCE ── */}
         <section>
-          <div className="cv-bar">{t("experienceTitle")}</div>
+          <h2 className="cv-bar">{t("experienceTitle")}</h2>
           {roles.map((r) => (
-            <div key={`${r.company}-${r.period}`} className="cv-entry">
+            <div key={r.id} className="cv-entry">
               <div className="cv-entry-head">
                 <strong>{r.title}</strong>
                 <span className="cv-period">{r.period}</span>
               </div>
-              <p className="cv-company">
-                {[r.company, r.location].filter(Boolean).join(" · ")}
-              </p>
+              <p className="cv-company">{[r.company, r.location].filter(Boolean).join(" · ")}</p>
               <ul>
                 {r.highlights.map((h) => (
                   <li key={h}>{h}</li>
@@ -99,11 +92,20 @@ export default async function PrintPage({
               </ul>
             </div>
           ))}
+          {otherRoles.length > 0 && (
+            <div className="cv-entry cv-other">
+              <strong className="cv-other-title">{t("otherExperienceTitle")}</strong>
+              <ul>
+                {otherRoles.map((r) => (
+                  <li key={r.id}>{otherRoleLine(r)}</li>
+                ))}
+              </ul>
+            </div>
+          )}
         </section>
 
-        {/* ── TECHNICAL KNOWLEDGE ── */}
         <section>
-          <div className="cv-bar">{t("knowledgeTitle")}</div>
+          <h2 className="cv-bar">{t("knowledgeTitle")}</h2>
           <div className="cv-know">
             {knowledge.map((k) => (
               <div key={k.area} className="cv-know-row">
@@ -114,35 +116,33 @@ export default async function PrintPage({
           </div>
         </section>
 
-        {/* ── CERTIFICATIONS ── */}
-        <section>
-          <div className="cv-bar">{t("certsTitle")}</div>
-          <div className="cv-certs">
-            {certs.map((c) => (
-              <div key={c.title} className="cv-cert">
-                <strong>{c.title}</strong>
-                <span>{c.detail}</span>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* ── EDUCATION ── */}
-          <section>
-            <div className="cv-bar">{ts("educationTitle")}</div>
-            <div className="cv-certs">
+        <section className="cv-keep">
+          <div className="cv-split">
+            <div>
+              <h2 className="cv-bar">{ts("educationTitle")}</h2>
               {education.map((e) => (
-                <div key={e.detail} className="cv-cert">
+                <div key={e.title} className="cv-cert">
                   <strong>{e.title}</strong>
                   <span>{e.detail}</span>
                 </div>
               ))}
             </div>
-          </section>
+            {certs.length > 0 && (
+              <div>
+                <h2 className="cv-bar">{t("certsTitle")}</h2>
+                {certs.map((c) => (
+                  <div key={c.id} className="cv-cert">
+                    <strong>{c.title}</strong>
+                    <span>{c.detail}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </section>
 
-        {/* ── LANGUAGES ── */}
-        <section>
-          <div className="cv-bar">{t("languagesTitle")}</div>
+        <section className="cv-keep">
+          <h2 className="cv-bar">{t("languagesTitle")}</h2>
           <div className="cv-langs">
             {languages.map((l) => (
               <div key={l.lang} className="cv-lang">
@@ -154,7 +154,6 @@ export default async function PrintPage({
         </section>
 
         <footer className="cv-foot">
-          <span>{emailAddress} · +41 77 972 62 99 · linkedin.com/in/vidalrenao</span>
           {isSystemsVariant && (
             <span>
               {ts("nationality")} · {ts("license")}
@@ -166,94 +165,93 @@ export default async function PrintPage({
 
       <style>{`
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: "Segoe UI", Aptos, "Helvetica Neue", Arial, sans-serif; color: #1f2937; background: #eef1f5; }
-        .cv { max-width: 820px; margin: 24px auto; background: #fff; }
+        body { font-family: "Segoe UI", Aptos, "Helvetica Neue", Arial, sans-serif; color: #1F2937; background: #EEF1F5; }
+        .cv { max-width: 820px; margin: 24px auto; background: #fff; font-size: 10pt; line-height: 1.35; }
 
-        /* Header band */
+        /* Header band — petrol blue; every text colour on it is >= 7:1 */
         .cv-head {
-          display: flex; justify-content: space-between; gap: 24px;
-          background: #155A76; border-radius: 3px;
-          color: #fff; padding: 26px 32px;
+          display: flex; justify-content: space-between; align-items: center; gap: 24px;
+          background: #134E66; color: #fff; padding: 20px 30px 18px;
+          border-bottom: 4px solid #2C7A93;
         }
-        .cv-head-main { display: flex; flex-direction: column; justify-content: center; }
-        .cv-head h1 { font-size: 27pt; font-weight: 800; letter-spacing: -0.01em; line-height: 1.05; }
-        .cv-role { font-size: 11pt; font-weight: 600; color: #E3F1F8; margin-top: 8px; text-transform: uppercase; letter-spacing: 0.12em; }
-        .cv-spec { font-size: 9.5pt; color: #CFE6F1; margin-top: 3px; letter-spacing: 0.02em; }
-        .cv-head-side { display: flex; align-items: center; gap: 16px; }
-        .cv-photo { width: 104px; height: 112px; border-radius: 2px; object-fit: cover; object-position: 50% 30%; border: 2px solid #fff; flex: none; order: 2; }
-        .cv-contact { list-style: none; font-size: 8.5pt; line-height: 1.6; color: #F2F8FB; text-align: right; border-left: 1px solid rgba(255,255,255,0.28); padding-left: 14px; }
-        .cv-contact .cv-avail { color: #fff; font-weight: 700; margin-top: 3px; }
+        .cv-head-main { min-width: 0; }
+        .cv-head h1 { font-size: 25pt; font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
+        .cv-role { font-size: 12pt; font-weight: 600; color: #FFFFFF; margin-top: 6px; }
+        .cv-spec { font-size: 9.5pt; color: #DCEBF2; margin-top: 2px; }
+        .cv-contact { list-style: none; display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 2px 18px; margin-top: 10px; font-size: 9pt; color: #F4F9FB; }
+        .cv-contact li { white-space: nowrap; }
+        .cv-status { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; margin-top: 8px; }
+        .cv-avail {
+          display: inline-block; font-size: 9pt; font-weight: 600; color: #fff;
+          background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.35);
+          border-radius: 999px; padding: 2px 10px;
+        }
+        .cv-commit { font-size: 8.5pt; color: #DCEBF2; }
+        .cv-photo {
+          width: 112px; height: 128px; flex: none; object-fit: cover; object-position: 50% 28%;
+          border-radius: 8px; border: 3px solid #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+        }
 
         /* Body */
-        section { padding: 0 32px; margin-top: 16px; }
+        section { padding: 0 30px; margin-top: 10px; }
         .cv-bar {
-          background: #0F4D67; color: #fff; font-size: 9pt; font-weight: 700;
+          background: #134E66; color: #fff; font-size: 9pt; font-weight: 700;
           text-transform: uppercase; letter-spacing: 0.1em;
-          padding: 4px 10px; border-radius: 2px; margin-bottom: 8px;
+          padding: 3px 10px; border-radius: 3px; margin-bottom: 6px;
         }
-        .cv-profile { font-size: 9.5pt; line-height: 1.6; color: #374151; }
+        .cv-profile { color: #1F2937; }
 
-        /* Competencies */
-        .cv-comp {
-          list-style: none; display: grid; grid-template-columns: 1fr 1fr;
-          gap: 5px 24px;
-        }
-        .cv-comp li {
-          font-size: 9pt; color: #374151; line-height: 1.4; padding-left: 16px; position: relative;
-        }
+        .cv-comp { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 2px 24px; }
+        .cv-comp li { font-size: 9.5pt; color: #1F2937; line-height: 1.35; padding-left: 14px; position: relative; }
         .cv-comp li::before {
-          content: ""; position: absolute; left: 0; top: 5px;
-          width: 6px; height: 6px; border-radius: 50%; background: #155A76;
+          content: ""; position: absolute; left: 0; top: 6px;
+          width: 6px; height: 6px; border-radius: 50%; background: #2C7A93;
         }
 
-        /* Experience */
-        .cv-entry { margin-bottom: 12px; }
+        .cv-entry { margin-bottom: 8px; }
         .cv-entry-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
         .cv-entry-head strong { font-size: 10.5pt; color: #0E3B50; }
-        .cv-period { font-size: 8.5pt; color: #64748b; white-space: nowrap; }
-        .cv-company { font-size: 9pt; color: #155A76; font-weight: 600; margin: 1px 0 4px; }
+        .cv-period { font-size: 9pt; color: #374151; white-space: nowrap; }
+        .cv-company { font-size: 9.5pt; color: #1A5F7A; font-weight: 600; margin: 1px 0 3px; }
         .cv-entry ul { padding-left: 16px; list-style: disc; }
-        .cv-entry li::marker { color: #155A76; }
-        .cv-entry li { font-size: 9pt; color: #475569; line-height: 1.5; }
+        .cv-entry li::marker { color: #2C7A93; }
+        .cv-entry li { font-size: 9.5pt; color: #374151; line-height: 1.35; }
+        .cv-other-title { display: block; font-size: 10.5pt; color: #0E3B50; margin-bottom: 3px; }
 
-        /* Knowledge */
-        .cv-know { display: flex; flex-direction: column; gap: 6px; }
-        .cv-know-row { display: grid; grid-template-columns: 150px 1fr; gap: 12px; align-items: center; }
+        .cv-know { display: flex; flex-direction: column; gap: 3px; }
+        .cv-know-row { display: grid; grid-template-columns: 190px 1fr; gap: 12px; align-items: center; break-inside: avoid; }
         .cv-know-label {
-          font-size: 8.5pt; font-weight: 700; color: #0E3B50;
-          background: #DCEEF8; border: 1px solid #C9DCE7; border-radius: 2px;
-          padding: 4px 10px; text-align: left;
+          font-size: 9pt; font-weight: 700; color: #0E3B50;
+          background: #E4F0F6; border-left: 3px solid #2C7A93; border-radius: 2px; padding: 2px 8px;
         }
-        .cv-know-detail { font-size: 9pt; color: #475569; }
+        .cv-know-detail { font-size: 9.5pt; color: #374151; }
 
-        /* Certifications */
-        .cv-certs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; }
-        .cv-cert { display: flex; flex-direction: column; }
-        .cv-cert strong { font-size: 9.5pt; color: #0f172a; }
-        .cv-cert span { font-size: 8.5pt; color: #64748b; margin-top: 1px; }
+        .cv-split { display: grid; grid-template-columns: 1fr 1fr; gap: 0 24px; }
+        .cv-split .cv-cert { margin-bottom: 6px; }
+        .cv-cert { display: flex; flex-direction: column; break-inside: avoid; }
+        .cv-cert strong { color: #0F172A; }
+        .cv-cert span { font-size: 9pt; color: #4B5563; margin-top: 1px; }
 
-        /* Languages */
-        .cv-langs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-        .cv-lang {
-          border: 1px solid #C9DCE7; border-radius: 2px; overflow: hidden; text-align: center;
-        }
-        .cv-lang-name { display: block; background: #0F4D67; color: #fff; font-size: 9pt; font-weight: 700; padding: 5px; }
-        .cv-lang-level { display: block; font-size: 8.5pt; color: #475569; padding: 6px; }
+        .cv-langs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px 24px; }
+        .cv-lang { display: flex; justify-content: space-between; gap: 8px; border-bottom: 1px solid #D5E3EA; padding: 3px 0; }
+        .cv-lang-name { font-weight: 700; color: #0E3B50; }
+        .cv-lang-level { font-size: 9pt; color: #374151; text-align: right; }
 
-        /* Footer */
         .cv-foot {
-          margin: 22px 0 0; padding: 12px 32px 26px; border-top: 1px solid #e2e8f0;
-          display: flex; flex-direction: column; align-items: center; gap: 3px;
-          font-size: 8pt; color: #94a3b8; text-align: center;
+          margin-top: 14px; padding: 8px 32px 18px; border-top: 1px solid #D5DEE5;
+          display: flex; flex-direction: column; align-items: center; gap: 2px;
+          font-size: 8.5pt; color: #4B5563; text-align: center;
         }
         .cv-foot-note { font-style: italic; }
 
         @media print {
           html, body { background: #fff !important; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
-          .cv-bar { break-after: avoid; }
           .cv { margin: 0; max-width: none; }
-          .cv-entry { break-inside: avoid; }
-          @page { margin: 12mm 0; size: A4; }
+          .cv-bar { break-after: avoid; }
+          .cv-entry-head, .cv-company { break-after: avoid; }
+          .cv-entry li, .cv-other, .cv-keep { break-inside: avoid; }
+          @page { margin: 9mm 0; size: A4; }
+          @page :first { margin-top: 0; }
         }
       `}</style>
     </>

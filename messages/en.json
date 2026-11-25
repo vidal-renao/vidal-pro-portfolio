@@ -385,6 +385,9 @@
     "available": "Available now",
     "seeking": "Seeking a permanent position (80–100 %)",
     "commitment": "Open to on-call duty, travel, flexible hours and relocation",
+    "cvRole": "Fullstack Developer · Web, AI & Automation",
+    "cvSpecialties": "Next.js · React · TypeScript · Supabase · AI automation · Claude API",
+    "cvProfile": "Fullstack developer based in Basel, with over a decade in IT. I build websites, apps and AI automation with Next.js, React, TypeScript, Supabase and the Claude API for businesses in every sector —gyms, restaurants, salons, clinics, shops and agencies. My background in IT support and systems helps me deliver stable, easy-to-maintain solutions. From briefing to result, one single contact. Trilingual (DE/EN/ES).",
     "profileTitle": "Professional Profile",
     "profile": "Fullstack developer and IT specialist based in Basel, with over a decade in the field. I build websites, apps and AI automation for businesses in every sector —gyms, restaurants, salons, clinics, shops and agencies— and I also handle the systems side: Windows Server, Active Directory, Linux, networks and Microsoft 365 (CCNA course training). From briefing to result, one single contact. Trilingual (DE/EN/ES).",
     "competenciesTitle": "Key Competencies",
@@ -399,6 +402,7 @@
       "Trilingual client work — DE / EN / ES"
     ],
     "experienceTitle": "Professional Experience",
+    "otherExperienceTitle": "Other Experience",
     "present": "Present",
     "knowledgeTitle": "Technical Knowledge",
     "knowledge": [
