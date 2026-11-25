@@ -75,8 +75,8 @@ export async function Hero({ locale }: { locale: string }) {
                 <Image src={SITE.photo} alt={SITE.name} width={320} height={400} loading="eager" sizes="300px" className="aspect-[4/5] w-full object-cover" />
               </div>
             </div>
-            <div aria-hidden="true" className="absolute -bottom-5 -left-6 flex items-center gap-2 rounded-2xl border border-line-strong bg-raised px-4 py-2.5 font-mono text-sm font-semibold text-ink shadow-[0_18px_40px_-12px_rgba(0,0,0,0.7)]">
-              <span className="h-2 w-2 rounded-full bg-sys-2" />{SITE.languages.map((l) => <Flag key={l} code={l.toLowerCase() as FlagCode} className="h-5 w-[30px]" />)}
+            <div aria-hidden="true" className="absolute -bottom-3 -left-3 flex items-center gap-1.5 rounded-xl border border-line-strong bg-raised px-2.5 py-1.5 shadow-[0_18px_40px_-12px_rgba(0,0,0,0.7)]">
+              <span className="h-1.5 w-1.5 rounded-full bg-sys-2" />{SITE.languages.map((l) => <Flag key={l} code={l.toLowerCase() as FlagCode} className="h-3.5 w-[21px]" />)}
             </div>
           </div>
         </div>
