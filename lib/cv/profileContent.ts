@@ -23,9 +23,17 @@ export interface CvCert {
 /** "all" = every highlight; number[] = only those indices; number = the first N highlights. */
 type HighlightRule = "all" | number[] | number;
 
+export interface CvKnowledge {
+  area: string;
+  detail: string;
+  pillar?: "software" | "systems";
+}
+
 interface VariantPlan {
   full: Record<string, HighlightRule>;
   certIds: readonly string[] | "all";
+  /** Indices into the variant's `competencies` list (same order in DE/EN/ES). */
+  competencies: readonly number[] | "all";
 }
 
 const PLANS: Record<CvVariant, VariantPlan> = {
@@ -39,17 +47,29 @@ const PLANS: Record<CvVariant, VariantPlan> = {
       "nsc-2017": [0, 2, 9, 4],
     },
     certIds: ["ccna-training"],
+    competencies: "all",
   },
   fullstack: {
     full: {
       // Own projects: the software/SaaS bullets; the Microsoft 365 labs belong to the systems CV.
       "freelance-2025": [0, 1, 3, 4],
       "web-freelance-2016": "all",
-      "lutelco-2021": 3,
     },
-    certIds: "all",
+    certIds: ["big-school-agent-programming", "big-school-zero-to-agents", "big-school-zero-to-production"],
+    // Web, AI automation, backend, cloud delivery and trilingual client work; systems skills stay in the systems CV.
+    competencies: [0, 1, 2, 6, 7],
   },
 };
+
+export function selectCompetencies(competencies: string[], variant: CvVariant): string[] {
+  const indices = PLANS[variant].competencies;
+  return indices === "all" ? competencies : indices.map((i) => competencies[i]).filter((c): c is string => Boolean(c));
+}
+
+/** Fullstack CV keeps only software-pillar areas; the systems list has no pillar tags and is kept whole. */
+export function selectKnowledge(knowledge: CvKnowledge[], variant: CvVariant): CvKnowledge[] {
+  return variant === "fullstack" ? knowledge.filter((k) => k.pillar !== "systems") : knowledge;
+}
 
 function pick(highlights: string[], rule: HighlightRule): string[] {
   if (rule === "all") return highlights;

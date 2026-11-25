@@ -14,7 +14,7 @@ import {
 } from "docx";
 import { getTranslations } from "next-intl/server";
 import { EMAIL_ADDRESSES, type EmailVariant } from "./emailVariants";
-import { cvLocation, otherRoleLine, selectCerts, selectRoles, type CvCert, type CvRole, type CvVariant } from "./profileContent";
+import { cvLocation, otherRoleLine, selectCerts, selectCompetencies, selectKnowledge, selectRoles, type CvCert, type CvKnowledge, type CvRole, type CvVariant } from "./profileContent";
 
 export type { CvVariant };
 
@@ -68,8 +68,8 @@ export async function buildCvDocx(
 
   const { full: roles, other: otherRoles } = selectRoles(te.raw("roles") as CvRole[], cvVariant);
   const source = isSystemsVariant ? ts : t;
-  const competencies = source.raw("competencies") as string[];
-  const knowledge = source.raw("knowledge") as { area: string; detail: string }[];
+  const competencies = selectCompetencies(source.raw("competencies") as string[], cvVariant);
+  const knowledge = selectKnowledge(source.raw("knowledge") as CvKnowledge[], cvVariant);
   const certs = selectCerts(t.raw("certs") as CvCert[], cvVariant);
   const languages = t.raw("languages") as { lang: string; level: string }[];
   const education = ts.raw("education") as { title: string; detail: string }[];
