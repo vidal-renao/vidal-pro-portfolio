@@ -173,7 +173,8 @@
           "Logged and tracked systems and network incidents using ServiceNow",
           "Prepared and configured client IT equipment before delivery and carried out on-site installation, commissioning and connectivity checks.",
           "Synchronised on-premises Active Directory users with Azure AD (now Microsoft Entra ID) for Microsoft 365.",
-          "Tracked incidents and service level agreements (SLAs)."
+          "Tracked incidents and service level agreements (SLAs).",
+          "Installed, configured and maintained local and network printers, including preventive and corrective maintenance, drivers, connectivity, consumables, paper jams and fault diagnosis."
         ]
       },
       {
@@ -197,7 +198,8 @@
           "On-site systems and hardware support at customer locations",
           "Setup and configuration of Windows, Linux, macOS and iOS devices",
           "Antivirus on customer devices with ESET and Microsoft Defender",
-          "Prepared customer devices, installed required software and peripherals, and commissioned equipment directly at customer premises."
+          "Prepared customer devices, installed required software and peripherals, and commissioned equipment directly at customer premises.",
+          "Installed and maintained printers and peripherals at customer sites, including driver and network setup, toner replacement, paper-jam resolution, and hardware/software troubleshooting."
         ]
       },
       {
@@ -210,7 +212,8 @@
           "Diagnosed faults in communications and security systems remotely and coordinated field technicians for on-site interventions",
           "Prepared and configured customer communications and security equipment, supporting on-site installation, start-up and functional checks.",
           "Tracked incidents and service level agreements (SLAs); worked with the 3CX telephony system.",
-          "Handled incidents remotely through a management application for gates, entrances, barriers and telephony systems."
+          "Handled incidents remotely through a management application for gates, entrances, barriers and telephony systems.",
+          "Supported and maintained printers and customer equipment, including configuration, drivers, consumables, fault diagnosis and coordination of technical interventions."
         ]
       },
       {

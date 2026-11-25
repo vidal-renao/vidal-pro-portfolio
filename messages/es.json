@@ -173,7 +173,8 @@
           "Registro y seguimiento de incidencias de sistemas y redes con ServiceNow",
           "Preparación y configuración de equipos IT para clientes, instalación y puesta en marcha in situ, con comprobaciones de funcionamiento y conectividad.",
           "Sincronización de usuarios de Active Directory local con Azure AD (hoy Microsoft Entra ID) para Microsoft 365.",
-          "Seguimiento de incidencias y de los acuerdos de nivel de servicio (SLA)."
+          "Seguimiento de incidencias y de los acuerdos de nivel de servicio (SLA).",
+          "Instalación, configuración y mantenimiento preventivo y correctivo de impresoras locales y de red: controladores, conectividad, consumibles, atascos y diagnóstico de averías."
         ]
       },
       {
@@ -197,7 +198,8 @@
           "Soporte presencial de sistemas y hardware en las instalaciones de clientes",
           "Configuración y puesta en marcha de equipos Windows, Linux, macOS e iOS",
           "Antivirus en los equipos de clientes con ESET y Microsoft Defender",
-          "Preparación de equipos para clientes, instalación de software y periféricos y puesta en marcha en sus instalaciones."
+          "Preparación de equipos para clientes, instalación de software y periféricos y puesta en marcha en sus instalaciones.",
+          "Instalación y mantenimiento de impresoras y periféricos en las instalaciones de los clientes: drivers, conexión a red, sustitución de tóner, atascos y resolución de incidencias de hardware y software."
         ]
       },
       {
@@ -210,7 +212,8 @@
           "Diagnóstico remoto de averías en sistemas de comunicación y seguridad y coordinación de técnicos de campo para intervenciones in situ",
           "Preparación y configuración de equipos de comunicación y seguridad para clientes, apoyo a la instalación, puesta en marcha y pruebas funcionales in situ.",
           "Seguimiento de incidencias y de los acuerdos de nivel de servicio (SLA); trabajo con el sistema de telefonía 3CX.",
-          "Atención remota de incidencias en portones, portales, barreras y sistemas de telefonía, mediante la aplicación de gestión."
+          "Atención remota de incidencias en portones, portales, barreras y sistemas de telefonía, mediante la aplicación de gestión.",
+          "Soporte y mantenimiento de impresoras y equipos de cliente: configuración, controladores, consumibles, diagnóstico de averías y coordinación de intervenciones técnicas."
         ]
       },
       {
