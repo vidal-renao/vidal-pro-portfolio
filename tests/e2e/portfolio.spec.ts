@@ -10,9 +10,9 @@ test.describe("projects explorer", () => {
     await expect(cards(page)).toHaveCount(PROJECTS.length);
 
     const search = page.getByRole("searchbox");
-    await search.fill("pgvector");
+    await search.fill("n8n");
     await expect(cards(page)).toHaveCount(1);
-    await expect(cards(page).first().locator("h3")).toHaveText("WAAI SaaS");
+    await expect(cards(page).first().locator("h3")).toHaveText("FlowPilot AI");
 
     await search.fill("ALEMAN"); // accent- and case-insensitive
     await expect(cards(page)).toHaveCount(2);
