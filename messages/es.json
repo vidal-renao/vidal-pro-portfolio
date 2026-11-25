@@ -561,6 +561,10 @@
       {
         "area": "Gestión de servicios IT",
         "detail": "ServiceNow · Jira · ITIL · SLA · Base de conocimiento"
+      },
+      {
+        "area": "Laboratorios Microsoft",
+        "detail": "Intune y Autopilot: aprovisionamiento en máquinas virtuales (laboratorio) · Intune: asignación y recepción de apps/políticas e inicio de sesión corporativo (laboratorio) · Exchange: instalación y configuraciones iniciales (laboratorio)"
       }
     ]
   },

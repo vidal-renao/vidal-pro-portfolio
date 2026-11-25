@@ -561,6 +561,10 @@
       {
         "area": "IT service management",
         "detail": "ServiceNow · Jira · ITIL · SLA · Knowledge base"
+      },
+      {
+        "area": "Microsoft labs",
+        "detail": "Intune and Autopilot: virtual machine provisioning (lab) · Intune: app/policy assignment and receipt, corporate sign-in (lab) · Exchange: installation and initial configuration (lab)"
       }
     ]
   },
