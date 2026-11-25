@@ -400,9 +400,9 @@
     "commitment": "Open to on-call duty, travel, flexible hours and relocation",
     "cvRole": "Fullstack Developer · Web, AI & Automation",
     "cvSpecialties": "Next.js · React · TypeScript · Supabase · AI automation · Claude API",
-    "cvProfile": "Fullstack developer serving Switzerland and Liechtenstein, with over a decade in IT. I build websites, apps and AI automation with Next.js, React, TypeScript, Supabase and the Claude API for businesses in every sector —gyms, restaurants, salons, clinics, shops and agencies. My background in IT support and systems helps me deliver stable, easy-to-maintain solutions. From briefing to result, one single contact. Trilingual (DE/EN/ES).",
+    "cvProfile": "Fullstack developer based in Basel, with over a decade in IT. I build websites, apps and AI automation with Next.js, React, TypeScript, Supabase and the Claude API for businesses in every sector —gyms, restaurants, salons, clinics, shops and agencies. My background in IT support and systems helps me deliver stable, easy-to-maintain solutions. From briefing to result, one single contact. Trilingual (DE/EN/ES).",
     "profileTitle": "Professional Profile",
-    "profile": "Fullstack developer and IT specialist serving Switzerland and Liechtenstein, with over a decade in the field. I build websites, apps and AI automation for businesses in every sector —gyms, restaurants, salons, clinics, shops and agencies— and I also handle the systems side: Windows Server, Active Directory, Linux, networks and Microsoft 365 (CCNA course training). From briefing to result, one single contact. Trilingual (DE/EN/ES).",
+    "profile": "Fullstack developer and IT specialist based in Basel, with over a decade in the field. I build websites, apps and AI automation for businesses in every sector —gyms, restaurants, salons, clinics, shops and agencies— and I also handle the systems side: Windows Server, Active Directory, Linux, networks and Microsoft 365 (CCNA course training). From briefing to result, one single contact. Trilingual (DE/EN/ES).",
     "competenciesTitle": "Key Competencies",
     "competencies": [
       "Websites & apps — Next.js, React, TypeScript, PWA",
@@ -517,7 +517,7 @@
   "cvSystems": {
     "role": "IT System Engineer · Microsoft 365, Cloud & Infrastructure",
     "specialties": "Microsoft 365 · Entra ID / Hybrid Identity · Windows Server · Active Directory · Backup & Recovery · 1st/2nd-Level Support",
-    "profile": "IT system engineer with 8+ years of experience in IT operations and support for SMEs and enterprises: planning, implementation, migration and 1st & 2nd-level support, on-site and remote. Professional experience with Windows Server, Active Directory and GPO, user provisioning and deprovisioning, and hybrid identity: configuring and monitoring the synchronisation of on-premises users with Microsoft Entra ID via Entra Connect, including onboarding access issues. Microsoft 365 administration (Exchange, Teams, SharePoint, Intune, Defender, MFA), VMware vSphere and Hyper-V, NAS/SAN storage, backup and restore with Veeam Backup & Replication and Acronis Cyber Protect, networks and firewalls. PowerShell automation for onboarding, configuration and installations. ITIL incident and request management in ServiceNow and Jira, including around 1.5 years on a bank's service desk and 500+ users supported across multiple sites. Clear explanations, empathy and active listening with users. Available immediately in Switzerland and Liechtenstein (80–100 %). English C1, German B2, Spanish native. EU citizen with Swiss Permit B.",
+    "profile": "IT system engineer with 8+ years of experience in IT operations and support for SMEs and enterprises: planning, implementation, migration and 1st & 2nd-level support, on-site and remote. Professional experience with Windows Server, Active Directory and GPO, user provisioning and deprovisioning, and hybrid identity: configuring and monitoring the synchronisation of on-premises users with Microsoft Entra ID via Entra Connect, including onboarding access issues. Microsoft 365 administration (Exchange, Teams, SharePoint, Intune, Defender, MFA), VMware vSphere and Hyper-V, NAS/SAN storage, backup and restore with Veeam Backup & Replication and Acronis Cyber Protect, networks and firewalls. PowerShell automation for onboarding, configuration and installations. ITIL incident and request management in ServiceNow and Jira, including around 1.5 years on a bank's service desk and 500+ users supported across multiple sites. Clear explanations, empathy and active listening with users. Based in Basel, available immediately (80–100 %). English C1, German B2, Spanish native. EU citizen with Swiss Permit B.",
     "residency": "EU citizen | Permit B (5 yrs)",
     "nationality": "Nationality: Spanish (EU citizen)",
     "license": "Driving License Cat. B",
@@ -604,7 +604,7 @@
       "more": "More"
     },
     "hero": {
-      "eyebrow": "Switzerland & Liechtenstein · Available",
+      "eyebrow": "Basel, Switzerland · Available in CH and LI",
       "primary": "Services for businesses",
       "secondary": "Professional profile and CV",
       "statProjects": "live projects",

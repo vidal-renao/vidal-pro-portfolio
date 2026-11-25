@@ -108,7 +108,7 @@ export function otherRoleLine(role: CvRole): string {
   return `${head} (${role.period})`;
 }
 
-const CV_LOCATION: Record<string, string> = { de: "Schweiz & Liechtenstein", en: "Switzerland & Liechtenstein", es: "Suiza y Liechtenstein" };
+const CV_LOCATION: Record<string, string> = { de: "Basel, Schweiz", en: "Basel, Switzerland", es: "Basilea, Suiza" };
 
 /** Home location in the CV's own language. */
 export function cvLocation(locale: string): string {

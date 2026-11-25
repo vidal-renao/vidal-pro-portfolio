@@ -25,7 +25,7 @@ export async function renderSocialImage(params: Promise<{ locale: string }>) {
       <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "64px 72px", background: "linear-gradient(135deg, #060606 0%, #0b1626 60%, #10243a 100%)", color: "#f5f7fa", fontFamily: "sans-serif" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 14, fontSize: 24, color: "#9cc9ff", letterSpacing: 4 }}>
           <div style={{ width: 14, height: 14, borderRadius: 7, background: "#5b8db8" }} />
-          VIDAL ECOSYSTEM · SWITZERLAND & LIECHTENSTEIN
+          VIDAL ECOSYSTEM · BASEL, SWITZERLAND
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ fontSize: 84, fontWeight: 700, letterSpacing: -3, lineHeight: 1.05 }}>Vidal Reñao</div>

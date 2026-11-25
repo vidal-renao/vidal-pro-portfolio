@@ -12,18 +12,18 @@ const BASE_URL = SITE.url;
 const META: Record<string, { title: string; description: string; keywords: string[] }> = {
   en: {
     title: "Vidal Reñao | IT Systems Administrator & Full-Stack Developer",
-    description: "Reliable IT today. AI-ready tomorrow. IT Systems Administrator and Full-Stack Developer for Switzerland and Liechtenstein: Microsoft 365, Entra ID and networks, plus web applications and AI automation for businesses.",
-    keywords: ["Vidal Reñao", "VIDAL ECOSYSTEM", "VIDALECOSYSTEM", "Fullstack Developer Switzerland", "AI Solutions Switzerland", "AI Automation Liechtenstein", "Systems Administrator Switzerland", "IT Infrastructure Switzerland", "Microsoft 365", "Entra ID", "Next.js", "Supabase"],
+    description: "Reliable IT today. AI-ready tomorrow. IT Systems Administrator and Full-Stack Developer in Basel: Microsoft 365, Entra ID and networks, plus web applications and AI automation for businesses.",
+    keywords: ["Vidal Reñao", "VIDAL ECOSYSTEM", "VIDALECOSYSTEM", "Fullstack Developer Basel", "AI Solutions Switzerland", "AI Automation Basel", "Systems Administrator Basel", "IT Infrastructure Switzerland", "Microsoft 365", "Entra ID", "Next.js", "Supabase"],
   },
   de: {
     title: "Vidal Reñao | IT-Systemadministrator & Full-Stack-Entwickler",
-    description: "Zuverlässige IT heute. Bereit für KI morgen. IT-Systemadministrator und Full-Stack-Entwickler für die Schweiz und Liechtenstein: Microsoft 365, Entra ID und Netzwerke sowie Webanwendungen und KI-Automatisierung für KMU.",
-    keywords: ["Vidal Reñao", "VIDAL ECOSYSTEM", "VIDALECOSYSTEM", "Fullstack Entwickler Schweiz", "KI Automatisierung Schweiz", "KI Lösungen", "Systemadministrator Liechtenstein", "IT System Engineer Schweiz", "Microsoft 365", "Entra ID", "Next.js", "Supabase"],
+    description: "Zuverlässige IT heute. Bereit für KI morgen. IT-Systemadministrator und Full-Stack-Entwickler in Basel: Microsoft 365, Entra ID und Netzwerke sowie Webanwendungen und KI-Automatisierung für KMU.",
+    keywords: ["Vidal Reñao", "VIDAL ECOSYSTEM", "VIDALECOSYSTEM", "Fullstack Entwickler Basel", "KI Automatisierung Schweiz", "KI Lösungen", "Systemadministrator Basel", "IT System Engineer Schweiz", "Microsoft 365", "Entra ID", "Next.js", "Supabase"],
   },
   es: {
     title: "Vidal Reñao | Administrador de Sistemas IT y Desarrollador Full-Stack",
-    description: "IT fiable hoy. Preparada para la IA mañana. Administrador de Sistemas IT y Desarrollador Full-Stack para Suiza y Liechtenstein: Microsoft 365, Entra ID y redes, además de aplicaciones web y automatización con IA para empresas.",
-    keywords: ["Vidal Reñao", "VIDAL ECOSYSTEM", "VIDALECOSYSTEM", "Fullstack Developer", "AI Solutions", "IA para empresas", "Automation", "automatización empresarial", "Administrador de Sistemas", "System Admin", "Suiza", "Liechtenstein", "Next.js", "Microsoft 365"],
+    description: "IT fiable hoy. Preparada para la IA mañana. Administrador de Sistemas IT y Desarrollador Full-Stack en Basilea: Microsoft 365, Entra ID y redes, además de aplicaciones web y automatización con IA para empresas.",
+    keywords: ["Vidal Reñao", "VIDAL ECOSYSTEM", "VIDALECOSYSTEM", "Fullstack Developer", "AI Solutions", "IA para empresas", "Automation", "automatización empresarial", "Administrador de Sistemas", "System Admin", "Basilea", "Suiza", "Next.js", "Microsoft 365"],
   },
 };
 
@@ -85,7 +85,7 @@ function structuredData(locale: string) {
         jobTitle: ["IT Systems Administrator", "Full-Stack Developer"],
         knowsAbout: ["Artificial intelligence", "AI Automation", "AI Solutions", "Fullstack Development", "Next.js", "TypeScript", "Supabase", "Microsoft 365", "Microsoft Entra ID", "Active Directory", "Windows Server", "IT infrastructure"],
         knowsLanguage: ["de", "en", "es"],
-        workLocation: [{ "@type": "Country", name: "Switzerland" }, { "@type": "Country", name: "Liechtenstein" }],
+        address: { "@type": "PostalAddress", addressLocality: "Basel", addressCountry: "CH" },
         sameAs: [SITE.linkedin, SITE.github],
       },
       {

@@ -12,7 +12,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: "Vidal Reñao | IT Systems Administrator & Full-Stack Developer",
-  description: "Reliable IT today. AI-ready tomorrow. IT systems administration, full-stack development and AI automation for Switzerland and Liechtenstein.",
+  description: "Reliable IT today. AI-ready tomorrow. IT systems administration, full-stack development and AI automation in Basel, for Switzerland and Liechtenstein.",
   icons: {
     icon: [{ url: "/icons/ve-mark.svg", type: "image/svg+xml" }, { url: "/icons/favicon-32.png", sizes: "32x32", type: "image/png" }],
     apple: [{ url: "/icons/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Vidal Reñao | IT Systems Administrator & Full-Stack Developer",
     description:
-      "Reliable IT today. AI-ready tomorrow. Microsoft 365, Entra ID and IT infrastructure, plus web applications and AI automation in Switzerland and Liechtenstein.",
+      "Reliable IT today. AI-ready tomorrow. Microsoft 365, Entra ID and IT infrastructure, plus web applications and AI automation in Basel.",
     images: [
       {
         url: "/Photo.jpg",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Vidal Reñao | IT Systems Administrator & Full-Stack Developer",
     description:
-      "Reliable IT today. AI-ready tomorrow. IT systems administration and full-stack development in Switzerland and Liechtenstein.",
+      "Reliable IT today. AI-ready tomorrow. IT systems administration and full-stack development in Basel, Switzerland.",
     images: ["/Photo.jpg"],
   },
 };

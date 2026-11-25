@@ -21,7 +21,7 @@ export async function SiteFooter({ locale }: { locale: string }) {
             </span>
           </a>
           <p className="mt-5 max-w-xs text-base leading-relaxed text-muted">{ui("tagline")}</p>
-          <p className="mt-4 inline-flex rounded-full border border-line bg-white/[0.025] px-3 py-1.5 text-sm text-dim">Switzerland · Liechtenstein</p>
+          <p className="mt-4 inline-flex rounded-full border border-line bg-white/[0.025] px-3 py-1.5 text-sm text-dim">Basel, Switzerland · CH / LI</p>
         </div>
         <div data-footer-explore>
           <h2 className="mb-5 text-sm font-semibold uppercase tracking-[0.18em] text-accent">{ui("explore")}</h2>
