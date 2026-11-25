@@ -14,6 +14,7 @@ import {
 } from "docx";
 import { getTranslations } from "next-intl/server";
 import { EMAIL_ADDRESSES, type EmailVariant } from "./emailVariants";
+import { loadCvProjects } from "./cvProjects";
 import { cvLocation, otherRoleLine, selectCerts, selectCompetencies, selectKnowledge, selectRoles, type CvCert, type CvKnowledge, type CvRole, type CvVariant } from "./profileContent";
 
 export type { CvVariant };
@@ -73,6 +74,7 @@ export async function buildCvDocx(
   const certs = selectCerts(t.raw("certs") as CvCert[], cvVariant);
   const languages = t.raw("languages") as { lang: string; level: string }[];
   const education = ts.raw("education") as { title: string; detail: string }[];
+  const projects = await loadCvProjects(locale, cvVariant);
 
   const role = isSystemsVariant ? ts("role") : t("cvRole");
   const specialties = isSystemsVariant ? ts("specialties") : t("cvSpecialties");
@@ -172,6 +174,30 @@ export async function buildCvDocx(
           sectionBar(t("competenciesTitle")),
           ...competencies.map(bullet),
           new Paragraph({ spacing: { after: 120 }, children: [] }),
+
+          // Projects (fullstack CV only)
+          ...(projects.length > 0
+            ? [
+                sectionBar(t("projectsTitle")),
+                ...projects.flatMap((p) => [
+                  new Paragraph({
+                    spacing: { before: 80, after: 20 },
+                    children: [
+                      new TextRun({ text: p.title, bold: true, size: 21, color: "0E3B50", font: FONT }),
+                      new TextRun({ text: `    ${p.status} · ${p.host}`, size: 16, color: MUTED, font: FONT }),
+                    ],
+                  }),
+                  new Paragraph({
+                    spacing: { after: 20 },
+                    children: [new TextRun({ text: p.summary, size: 18, color: TEXT, font: FONT })],
+                  }),
+                  new Paragraph({
+                    spacing: { after: 60 },
+                    children: [new TextRun({ text: p.stack.join(" · "), bold: true, size: 16, color: ACCENT, font: FONT })],
+                  }),
+                ]),
+              ]
+            : []),
 
           // Experience
           sectionBar(t("experienceTitle")),

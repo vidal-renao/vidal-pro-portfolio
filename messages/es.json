@@ -248,6 +248,16 @@
           "Multiusuario con Row Level Security en Supabase e instalable como app (PWA)"
         ]
       },
+      "flowpilot-ai": {
+        "title": "FlowPilot AI",
+        "summary": "Automatiza la entrada de facturas para pymes suizas: el documento llega por webhook, n8n orquesta la extracción y la validación, y una persona revisa antes de exportar.",
+        "highlights": [
+          "Arquitectura híbrida: app y API en Vercel con Supabase (Zúrich); n8n, Postgres y un worker en local con Docker Compose (Docker Desktop)",
+          "Validación suiza determinista (UID CHE, IBAN, importes con tolerancia de 0,05 CHF, duplicados) y aprobación humana obligatoria antes del export CSV",
+          "Multi-cliente con Row Level Security, webhooks firmados con HMAC, cola con reintentos y sugerencia de categoría con embeddings (pgvector)",
+          "MVP desplegado con datos de prueba; 15 ADR, CI con tests de RLS, E2E y escaneo Trivy de la imagen del worker"
+        ]
+      },
       "invoice-auto": {
         "title": "Invoice Auto",
         "summary": "Gestión de facturas entre España y Suiza con extracción por IA y un motor que decide qué pagar, revisar o detener.",
@@ -403,6 +413,7 @@
     ],
     "experienceTitle": "Experiencia Profesional",
     "otherExperienceTitle": "Otra experiencia",
+    "projectsTitle": "Proyectos",
     "present": "Actualidad",
     "knowledgeTitle": "Conocimientos Técnicos",
     "knowledge": [
@@ -418,7 +429,7 @@
       },
       {
         "area": "IA y Automatización",
-        "detail": "ChatGPT · Codex · Claude · Claude Code · Gemini · OpenCode · OpenAI API · Agentes IA · RAG · MCP · OCR · Automatización de flujos",
+        "detail": "ChatGPT · Codex · Claude · Claude Code · Gemini · OpenCode · OpenAI API · Agentes IA · RAG · MCP · OCR · n8n · Automatización de flujos",
         "pillar": "software"
       },
       {
@@ -433,7 +444,7 @@
       },
       {
         "area": "Cloud y Entrega",
-        "detail": "Vercel · GitHub Actions · PWA · Azure · CI/CD",
+        "detail": "Vercel · GitHub Actions · Docker · Docker Compose · PWA · Azure · CI/CD",
         "pillar": "software"
       },
       {
