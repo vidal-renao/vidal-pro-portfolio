@@ -400,9 +400,9 @@
     "commitment": "Bereit für Pikett, Reisen, flexible Arbeitszeiten und Umzug",
     "cvRole": "Fullstack-Entwickler · Web, KI & Automatisierung",
     "cvSpecialties": "Next.js · React · TypeScript · Supabase · KI-Automatisierung · Claude API",
-    "cvProfile": "Fullstack-Entwickler mit Sitz in Basel und über einem Jahrzehnt Erfahrung in der IT. Ich entwickle Websites, Apps und KI-Automatisierungen mit Next.js, React, TypeScript, Supabase und der Claude API für Unternehmen aller Branchen —Fitnessstudios, Restaurants, Friseure, Praxen, Läden und Agenturen. Meine Erfahrung im IT-Support und in der Systemtechnik hilft mir, stabile und gut wartbare Lösungen zu liefern. Vom Briefing bis zum Ergebnis, ein einziger Ansprechpartner. Dreisprachig (DE/EN/ES).",
+    "cvProfile": "Fullstack-Entwickler für die Schweiz und Liechtenstein mit über einem Jahrzehnt Erfahrung in der IT. Ich entwickle Websites, Apps und KI-Automatisierungen mit Next.js, React, TypeScript, Supabase und der Claude API für Unternehmen aller Branchen —Fitnessstudios, Restaurants, Friseure, Praxen, Läden und Agenturen. Meine Erfahrung im IT-Support und in der Systemtechnik hilft mir, stabile und gut wartbare Lösungen zu liefern. Vom Briefing bis zum Ergebnis, ein einziger Ansprechpartner. Dreisprachig (DE/EN/ES).",
     "profileTitle": "Berufsprofil",
-    "profile": "Fullstack-Entwickler und IT-Spezialist mit Sitz in Basel und über einem Jahrzehnt Erfahrung. Ich baue Websites, Apps und KI-Automatisierung für Unternehmen aller Branchen —Fitnessstudios, Restaurants, Friseure, Praxen, Läden und Agenturen— und kümmere mich auch um die Systemseite: Windows Server, Active Directory, Linux, Netzwerke und Microsoft 365 (CCNA-Kursausbildung). Vom Briefing bis zum Ergebnis, ein einziger Ansprechpartner. Dreisprachig (DE/EN/ES).",
+    "profile": "Fullstack-Entwickler und IT-Spezialist für die Schweiz und Liechtenstein mit über einem Jahrzehnt Erfahrung. Ich baue Websites, Apps und KI-Automatisierung für Unternehmen aller Branchen —Fitnessstudios, Restaurants, Friseure, Praxen, Läden und Agenturen— und kümmere mich auch um die Systemseite: Windows Server, Active Directory, Linux, Netzwerke und Microsoft 365 (CCNA-Kursausbildung). Vom Briefing bis zum Ergebnis, ein einziger Ansprechpartner. Dreisprachig (DE/EN/ES).",
     "competenciesTitle": "Kernkompetenzen",
     "competencies": [
       "Websites & Apps — Next.js, React, TypeScript, PWA",
@@ -517,7 +517,7 @@
   "cvSystems": {
     "role": "IT System Engineer · Microsoft 365, Cloud & Infrastruktur",
     "specialties": "Microsoft 365 · Entra ID / Hybrid Identity · Windows Server · Active Directory · Backup & Recovery · 1st/2nd-Level-Support",
-    "profile": "IT System Engineer mit über 8 Jahren Erfahrung in IT-Betrieb und Support für KMU und Unternehmen: Planung, Implementierung, Migration sowie 1st- & 2nd-Level-Support vor Ort und remote. Berufliche Erfahrung mit Windows Server, Active Directory und GPO, Benutzeranlage und -deaktivierung sowie hybrider Identität: Konfiguration und Überwachung der Synchronisierung lokaler Benutzer mit Microsoft Entra ID über Entra Connect, inklusive Behebung von Zugriffsproblemen beim Onboarding. Administration von Microsoft 365 (Exchange, Teams, SharePoint, Intune, Defender, MFA), VMware vSphere und Hyper-V, NAS/SAN-Storage, Backup und Wiederherstellung mit Veeam Backup & Replication und Acronis Cyber Protect, Netzwerke und Firewalls. PowerShell-Automatisierung für Onboarding, Konfigurationen und Installationen. Incident- und Request-Management nach ITIL in ServiceNow und Jira, darunter rund 1,5 Jahre im Service Desk einer Bank und Support für 500+ Benutzer an mehreren Standorten. Verständliche Erklärungen, Empathie und aktives Zuhören im Umgang mit Anwendern. Wohnhaft in Basel, sofort verfügbar (80–100 %). Englisch C1, Deutsch B2, Spanisch Muttersprache. EU-Bürger mit Ausweis B.",
+    "profile": "IT System Engineer mit über 8 Jahren Erfahrung in IT-Betrieb und Support für KMU und Unternehmen: Planung, Implementierung, Migration sowie 1st- & 2nd-Level-Support vor Ort und remote. Berufliche Erfahrung mit Windows Server, Active Directory und GPO, Benutzeranlage und -deaktivierung sowie hybrider Identität: Konfiguration und Überwachung der Synchronisierung lokaler Benutzer mit Microsoft Entra ID über Entra Connect, inklusive Behebung von Zugriffsproblemen beim Onboarding. Administration von Microsoft 365 (Exchange, Teams, SharePoint, Intune, Defender, MFA), VMware vSphere und Hyper-V, NAS/SAN-Storage, Backup und Wiederherstellung mit Veeam Backup & Replication und Acronis Cyber Protect, Netzwerke und Firewalls. PowerShell-Automatisierung für Onboarding, Konfigurationen und Installationen. Incident- und Request-Management nach ITIL in ServiceNow und Jira, darunter rund 1,5 Jahre im Service Desk einer Bank und Support für 500+ Benutzer an mehreren Standorten. Verständliche Erklärungen, Empathie und aktives Zuhören im Umgang mit Anwendern. Sofort verfügbar in der Schweiz und Liechtenstein (80–100 %). Englisch C1, Deutsch B2, Spanisch Muttersprache. EU-Bürger mit Ausweis B.",
     "residency": "EU-Bürger | Ausweis B (5 J.)",
     "nationality": "Nationalität: Spanisch (EU-Staatsbürger)",
     "license": "Führerschein Kat. B",
@@ -604,7 +604,7 @@
       "more": "Mehr"
     },
     "hero": {
-      "eyebrow": "Basel, Schweiz · Verfügbar in CH und LI",
+      "eyebrow": "Schweiz & Liechtenstein · Verfügbar",
       "primary": "Leistungen für Unternehmen",
       "secondary": "Berufsprofil und Lebenslauf",
       "statProjects": "Projekte online",
