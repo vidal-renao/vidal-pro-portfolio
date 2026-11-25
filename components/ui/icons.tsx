@@ -26,6 +26,9 @@ export const Copy = (p: IconProps) => <Icon {...p}><rect x="9" y="9" width="11" 
 export const FileText = (p: IconProps) => <Icon {...p}><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" /><path d="M14 3v5h5M9 13h6M9 17h6" /></Icon>;
 export const Lock = (p: IconProps) => <Icon {...p}><rect x="5" y="11" width="14" height="10" rx="2" /><path d="M8 11V8a4 4 0 0 1 8 0v3" /></Icon>;
 export const ChevronDown = (p: IconProps) => <Icon {...p}><path d="m6 9 6 6 6-6" /></Icon>;
+export const ArrowToTop = (p: IconProps) => <Icon {...p}><path d="M5 4h14M12 20V8m0 0-6 6m6-6 6 6" /></Icon>;
+export const ArrowToBottom = (p: IconProps) => <Icon {...p}><path d="M5 20h14M12 4v12m0 0-6-6m6 6 6-6" /></Icon>;
+export const ArrowLeftRight = (p: IconProps) => <Icon {...p}><path d="M8 4 4 8l4 4M4 8h16M16 12l4 4-4 4M20 16H4" /></Icon>;
 export const ChevronRight = (p: IconProps) => <Icon {...p}><path d="m9 6 6 6-6 6" /></Icon>;
 export const CheckCircle = (p: IconProps) => <Icon {...p}><circle cx="12" cy="12" r="9" /><path d="m8.5 12.5 2.5 2.5 4.5-5" /></Icon>;
 export const Code = (p: IconProps) => <Icon {...p}><path d="m8 8-4 4 4 4m8-8 4 4-4 4m-3-13-2 18" /></Icon>;

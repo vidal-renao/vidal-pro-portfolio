@@ -610,7 +610,12 @@
       "statProjects": "proyectos en línea",
       "statCerts": "formaciones de IA",
       "statLanguages": "idiomas de trabajo",
-      "role": "Administrador de Sistemas IT y Desarrollador Full-Stack"
+      "role": "Administrador de Sistemas IT y Desarrollador Full-Stack",
+      "studio": {
+        "badge": "Studio / Custom Build",
+        "text": "¿Te gusta el diseño y rendimiento de esta web? Desarrollo sitios corporativos, SaaS y automatizaciones a medida con este nivel para tu negocio",
+        "cta": "Solicitar proyecto"
+      }
     },
     "projects": {
       "label": "Proyectos",
@@ -683,8 +688,11 @@
       "explore": "Explorar"
     },
     "scroll": {
+      "navigation": "Navegación por secciones",
+      "previous": "Sección anterior",
       "next": "Siguiente sección",
-      "back": "Volver arriba"
+      "toTop": "Ir arriba del todo",
+      "toBottom": "Ir abajo del todo"
     }
   },
   "specializations": {

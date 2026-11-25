@@ -289,9 +289,21 @@ body::before {
 .file-link:hover { transform: translateY(-2px); border-color: rgba(34, 211, 238, 0.6); background-color: rgba(34, 211, 238, 0.12); }
 .form-field:hover { border-color: rgba(183, 208, 242, 0.45); }
 .form-field:focus { border-color: var(--sw); box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.3); }
-.scroll-arrow:hover { transform: translateY(-3px); }
 
 @media (prefers-reduced-motion: reduce) {
   .card-elevated::after, .nav-link::after, .lang-trigger, .lang-option, .channel-link, .file-link, .form-field { transition: none; }
-  .lang-option:hover, .channel-link:hover, .file-link:hover, .scroll-arrow:hover { transform: none; }
+  .lang-option:hover, .channel-link:hover, .file-link:hover { transform: none; }
 }
+
+/* ── Premium touches: studio notice, pillar connector, floating navigator ── */
+.studio-notice { box-shadow: inset 0 1px 0 rgba(255,255,255,0.06); transition: border-color 250ms ease-out, background-color 250ms ease-out; }
+.studio-notice:hover { border-color: rgba(129, 140, 248, 0.55); background-color: rgba(129, 140, 248, 0.07); }
+.pillar-connector {
+  color: var(--text);
+  border: 2px solid transparent;
+  background: linear-gradient(var(--bg-raised), var(--bg-raised)) padding-box, linear-gradient(90deg, var(--sw), var(--sys)) border-box;
+  box-shadow: 0 0 28px -6px rgba(129, 140, 248, 0.7), 0 0 28px -10px rgba(34, 211, 238, 0.7);
+}
+@media (prefers-reduced-motion: reduce) { .studio-notice, .scroll-arrow-button { transition: none; } }
+/* Phones: the navigator is a bottom bar, so keep focused elements above it. */
+@media (max-width: 639px) { html { scroll-padding-bottom: 4.5rem; } }

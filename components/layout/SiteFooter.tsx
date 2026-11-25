@@ -9,7 +9,7 @@ export async function SiteFooter({ locale }: { locale: string }) {
     getTranslations({ locale, namespace: "ui.nav" }),
   ]);
   return (
-    <footer className="relative overflow-hidden border-t border-line-strong bg-raised/60 px-4 pb-8 pt-14 sm:px-6 sm:pt-16">
+    <footer className="relative overflow-hidden border-t border-line-strong bg-raised/60 px-4 pb-32 pt-14 sm:px-6 sm:pt-16 xl:pb-8">
       <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
       <div className="mx-auto grid max-w-6xl gap-x-12 gap-y-12 sm:grid-cols-2 lg:grid-cols-[1.35fr_1fr_1fr]">
         <div data-footer-brand className="max-w-sm">

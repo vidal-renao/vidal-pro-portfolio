@@ -610,7 +610,12 @@
       "statProjects": "live projects",
       "statCerts": "AI learning courses",
       "statLanguages": "working languages",
-      "role": "IT Systems Administrator & Full-Stack Developer"
+      "role": "IT Systems Administrator & Full-Stack Developer",
+      "studio": {
+        "badge": "Studio / Custom Build",
+        "text": "Like the design & performance of this platform? I build custom websites, SaaS & AI solutions with this level of quality for your business",
+        "cta": "Request a similar build"
+      }
     },
     "projects": {
       "label": "Projects",
@@ -683,8 +688,11 @@
       "explore": "Explore"
     },
     "scroll": {
+      "navigation": "Section navigation",
+      "previous": "Previous section",
       "next": "Next section",
-      "back": "Back to top"
+      "toTop": "Back to top",
+      "toBottom": "Go to bottom"
     }
   },
   "specializations": {

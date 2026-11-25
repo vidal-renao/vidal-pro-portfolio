@@ -24,7 +24,7 @@ export async function Services({ locale }: { locale: string }) {
           const meta = SERVICE_META[i] ?? SERVICE_META[0];
           const pillar = PILLAR[meta.pillar];
           return (
-            <article key={s.title} className={`card-elevated ${pillar.card} reveal group relative flex h-full flex-col overflow-hidden rounded-3xl border border-line-strong bg-raised p-6 sm:p-7`}>
+            <article key={s.title} className={`card-elevated ${pillar.card} reveal group relative flex h-full flex-col overflow-hidden rounded-3xl border border-line-strong bg-raised p-6 lg:p-8`}>
               <span aria-hidden="true" className={`absolute inset-x-0 top-0 h-1 ${pillar.topLine}`} />
               <div className="flex items-center justify-between gap-3">
                 <span aria-hidden="true" className={`flex h-12 w-12 items-center justify-center rounded-2xl border ${pillar.iconBox}`}><meta.Icon size={24} /></span>

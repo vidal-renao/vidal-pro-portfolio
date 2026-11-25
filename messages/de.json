@@ -610,7 +610,12 @@
       "statProjects": "Projekte online",
       "statCerts": "KI-Weiterbildungen",
       "statLanguages": "Arbeitssprachen",
-      "role": "IT-Systemadministrator & Full-Stack-Entwickler"
+      "role": "IT-Systemadministrator & Full-Stack-Entwickler",
+      "studio": {
+        "badge": "Studio / Custom Build",
+        "text": "Gefällt Ihnen das Design & die Performance dieser Plattform? Ich entwickle massgeschneiderte Webseiten, SaaS & KI-Lösungen für Ihr Unternehmen",
+        "cta": "Projekt anfragen"
+      }
     },
     "projects": {
       "label": "Projekte",
@@ -683,8 +688,11 @@
       "explore": "Entdecken"
     },
     "scroll": {
+      "navigation": "Abschnittsnavigation",
+      "previous": "Vorheriger Abschnitt",
       "next": "Nächster Abschnitt",
-      "back": "Nach oben"
+      "toTop": "Ganz nach oben",
+      "toBottom": "Ganz nach unten"
     }
   },
   "specializations": {
