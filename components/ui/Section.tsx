@@ -14,12 +14,12 @@ interface SectionProps {
 /** Shared section frame: anchor, eyebrow label, heading and optional intro. */
 export function Section({ id, label, title, subtitle, children, narrow = false, titleClassName = "" }: SectionProps) {
   return (
-    <section id={id} aria-labelledby={`${id}-title`} className="section-shell relative border-t border-line px-4 py-20 sm:px-6 sm:py-28 lg:py-32">
+    <section id={id} aria-labelledby={`${id}-title`} className="section-shell relative px-4 py-20 sm:px-6 lg:py-28">
       <div className={`mx-auto ${narrow ? "max-w-4xl" : "max-w-6xl"}`}>
         <header className="reveal mb-10 max-w-3xl sm:mb-14">
-          <p className="mb-4 inline-flex items-center gap-3 font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-accent"><span aria-hidden="true" className="h-px w-7 bg-accent/60" />{label}</p>
-          <h2 id={`${id}-title`} className={`text-3xl font-semibold leading-[1.12] tracking-[-0.035em] text-ink sm:text-[3rem] ${titleClassName}`}>{title}</h2>
-          {subtitle && <p className="mt-5 max-w-2xl text-base leading-8 text-muted">{subtitle}</p>}
+          <p className="mb-5 inline-flex items-center gap-2.5 rounded-full border border-sw/30 bg-sw/10 px-3.5 py-1.5 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-sw-soft shadow-[0_0_24px_-8px_rgba(129,140,248,0.6)]"><span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-sw to-sys" />{label}</p>
+          <h2 id={`${id}-title`} className={`text-[2rem] font-extrabold leading-[1.08] tracking-tight text-ink sm:text-5xl lg:text-[3.4rem] ${titleClassName}`}>{title}</h2>
+          {subtitle && <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">{subtitle}</p>}
         </header>
         {children}
       </div>

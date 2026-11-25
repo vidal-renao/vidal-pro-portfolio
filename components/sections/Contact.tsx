@@ -20,13 +20,13 @@ export async function Contact({ locale }: { locale: string }) {
     <Section id="contact" label={t("label")} title={t("title")} subtitle={t("subtitle")} titleClassName="!text-4xl sm:!text-5xl lg:!text-[3.5rem] !leading-[1.1]">
       <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
         <div className="order-2 flex flex-col gap-6 lg:order-1">
-          <div className="premium-panel rounded-3xl border border-line bg-raised p-6 sm:p-7">
-            <p className="inline-flex items-center gap-2 text-xs text-accent"><span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />{t("availability")}</p>
-            <ul className="mt-4 flex flex-col">
+          <div className="rounded-3xl border border-line-strong bg-raised p-5 sm:p-7">
+            <p className="inline-flex items-center gap-2 text-sm font-semibold text-sys-2"><span aria-hidden className="h-2 w-2 rounded-full bg-sys-2" />{t("availability")}</p>
+            <ul className="mt-4 flex flex-col gap-2">
               {channels.map(({ href, label, icon: Icon, external }) => (
-                <li key={href} className="border-b border-line last:border-0">
-                  <a href={href} {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})} className="flex min-h-12 items-center gap-3 text-sm text-ink hover:text-accent">
-                    <Icon size={17} className="text-dim" />{label}
+                <li key={href}>
+                  <a href={href} {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})} className="channel-link group flex min-h-14 items-center gap-3 rounded-2xl border border-line bg-white/[0.03] px-3 text-sm font-medium text-ink [overflow-wrap:anywhere] sm:text-base">
+                    <span aria-hidden="true" className="flex h-10 w-10 flex-none items-center justify-center rounded-xl border border-sw/30 bg-sw/10 text-sw-soft"><Icon size={18} /></span><span className="min-w-0">{label}</span>
                   </a>
                 </li>
               ))}

@@ -1,6 +1,11 @@
 import { getTranslations } from "next-intl/server";
 import { Section } from "@/components/ui/Section";
 import { ContactIntentLink, type ContactPurpose } from "@/components/features/contact/ContactIntentLink";
+import { CheckCircle, Code, Server } from "@/components/ui/icons";
+import { PILLAR, type Pillar } from "@/components/ui/pillar";
+
+/** Track order in `specializations.tracks`: Software & AI first, IT Systems & Cloud second. */
+const TRACK_PILLAR: Pillar[] = ["software", "systems"];
 
 interface TechGroup { label: string; items: string[] }
 
@@ -24,20 +29,23 @@ export async function Specializations({ locale }: { locale: string }) {
 
   return (
     <Section id="specializations" label={t("label")} title={t("title")} subtitle={t("subtitle")}>
-      <div className="grid items-stretch gap-5 lg:grid-cols-2">
-        {tracks.map((track, index) => (
-          <article key={track.title} className={`premium-panel ${index === 0 ? "v3-path-software" : "v3-path-infra"} group relative flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-raised p-6 sm:p-9`}>
-            <div aria-hidden="true" className={`pointer-events-none absolute inset-x-0 top-0 h-px ${index === 0 ? "bg-gradient-to-r from-accent/80 via-accent/30 to-transparent" : "bg-gradient-to-r from-teal-300/70 via-teal-300/20 to-transparent"}`} />
-            <div className="mb-7 flex items-center justify-between">
-              <span className="font-mono text-xs tracking-[0.18em] text-dim">0{index + 1} / 02</span>
-              <span className={`rounded-full border px-3 py-1 text-xs ${index === 0 ? "border-accent/30 bg-accent/5 text-accent-strong" : "border-teal-300/30 bg-teal-300/[0.06] text-teal-200"}`}>{track.subtitle}</span>
+      <div className="grid items-stretch gap-6 lg:grid-cols-2 lg:gap-8">
+        {tracks.map((track, index) => {
+          const kind = TRACK_PILLAR[index] ?? "software";
+          const pillar = PILLAR[kind];
+          return (
+          <article key={track.title} className={`card-elevated ${pillar.card} group relative flex h-full flex-col overflow-hidden rounded-3xl border border-line-strong bg-raised p-6 sm:p-9`}>
+            <div aria-hidden="true" className={`pointer-events-none absolute inset-x-0 top-0 h-1 ${pillar.topLine}`} />
+            <div className="mb-7 flex items-center justify-between gap-3">
+              <span aria-hidden="true" className={`flex h-12 w-12 items-center justify-center rounded-2xl border ${pillar.iconBox}`}>{kind === "software" ? <Code size={24} /> : <Server size={24} />}</span>
+              <span className={`rounded-full border px-3 py-1 font-mono text-xs font-semibold ${pillar.chip}`}>0{index + 1} · {track.subtitle}</span>
             </div>
-            <h3 className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">{track.title}</h3>
-            <p className="mt-4 max-w-lg text-sm leading-7 text-muted sm:text-base">{track.summary}</p>
+            <h3 className="text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">{track.title}</h3>
+            <p className="mt-4 max-w-lg text-base leading-relaxed text-muted">{track.summary}</p>
             <ul className="mt-7 grid gap-3" aria-label={track.title}>
               {track.capabilities.map((capability) => (
-                <li key={capability} className="flex items-start gap-3 text-sm leading-6 text-ink/85">
-                  <span aria-hidden="true" className={`mt-2 h-1.5 w-1.5 shrink-0 rounded-full ${index === 0 ? "bg-accent" : "bg-teal-300"}`} />
+                <li key={capability} className="flex items-start gap-3 text-base leading-relaxed text-ink/90">
+                  <CheckCircle size={20} className={`mt-0.5 shrink-0 ${pillar.bullet}`} />
                   {capability}
                 </li>
               ))}
@@ -50,17 +58,17 @@ export async function Specializations({ locale }: { locale: string }) {
               <div className="grid gap-4 pb-2 pt-4">
                 {track.technical.map((group) => (
                   <div key={group.label} data-tech-group>
-                    <p className={`mb-2 font-mono text-[10px] font-semibold uppercase tracking-[0.16em] ${index === 0 ? "text-accent-strong" : "text-teal-200"}`}>{group.label}</p>
+                    <p className={`mb-2 font-mono text-xs font-semibold uppercase tracking-[0.16em] ${pillar.text}`}>{group.label}</p>
                     <ul className="flex flex-wrap gap-1.5">
                       {group.items.map((tech) => (
-                        <li key={tech} className="rounded-lg border border-line bg-bg/50 px-2.5 py-1.5 text-xs text-muted">{tech}</li>
+                        <li key={tech} className="rounded-lg border border-line bg-bg/50 px-2.5 py-1.5 text-sm text-muted">{tech}</li>
                       ))}
                     </ul>
                   </div>
                 ))}
               </div>
             </details>
-            <p className="mt-6 border-t border-line pt-5 text-sm leading-6 text-dim">{track.proof}</p>
+            <p className="mt-6 border-t border-line pt-5 text-base leading-relaxed text-muted">{track.proof}</p>
             <div className="mt-auto flex flex-wrap items-center gap-3 pt-1">
               <a data-track-action href={track.href} className="inline-flex min-h-11 w-fit items-center focus-visible:outline-offset-4 gap-2 rounded-full border border-line-strong bg-white/[0.04] px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:border-accent/50 hover:bg-white/[0.08]">
                 {track.action}<span aria-hidden="true">↗</span>
@@ -68,9 +76,10 @@ export async function Specializations({ locale }: { locale: string }) {
               <ContactIntentLink testId="track-contact-cta" intent={track.intent === "career" ? { purpose: "career" } : { purpose: "business", service: "web" }} label={track.contact} />
             </div>
           </article>
-        ))}
+          );
+        })}
       </div>
-      <p data-pillar-bridge className="mx-auto mt-6 max-w-3xl rounded-2xl border border-line bg-white/[0.025] px-5 py-4 text-center text-sm leading-6 text-muted">{t("bridge")}</p>
+      <p data-pillar-bridge className="mx-auto mt-8 max-w-3xl rounded-2xl border border-line bg-white/[0.03] px-5 py-4 text-center text-base leading-relaxed text-muted">{t("bridge")}</p>
     </Section>
   );
 }

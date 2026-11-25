@@ -647,7 +647,11 @@
       "show": "Details anzeigen",
       "hide": "Ausblenden",
       "itFocus": "IT-Erfahrung",
-      "fullHistory": "Gesamter Werdegang"
+      "fullHistory": "Gesamter Werdegang",
+      "more": "{count} weitere Erfolge anzeigen",
+      "less": "Weniger anzeigen",
+      "stack": "Tech-Stack",
+      "current": "Aktuell"
     },
     "skills": {
       "label": "Kenntnisse",
@@ -679,12 +683,8 @@
       "explore": "Entdecken"
     },
     "scroll": {
-      "navigation": "Abschnittsnavigation",
-      "previous": "Vorheriger Abschnitt",
       "next": "Nächster Abschnitt",
-      "top": "Start",
-      "move": "Navigationssteuerung verschieben",
-      "choose": "Abschnitt auswählen"
+      "back": "Nach oben"
     }
   },
   "specializations": {

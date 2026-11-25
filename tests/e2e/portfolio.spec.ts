@@ -61,12 +61,19 @@ test.describe("content", () => {
     }
   });
 
-  test("experience: recent roles open, older ones expand on demand", async ({ page }) => {
+  test("experience: three key achievements visible, the rest expand on demand", async ({ page }) => {
     await page.goto("/es");
-    const older = page.locator("#experience details").nth(2);
-    await expect(older).not.toHaveAttribute("open", "");
-    await older.locator("summary").click();
-    await expect(older).toHaveAttribute("open", "");
+    const role = page.locator('#experience [data-role="lutelco-2021"]');
+    await expect(role.locator("ul").first().locator("> li")).toHaveCount(3);
+    const toggle = role.locator("[data-expand-role]");
+    await expect(toggle).toHaveAttribute("aria-expanded", "false");
+    await expect(toggle).toHaveText(/Ver 5 logros más/);
+    await expect(role.getByText("Microsoft Intune")).toBeHidden();
+    await toggle.click();
+    await expect(toggle).toHaveAttribute("aria-expanded", "true");
+    await expect(role.getByText("Microsoft Intune").first()).toBeVisible();
+    await expect(toggle).toHaveText(/Mostrar menos/);
+    await expect(role.getByRole("list", { name: "Stack tecnológico" })).toBeVisible();
   });
 
   test("CV download offers both focuses in three languages", async ({ page, request }) => {

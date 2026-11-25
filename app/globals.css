@@ -12,6 +12,16 @@
   --accent: #5b8db8;
   --accent-strong: #7fa6cc;
   --accent-ink: #072033;
+  /* Pillar palettes: IT Systems & Cloud (cyan → emerald), Software & AI (blue → indigo → violet). */
+  --sys: #22d3ee;
+  --sys-soft: #8be9f5;
+  --sys-2: #34d399;
+  --sys-ink: #032623;
+  --sw: #818cf8;
+  --sw-soft: #b7c0ff;
+  --sw-2: #a78bfa;
+  --sw-fill: #4f46e5;
+  --sw-fill-2: #7c3aed;
 }
 
 @theme inline {
@@ -25,6 +35,15 @@
   --color-accent: var(--accent);
   --color-accent-strong: var(--accent-strong);
   --color-accent-ink: var(--accent-ink);
+  --color-sys: var(--sys);
+  --color-sys-soft: var(--sys-soft);
+  --color-sys-2: var(--sys-2);
+  --color-sys-ink: var(--sys-ink);
+  --color-sw: var(--sw);
+  --color-sw-soft: var(--sw-soft);
+  --color-sw-2: var(--sw-2);
+  --color-sw-fill: var(--sw-fill);
+  --color-sw-fill-2: var(--sw-fill-2);
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", "Roboto Mono", Menlo, Consolas, monospace;
   --breakpoint-xs: 375px;
@@ -107,8 +126,8 @@ section[id], #cv { scroll-margin-top: 5.5rem; }
   .premium-panel { transition: none; }
 }
 
-/* Keep optional floating pagination out of the way while the mobile drawer is open. */
-body[data-mobile-menu-open="true"] .section-scroll-rail { visibility: hidden; }
+/* Keep the floating arrow out of the way while the mobile drawer is open. */
+body[data-mobile-menu-open="true"] .scroll-arrow { visibility: hidden; }
 
 /* WCAG AA: compact accent chips identified by axe on all locales and viewports.
    Preserve their accent surface while using a high-contrast foreground. */
@@ -135,3 +154,144 @@ body[data-mobile-menu-open="true"] .section-scroll-rail { visibility: hidden; }
 .v3-path-infra { background-image: radial-gradient(circle at 100% 0%, rgba(91, 166, 169, .11), transparent 48%); }
 .v3-path-software .v3-path-symbol { color: #9cc9ff; background: rgba(65,151,222,.10); }
 .v3-path-infra .v3-path-symbol { color: #9cd8d0; background: rgba(91,166,169,.10); }
+
+/* ── UI visual upgrade (feat/ui-visual-upgrade) ─────────────────────────────
+   Presentation only: ambient light, elevated cards, pillar colour coding.
+   Animations touch transform/opacity/box-shadow only and respect reduced motion. */
+
+/* Ambient light: fixed, behind everything, never on top of text. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 55% 40% at 8% 18%, rgba(34, 211, 238, 0.07), transparent 70%),
+    radial-gradient(ellipse 50% 45% at 92% 8%, rgba(129, 140, 248, 0.09), transparent 70%),
+    radial-gradient(ellipse 60% 45% at 80% 85%, rgba(167, 139, 250, 0.06), transparent 70%),
+    radial-gradient(ellipse 45% 35% at 15% 90%, rgba(52, 211, 153, 0.05), transparent 70%);
+}
+.section-shell { background-image: none; }
+.section-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(129, 140, 248, 0.35), rgba(34, 211, 238, 0.3), transparent);
+}
+
+/* Elevated card: defined border, layered tinted shadow, lift + edge glow on hover. */
+.card-elevated {
+  position: relative;
+  background-image: linear-gradient(160deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.01) 45%, transparent);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.02), 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 12px 40px -12px rgba(0, 0, 0, 0.55);
+  transition: transform 200ms ease-out, box-shadow 200ms ease-out, border-color 200ms ease-out;
+}
+.card-elevated:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 0 1px var(--glow, rgba(129, 140, 248, 0.35)), 0 1px 0 rgba(255, 255, 255, 0.07) inset, 0 24px 60px -18px var(--glow-shadow, rgba(79, 70, 229, 0.45));
+}
+.pillar-sys { --glow: rgba(34, 211, 238, 0.4); --glow-shadow: rgba(8, 145, 178, 0.45); }
+.pillar-sw { --glow: rgba(129, 140, 248, 0.45); --glow-shadow: rgba(79, 70, 229, 0.5); }
+
+/* Gradient text for the headline accent. */
+.text-gradient-brand {
+  background: linear-gradient(100deg, var(--sw-soft) 0%, var(--sw-2) 40%, var(--sys-soft) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Primary CTAs: solid, high-contrast fills with a soft glow. */
+.cta-sw {
+  background-image: linear-gradient(100deg, var(--sw-fill), var(--sw-fill-2));
+  box-shadow: 0 10px 30px -10px rgba(124, 58, 237, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+.cta-sys {
+  background-image: linear-gradient(100deg, #67e8f9, #6ee7b7);
+  box-shadow: 0 10px 30px -10px rgba(34, 211, 238, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+.cta-sw, .cta-sys { transition: transform 150ms ease-out, box-shadow 200ms ease-out, opacity 150ms ease-out; }
+.cta-sw:hover, .cta-sys:hover { transform: translateY(-2px); }
+.cta-sw:active, .cta-sys:active { transform: scale(0.97); }
+
+/* Portrait frame: gradient ring with ambient halo. */
+.portrait-ring {
+  background: linear-gradient(140deg, var(--sw), var(--sw-2) 45%, var(--sys));
+  box-shadow: 0 30px 80px -25px rgba(79, 70, 229, 0.55), 0 0 60px -20px rgba(34, 211, 238, 0.35);
+}
+
+/* Project screenshot framed as a browser window. */
+.window-frame { box-shadow: 0 18px 50px -20px rgba(0, 0, 0, 0.8); }
+
+/* Timeline: glowing node for the current role. */
+.timeline-node-current {
+  box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.15), 0 0 18px rgba(34, 211, 238, 0.6);
+}
+@keyframes node-pulse {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50% { opacity: 0; transform: scale(2.2); }
+}
+.timeline-node-pulse { animation: node-pulse 2.4s ease-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .card-elevated, .cta-sw, .cta-sys { transition: none; }
+  .card-elevated:hover, .cta-sw:hover, .cta-sys:hover { transform: none; }
+}
+
+/* ── Hover polish ───────────────────────────────────────────────────────── */
+/* Cards: gradient edge fades in over the card (opacity only), slower, softer lift. */
+.card-elevated { transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1); transition-duration: 350ms; }
+.card-elevated::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(140deg, var(--sw-soft), transparent 35%, transparent 65%, var(--sys-soft));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  transition: opacity 350ms ease-out;
+}
+.card-elevated:hover::after { opacity: 0.8; }
+
+/* Header links: gradient underline grows from the centre. */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0.75rem;
+  right: 0.75rem;
+  bottom: 4px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--sw), var(--sys));
+  transform: scaleX(0);
+  transition: transform 250ms ease-out;
+}
+.nav-link:hover::after, .nav-link:focus-visible::after, .nav-link[aria-current]::after { transform: scaleX(1); }
+
+/* Language switcher. */
+.lang-trigger, .lang-option, .channel-link, .file-link, .form-field {
+  transition: transform 200ms ease-out, border-color 200ms ease-out, box-shadow 200ms ease-out, background-color 200ms ease-out;
+}
+.lang-trigger:hover, [data-language-switch][open] > .lang-trigger { border-color: rgba(129, 140, 248, 0.6); box-shadow: 0 8px 24px -12px rgba(129, 140, 248, 0.8); }
+.lang-option:hover { transform: translateY(-2px); border-color: rgba(129, 140, 248, 0.55); background-color: rgba(129, 140, 248, 0.12); box-shadow: 0 10px 22px -10px rgba(129, 140, 248, 0.7); }
+@keyframes panel-in { from { opacity: 0; transform: translateY(-6px) scale(0.97); } to { opacity: 1; transform: none; } }
+[data-language-switch][open] > .lang-panel > div { animation: panel-in 180ms ease-out both; transform-origin: top right; }
+
+/* Contact channels, CV files and form fields. */
+.channel-link:hover { transform: translateX(4px); border-color: rgba(129, 140, 248, 0.5); background-color: rgba(129, 140, 248, 0.09); }
+.file-link:hover { transform: translateY(-2px); border-color: rgba(34, 211, 238, 0.6); background-color: rgba(34, 211, 238, 0.12); }
+.form-field:hover { border-color: rgba(183, 208, 242, 0.45); }
+.form-field:focus { border-color: var(--sw); box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.3); }
+.scroll-arrow:hover { transform: translateY(-3px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .card-elevated::after, .nav-link::after, .lang-trigger, .lang-option, .channel-link, .file-link, .form-field { transition: none; }
+  .lang-option:hover, .channel-link:hover, .file-link:hover, .scroll-arrow:hover { transform: none; }
+}
