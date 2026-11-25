@@ -63,6 +63,8 @@ Only the header, project explorer and contact widgets ship JavaScript to the bro
 `projects.items.<slug>` = `{ title, summary, highlights[3] }` in the three message files.
 Only add projects whose URL works for an anonymous visitor. Categories: `systems` (IT Systems & Cloud),
 `ai`, `saas`, `client`; status `lab` marks a documented lab in a public repository.
+To show it in the downloadable CV too, add its slug to `projects` in the matching variant plan of
+`lib/cv/profileContent.ts`; the CV reuses the card's title, summary, status and stack.
 
 **A certificate** — put the PDF in `public/assets/certs/`, add `{ key, group, pdf }` to
 `content/credentials.ts`, and `certifications.<key>_title` / `_issuer` (plus the other keys used

@@ -34,6 +34,8 @@ interface VariantPlan {
   certIds: readonly string[] | "all";
   /** Indices into the variant's `competencies` list (same order in DE/EN/ES). */
   competencies: readonly number[] | "all";
+  /** Portfolio project slugs (content/projects.ts) listed in the CV's Projects section, in order. */
+  projects: readonly string[];
 }
 
 const PLANS: Record<CvVariant, VariantPlan> = {
@@ -48,18 +50,24 @@ const PLANS: Record<CvVariant, VariantPlan> = {
     },
     certIds: ["ccna-training"],
     competencies: "all",
+    projects: [],
   },
   fullstack: {
     full: {
-      // Own projects: the software/SaaS bullets; the Microsoft 365 labs belong to the systems CV.
-      "freelance-2025": [0, 1, 3, 4],
+      // Own projects: the software/SaaS bullets; the portfolio list (index 4) is replaced by the Projects section.
+      "freelance-2025": [0, 1, 3],
       "web-freelance-2016": "all",
     },
     certIds: ["big-school-agent-programming", "big-school-zero-to-agents", "big-school-zero-to-production"],
     // Web, AI automation, backend, cloud delivery and trilingual client work; systems skills stay in the systems CV.
     competencies: [0, 1, 2, 6, 7],
+    projects: ["helpdesk-ai", "jobpilot-ai", "flowpilot-ai", "invoice-auto", "matchpoint-ai", "aura-ai"],
   },
 };
+
+export function selectProjectSlugs(variant: CvVariant): readonly string[] {
+  return PLANS[variant].projects;
+}
 
 export function selectCompetencies(competencies: string[], variant: CvVariant): string[] {
   const indices = PLANS[variant].competencies;

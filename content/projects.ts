@@ -57,6 +57,17 @@ export const PROJECTS: Project[] = [
     featured: true,
   },
   {
+    slug: "flowpilot-ai",
+    categories: ["ai", "saas"],
+    // MVP deployed on Vercel, processing test documents only until the first real client (repo ADR-0014).
+    status: "staging",
+    stack: ["Next.js", "Supabase", "n8n", "Docker Compose", "pgvector", "Zod"],
+    url: "https://flowpilot-ai-teal-seven.vercel.app",
+    repo: null,
+    image: null,
+    featured: true,
+  },
+  {
     slug: "invoice-auto",
     categories: ["ai", "saas"],
     status: "demo",

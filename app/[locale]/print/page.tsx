@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import PrintTrigger from "@/components/ui/PrintTrigger";
 import { EMAIL_ADDRESSES, resolveEmailVariant } from "@/lib/cv/emailVariants";
+import { loadCvProjects } from "@/lib/cv/cvProjects";
 import { cvLocation, otherRoleLine, selectCerts, selectCompetencies, selectKnowledge, selectRoles, type CvCert, type CvKnowledge, type CvRole, type CvVariant } from "@/lib/cv/profileContent";
 
 export default async function PrintPage({
@@ -26,6 +27,7 @@ export default async function PrintPage({
   const knowledge = selectKnowledge(source.raw("knowledge") as CvKnowledge[], cvVariant);
   const languages = t.raw("languages") as { lang: string; level: string }[];
   const education = ts.raw("education") as { title: string; detail: string }[];
+  const projects = await loadCvProjects(locale, cvVariant);
 
   const contact = [
     cvLocation(locale),
@@ -75,6 +77,24 @@ export default async function PrintPage({
             ))}
           </ul>
         </section>
+
+        {projects.length > 0 && (
+          <section>
+            <h2 className="cv-bar">{t("projectsTitle")}</h2>
+            {projects.map((p) => (
+              <div key={p.slug} className="cv-project">
+                <div className="cv-entry-head">
+                  <strong>{p.title}</strong>
+                  <span className="cv-period">
+                    {p.status} · {p.host}
+                  </span>
+                </div>
+                <p className="cv-project-summary">{p.summary}</p>
+                <p className="cv-project-stack">{p.stack.join(" · ")}</p>
+              </div>
+            ))}
+          </section>
+        )}
 
         <section>
           <h2 className="cv-bar">{t("experienceTitle")}</h2>
@@ -216,6 +236,9 @@ export default async function PrintPage({
         .cv-entry ul { padding-left: 16px; list-style: disc; }
         .cv-entry li::marker { color: #2C7A93; }
         .cv-entry li { font-size: 9.5pt; color: #374151; line-height: 1.35; }
+        .cv-project { margin-bottom: 7px; break-inside: avoid; }
+        .cv-project-summary { font-size: 9.5pt; color: #374151; }
+        .cv-project-stack { font-size: 8.5pt; color: #1A5F7A; font-weight: 600; margin-top: 1px; }
         .cv-other-title { display: block; font-size: 10.5pt; color: #0E3B50; margin-bottom: 3px; }
 
         .cv-know { display: flex; flex-direction: column; gap: 3px; }
