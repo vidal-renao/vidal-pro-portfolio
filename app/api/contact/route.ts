@@ -91,7 +91,7 @@ ${data.message}
       </div>
     </div>
     <div style="padding:16px 28px;background:#0f0f0f;border-top:1px solid rgba(255,255,255,0.06)">
-      <p style="margin:0;font-size:11px;color:rgba(255,255,255,0.2)">${new URL(SITE.url).host} · Basel, Switzerland</p>
+      <p style="margin:0;font-size:11px;color:rgba(255,255,255,0.2)">${new URL(SITE.url).host} · Switzerland & Liechtenstein</p>
     </div>
   </div>
 </body>

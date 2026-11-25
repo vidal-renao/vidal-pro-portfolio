@@ -400,9 +400,9 @@
     "commitment": "Disponible para guardias, viajes, horario flexible y traslado",
     "cvRole": "Desarrollador Fullstack · Web, IA y automatización",
     "cvSpecialties": "Next.js · React · TypeScript · Supabase · Automatización con IA · Claude API",
-    "cvProfile": "Desarrollador fullstack afincado en Basilea, con más de una década en el sector IT. Creo webs, apps y automatizaciones con IA con Next.js, React, TypeScript, Supabase y la API de Claude para negocios de todos los sectores —gimnasios, restaurantes, peluquerías, clínicas, tiendas y agencias. Mi experiencia previa en soporte y sistemas me ayuda a entregar soluciones estables y fáciles de mantener. Del briefing al resultado, un solo interlocutor. Trilingüe (DE/EN/ES).",
+    "cvProfile": "Desarrollador fullstack para Suiza y Liechtenstein, con más de una década en el sector IT. Creo webs, apps y automatizaciones con IA con Next.js, React, TypeScript, Supabase y la API de Claude para negocios de todos los sectores —gimnasios, restaurantes, peluquerías, clínicas, tiendas y agencias. Mi experiencia previa en soporte y sistemas me ayuda a entregar soluciones estables y fáciles de mantener. Del briefing al resultado, un solo interlocutor. Trilingüe (DE/EN/ES).",
     "profileTitle": "Perfil Profesional",
-    "profile": "Desarrollador fullstack y especialista IT afincado en Basilea, con más de una década en el sector. Creo webs, apps y automatizaciones con IA para negocios de todos los sectores —gimnasios, restaurantes, peluquerías, clínicas, tiendas y agencias— y me encargo también de la parte de sistemas: Windows Server, Active Directory, Linux, redes y Microsoft 365 (formación CCNA). Del briefing al resultado, un solo interlocutor. Trilingüe (DE/EN/ES).",
+    "profile": "Desarrollador fullstack y especialista IT para Suiza y Liechtenstein, con más de una década en el sector. Creo webs, apps y automatizaciones con IA para negocios de todos los sectores —gimnasios, restaurantes, peluquerías, clínicas, tiendas y agencias— y me encargo también de la parte de sistemas: Windows Server, Active Directory, Linux, redes y Microsoft 365 (formación CCNA). Del briefing al resultado, un solo interlocutor. Trilingüe (DE/EN/ES).",
     "competenciesTitle": "Competencias Clave",
     "competencies": [
       "Webs y apps — Next.js, React, TypeScript, PWA",
@@ -517,7 +517,7 @@
   "cvSystems": {
     "role": "IT System Engineer · Microsoft 365, Cloud e Infraestructura",
     "specialties": "Microsoft 365 · Entra ID / Identidad híbrida · Windows Server · Active Directory · Backup y recuperación · Soporte 1.er/2.º nivel",
-    "profile": "IT System Engineer con más de 8 años de experiencia en operación y soporte IT para pymes y empresas: planificación, implantación, migración y soporte de 1.er y 2.º nivel, presencial y remoto. Experiencia profesional con Windows Server, Active Directory y GPO, altas y bajas de usuarios e identidad híbrida: configuración y supervisión de la sincronización de usuarios locales con Microsoft Entra ID mediante Entra Connect, incluida la resolución de accesos durante el onboarding. Administración de Microsoft 365 (Exchange, Teams, SharePoint, Intune, Defender, MFA), VMware vSphere e Hyper-V, almacenamiento NAS/SAN, copias de seguridad y restauración con Veeam Backup & Replication y Acronis Cyber Protect, redes y firewalls. Automatización con PowerShell de altas, configuraciones e instalaciones. Gestión de incidencias y peticiones según ITIL en ServiceNow y Jira, con cerca de 1,5 años en el service desk de un banco y soporte a más de 500 usuarios en varias sedes. Explicaciones claras, empatía y escucha activa con los usuarios. Residente en Basilea, disponibilidad inmediata (80–100 %). Inglés C1, alemán B2, español nativo. Ciudadano de la UE con permiso B suizo.",
+    "profile": "IT System Engineer con más de 8 años de experiencia en operación y soporte IT para pymes y empresas: planificación, implantación, migración y soporte de 1.er y 2.º nivel, presencial y remoto. Experiencia profesional con Windows Server, Active Directory y GPO, altas y bajas de usuarios e identidad híbrida: configuración y supervisión de la sincronización de usuarios locales con Microsoft Entra ID mediante Entra Connect, incluida la resolución de accesos durante el onboarding. Administración de Microsoft 365 (Exchange, Teams, SharePoint, Intune, Defender, MFA), VMware vSphere e Hyper-V, almacenamiento NAS/SAN, copias de seguridad y restauración con Veeam Backup & Replication y Acronis Cyber Protect, redes y firewalls. Automatización con PowerShell de altas, configuraciones e instalaciones. Gestión de incidencias y peticiones según ITIL en ServiceNow y Jira, con cerca de 1,5 años en el service desk de un banco y soporte a más de 500 usuarios en varias sedes. Explicaciones claras, empatía y escucha activa con los usuarios. Disponibilidad inmediata en Suiza y Liechtenstein (80–100 %). Inglés C1, alemán B2, español nativo. Ciudadano de la UE con permiso B suizo.",
     "residency": "Ciudadano UE | Permiso B (5 años)",
     "nationality": "Nacionalidad: Española (ciudadano UE)",
     "license": "Permiso de conducir Cat. B",
@@ -604,7 +604,7 @@
       "more": "Más"
     },
     "hero": {
-      "eyebrow": "Basilea, Suiza · Disponible en CH y LI",
+      "eyebrow": "Suiza y Liechtenstein · Disponible",
       "primary": "Servicios para empresas",
       "secondary": "Perfil profesional y CV",
       "statProjects": "proyectos en línea",
