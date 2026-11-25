@@ -46,7 +46,7 @@ const PLANS: Record<CvVariant, VariantPlan> = {
       // Most relevant bullets first; repeated SLA/ticket lines dropped to keep the CV at two pages.
       "lutelco-2021": [0, 3, 5, 6],
       "nn-bank-2019": [0, 1, 2],
-      "nsc-2017": [0, 2, 9, 4],
+      "nsc-2017": [0, 2, 9, 11],
     },
     certIds: ["ccna-training"],
     competencies: "all",
