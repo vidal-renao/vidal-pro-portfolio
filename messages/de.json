@@ -173,7 +173,8 @@
           "Erfassung und Nachverfolgung von System- und Netzwerkstörungen mit ServiceNow",
           "Vorbereitung und Konfiguration von IT-Geräten für Kunden sowie Installation, Inbetriebnahme und Konnektivitätsprüfung direkt vor Ort.",
           "Synchronisierung lokaler Active-Directory-Benutzer mit Azure AD (heute Microsoft Entra ID) für Microsoft 365.",
-          "Nachverfolgung von Störungen und Service-Level-Vereinbarungen (SLA)."
+          "Nachverfolgung von Störungen und Service-Level-Vereinbarungen (SLA).",
+          "Installation, Konfiguration sowie vorbeugende und korrektive Wartung von lokalen Druckern und Netzwerkdruckern; Treiber, Netzwerkverbindung, Verbrauchsmaterial, Papierstaus und Fehlerdiagnose."
         ]
       },
       {
@@ -197,7 +198,8 @@
           "Vor-Ort-Support für Systeme und Hardware bei Kunden",
           "Einrichtung und Konfiguration von Windows-, Linux-, macOS- und iOS-Geräten",
           "Virenschutz auf Kundengeräten mit ESET und Microsoft Defender",
-          "Vorbereitung von Kundengeräten, Installation von Software und Peripherie sowie Inbetriebnahme direkt am Kundenstandort."
+          "Vorbereitung von Kundengeräten, Installation von Software und Peripherie sowie Inbetriebnahme direkt am Kundenstandort.",
+          "Installation und Wartung von Druckern und Peripheriegeräten bei Kunden: Treiber- und Netzwerkeinrichtung, Tonerwechsel, Behebung von Papierstaus sowie Fehleranalyse bei Hard- und Software."
         ]
       },
       {
@@ -210,7 +212,8 @@
           "Ferndiagnose von Störungen an Kommunikations- und Sicherheitssystemen und Koordination von Aussendiensttechnikern für Vor-Ort-Einsätze",
           "Vorbereitung und Konfiguration von Kommunikations- und Sicherheitstechnik für Kunden sowie Unterstützung bei Vor-Ort-Installation, Inbetriebnahme und Funktionsprüfung.",
           "Nachverfolgung von Störungen und Service-Level-Vereinbarungen (SLA); Arbeit mit dem Telefonsystem 3CX.",
-          "Fernbearbeitung von Störungen an Toren, Eingängen, Schranken und Telefoniesystemen über eine Verwaltungsanwendung."
+          "Fernbearbeitung von Störungen an Toren, Eingängen, Schranken und Telefoniesystemen über eine Verwaltungsanwendung.",
+          "Support und Wartung von Druckern und Kundengeräten: Konfiguration, Treiber, Verbrauchsmaterial, Fehlerdiagnose und Koordination technischer Einsätze."
         ]
       },
       {
