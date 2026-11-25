@@ -561,6 +561,10 @@
       {
         "area": "IT-Service-Management",
         "detail": "ServiceNow · Jira · ITIL · SLA · Wissensdatenbank"
+      },
+      {
+        "area": "Microsoft-Labore",
+        "detail": "Intune und Autopilot: Bereitstellung virtueller Maschinen (Labor) · Intune: App-/Richtlinienzuweisung und Empfang, Firmenanmeldung (Labor) · Exchange: Installation und erste Konfigurationen (Labor)"
       }
     ]
   },
