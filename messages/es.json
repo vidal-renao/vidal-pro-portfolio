@@ -117,13 +117,12 @@
       },
       {
         "id": "servo-carejob-2023",
-        "title": "Trabajos temporales fuera del sector IT",
-        "company": "Servo Personal & Treuhand GmbH · CareJob",
+        "title": "Integración profesional y formación continua",
+        "company": "",
         "location": "Basel, Suiza",
         "period": "Desde julio de 2023",
-        "badge": "Fase de Integración Suiza",
         "highlights": [
-          "Trabajos en logística, producción y construcción a través de Servo Personal y CareJob, en paralelo a proyectos IT; las referencias destacan fiabilidad y trabajo en equipo"
+          "Formación continua en alemán y tecnologías IT, proyectos tecnológicos propios y trabajos temporales en logística y construcción."
         ]
       },
       {
@@ -131,7 +130,7 @@
         "title": "Especialista en Soporte Técnico y Administrador de Sistemas",
         "company": "Lutelco Instalaciones SL",
         "location": "Zaragoza, España",
-        "period": "2021 – julio de 2023",
+        "period": "mar. 2021 – jul. 2023",
         "highlights": [
           "Soporte de 1.er/2.º nivel a más de 500 usuarios en varias sedes – presencial y remoto para Windows, Microsoft 365, hardware y acceso a red; tickets en Jira",
           "Soporte a la plantilla interna y a clientes finales con Windows, macOS, iOS y Linux",
@@ -140,7 +139,8 @@
           "Trabajo con Azure AD (hoy Entra ID) y Microsoft Intune",
           "Resolución de incidencias de red (TCP/IP, DNS, DHCP, VLAN, VPN) y soporte del entorno de virtualización con VMware vSphere e Hyper-V",
           "Mantenimiento de equipos y servidores actualizados con parches; ejecución y supervisión de copias de seguridad, incluidas pruebas de restauración; antivirus con Microsoft Defender",
-          "Seguimiento de incidencias y de los acuerdos de nivel de servicio (SLA)."
+          "Seguimiento de incidencias y de los acuerdos de nivel de servicio (SLA).",
+          "Diagnóstico y mantenimiento de equipos, sustitución de componentes, instalación de software y resolución de incidencias de impresoras y periféricos."
         ]
       },
       {
@@ -153,7 +153,8 @@
           "Gestión de incidencias, peticiones y cambios en el service desk de primer nivel con ServiceNow según ITIL.",
           "Soporte de cuentas, licencias, MFA y acceso remoto de Microsoft 365 por teléfono y por escrito",
           "Escalado de incidencias complejas de infraestructura con traspaso completo a los equipos responsables",
-          "Seguimiento de incidencias de empleados y clientes y de los acuerdos de nivel de servicio (SLA)."
+          "Seguimiento de incidencias de empleados y clientes y de los acuerdos de nivel de servicio (SLA).",
+          "Soporte de puestos Windows y resolución de incidencias habituales de hardware, software y periféricos."
         ]
       },
       {
@@ -174,7 +175,8 @@
           "Preparación y configuración de equipos IT para clientes, instalación y puesta en marcha in situ, con comprobaciones de funcionamiento y conectividad.",
           "Sincronización de usuarios de Active Directory local con Azure AD (hoy Microsoft Entra ID) para Microsoft 365.",
           "Seguimiento de incidencias y de los acuerdos de nivel de servicio (SLA).",
-          "Instalación, configuración y mantenimiento preventivo y correctivo de impresoras locales y de red: controladores, conectividad, consumibles, atascos y diagnóstico de averías."
+          "Instalación, configuración y mantenimiento preventivo y correctivo de impresoras locales y de red: controladores, conectividad, consumibles, atascos y diagnóstico de averías.",
+          "Diagnóstico presencial de equipos, sustitución de discos duros y otros componentes e instalación y configuración de hardware y software."
         ]
       },
       {
@@ -199,7 +201,8 @@
           "Configuración y puesta en marcha de equipos Windows, Linux, macOS e iOS",
           "Antivirus en los equipos de clientes con ESET y Microsoft Defender",
           "Preparación de equipos para clientes, instalación de software y periféricos y puesta en marcha en sus instalaciones.",
-          "Instalación y mantenimiento de impresoras y periféricos en las instalaciones de los clientes: drivers, conexión a red, sustitución de tóner, atascos y resolución de incidencias de hardware y software."
+          "Instalación y mantenimiento de impresoras y periféricos en las instalaciones de los clientes: drivers, conexión a red, sustitución de tóner, atascos y resolución de incidencias de hardware y software.",
+          "Apertura de equipos, sustitución de discos duros e instalación y configuración de hardware y software en las instalaciones del cliente."
         ]
       },
       {
@@ -207,7 +210,7 @@
         "title": "Soporte Técnico al Cliente",
         "company": "Deinta Seguridad",
         "location": "España",
-        "period": "nov. 2013 – nov. 2014",
+        "period": "mar. 2013 – feb. 2014",
         "highlights": [
           "Diagnóstico remoto de averías en sistemas de comunicación y seguridad y coordinación de técnicos de campo para intervenciones in situ",
           "Preparación y configuración de equipos de comunicación y seguridad para clientes, apoyo a la instalación, puesta en marcha y pruebas funcionales in situ.",
