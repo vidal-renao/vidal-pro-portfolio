@@ -117,13 +117,12 @@
       },
       {
         "id": "servo-carejob-2023",
-        "title": "Temporary assignments outside IT",
-        "company": "Servo Personal & Treuhand GmbH · CareJob",
+        "title": "Professional integration and continuing education",
+        "company": "",
         "location": "Basel, Switzerland",
         "period": "Since July 2023",
-        "badge": "Swiss Integration Phase",
         "highlights": [
-          "Assignments in logistics, production and construction via Servo Personal and CareJob, alongside IT projects; references confirm reliability and teamwork"
+          "Continued German-language and IT training, independent technology projects, and temporary assignments in logistics and construction."
         ]
       },
       {
@@ -131,7 +130,7 @@
         "title": "Technical Support Specialist & Systems Administrator",
         "company": "Lutelco Instalaciones SL",
         "location": "Zaragoza, Spain",
-        "period": "2021 – July 2023",
+        "period": "Mar 2021 – Jul 2023",
         "highlights": [
           "Supported 500+ users across multiple sites at 1st/2nd level – on-site and remote for Windows, Microsoft 365, hardware and network access; tickets tracked in Jira",
           "Support for internal staff and end customers on Windows, macOS, iOS and Linux",
@@ -140,7 +139,8 @@
           "Worked with Azure AD (now Entra ID) and Microsoft Intune",
           "Network troubleshooting (TCP/IP, DNS, DHCP, VLAN, VPN) and support of the virtualization environment on VMware vSphere and Hyper-V",
           "Kept workstations and servers patched and up to date; ran and monitored backups, including restore checks; antivirus with Microsoft Defender",
-          "Tracked incidents and service level agreements (SLAs)."
+          "Tracked incidents and service level agreements (SLAs).",
+          "Diagnosed and maintained PCs, replaced hardware components, installed software and troubleshot printers and peripherals."
         ]
       },
       {
@@ -153,7 +153,8 @@
           "Handled incidents, service requests and changes on the 1st-level service desk using ServiceNow and ITIL processes.",
           "Supported Microsoft 365 accounts, licences, MFA and remote access by phone and in writing",
           "Escalated complex infrastructure incidents with complete handover to the responsible teams",
-          "Tracked employee and customer incidents and service level agreements (SLAs)."
+          "Tracked employee and customer incidents and service level agreements (SLAs).",
+          "Supported Windows workstations and resolved common hardware, software and peripheral issues."
         ]
       },
       {
@@ -174,7 +175,8 @@
           "Prepared and configured client IT equipment before delivery and carried out on-site installation, commissioning and connectivity checks.",
           "Synchronised on-premises Active Directory users with Azure AD (now Microsoft Entra ID) for Microsoft 365.",
           "Tracked incidents and service level agreements (SLAs).",
-          "Installed, configured and maintained local and network printers, including preventive and corrective maintenance, drivers, connectivity, consumables, paper jams and fault diagnosis."
+          "Installed, configured and maintained local and network printers, including preventive and corrective maintenance, drivers, connectivity, consumables, paper jams and fault diagnosis.",
+          "On-site PC diagnostics, replacement of hard drives and other components, and installation and configuration of hardware and software."
         ]
       },
       {
@@ -199,7 +201,8 @@
           "Setup and configuration of Windows, Linux, macOS and iOS devices",
           "Antivirus on customer devices with ESET and Microsoft Defender",
           "Prepared customer devices, installed required software and peripherals, and commissioned equipment directly at customer premises.",
-          "Installed and maintained printers and peripherals at customer sites, including driver and network setup, toner replacement, paper-jam resolution, and hardware/software troubleshooting."
+          "Installed and maintained printers and peripherals at customer sites, including driver and network setup, toner replacement, paper-jam resolution, and hardware/software troubleshooting.",
+          "Opened PCs, replaced hard drives, and installed and configured hardware and software at customer sites."
         ]
       },
       {
@@ -207,7 +210,7 @@
         "title": "Technical Customer Support",
         "company": "Deinta Seguridad",
         "location": "Spain",
-        "period": "Nov 2013 – Nov 2014",
+        "period": "Mar 2013 – Feb 2014",
         "highlights": [
           "Diagnosed faults in communications and security systems remotely and coordinated field technicians for on-site interventions",
           "Prepared and configured customer communications and security equipment, supporting on-site installation, start-up and functional checks.",
