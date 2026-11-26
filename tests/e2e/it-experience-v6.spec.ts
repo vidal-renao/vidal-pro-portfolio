@@ -14,7 +14,9 @@ for (const { locale, data, disk, dates } of cases) {
     const roles = data.experience.roles;
     expect(roles.find(r => r.id === "deinta-2013")?.period).toBe(dates);
     expect(roles.find(r => r.id === "nsc-2017")?.highlights.join(" ")).toMatch(disk);
-    expect(roles.some(r => r.id === "servo-carejob-2023")).toBe(false);
+    const integration = roles.find(r => r.id === "servo-carejob-2023");
+    expect(integration?.company).toBe("");
+    expect(integration?.highlights).toHaveLength(1);
     const selected = selectRoles(roles, "systems");
     expect(selected.full.find(r => r.id === "nsc-2017")?.highlights.join(" ")).toMatch(disk);
     expect(selected.full.some(r => r.id === "sprinet-2016")).toBe(true);
