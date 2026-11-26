@@ -67,7 +67,7 @@ test.describe("content", () => {
     await expect(role.locator("ul").first().locator("> li")).toHaveCount(3);
     const toggle = role.locator("[data-expand-role]");
     await expect(toggle).toHaveAttribute("aria-expanded", "false");
-    await expect(toggle).toHaveText(/Ver 5 logros más/);
+    await expect(toggle).toHaveText(/Ver 6 logros más/);
     await expect(role.getByText("Microsoft Intune")).toBeHidden();
     await toggle.click();
     await expect(toggle).toHaveAttribute("aria-expanded", "true");

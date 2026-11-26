@@ -44,9 +44,11 @@ const PLANS: Record<CvVariant, VariantPlan> = {
       // Own projects: only the Microsoft 365 / hybrid identity labs belong to the systems CV.
       "freelance-2025": [2, 5],
       // Most relevant bullets first; repeated SLA/ticket lines dropped to keep the CV at two pages.
-      "lutelco-2021": [0, 3, 5, 6],
-      "nn-bank-2019": [0, 1, 2],
-      "nsc-2017": [0, 2, 9, 11],
+      "lutelco-2021": [0, 3, 5, 8],
+      "nn-bank-2019": [0, 1, 4],
+      "nsc-2017": [0, 2, 11, 12],
+      "sprinet-2016": [4, 5],
+      "deinta-2013": [0, 4],
     },
     certIds: ["ccna-training"],
     competencies: "all",

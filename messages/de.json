@@ -117,13 +117,12 @@
       },
       {
         "id": "servo-carejob-2023",
-        "title": "Temporäreinsätze ausserhalb der IT",
-        "company": "Servo Personal & Treuhand GmbH · CareJob",
+        "title": "Berufliche Integration und Weiterbildung",
+        "company": "",
         "location": "Basel, Schweiz",
         "period": "Seit Juli 2023",
-        "badge": "Schweizer Integrationsphase",
         "highlights": [
-          "Einsätze in Logistik, Produktion und auf dem Bau über Servo Personal und CareJob – parallel zu IT-Projekten; Referenzen bestätigen Zuverlässigkeit und Teamfähigkeit"
+          "Kontinuierliche Deutsch- und IT-Weiterbildung, eigene Technologieprojekte sowie temporäre Einsätze in Logistik und Bau."
         ]
       },
       {
@@ -131,7 +130,7 @@
         "title": "IT-Support Spezialist & Systemadministrator",
         "company": "Lutelco Instalaciones SL",
         "location": "Zaragoza, Spanien",
-        "period": "2021 – Juli 2023",
+        "period": "März 2021 – Juli 2023",
         "highlights": [
           "Betreute 500+ Benutzer an mehreren Standorten im 1st/2nd-Level-Support – vor Ort und remote für Windows, Microsoft 365, Hardware und Netzwerkzugang; Tickets in Jira nachverfolgt",
           "Support für interne Mitarbeitende und Endkunden mit Windows, macOS, iOS und Linux",
@@ -140,7 +139,8 @@
           "Arbeit mit Azure AD (heute Entra ID) und Microsoft Intune",
           "Netzwerk-Troubleshooting (TCP/IP, DNS, DHCP, VLAN, VPN) und Unterstützung der Virtualisierungsumgebung mit VMware vSphere und Hyper-V",
           "Hielt Arbeitsplätze und Server mit Updates und Patches aktuell; führte Backups durch, überwachte sie und prüfte die Wiederherstellung; Virenschutz mit Microsoft Defender",
-          "Nachverfolgung von Störungen und Service-Level-Vereinbarungen (SLA)."
+          "Nachverfolgung von Störungen und Service-Level-Vereinbarungen (SLA).",
+          "Diagnose und Wartung von PCs, Austausch von Hardwarekomponenten, Installation von Software sowie Fehlerbehebung an Druckern und Peripheriegeräten."
         ]
       },
       {
@@ -153,7 +153,8 @@
           "Bearbeitung von Incidents, Service Requests und Changes im 1st-Level Service Desk mit ServiceNow nach ITIL.",
           "Support für Microsoft-365-Konten, Lizenzen, MFA und Remote-Zugriff per Telefon und schriftlich",
           "Eskalation komplexer Infrastruktur-Incidents mit vollständiger Übergabe an die zuständigen Teams",
-          "Nachverfolgung von Störungen von Mitarbeitenden und Kunden sowie Service-Level-Vereinbarungen (SLA)."
+          "Nachverfolgung von Störungen von Mitarbeitenden und Kunden sowie Service-Level-Vereinbarungen (SLA).",
+          "Unterstützung bei Windows-Arbeitsplätzen und typischen Hardware-, Software- und Peripherieproblemen."
         ]
       },
       {
@@ -174,7 +175,8 @@
           "Vorbereitung und Konfiguration von IT-Geräten für Kunden sowie Installation, Inbetriebnahme und Konnektivitätsprüfung direkt vor Ort.",
           "Synchronisierung lokaler Active-Directory-Benutzer mit Azure AD (heute Microsoft Entra ID) für Microsoft 365.",
           "Nachverfolgung von Störungen und Service-Level-Vereinbarungen (SLA).",
-          "Installation, Konfiguration sowie vorbeugende und korrektive Wartung von lokalen Druckern und Netzwerkdruckern; Treiber, Netzwerkverbindung, Verbrauchsmaterial, Papierstaus und Fehlerdiagnose."
+          "Installation, Konfiguration sowie vorbeugende und korrektive Wartung von lokalen Druckern und Netzwerkdruckern; Treiber, Netzwerkverbindung, Verbrauchsmaterial, Papierstaus und Fehlerdiagnose.",
+          "Vor-Ort-Diagnose von PCs, Austausch von Festplatten und anderen Komponenten sowie Installation und Konfiguration von Hard- und Software."
         ]
       },
       {
@@ -199,7 +201,8 @@
           "Einrichtung und Konfiguration von Windows-, Linux-, macOS- und iOS-Geräten",
           "Virenschutz auf Kundengeräten mit ESET und Microsoft Defender",
           "Vorbereitung von Kundengeräten, Installation von Software und Peripherie sowie Inbetriebnahme direkt am Kundenstandort.",
-          "Installation und Wartung von Druckern und Peripheriegeräten bei Kunden: Treiber- und Netzwerkeinrichtung, Tonerwechsel, Behebung von Papierstaus sowie Fehleranalyse bei Hard- und Software."
+          "Installation und Wartung von Druckern und Peripheriegeräten bei Kunden: Treiber- und Netzwerkeinrichtung, Tonerwechsel, Behebung von Papierstaus sowie Fehleranalyse bei Hard- und Software.",
+          "PCs geöffnet, Festplatten ausgetauscht und Hardware sowie Software direkt beim Kunden installiert und konfiguriert."
         ]
       },
       {
@@ -207,7 +210,7 @@
         "title": "Technischer Kundensupport",
         "company": "Deinta Seguridad",
         "location": "Spanien",
-        "period": "Nov. 2013 – Nov. 2014",
+        "period": "März 2013 – Feb. 2014",
         "highlights": [
           "Ferndiagnose von Störungen an Kommunikations- und Sicherheitssystemen und Koordination von Aussendiensttechnikern für Vor-Ort-Einsätze",
           "Vorbereitung und Konfiguration von Kommunikations- und Sicherheitstechnik für Kunden sowie Unterstützung bei Vor-Ort-Installation, Inbetriebnahme und Funktionsprüfung.",

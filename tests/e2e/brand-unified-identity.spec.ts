@@ -77,8 +77,8 @@ test("TRUTH-03 no cyan leftovers and no overstated production claims", async ({ 
   await expect(page.locator("#experience")).toContainText("Invoice Auto (public demo)");
 });
 
-test("SYNC-01 Deinta period matches LinkedIn (Nov 2013 – Nov 2014)", async ({ page }) => {
+test("SYNC-01 Deinta period matches approved CV V6 (Mar 2013 – Feb 2014)", async ({ page }) => {
   await page.goto("/en");
   await page.locator("#experience").getByRole("button", { name: "Full work history" }).click();
-  await expect(page.locator("#experience")).toContainText("Nov 2013 – Nov 2014");
+  await expect(page.locator("#experience")).toContainText("Mar 2013 – Feb 2014");
 });
