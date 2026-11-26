@@ -19,10 +19,10 @@ test("recruiters can focus the experience timeline on relevant IT roles", async 
   await page.goto("/es");
   const scope = page.locator("#experience");
   await scope.getByRole("button", { name: "Experiencia IT" }).click();
-  await expect(scope.getByText("Trabajos temporales fuera del sector IT")).toHaveCount(0);
+  await expect(scope.getByText("Integración profesional y formación continua")).toHaveCount(0);
   await expect(scope.getByText("Lutelco Instalaciones SL")).toBeVisible();
   await scope.getByRole("button", { name: "Trayectoria completa" }).click();
-  await expect(scope.getByText("Trabajos temporales fuera del sector IT")).toBeVisible();
+  await expect(scope.getByText("Integración profesional y formación continua")).toBeVisible();
 });
 
 for (const locale of ["es", "en", "de"]) {
