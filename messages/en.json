@@ -403,13 +403,13 @@
     "commitment": "Open to on-call duty, travel, flexible hours and relocation",
     "cvRole": "Fullstack Developer · Web, AI & Automation",
     "cvSpecialties": "Next.js · React · TypeScript · Supabase · AI automation · Claude API",
-    "cvProfile": "Fullstack developer serving Switzerland and Liechtenstein, with over a decade in IT. I build websites, apps and AI automation with Next.js, React, TypeScript, Supabase and the Claude API for businesses in every sector —gyms, restaurants, salons, clinics, shops and agencies. My background in IT support and systems helps me deliver stable, easy-to-maintain solutions. From briefing to result, one single contact. Trilingual (DE/EN/ES).",
+    "cvProfile": "Full-stack developer with over a decade in IT. I build SaaS applications and AI automation using Next.js, React, TypeScript and Supabase. In my own projects, I apply agent orchestration with Claude Code and OpenAI Codex CLI, specification-driven development (SDD/EARS), code review and quality gates. My systems background brings a focus on security, reliability and maintainability.",
     "profileTitle": "Professional Profile",
     "profile": "Fullstack developer and IT specialist serving Switzerland and Liechtenstein, with over a decade in the field. I build websites, apps and AI automation for businesses in every sector —gyms, restaurants, salons, clinics, shops and agencies— and I also handle the systems side: Windows Server, Active Directory, Linux, networks and Microsoft 365 (CCNA course training). From briefing to result, one single contact. Trilingual (DE/EN/ES).",
     "competenciesTitle": "Key Competencies",
     "competencies": [
       "Websites & apps — Next.js, React, TypeScript, PWA",
-      "AI automation — Claude, chatbots, workflows",
+      "AI & automation — Claude Code, OpenAI Codex CLI, agent orchestration, SDD/EARS, RAG and workflows",
       "Backend & data — Supabase, PostgreSQL, APIs",
       "Systems administration — Windows Server, Active Directory, M365",
       "Linux & virtualization — Debian/Ubuntu, VMware, Hyper-V",
@@ -435,7 +435,7 @@
       },
       {
         "area": "AI & Automation",
-        "detail": "ChatGPT · Codex · Claude · Claude Code · Gemini · OpenCode · OpenAI API · AI Agents · RAG · MCP · OCR · n8n · Workflow automation",
+        "detail": "ChatGPT · Codex · Claude · Claude Code · Gemini · OpenCode · OpenAI API · AI Agents · RAG · MCP · OCR · n8n · Workflow automation · CLI agent orchestration · SDD/EARS · specialized agent coordination · reasoning configuration · sandboxing · security and quality audits · CI gates · controlled refactoring",
         "pillar": "software"
       },
       {
@@ -710,7 +710,7 @@
         "capabilities": [
           "I build business applications and websites tailored to real needs.",
           "I automate repetitive work and connect business processes with AI.",
-          "I deliver secure applications designed for maintenance and growth.",
+          "I use specialized agents and controlled validation to build and improve applications.",
           "I make digital tools accessible on desktop and mobile."
         ],
         "proof": "Projects: HelpDesk AI, JobPilot AI, Invoice Auto, MatchPoint AI, D’NAMAR and NATURÆ.",
@@ -749,7 +749,9 @@
               "OpenCode",
               "Workflow automation",
               "OCR",
-              "n8n"
+              "n8n",
+              "SDD/EARS",
+              "CLI Agent Orchestration"
             ]
           },
           {
@@ -758,7 +760,9 @@
               "CI/CD",
               "Playwright",
               "Zod",
-              "Vitest"
+              "Vitest",
+              "Sandboxing",
+              "CI gates"
             ]
           }
         ],
